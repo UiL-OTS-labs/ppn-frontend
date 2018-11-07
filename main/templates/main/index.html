@@ -1,0 +1,34 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+
+
+{% block content %}
+<div class="uu-inner-container">
+    <div class="col-12">
+        <p>
+            {% trans 'index:content:intro1' %}
+        </p>
+        <p>
+            {% trans 'index:content:intro2' %}
+        </p>
+
+        <h3>{% trans 'index:header:open_experiments' %}</h3>
+        <ul>
+            <li>Test 123</li>
+        </ul>
+        <p>
+            {% trans 'index:content:cancel' %}
+        </p>
+
+        <h3>
+            {% trans 'index:header:maillinglist' %}
+        </h3>
+        <p>
+            {% trans 'index:content:maillinglist1' %}
+        </p>
+        <p>
+            {% trans 'index:content:maillinglist2' %}
+        </p>
+    </div>
+</div>
+{% endblock %}

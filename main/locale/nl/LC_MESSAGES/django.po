@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-07 11:30+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: main/menus.py:5
+msgid "mainmenu:home"
+msgstr "Home"
+
+#: main/menus.py:10
+msgid "footermenu:login"
+msgstr "Log in"
+
+#: main/menus.py:15
+msgid "footermenu:logout"
+msgstr "Log uit"
+
+#: main/templates/base/login_header.html:7
+msgid "site:header:login"
+msgstr "Welkom {}"
+
+#. Translators: This is the title that will end up in the header (in blue)
+#: main/templates/base/site_header.html:4
+msgid "site:header:title"
+msgstr "Experimenten UiL OTS"
+
+#. Translators: This is the title that will end up in the tab of the browser
+#: main/templates/base/site_title.html:5
+msgid "site:name"
+msgstr "Experimenten UiL OTS"
+
+#: main/templates/main/index.html:9
+msgid "index:content:intro1"
+msgstr ""
+"Aan het Utrechts Instituut voor Linguistiek OTS wordt onderzoek gedaan naar "
+"hoe mensen gesproken en geschreven taal begrijpen en produceren. In het "
+"kader daarvan worden er regelmatig lees-, luister- en spraakexperimenten "
+"uitgevoerd. We zijn altijd op zoek naar proefpersonen om deel te nemen aan "
+"die experimenten. Op deze website kun je je hiervoor opgeven."
+
+#: main/templates/main/index.html:12
+msgid "index:content:intro2"
+msgstr ""
+"De experimenten worden afgenomen op Janskerkhof 13 (in de binnenstad). Zo'n "
+"experiment bestaat er meestal uit dat je een aantal woorden, zinnen of "
+"verhaaltjes leest of beluistert, en daar een eenvoudig taakje bij uitvoert "
+"(bijvoorbeeld vragen beantwoorden, of een plaatje kiezen dat het beste past "
+"bij wat je gehoord hebt). Het kost je ca. twintig minuten tot anderhalf uur "
+"om mee te doen aan een experiment; de vergoeding varieert van 7,50 tot 10 "
+"euro per uur."
+
+#: main/templates/main/index.html:15
+msgid "index:header:open_experiments"
+msgstr "Openstaande experimenten"
+
+#: main/templates/main/index.html:20
+msgid "index:content:cancel"
+msgstr ""
+"Heb je je opgegeven voor een experiment maar kun je toch niet komen, dan kun "
+"je je hier afmelden."
+
+#: main/templates/main/index.html:24
+msgid "index:header:maillinglist"
+msgstr " Mailing list UiL OTS experimenten"
+
+#: main/templates/main/index.html:27
+msgid "index:content:maillinglist1"
+msgstr ""
+" Wil je op de hoogte gehouden worden van nieuwe experimenten bij het UiL "
+"OTS? Geef dan hier je emailadres op. Je persoonlijke gegevens worden "
+"uiteraard vertrouwelijk behandeld. Onderzoeksgegevens zijn niet toegankelijk "
+"voor derden, en in publicaties worden meestal alleen groepsgemiddelden "
+"gerapporteerd. Als er toch individuele resultaten vermeld worden, gebeurt "
+"dat altijd geanonymiseerd. "
+
+#: main/templates/main/index.html:30
+msgid "index:content:maillinglist2"
+msgstr ""
+" Als je geen berichten meer wil ontvangen over nieuwe experimenten, of als "
+"je je gegevens wil laten verwijderen, kun je een mailtje sturen naar KIP. "
+
+#: main/templates/registration/logged_out.html:8
+msgid "main:logged_out_title"
+msgstr "Uitgelogd"
+
+#: main/templates/registration/logged_out.html:9
+msgid "main:logged_out_text"
+msgstr "U bent succesvol uitgelogd!"
+
+#: main/templates/registration/login.html:9
+msgid "login:header:login"
+msgstr "Log in"
+
+#: main/templates/registration/login.html:15
+msgid "login:button:login"
+msgstr "Log in"
