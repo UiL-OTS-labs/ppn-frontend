@@ -1,0 +1,289 @@
+from django.core.exceptions import ImproperlyConfigured, ObjectDoesNotExist
+from django.conf import settings
+from urllib.parse import urljoin
+import requests
+
+from ..exceptions import ApiError, OperationNotEnabled
+from ..middleware import get_current_authenticated_user
+from .options import Operations
+from typing import Tuple
+
+
+class BaseClient:
+    """
+    This class provides common instance attributes and methods for both the
+    Collection and Resource clients.
+    """
+
+    def __init__(self):
+        self.path = None
+        self.path_variables = []
+        self.meta = None
+
+        self._http_client = requests
+        self._host = settings.API_HOST
+
+    @staticmethod
+    def _make_auth_headers() -> dict:
+        """
+        This class returns a dict of headers to be used for authentication.
+
+        If there is no authenticated user, an empty dict will be returned
+
+        :return:
+        """
+        current_user = get_current_authenticated_user()
+        if current_user:
+            return {'Authorization': 'Bearer {}'.format(current_user.token)}
+
+        return {}
+
+    def _handle_api_error(self, request: requests.Response) -> None:
+        """Common function to handle API errors
+        TODO: implement proper errorhandling
+        :param request:
+        :return:
+        """
+        raise ApiError
+
+    def _make_url(self, res=None, **kwargs) -> Tuple[str, dict]:
+        """This method takes the resource path, uses string format to inject
+        path variables and combines it with the host to create the full URI for
+        the request
+
+        :param res: A resource object to get path variable values from
+        :param kwargs: All kwargs for this operation call, to get path variables
+        :return: A fully qualified URI to be used in the http request
+        """
+        url = self.path
+        if self.path_variables:
+            values = {}
+            for pvar in self.path_variables:
+                if res and pvar in self.meta.fields:
+                    value = getattr(res, pvar)
+                    value = self.meta.fields[pvar].clean(value)
+                    values[pvar] = value
+                elif pvar in kwargs:
+                    values[pvar] = kwargs.pop(pvar)
+                else:
+                    raise RuntimeError(
+                        'No value found for path variable {}'.format(pvar)
+                    )
+
+            url = url.format(values)
+
+        return urljoin(self._host, url), kwargs
+
+
+class ResourceClient(BaseClient):
+    """Default API client for resources"""
+
+    def __init__(self):
+        super(ResourceClient, self).__init__()
+
+        self.supported_operations = None
+        self._get_enabled = False
+        self._get_over_post_enabled = False
+        self._delete_enabled = False
+        self._update_enabled = False
+        self._put_enabled = False
+
+    def contribute_to_class(self, cls, _) -> None:
+        """This configures the client to the specific resource class"""
+        meta = cls._meta
+        self.path = meta.path
+        self.path_variables = meta.path_variables
+        self.meta = meta
+        self.supported_operations = meta.supported_operations
+
+        # The rest is irrelevant if we don't have a path configured
+        if not self.path:
+            return
+
+        # Looping like this feels faster than 5 'x in self.supported_operations' calls
+        for operation in self.supported_operations:
+            if not isinstance(operation, Operations):
+                raise ImproperlyConfigured("Invalid operation supplied!")
+
+            if operation == Operations.get:
+                self._get_enabled = True
+            elif operation == Operations.get_over_post:
+                self._get_over_post_enabled = True
+            elif operation == Operations.delete:
+                self._delete_enabled = True
+            elif operation == Operations.update:
+                self._update_enabled = True
+            elif operation == Operations.put:
+                self._put_enabled = True
+            else:
+                raise NotImplementedError(
+                    "Operation not implemented! Please add operation '{}' support!".format(operation.name))
+
+        if self._get_enabled and self._get_over_post_enabled:
+            raise ImproperlyConfigured("Resources cannot have both get and get_over_post configured!")
+
+    def get(self, **kwargs):
+        """Gets a resource from the API. Either over GET or GET_OVER_POST,
+        depending on configuration.
+
+        Any kwargs supplied, that are not used for path variables, will be sent
+        to the API. In case of GET, these will be supplied as parameters. In
+        case of GET_OVER_POST, these will be supplied in the POST body.
+
+        :param kwargs: Any additional info to be sent.
+        :return:
+        """
+        if not self._get_enabled and not self._get_over_post_enabled:
+            raise OperationNotEnabled
+
+        method = self._http_client.get
+        if self._get_over_post_enabled:
+            method = self._http_client.post
+
+        url, kwargs = self._make_url(**kwargs)
+
+        request = method(
+            url,
+            kwargs,
+            headers=self._make_auth_headers(),
+        )
+
+        if request.ok:
+            return self.meta.resource(**request.json())
+
+        if request.status_code == 404:
+            raise ObjectDoesNotExist
+
+        self._handle_api_error(request)
+
+    def put(self, obj, return_resource=None, **kwargs):
+        """Posts a resource to the API. Please note that while it's called put,
+        the actual HTTP method used is POST. PUT is not as supported as POST in
+        many API frameworks, including Django.
+
+        Any kwargs supplied, that are not used for path variables, will be sent
+        to the API as parameters.
+
+        Update/creation/update behaviour is up to the API.
+
+        :param obj: The resource to be sent in the POST body.
+        :param return_resource: An optional class that describes the resource
+        that the server returns as a response. (A default can be specified on
+        a resource level)
+        :param kwargs: Any additional info to be sent.
+        :return: A return_response instance, or True
+        """
+        if not self._put_enabled:
+            raise OperationNotEnabled
+
+        if not return_resource:
+            return_resource = self.meta.default_return_resource
+
+        url, kwargs = self._make_url(obj, **kwargs)
+
+        request = self._http_client.post(
+            self._make_url(obj),
+            data=obj.to_api,
+            params=kwargs,
+            headers=self._make_auth_headers(),
+        )
+
+        if request.ok:
+            if return_resource:
+                return return_resource(**request.json())
+
+            return True
+
+        if request.status_code == 404:
+            raise ObjectDoesNotExist
+
+        self._handle_api_error(request)
+
+    def delete(self, obj=None, **kwargs):
+        """Performs a delete operation.
+
+        :param obj: A resource object to retrieve path variable values from
+        :param kwargs: Any additional http parameters to sent
+        :return: a bool indicating if the request was executed successfully
+        """
+        if not self._delete_enabled:
+            raise OperationNotEnabled
+
+        url, kwargs = self._make_url(obj, **kwargs)
+
+        request = self._http_client.delete(
+            url,
+            params=kwargs,
+            headers=self._make_auth_headers(),
+        )
+
+        if request.status_code == 404:
+            raise ObjectDoesNotExist
+
+        return request.ok
+
+    def __str__(self):
+        return '{} client for resource {}'.format(self.__class__.__name__, self.meta.resource.__class__.__name__)
+
+    def __repr__(self):
+        return '<{}: {}>'.format(self.__class__.__name__, self)
+
+
+class CollectionClient(BaseClient):
+    """Default API client for resources"""
+
+    def __init__(self):
+        super(CollectionClient, self).__init__()
+
+        self.operation = None
+
+    def contribute_to_class(self, cls, _):
+        """This configures the client to the specific collection class"""
+        meta = cls._meta
+        self.path = meta.path
+        self.path_variables = meta.path_variables
+        self.meta = meta
+        self.operation = meta.operation
+
+        if not self.operation == Operations.get and not self.operation == Operations.get_over_post:
+            raise ImproperlyConfigured("Collections only support get and get_over_post operations!")
+
+    def get(self, **kwargs):
+        """Gets a collection from the API. Either over GET or GET_OVER_POST,
+        depending on configuration.
+
+        Any kwargs supplied, that are not used for path variables, will be sent
+        to the API. In case of GET, these will be supplied as parameters. In
+        case of GET_OVER_POST, these will be supplied in the POST body.
+
+        :param kwargs: Any additional info to be sent.
+        :return:
+        """
+        if not self.path:
+            raise OperationNotEnabled
+
+        method = self._http_client.get
+        if self.operation == Operations.get_over_post:
+            method = self._http_client.post
+
+        url, kwargs = self._make_url(**kwargs)
+
+        request = method(
+            url,
+            kwargs,
+            headers=self._make_auth_headers(),
+        )
+
+        if request.ok:
+            return self.meta.collection(request.json())
+
+        if request.status_code == 404:
+            raise ObjectDoesNotExist
+
+        self._handle_api_error(request)
+
+    def __str__(self):
+        return '{} client for collection {}'.format(self.__class__.__name__, self.meta.resource.__class__.__name__)
+
+    def __repr__(self):
+        return '<{}: {}>'.format(self.__class__.__name__, self)
