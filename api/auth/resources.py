@@ -1,5 +1,31 @@
+from ..rest import Resource, fields, Operations, Collection
 
-class ApiUserResource:
 
-    def __init__(self, data):
-        pass
+class ApiGroupResource(Resource):
+
+    pk = fields.IntegerField()
+
+    name = fields.TextField()
+
+
+class ApiGroupCollection(Collection):
+
+    class Meta:
+        resource = ApiGroupResource
+
+
+class ApiUserResource(Resource):
+
+    class Meta:
+        path = '/api/auth/'
+        supported_operations = [Operations.get_over_post]
+
+    pk = fields.IntegerField()
+
+    token = fields.TextField()
+
+    is_active = fields.BoolField(default=False)
+
+    is_admin = fields.BoolField(default=False)
+
+    groups = fields.CollectionField(ApiGroupCollection)
