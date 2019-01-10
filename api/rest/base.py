@@ -187,6 +187,10 @@ class Collection(metaclass=CollectionMetaclass):
     At the moment, only get operations are supported for collections. You can
     choose plain GET or emulate GET over a POST request for more security.
 
+    Note: you are not able to change the contents of a collection, as this
+    would imply you can update the collection in the API. This class have been
+    locked down to discourage people from trying to do so.
+
     For a detailed overview of these operations, please see their corresponding
     client methods. (Found in client.py, or by calling help on Resource.client).
 
@@ -216,7 +220,7 @@ class Collection(metaclass=CollectionMetaclass):
     - client_class (optional): You can use this variable to specify a different
       client.
     """
-
+    __slots__ = ['_items']
     _meta = None
 
     def __init__(self, json):
@@ -239,7 +243,7 @@ class Collection(metaclass=CollectionMetaclass):
         return self._items[item]
 
     def __setitem__(self, key, value):
-        raise NotImplementedError
+        raise Exception("'{}' is immutable!".format(self.__class__.__name__))
 
     def __str__(self):
         return '{} collection for resource {}'.format(
