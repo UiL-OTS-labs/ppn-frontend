@@ -277,7 +277,7 @@ class ResourceField(BaseField):
         :param kwargs: See ::class:BaseField for other options
         """
         super(ResourceField, self).__init__(**kwargs)
-        self.resource = resource
+        self.resource_class = resource
 
     def to_api(self, value: Collection):
         """Transforms the resource into a dict, and chains the call to it's
@@ -290,7 +290,7 @@ class ResourceField(BaseField):
 
     def to_python(self, value: dict):
         """Creates a resource object from the supplied dict"""
-        cls = self.resource
+        cls = self.resource_class
 
         if isinstance(cls, str):
             app_label = self.resource._meta.app_label
@@ -299,4 +299,4 @@ class ResourceField(BaseField):
                 app_label, cls = cls.split('.')
             cls = registry.get_resource(app_label, cls)
 
-        return cls(value)
+        return cls(**value)
