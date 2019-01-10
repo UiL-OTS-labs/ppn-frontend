@@ -73,7 +73,7 @@ class BaseClient:
                         'No value found for path variable {}'.format(pvar)
                     )
 
-            url = url.format(values)
+            url = url.format(**values)
 
         return urljoin(self._host, url), kwargs
 
