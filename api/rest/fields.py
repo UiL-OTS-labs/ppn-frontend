@@ -7,7 +7,7 @@ from django.utils.functional import cached_property
 from django.utils.translation import gettext_lazy as _
 
 from .base import Resource, Collection
-
+from .registry import registry
 
 @total_ordering
 class BaseField(ABC):
@@ -255,7 +255,12 @@ class CollectionField(BaseField):
 
     def to_python(self, value: list):
         """Creates a collection object from the supplied list"""
-        return self.collection(value)
+        cls = self.collection
+
+        if isinstance(cls, str):
+            cls = registry.get_collection(self.resource._meta.app_label, cls)
+
+        return cls(value)
 
 
 class ResourceField(BaseField):
