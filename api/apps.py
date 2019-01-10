@@ -1,5 +1,7 @@
 from django.apps import AppConfig
 
+from .mixins import ResourceSetupMixin
 
-class ApiConfig(AppConfig):
+
+class ApiConfig(ResourceSetupMixin, AppConfig):
     name = 'api'
