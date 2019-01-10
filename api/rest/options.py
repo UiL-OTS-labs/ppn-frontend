@@ -11,7 +11,7 @@ class Operations(Enum):
 
 class ResourceOptions:
 
-    def __init__(self, meta):
+    def __init__(self, meta, app_label):
         self.meta = meta
         self.resource = None
         self.path = None
@@ -21,6 +21,7 @@ class ResourceOptions:
         self.supported_operations = [Operations.delete, Operations.get, Operations.put]
         self.client_class = None
         self.default_return_resource = None
+        self.app_label = app_label
 
     def contribute_to_class(self, cls, name):
         setattr(cls, name, self)
@@ -45,7 +46,7 @@ class ResourceOptions:
 
 class CollectionOptions:
 
-    def __init__(self, meta):
+    def __init__(self, meta, app_label):
         self.meta = meta
         self.collection = None
         self.resource = None
@@ -53,6 +54,7 @@ class CollectionOptions:
         self.path_variables = []
         self.operation = Operations.get
         self.client_class = None
+        self.app_label = app_label
 
     def contribute_to_class(self, cls, name):
         setattr(cls, name, self)

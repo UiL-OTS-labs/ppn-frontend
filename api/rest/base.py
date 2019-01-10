@@ -1,7 +1,9 @@
 import inspect
 
-from .options import ResourceOptions, CollectionOptions
+from django.apps import apps
 
+from .options import ResourceOptions, CollectionOptions
+from .registry import registry
 
 class ResourceMetaclass(type):
     """Metaclass for all rest. Inspired by Django's ModelBase"""
@@ -29,7 +31,23 @@ class ResourceMetaclass(type):
         else:
             meta = attr_meta
 
-        meta = mcs._options(meta)
+        app_label = None
+
+        # Look for an application configuration to attach the model to.
+        app_config = apps.get_containing_app_config(module)
+
+        if getattr(meta, 'app_label', None) is None:
+            if app_config is None:
+                raise RuntimeError(
+                    "resource class %s.%s doesn't declare an explicit "
+                    "app_label and isn't in an application in "
+                    "INSTALLED_APPS." % (module, name)
+                )
+
+            else:
+                app_label = app_config.label
+
+        meta = mcs._options(meta, app_label)
         meta.contribute_to_class(new_class, '_meta')
 
         if 'client' not in attrs:
@@ -40,7 +58,13 @@ class ResourceMetaclass(type):
         for obj_name, obj in attrs.items():
             new_class.add_to_class(obj_name, obj)
 
+
+        new_class.register_class()
+
         return new_class
+
+    def register_class(cls):
+        registry.register_resource(cls._meta.app_label, cls)
 
     def add_to_class(cls, name: str, value: object) -> None:
         """This either runs a class' contribute_to_class method, or adds the
@@ -58,6 +82,9 @@ class CollectionMetaclass(ResourceMetaclass):
     with different options
     """
     _options = CollectionOptions
+
+    def register_class(cls):
+        registry.register_collection(cls._meta.app_label, cls)
 
 
 class Resource(metaclass=ResourceMetaclass):
