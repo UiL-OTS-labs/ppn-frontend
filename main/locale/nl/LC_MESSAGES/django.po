@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-07 11:30+0000\n"
+"POT-Creation-Date: 2019-01-10 14:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr "Log in"
 msgid "footermenu:logout"
 msgstr "Log uit"
 
-#: main/templates/base/login_header.html:7
+#: main/templates/base/login_header.html:6
 msgid "site:header:login"
 msgstr "Welkom {}"
 
@@ -68,17 +68,21 @@ msgstr ""
 msgid "index:header:open_experiments"
 msgstr "Openstaande experimenten"
 
-#: main/templates/main/index.html:20
+#: main/templates/main/index.html:22
+msgid "index:content:no_experiments_available"
+msgstr "Er zijn op dit moment geen experimenten waarvoor je je kunt opgeven."
+
+#: main/templates/main/index.html:26
 msgid "index:content:cancel"
 msgstr ""
 "Heb je je opgegeven voor een experiment maar kun je toch niet komen, dan kun "
 "je je hier afmelden."
 
-#: main/templates/main/index.html:24
+#: main/templates/main/index.html:30
 msgid "index:header:maillinglist"
 msgstr " Mailing list UiL OTS experimenten"
 
-#: main/templates/main/index.html:27
+#: main/templates/main/index.html:33
 msgid "index:content:maillinglist1"
 msgstr ""
 " Wil je op de hoogte gehouden worden van nieuwe experimenten bij het UiL "
@@ -88,11 +92,11 @@ msgstr ""
 "gerapporteerd. Als er toch individuele resultaten vermeld worden, gebeurt "
 "dat altijd geanonymiseerd. "
 
-#: main/templates/main/index.html:30
+#: main/templates/main/index.html:36
 msgid "index:content:maillinglist2"
 msgstr ""
 " Als je geen berichten meer wil ontvangen over nieuwe experimenten, of als "
-"je je gegevens wil laten verwijderen, kun je een mailtje sturen naar KIP. "
+"je je gegevens wil laten verwijderen, kun je een mailtje sturen naar "
 
 #: main/templates/registration/logged_out.html:8
 msgid "main:logged_out_title"

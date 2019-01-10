@@ -14,7 +14,13 @@
 
         <h3>{% trans 'index:header:open_experiments' %}</h3>
         <ul>
-            <li>Test 123</li>
+            {% for experiment in experiments %}
+                <li>
+                    {{ experiment.name }}
+                </li>
+            {% empty %}
+                {% trans 'index:content:no_experiments_available' %}
+            {% endfor %}
         </ul>
         <p>
             {% trans 'index:content:cancel' %}
@@ -28,6 +34,7 @@
         </p>
         <p>
             {% trans 'index:content:maillinglist2' %}
+            <a href="mailto:{{ admin.email }}">{{ admin.email }}</a>.
         </p>
     </div>
 </div>
