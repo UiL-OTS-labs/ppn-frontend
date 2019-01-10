@@ -284,7 +284,9 @@ class ResourceField(BaseField):
         children.
         """
         if value is None or value in self.empty_values:
-            return []
+            if not self.null or not self.blank:
+                raise ValueError('Cannot serialize null, as it\'s not allowed!')
+            return None
 
         return value.to_api()
 
