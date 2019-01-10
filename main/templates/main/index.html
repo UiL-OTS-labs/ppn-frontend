@@ -16,7 +16,9 @@
         <ul>
             {% for experiment in experiments %}
                 <li>
-                    {{ experiment.name }}
+                    <a href="{% url 'participant:register' experiment.id %}">
+                        {{ experiment.name }}
+                    </a>
                 </li>
             {% empty %}
                 {% trans 'index:content:no_experiments_available' %}
