@@ -285,4 +285,9 @@ class ResourceField(BaseField):
 
     def to_python(self, value: dict):
         """Creates a resource object from the supplied dict"""
-        return self.resource(value)
+        cls = self.resource
+
+        if isinstance(cls, str):
+            cls = registry.get_resource(self.resource._meta.app_label, cls)
+
+        return cls(value)
