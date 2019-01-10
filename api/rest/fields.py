@@ -258,7 +258,12 @@ class CollectionField(BaseField):
         cls = self.collection
 
         if isinstance(cls, str):
-            cls = registry.get_collection(self.resource._meta.app_label, cls)
+            app_label = self.resource._meta.app_label
+
+            if len(cls.split('.')) == 2:
+                app_label, cls = cls.split('.')
+
+            cls = registry.get_collection(app_label, cls)
 
         return cls(value)
 
@@ -288,6 +293,10 @@ class ResourceField(BaseField):
         cls = self.resource
 
         if isinstance(cls, str):
-            cls = registry.get_resource(self.resource._meta.app_label, cls)
+            app_label = self.resource._meta.app_label
+
+            if len(cls.split('.')) == 2:
+                app_label, cls = cls.split('.')
+            cls = registry.get_resource(app_label, cls)
 
         return cls(value)
