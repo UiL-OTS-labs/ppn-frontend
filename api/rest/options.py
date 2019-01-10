@@ -17,7 +17,7 @@ class ResourceOptions:
         self.path = None
         self.path_variables = []
         self.fields = {}
-        self.identifier_field = 'pk'
+        self.identifier_field = 'id'
         self.supported_operations = [Operations.delete, Operations.get, Operations.put]
         self.client_class = None
         self.default_return_resource = None
