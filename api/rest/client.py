@@ -1,12 +1,13 @@
-from django.core.exceptions import ImproperlyConfigured, ObjectDoesNotExist
-from django.conf import settings
+from typing import Tuple
 from urllib.parse import urljoin
-import requests
 
+import requests
+from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured, ObjectDoesNotExist
+
+from .options import Operations
 from ..exceptions import ApiError, OperationNotEnabled
 from ..middleware import get_current_authenticated_user
-from .options import Operations
-from typing import Tuple
 
 
 class BaseClient:
@@ -32,11 +33,13 @@ class BaseClient:
 
         :return:
         """
+        headers = {}
+
         current_user = get_current_authenticated_user()
         if current_user:
-            return {'Authorization': 'Bearer {}'.format(current_user.token)}
+            headers['Authorization'] = 'Bearer {}'.format(current_user.token)
 
-        return {}
+        return headers
 
     def _handle_api_error(self, request: requests.Response) -> None:
         """Common function to handle API errors
@@ -111,16 +114,16 @@ class ResourceClient(BaseClient):
                 self._get_over_post_enabled = True
             elif operation == Operations.delete:
                 self._delete_enabled = True
-            elif operation == Operations.update:
-                self._update_enabled = True
             elif operation == Operations.put:
                 self._put_enabled = True
             else:
                 raise NotImplementedError(
-                    "Operation not implemented! Please add operation '{}' support!".format(operation.name))
+                    "Operation not implemented! Please add operation '{}' support!".format(
+                        operation.name))
 
         if self._get_enabled and self._get_over_post_enabled:
-            raise ImproperlyConfigured("Resources cannot have both get and get_over_post configured!")
+            raise ImproperlyConfigured(
+                "Resources cannot have both get and get_over_post configured!")
 
     def get(self, **kwargs):
         """Gets a resource from the API. Either over GET or GET_OVER_POST,
@@ -223,7 +226,8 @@ class ResourceClient(BaseClient):
         return request.ok
 
     def __str__(self):
-        return '{} client for resource {}'.format(self.__class__.__name__, self.meta.resource.__class__.__name__)
+        return '{} client for resource {}'.format(self.__class__.__name__,
+                                                  self.meta.resource.__class__.__name__)
 
     def __repr__(self):
         return '<{}: {}>'.format(self.__class__.__name__, self)
@@ -246,7 +250,8 @@ class CollectionClient(BaseClient):
         self.operation = meta.operation
 
         if not self.operation == Operations.get and not self.operation == Operations.get_over_post:
-            raise ImproperlyConfigured("Collections only support get and get_over_post operations!")
+            raise ImproperlyConfigured(
+                "Collections only support get and get_over_post operations!")
 
     def get(self, **kwargs):
         """Gets a collection from the API. Either over GET or GET_OVER_POST,
@@ -283,7 +288,8 @@ class CollectionClient(BaseClient):
         self._handle_api_error(request)
 
     def __str__(self):
-        return '{} client for collection {}'.format(self.__class__.__name__, self.meta.resource.__class__.__name__)
+        return '{} client for collection {}'.format(self.__class__.__name__,
+                                                    self.meta.resource.__class__.__name__)
 
     def __repr__(self):
         return '<{}: {}>'.format(self.__class__.__name__, self)
