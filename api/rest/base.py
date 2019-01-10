@@ -248,7 +248,7 @@ class Collection(metaclass=CollectionMetaclass):
         )
 
     def __repr__(self):
-        return '<{}: {}>'.format(self.__class__.__name__, self)
+        return '<{}: {}>'.format(self.__class__.__name__, repr(self._items))
 
     def to_api(self) -> list:
         """Returns the data in this collection as a list, to be converted to
