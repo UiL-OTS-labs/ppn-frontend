@@ -42,6 +42,9 @@ class Experiment(rest.Resource):
 
     excluded_experiments = rest.CollectionField('OpenExperiments')
 
+    def display_additional_leaders(self):
+        return ",".join([leader.name for leader in self.additional_leaders])
+
 
 class OpenExperiments(rest.Collection):
     class Meta:
