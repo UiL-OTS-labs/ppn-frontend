@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'api',
     'api.auth',
     'main',
+    'participant',
+    'leader',
 
     'django.contrib.admin',
 
