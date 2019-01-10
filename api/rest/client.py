@@ -7,7 +7,7 @@ from django.core.exceptions import ImproperlyConfigured, ObjectDoesNotExist
 
 from .options import Operations
 from ..exceptions import ApiError, OperationNotEnabled
-from ..middleware import get_current_authenticated_user
+from ..middleware import get_current_authenticated_user, get_current_session
 
 
 class BaseClient:
@@ -37,7 +37,9 @@ class BaseClient:
 
         current_user = get_current_authenticated_user()
         if current_user:
-            headers['Authorization'] = 'Bearer {}'.format(current_user.token)
+            session = get_current_session()
+            if 'token' in session:
+                headers['Authorization'] = 'Bearer {}'.format(session['token'])
 
         return headers
 
