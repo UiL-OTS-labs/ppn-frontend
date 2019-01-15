@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-07 11:40+0000\n"
+"POT-Creation-Date: 2019-01-15 12:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,4 +24,34 @@ msgstr ""
 
 #: api/auth/admin.py:47
 msgid "Important dates"
+msgstr ""
+
+#: api/rest/client.py:327 api/rest/client.py:328 api/rest/client.py:332
+msgid "api:host_unreachable"
+msgstr "Could not connect to data-server. Functionality may be limited."
+
+#: api/rest/fields.py:19
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: api/rest/fields.py:20
+msgid "This field cannot be null."
+msgstr ""
+
+#: api/rest/fields.py:21
+msgid "This field cannot be blank."
+msgstr ""
+
+#: api/rest/fields.py:22
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or 'month'.
+#. Eg: "Title must be unique for pub_date year"
+#: api/rest/fields.py:26
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
 msgstr ""

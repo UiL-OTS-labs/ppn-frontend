@@ -3,11 +3,15 @@ from urllib.parse import urljoin
 
 import requests
 from django.conf import settings
+from django.contrib import messages
 from django.core.exceptions import ImproperlyConfigured, ObjectDoesNotExist
+from django.utils.translation import gettext as _
+from requests.exceptions import ConnectionError
 
 from .options import Operations
 from ..exceptions import ApiError, OperationNotEnabled
-from ..middleware import get_current_authenticated_user, get_current_session
+from ..middleware import get_current_authenticated_user, get_current_request, \
+    get_current_session
 
 
 class BaseClient:
@@ -147,11 +151,15 @@ class ResourceClient(BaseClient):
 
         url, kwargs = self._make_url(**kwargs)
 
-        request = method(
-            url,
-            kwargs,
-            headers=self._make_auth_headers(),
-        )
+        try:
+            request = method(
+                url,
+                kwargs,
+                headers=self._make_auth_headers(),
+            )
+        except ConnectionError:
+            host_unreachable()
+            return None
 
         if request.ok:
             return self.meta.resource(**request.json())
@@ -176,7 +184,8 @@ class ResourceClient(BaseClient):
         that the server returns as a response. (A default can be specified on
         a resource level)
         :param kwargs: Any additional info to be sent.
-        :return: A return_response instance, or True
+        :return: A return_response instance, or a Boolean (False indicated
+        a connection error)
         """
         if not self._put_enabled:
             raise OperationNotEnabled
@@ -186,12 +195,16 @@ class ResourceClient(BaseClient):
 
         url, kwargs = self._make_url(obj, **kwargs)
 
-        request = self._http_client.post(
-            self._make_url(obj),
-            data=obj.to_api,
-            params=kwargs,
-            headers=self._make_auth_headers(),
-        )
+        try:
+            request = self._http_client.post(
+                self._make_url(obj),
+                data=obj.to_api,
+                params=kwargs,
+                headers=self._make_auth_headers(),
+            )
+        except ConnectionError:
+            host_unreachable()
+            return False
 
         if request.ok:
             if return_resource:
@@ -216,11 +229,15 @@ class ResourceClient(BaseClient):
 
         url, kwargs = self._make_url(obj, **kwargs)
 
-        request = self._http_client.delete(
-            url,
-            params=kwargs,
-            headers=self._make_auth_headers(),
-        )
+        try:
+            request = self._http_client.delete(
+                url,
+                params=kwargs,
+                headers=self._make_auth_headers(),
+            )
+        except ConnectionError:
+            host_unreachable()
+            return False
 
         if request.status_code == 404:
             raise ObjectDoesNotExist
@@ -275,11 +292,15 @@ class CollectionClient(BaseClient):
 
         url, kwargs = self._make_url(**kwargs)
 
-        request = method(
-            url,
-            kwargs,
-            headers=self._make_auth_headers(),
-        )
+        try:
+            request = method(
+                url,
+                kwargs,
+                headers=self._make_auth_headers(),
+            )
+        except ConnectionError as e:
+            host_unreachable()
+            return None
 
         if request.ok:
             return self.meta.collection(request.json())
@@ -295,3 +316,13 @@ class CollectionClient(BaseClient):
 
     def __repr__(self):
         return '<{}: {}>'.format(self.__class__.__name__, self)
+
+
+def host_unreachable():
+    """This will add a error message, if one was not already added"""
+    messages_lst = messages.get_messages(get_current_request())
+    messages_lst = [message.message for message in messages_lst]
+    message = _('api:host_unreachable')
+
+    if message not in messages_lst:
+        messages.error(get_current_request(), _('api:host_unreachable'))
