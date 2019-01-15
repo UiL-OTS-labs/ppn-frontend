@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.views import generic
 
 from api.resources import OpenExperiments, Admin
@@ -16,3 +17,11 @@ class HomeView(generic.TemplateView):
         context['admin'] = admin
 
         return context
+
+
+def handler404(request):
+    return render(request, 'base/404.html', status=404)
+
+
+def handler500(request):
+    return render(request, 'base/500.html', status=500)
