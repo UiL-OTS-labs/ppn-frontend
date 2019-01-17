@@ -1,4 +1,5 @@
-from api.middleware import get_current_session
+from django.contrib.auth.models import Group
+
 from .models import RemoteApiUser
 from .resources import ApiUserResource
 from ..exceptions import ApiError
@@ -27,6 +28,9 @@ class ApiAuthenticationBackend:
 
     @staticmethod
     def _get_or_create_user(resource: ApiUserResource, username, request):
+        if resource is None:
+            return None
+
         try:
             user = RemoteApiUser.objects.get(pk=resource.pk)
         except RemoteApiUser.DoesNotExist:
@@ -39,6 +43,29 @@ class ApiAuthenticationBackend:
         user.is_superuser = resource.is_admin
         user.is_staff = resource.is_admin
         user.is_active = resource.is_active
+
+        existing_groups = list(user.groups.all())
+
+        for group in resource.groups:
+            o, created = Group.objects.get_or_create(
+                name=group.name,
+                pk=group.pk
+            )
+
+            if o in existing_groups:
+                # If we have a group that's already registered, remove it
+                # from the existing list
+                existing_groups.remove(o)
+            else:
+                user.groups.add(o)
+
+        for group in existing_groups:
+            # Loop over the existing list, and remove all that are still in
+            # the list
+            # Any group that's still in the list are not in the API anymore,
+            # so we should revoke their membership here too.
+            user.groups.remove(group)
+
         user.save()
 
         return user
