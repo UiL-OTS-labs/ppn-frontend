@@ -15,7 +15,8 @@ click==7.0                # via pip-tools
 cryptography==2.4.2
 curtsies==0.3.0           # via bpython
 django-braces==1.13.0
-django-csp==3.4
+django-csp==3.5
+django-debug-toolbar==1.11
 django-simple-menu==1.2.1
 django==2.0.10
 greenlet==0.4.15          # via bpython
@@ -27,6 +28,7 @@ pyjwt==1.7.1
 pytz==2018.9              # via django
 requests==2.21.0
 six==1.12.0               # via blessings, bpython, cryptography, pip-tools
+sqlparse==0.2.4           # via django-debug-toolbar
 typing==3.6.6             # via curtsies
 urllib3==1.24.1           # via requests
 wcwidth==0.1.7            # via curtsies

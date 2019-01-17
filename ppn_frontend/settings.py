@@ -25,8 +25,10 @@ SECRET_KEY = '62h%^$h7w$m3lujq(=#exzp=&$*bsrt&3^d0%e0rvbv(s&d9l='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+ENABLE_DEBUG_TOOLBAR = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+INTERNAL_IPS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -42,10 +44,11 @@ INSTALLED_APPS = [
     'menu',
 
     # local apps
+    'main',  # Should come before uil.core in order for template overrides to
+    # work
     'uil.core',
     'api',
     'api.auth',
-    'main',
     'participant',
     'leader',
 
@@ -70,6 +73,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'api.middleware.ThreadLocalUserMiddleware',
 ]
+
+if DEBUG and ENABLE_DEBUG_TOOLBAR:
+    # Only enable the debug toolbar if we are in debug mode and have the
+    # toolbar enabled
+    INSTALLED_APPS.append('debug_toolbar')
+    MIDDLEWARE.append('debug_toolbar.middleware.DebugToolbarMiddleware',)
+
 
 ROOT_URLCONF = 'ppn_frontend.urls'
 
@@ -172,3 +182,5 @@ MENU_HIDE_EMPTY = False
 
 # PPN API
 API_HOST = 'http://localhost:9000/'
+GROUPS_LEADER = 'leader'
+GROUPS_PARTICIPANT = 'participant'
