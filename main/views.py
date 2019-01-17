@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.urls import reverse
 from django.views import generic
+from django.contrib.auth.views import LoginView
 
 from api.resources import OpenExperiments, Admin
 from main.mixins import OverrideLanguageMixin
@@ -20,6 +22,16 @@ class HomeView(OverrideLanguageMixin, generic.TemplateView):
         context['admin'] = admin
 
         return context
+
+
+class CustomLoginView(LoginView):
+
+    def get_success_url(self):
+        if self.request.user.is_leader:
+            return reverse('leader:experiments')
+
+        else:
+            return reverse('main:home')
 
 
 def handler404(request):
