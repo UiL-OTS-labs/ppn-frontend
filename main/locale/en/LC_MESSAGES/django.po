@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-10 14:52+0000\n"
+"POT-Creation-Date: 2019-01-17 10:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,9 +30,21 @@ msgstr "Log in"
 msgid "footermenu:logout"
 msgstr "Log out"
 
+#: main/templates/base/language_box.html:11
+msgid "lang:en"
+msgstr "English"
+
+#: main/templates/base/language_box.html:16
+msgid "lang:nl"
+msgstr "Dutch"
+
 #: main/templates/base/login_header.html:6
 msgid "site:header:login"
 msgstr "Welcome {}."
+
+#: main/templates/base/login_header.html:7
+msgid "main:globals:logout"
+msgstr "Log out"
 
 #. Translators: This is the title that will end up in the header (in blue)
 #: main/templates/base/site_header.html:4
@@ -68,21 +80,21 @@ msgstr ""
 msgid "index:header:open_experiments"
 msgstr "Open experiments"
 
-#: main/templates/main/index.html:22
+#: main/templates/main/index.html:24
 msgid "index:content:no_experiments_available"
 msgstr "There are currently no experiments  you can sign up for."
 
-#: main/templates/main/index.html:26
+#: main/templates/main/index.html:28
 msgid "index:content:cancel"
 msgstr ""
 "If you have registered for an experiment but you're not able to come, you "
 "can unsubscribe here. "
 
-#: main/templates/main/index.html:30
+#: main/templates/main/index.html:32
 msgid "index:header:maillinglist"
 msgstr "Mailing list UiL OTS experiments"
 
-#: main/templates/main/index.html:33
+#: main/templates/main/index.html:35
 msgid "index:content:maillinglist1"
 msgstr ""
 "Do you want to be kept informed about new experiments at the UiL OTS? Enter "
@@ -91,7 +103,7 @@ msgstr ""
 "publications usually only group averages are reported. If individual results "
 "are mentioned, this is always done anonymously."
 
-#: main/templates/main/index.html:36
+#: main/templates/main/index.html:38
 msgid "index:content:maillinglist2"
 msgstr ""
 "If you no longer wish to receive messages about new experiments, or if you "

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-10 15:32+0000\n"
+"POT-Creation-Date: 2019-01-17 10:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,9 +30,21 @@ msgstr "Log in"
 msgid "footermenu:logout"
 msgstr "Log uit"
 
+#: main/templates/base/language_box.html:11
+msgid "lang:en"
+msgstr "Engels"
+
+#: main/templates/base/language_box.html:16
+msgid "lang:nl"
+msgstr "Nederlands"
+
 #: main/templates/base/login_header.html:6
 msgid "site:header:login"
 msgstr "Welkom {}"
+
+#: main/templates/base/login_header.html:7
+msgid "main:globals:logout"
+msgstr "Log uit"
 
 #. Translators: This is the title that will end up in the header (in blue)
 #: main/templates/base/site_header.html:4
