@@ -2,10 +2,13 @@ from django.shortcuts import render
 from django.views import generic
 
 from api.resources import OpenExperiments, Admin
+from main.mixins import OverrideLanguageMixin
 
 
-class HomeView(generic.TemplateView):
+class HomeView(OverrideLanguageMixin, generic.TemplateView):
     template_name = 'main/index.html'
+
+    language_override = 'nl'
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
