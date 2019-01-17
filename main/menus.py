@@ -6,6 +6,11 @@ Menu.add_item("home", MenuItem(_('mainmenu:home'),
                                reverse('main:home'),
                                ))
 
+Menu.add_item("main", MenuItem(_('mainmenu:leader_experiments'),
+                               reverse('leader:experiments'),
+                               check=lambda x: not x.user.is_anonymous and
+                                               x.user.is_leader
+                               ))
 
 Menu.add_item("footer", MenuItem(_('footermenu:login'),
                                  reverse('main:login'),

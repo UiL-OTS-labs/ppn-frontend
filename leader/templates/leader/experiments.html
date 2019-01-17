@@ -1,0 +1,54 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+
+
+{% block content %}
+<div class="uu-inner-container">
+    <div class="col-12">
+        <h1>
+            {% trans 'experiments:content:header' %}
+        </h1>
+    <br/>
+        <table class="dt" width="100%">
+            <thead>
+                <tr>
+                    <th>
+                        {% trans 'experiments:table:name' %}
+                    </th>
+                    <th>
+                        {% trans 'experiments:table:timeslots' %}
+                    </th>
+                    <th>
+                        {% trans 'experiments:table:participants' %}
+                    </th>
+                    <th>
+                        {% trans 'experiments:table:status' %}
+                    </th>
+                    <th>
+                        {% trans 'global:actions' %}
+                    </th>
+                </tr>
+            </thead>
+            {% for experiment in experiments %}
+                <tr>
+                    <td>
+                        {{ experiment.name }}
+                    </td>
+                    <td>
+                        {{ experiment.n_timeslots }}
+                    </td>
+                    <td>
+                        0
+                    </td>
+                    <td class="icon-open">
+                        {{ experiment.open|yesno:"," }}
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
