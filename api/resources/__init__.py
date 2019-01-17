@@ -1,3 +1,6 @@
 from .admin_resource import Admin
-from .experiment_resources import Experiment, OpenExperiments
+from .criteria_resources import Criterium, DefaultCriteria, ExperimentCriteria, \
+    ExperimentCriterium
+from .experiment_resources import Experiment, LeaderExperiments, OpenExperiments
 from .leader_resources import Leader, Leaders
+from .timeslot_resources import TimeSlot, TimeSlots

@@ -42,8 +42,23 @@ class Experiment(rest.Resource):
 
     excluded_experiments = rest.CollectionField('OpenExperiments')
 
+    defaultcriteria = rest.ResourceField('DefaultCriteria')
+
+    specific_criteria = rest.CollectionField('ExperimentCriteria')
+
+    timeslot_set = rest.CollectionField('TimeSlots')
+
+    def n_timeslots(self):
+        return sum([x.max_places for x in self.timeslot_set])
+
     def display_additional_leaders(self):
         return ",".join([leader.name for leader in self.additional_leaders])
+
+
+class LeaderExperiments(rest.Collection):
+    class Meta:
+        resource = Experiment
+        path = '/api/leader_experiments/'
 
 
 class OpenExperiments(rest.Collection):
