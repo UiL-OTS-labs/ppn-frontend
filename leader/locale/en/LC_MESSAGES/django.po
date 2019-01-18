@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-17 13:14+0000\n"
+"POT-Creation-Date: 2019-01-18 09:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,26 +17,51 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: leader/templates/leader/experiments.html:9
 msgid "experiments:content:header"
 msgstr "My experiments"
 
-#: leader/templates/leader/experiments.html:15
+#: leader/templates/leader/experiments.html:16
 msgid "experiments:table:name"
 msgstr "Name"
 
-#: leader/templates/leader/experiments.html:18
+#: leader/templates/leader/experiments.html:19
 msgid "experiments:table:timeslots"
 msgstr "# Timeslots"
 
-#: leader/templates/leader/experiments.html:21
+#: leader/templates/leader/experiments.html:22
 msgid "experiments:table:participants"
 msgstr "# Participants"
 
-#: leader/templates/leader/experiments.html:24
+#: leader/templates/leader/experiments.html:25
 msgid "experiments:table:status"
 msgstr "Status"
 
-#: leader/templates/leader/experiments.html:27
+#: leader/templates/leader/experiments.html:28
 msgid "global:actions"
 msgstr "Actions"
+
+#: leader/templates/leader/profile.html:17
+msgid "profile:content:header"
+msgstr "Change leader profile"
+
+#: leader/templates/leader/profile.html:27
+msgid "globals:save_button"
+msgstr "Save"
+
+#: leader/views.py:53
+msgid "experiment:message:open"
+msgstr "Successfully opened experiment for participants."
+
+#: leader/views.py:55
+msgid "experiment:message:closed"
+msgstr "Successfully closed experiment for participants."
+
+#: leader/views.py:57 leader/views.py:63
+msgid "experiment:message:fail"
+msgstr "Something went wrong when trying to change the experiments status"
+
+#: leader/views.py:74
+msgid "profile:message:updated"
+msgstr "Successfully updated profile."
