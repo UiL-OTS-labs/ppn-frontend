@@ -19,6 +19,16 @@ Menu.add_item("main", MenuItem(_('mainmenu:leader_profile'),
                                                x.user.is_leader()
                                ))
 
+Menu.add_item("main", MenuItem(_('mainmenu:mailinglist'),
+                               '#',
+                               check=lambda x: not x.user.is_authenticated
+                               ))
+
+Menu.add_item("main", MenuItem(_('mainmenu:register'),
+                               '#',
+                               check=lambda x: not x.user.is_authenticated
+                               ))
+
 Menu.add_item("main", MenuItem(_('mainmenu:change_password'),
                                '#',
                                check=lambda x: x.user.is_authenticated
