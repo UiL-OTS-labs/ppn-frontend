@@ -1,13 +1,18 @@
 {% extends "base/base.html" %}
 {% load i18n %}
 {% load transformat %}
+{% load static %}
+
+{% block html_head %}
+        <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
+{% endblock%}
 
 {% block content %}
 <div class="uu-inner-container">
     <div class="col-8">
-        <h2>
-            {% trans 'register:content:header' %} {{ experiment.name }}
-        </h2>
+        <h3>
+            {% trans 'register:content:header' %} '{{ experiment.name }}'
+        </h3>
         <p>
             {% transformat 'register:content:duration'  experiment.duration  %}.
             {% trans 'register:content:location' %}
@@ -43,7 +48,7 @@
             {% trans 'register:content:leader' %} {{ experiment.leader.name }}
         </h4>
         {% if experiment.leader.photo.url %}
-            <img src="{{ experiment.leader.photo.url }}" title="{{ experiment.leader.name }}" width="100%"/>
+            <img src="{{ experiment.leader.photo.url }}" title="{{ experiment.leader.name }}" alt="{{ experiment.leader.name }}" class="leader-image" />
         {% endif %}
         {% if experiment.additional_leaders %}
             <p>
