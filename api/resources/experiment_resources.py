@@ -54,6 +54,17 @@ class Experiment(rest.Resource):
         return ",".join([leader.name for leader in self.additional_leaders])
 
 
+class SwitchExperimentOpen(rest.Resource):
+    class Meta:
+        path = '/api/experiment/{experiment}/switch_open/'
+        supported_operations = [rest.Operations.get_over_post]
+        path_variables = ['experiment']
+
+    success = rest.BoolField()
+
+    open = rest.BoolField()
+
+
 class LeaderExperiments(rest.Collection):
     class Meta:
         resource = Experiment

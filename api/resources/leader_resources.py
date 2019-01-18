@@ -32,3 +32,14 @@ class Leader(rest.Resource):
 class Leaders(rest.Collection):
     class Meta:
         resource = Leader
+
+
+class ChangeLeader(rest.Resource):
+    class Meta:
+        path = '/api/leader/change/'
+        supported_operations = [rest.Operations.put]
+        default_return_resource = Leader
+
+    name = rest.TextField()
+
+    phonenumber = rest.TextField()
