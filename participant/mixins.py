@@ -6,6 +6,7 @@ from django.contrib.auth.mixins import AccessMixin
 class ParticipantRequiredMixin(GroupRequiredMixin):
     """This mixin requires that a user is also a participant. Shorthand mixin"""
     group_required = [settings.GROUPS_PARTICIPANT]
+    raise_exception = True
 
 
 class ParticipantForbiddenMixin(AccessMixin):
