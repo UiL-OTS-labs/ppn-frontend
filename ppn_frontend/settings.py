@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -61,6 +63,9 @@ AUTH_USER_MODEL = 'apiauth.RemoteApiUser'
 AUTHENTICATION_BACKENDS = ['api.auth.backend.ApiAuthenticationBackend']
 
 LOGIN_REDIRECT_URL = '/'
+
+LOGIN_URL = reverse_lazy('main:login')
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -155,6 +160,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media'
 
 # Security
 # https://docs.djangoproject.com/en/2.0/topics/security/
