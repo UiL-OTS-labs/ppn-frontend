@@ -14,6 +14,7 @@ class ParticipantForbiddenMixin(AccessMixin):
 
     It's basically a ¬ for the ParticipantRequiredMixin
     """
+    raise_exception = True
 
     def dispatch(self, request, *args, **kwargs):
         self.request = request
@@ -21,7 +22,7 @@ class ParticipantForbiddenMixin(AccessMixin):
 
         if not user.is_anonymous:
             if user.groups.filter(name=settings.GROUPS_PARTICIPANT).exists():
-                return self.handle_no_permission(request)
+                return self.handle_no_permission()
 
         return super(ParticipantForbiddenMixin, self).dispatch(
             request,
