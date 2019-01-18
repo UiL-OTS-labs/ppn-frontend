@@ -2,7 +2,6 @@ import api.rest as rest
 
 
 class Location(rest.Resource):
-
     id = rest.IntegerField()
 
     name = rest.TextField()

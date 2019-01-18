@@ -8,8 +8,19 @@ Menu.add_item("home", MenuItem(_('mainmenu:home'),
 
 Menu.add_item("main", MenuItem(_('mainmenu:leader_experiments'),
                                reverse('leader:experiments'),
-                               check=lambda x: not x.user.is_anonymous and
+                               check=lambda x: x.user.is_authenticated and
                                                x.user.is_leader
+                               ))
+
+Menu.add_item("main", MenuItem(_('mainmenu:leader_profile'),
+                               reverse('leader:profile'),
+                               check=lambda x: x.user.is_authenticated and
+                                               x.user.is_leader
+                               ))
+
+Menu.add_item("main", MenuItem(_('mainmenu:change_password'),
+                               '#',
+                               check=lambda x: x.user.is_authenticated
                                ))
 
 Menu.add_item("footer", MenuItem(_('footermenu:login'),

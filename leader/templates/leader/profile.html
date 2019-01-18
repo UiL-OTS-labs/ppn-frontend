@@ -1,0 +1,32 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+
+{% block html_head %}
+    {# Redicilous display fix because Django cannot <label> right #}
+    <style>
+        form label {
+            display: inline-block;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="uu-inner-container">
+    <div class="col-12">
+        <h1>
+            {% trans 'profile:content:header' %}
+        </h1>
+        <br/>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table width="100%">
+                {{ form.as_table }}
+            </table>
+            <br/>
+            <div class="float-right">
+                <button type="submit">{% trans 'globals:save_button' %}</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

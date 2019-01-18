@@ -2,8 +2,9 @@ import inspect
 
 from django.apps import apps
 
-from .options import ResourceOptions, CollectionOptions
+from .options import CollectionOptions, ResourceOptions
 from .registry import registry
+
 
 class ResourceMetaclass(type):
     """Metaclass for all rest. Inspired by Django's ModelBase"""
@@ -19,7 +20,9 @@ class ResourceMetaclass(type):
             return super_new(mcs, name, bases, attrs)
 
         module = attrs.pop('__module__')
-        new_attrs = {'__module__': module}
+        new_attrs = {
+            '__module__': module
+        }
         classcell = attrs.pop('__classcell__', None)
         if classcell is not None:
             new_attrs['__classcell__'] = classcell
@@ -57,7 +60,6 @@ class ResourceMetaclass(type):
         # Add all attributes to the class.
         for obj_name, obj in attrs.items():
             new_class.add_to_class(obj_name, obj)
-
 
         new_class.register_class()
 

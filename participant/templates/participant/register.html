@@ -42,7 +42,9 @@
         <h4>
             {% trans 'register:content:leader' %} {{ experiment.leader.name }}
         </h4>
-        {# TODO: photo! #}
+        {% if experiment.leader.photo.url %}
+            <img src="{{ experiment.leader.photo.url }}" title="{{ experiment.leader.name }}" width="100%"/>
+        {% endif %}
         {% if experiment.additional_leaders %}
             <p>
                 {% transformat 'register:content:other_leaders' %}

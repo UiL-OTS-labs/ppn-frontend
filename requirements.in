@@ -8,4 +8,5 @@ pip-tools
 cryptography
 PyJWT
 bpython
+pillow
 -e git+git@github.com:UiL-OTS-labs/django-shared-core.git@master#egg=uil-django-core

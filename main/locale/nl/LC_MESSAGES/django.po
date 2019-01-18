@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-17 13:14+0000\n"
+"POT-Creation-Date: 2019-01-17 13:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,10 +27,18 @@ msgid "mainmenu:leader_experiments"
 msgstr "Mijn experimenten"
 
 #: main/menus.py:15
+msgid "mainmenu:leader_profile"
+msgstr "Verander profiel"
+
+#: main/menus.py:21
+msgid "mainmenu:change_password"
+msgstr "Verander wachtwoord"
+
+#: main/menus.py:26
 msgid "footermenu:login"
 msgstr "Log in"
 
-#: main/menus.py:20
+#: main/menus.py:31
 msgid "footermenu:logout"
 msgstr "Log uit"
 
