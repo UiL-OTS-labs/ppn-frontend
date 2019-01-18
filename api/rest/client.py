@@ -53,7 +53,7 @@ class BaseClient:
         :param request:
         :return:
         """
-        raise ApiError
+        raise ApiError(request.status_code, '')
 
     def _make_url(self, res=None, **kwargs) -> Tuple[str, dict]:
         """This method takes the resource path, uses string format to inject
@@ -197,8 +197,8 @@ class ResourceClient(BaseClient):
 
         try:
             request = self._http_client.post(
-                self._make_url(obj),
-                data=obj.to_api,
+                url,
+                data=obj.to_api(),
                 params=kwargs,
                 headers=self._make_auth_headers(),
             )

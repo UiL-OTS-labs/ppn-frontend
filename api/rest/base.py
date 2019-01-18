@@ -175,6 +175,14 @@ class Resource(metaclass=ResourceMetaclass):
             self._meta.fields.items()
         }
 
+    def put(self, return_resource=None, **kwargs):
+        """Proxy method that autofills the obj parameter"""
+        self.client.put(self, return_resource=return_resource, **kwargs)
+
+    def delete(self, **kwargs):
+        """Proxy method that autofills the obj parameter"""
+        self.client.delete(self, **kwargs)
+
 
 class Collection(metaclass=CollectionMetaclass):
     """This class can be extended to describe a REST collection.
@@ -231,8 +239,10 @@ class Collection(metaclass=CollectionMetaclass):
         try:
             objects = list(json)
 
-            self._items = [opts.resource(**obj) for obj in objects]
-        except TypeError:
+            self._items = [opts.resource(**obj) for obj in objects if not
+            isinstance(obj, int)]
+        except TypeError as e:
+            raise e
             pass  # todo: throw error on not-a-list
 
     def __len__(self):

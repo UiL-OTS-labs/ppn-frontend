@@ -301,4 +301,7 @@ class ResourceField(BaseField):
                 app_label, cls = cls.split('.')
             cls = registry.get_resource(app_label, cls)
 
+        if isinstance(value, int):
+            return value
+
         return cls(**value)
