@@ -33,6 +33,7 @@ class Leader(rest.Resource):
         except IntegrityError:
             return None
 
+
 class Leaders(rest.Collection):
     class Meta:
         resource = Leader
