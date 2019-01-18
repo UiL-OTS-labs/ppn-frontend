@@ -27,17 +27,18 @@
         <p>
             {% trans 'index:content:cancel' %}
         </p>
-
-        <h3>
-            {% trans 'index:header:maillinglist' %}
-        </h3>
-        <p>
-            {% trans 'index:content:maillinglist1' %}
-        </p>
-        <p>
-            {% trans 'index:content:maillinglist2' %}
-            <a href="mailto:{{ admin.email }}">{{ admin.email }}</a>.
-        </p>
+        {% if request.user.is_anonymous or not request.user.is_participant %}
+            <h3>
+                {% trans 'index:header:maillinglist' %}
+            </h3>
+            <p>
+                {% trans 'index:content:maillinglist1' %}
+            </p>
+            <p>
+                {% trans 'index:content:maillinglist2' %}
+                <a href="mailto:{{ admin.email }}">{{ admin.email }}</a>.
+            </p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
