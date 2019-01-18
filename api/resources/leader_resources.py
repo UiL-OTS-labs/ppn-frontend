@@ -1,3 +1,4 @@
+from django.db import IntegrityError
 from django.utils.functional import cached_property
 
 import api.rest as rest
@@ -24,10 +25,13 @@ class Leader(rest.Resource):
         if not isinstance(leader_id, int):
             leader_id = leader_id.id
 
-        obj, created = LeaderPhoto.objects.get_or_create(leader_id=leader_id)
+        try:
+            obj, created = LeaderPhoto.objects.get_or_create(leader_id=leader_id)
 
-        return obj.photo
+            return obj.photo
 
+        except IntegrityError:
+            return None
 
 class Leaders(rest.Collection):
     class Meta:
