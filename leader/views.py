@@ -17,7 +17,7 @@ from leader.forms import ChangeProfileForm
 from leader.models import LeaderPhoto
 
 
-class ExperimentsView(braces.RecentLoginRequiredMixin,
+class ExperimentsView(braces.LoginRequiredMixin,
                       braces.GroupRequiredMixin,
                       generic.TemplateView):
 
