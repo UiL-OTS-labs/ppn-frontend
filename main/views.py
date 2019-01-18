@@ -27,6 +27,13 @@ class HomeView(OverrideLanguageMixin, generic.TemplateView):
 class CustomLoginView(LoginView):
 
     def get_success_url(self):
+        # HACK
+        # Because we force the language to dutch on the frontpage, the language
+        # can stay Dutch even if the logging in user has Accept-Language set to
+        # english. This solves that problem.
+        if '_language' in self.request.session:
+            del self.request.session['_language']
+
         if self.request.user.is_leader:
             return reverse('leader:experiments')
 
