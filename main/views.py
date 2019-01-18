@@ -34,7 +34,7 @@ class CustomLoginView(LoginView):
         if '_language' in self.request.session:
             del self.request.session['_language']
 
-        if self.request.user.is_leader:
+        if self.request.user.is_leader():
             return reverse('leader:experiments')
 
         else:
