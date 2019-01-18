@@ -26,8 +26,11 @@ class RemoteApiUser(PermissionsMixin, AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
-    def is_leader(self):
+    def is_leader(self) -> bool:
         return self.groups.filter(name=settings.GROUPS_LEADER).exists()
+
+    def is_participant(self) -> bool:
+        return self.groups.filter(name=settings.GROUPS_PARTICIPANT).exists()
 
     def __str__(self):
         return self.get_username()
