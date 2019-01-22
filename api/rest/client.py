@@ -53,7 +53,7 @@ class BaseClient:
         :param request:
         :return:
         """
-        raise ApiError(request.status_code, '')
+        raise ApiError(request.status_code, request.text)
 
     def _make_url(self, res=None, **kwargs) -> Tuple[str, dict]:
         """This method takes the resource path, uses string format to inject
