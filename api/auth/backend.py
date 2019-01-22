@@ -44,6 +44,9 @@ class ApiAuthenticationBackend:
         user.is_staff = resource.is_admin
         user.is_active = resource.is_active
 
+        # We need to save first, otherwise we get errors when adding groups
+        user.save()
+
         existing_groups = list(user.groups.all())
 
         for group in resource.groups:
