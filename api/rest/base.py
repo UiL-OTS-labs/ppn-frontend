@@ -238,14 +238,17 @@ class Collection(metaclass=CollectionMetaclass):
     def __init__(self, json):
         opts = self._meta
 
+        if json is None:
+            self._items = []
+            return
+
         try:
             objects = list(json)
 
             self._items = [opts.resource(**obj) for obj in objects if not
-            isinstance(obj, int)]
+                           isinstance(obj, int)]
         except TypeError as e:
             raise e
-            pass  # todo: throw error on not-a-list
 
     def __len__(self):
         return len(self._items)
