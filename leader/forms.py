@@ -5,7 +5,6 @@ class ChangeProfileForm(forms.Form):
 
     name = forms.Field()
 
-    # TODO: decide if to remove this
     email = forms.EmailField(required=False)
 
     phone = forms.Field()
