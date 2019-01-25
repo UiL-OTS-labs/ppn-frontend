@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-25 07:44+0000\n"
+"POT-Creation-Date: 2019-01-25 08:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: main/forms.py:11
+msgid "forms:change_password:password_mismatch"
+msgstr ""
+
+#: main/forms.py:12
+msgid "forms:change_password:password_incorrect"
+msgstr ""
+
+#: main/forms.py:16
+msgid "forms:change_password:old"
+msgstr "Huidig wachtwoord"
+
+#: main/forms.py:22
+msgid "forms:change_password:new1"
+msgstr "Nieuw wachtwoord"
+
+#: main/forms.py:28
+msgid "forms:change_password:new2"
+msgstr "Bevestig nieuw wachtwoord"
 
 #: main/menus.py:5
 msgid "mainmenu:home"
@@ -33,7 +53,6 @@ msgstr "Verander profiel"
 #: main/menus.py:22
 msgid "mainmenu:mailinglist"
 msgstr "Mailing list"
-
 
 #: main/menus.py:27
 msgid "mainmenu:register"
@@ -72,6 +91,14 @@ msgstr "Experimenten UiL OTS"
 #: main/templates/base/site_title.html:5
 msgid "site:name"
 msgstr "Experimenten UiL OTS"
+
+#: main/templates/main/change_password.html:17
+msgid "change_password:content:header"
+msgstr "Verander wachtwoord"
+
+#: main/templates/main/change_password.html:27
+msgid "globals:save_button"
+msgstr "Opslaan"
 
 #: main/templates/main/index.html:9
 msgid "index:content:intro1"
@@ -143,8 +170,6 @@ msgstr "Log in"
 msgid "login:button:login"
 msgstr "Log in"
 
-#~ msgid "footermenu:login"
-#~ msgstr "Log in"
-
-#~ msgid "footermenu:logout"
-#~ msgstr "Log uit"
+#: main/views.py:33
+msgid "password:message:updated"
+msgstr "Wachtwoord veranderd!"

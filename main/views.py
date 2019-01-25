@@ -1,10 +1,13 @@
-from django.shortcuts import render
-from django.urls import reverse
-from django.views import generic
 from django.contrib.auth.views import LoginView
+from django.contrib.messages.views import SuccessMessageMixin
+from django.shortcuts import render
+from django.urls import reverse_lazy as reverse
+from django.utils.translation import ugettext_lazy as _
+from django.views import generic
 
-from api.resources import OpenExperiments, Admin
+from api.resources import Admin, OpenExperiments
 from main.mixins import OverrideLanguageMixin
+from .forms import ChangePasswordForm
 
 
 class HomeView(OverrideLanguageMixin, generic.TemplateView):
@@ -22,6 +25,13 @@ class HomeView(OverrideLanguageMixin, generic.TemplateView):
         context['admin'] = admin
 
         return context
+
+
+class ChangePasswordView(SuccessMessageMixin, generic.FormView):
+    template_name = 'main/change_password.html'
+    form_class = ChangePasswordForm
+    success_message = _('password:message:updated')
+    success_url = reverse('main:change_password')
 
 
 class CustomLoginView(LoginView):

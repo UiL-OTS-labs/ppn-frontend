@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-25 07:44+0000\n"
+"POT-Creation-Date: 2019-01-25 08:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: main/forms.py:11
+msgid "forms:change_password:password_mismatch"
+msgstr "The two password fields didn't match."
+
+#: main/forms.py:12
+msgid "forms:change_password:password_incorrect"
+msgstr "Your old password was entered incorrectly. Please enter it again."
+
+#: main/forms.py:16
+msgid "forms:change_password:old"
+msgstr "Current password"
+
+#: main/forms.py:22
+msgid "forms:change_password:new1"
+msgstr "New password"
+
+#: main/forms.py:28
+msgid "forms:change_password:new2"
+msgstr "Confirm new password"
 
 #: main/menus.py:5
 msgid "mainmenu:home"
@@ -71,6 +91,14 @@ msgstr "UiL OTS Experiments"
 #: main/templates/base/site_title.html:5
 msgid "site:name"
 msgstr "UiL OTS Experiments"
+
+#: main/templates/main/change_password.html:17
+msgid "change_password:content:header"
+msgstr "Change password"
+
+#: main/templates/main/change_password.html:27
+msgid "globals:save_button"
+msgstr "Save "
 
 #: main/templates/main/index.html:9
 msgid "index:content:intro1"
@@ -140,3 +168,7 @@ msgstr "Log in"
 #: main/templates/registration/login.html:15
 msgid "login:button:login"
 msgstr "Log in"
+
+#: main/views.py:33
+msgid "password:message:updated"
+msgstr "Password changed!"

@@ -30,7 +30,7 @@ Menu.add_item("main", MenuItem(_('mainmenu:register'),
                                ))
 
 Menu.add_item("main", MenuItem(_('mainmenu:change_password'),
-                               '#',
+                               reverse('main:change_password'),
                                check=lambda x: x.user.is_authenticated
                                ))
 
