@@ -177,7 +177,7 @@ class Resource(metaclass=ResourceMetaclass):
 
     def put(self, return_resource=None, **kwargs):
         """Proxy method that autofills the obj parameter"""
-        self.client.put(self, return_resource=return_resource, **kwargs)
+        return self.client.put(self, return_resource=return_resource, **kwargs)
 
     def delete(self, **kwargs):
         """Proxy method that autofills the obj parameter"""
