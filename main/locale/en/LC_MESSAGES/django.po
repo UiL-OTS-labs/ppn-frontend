@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-25 08:39+0000\n"
+"POT-Creation-Date: 2019-01-25 09:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,16 +27,16 @@ msgid "forms:change_password:password_incorrect"
 msgstr "Your old password was entered incorrectly. Please enter it again."
 
 #: main/forms.py:16
-msgid "forms:change_password:old"
-msgstr "Current password"
-
-#: main/forms.py:22
 msgid "forms:change_password:new1"
 msgstr "New password"
 
-#: main/forms.py:28
+#: main/forms.py:22
 msgid "forms:change_password:new2"
 msgstr "Confirm new password"
+
+#: main/forms.py:28
+msgid "forms:change_password:old"
+msgstr "Current password"
 
 #: main/menus.py:5
 msgid "mainmenu:home"
@@ -96,7 +96,13 @@ msgstr "UiL OTS Experiments"
 msgid "change_password:content:header"
 msgstr "Change password"
 
-#: main/templates/main/change_password.html:27
+#: main/templates/main/change_password.html:21
+msgid "change_password:content:forced_change"
+msgstr ""
+"Your current password has been set by an administrator. For security "
+"reasons, we ask you to change this password to something else. "
+
+#: main/templates/main/change_password.html:32
 msgid "globals:save_button"
 msgstr "Save "
 

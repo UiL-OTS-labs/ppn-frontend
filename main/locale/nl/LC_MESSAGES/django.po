@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-25 08:39+0000\n"
+"POT-Creation-Date: 2019-01-25 09:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,16 +27,16 @@ msgid "forms:change_password:password_incorrect"
 msgstr ""
 
 #: main/forms.py:16
-msgid "forms:change_password:old"
-msgstr "Huidig wachtwoord"
-
-#: main/forms.py:22
 msgid "forms:change_password:new1"
 msgstr "Nieuw wachtwoord"
 
-#: main/forms.py:28
+#: main/forms.py:22
 msgid "forms:change_password:new2"
 msgstr "Bevestig nieuw wachtwoord"
+
+#: main/forms.py:28
+msgid "forms:change_password:old"
+msgstr "Huidig wachtwoord"
 
 #: main/menus.py:5
 msgid "mainmenu:home"
@@ -96,7 +96,13 @@ msgstr "Experimenten UiL OTS"
 msgid "change_password:content:header"
 msgstr "Verander wachtwoord"
 
-#: main/templates/main/change_password.html:27
+#: main/templates/main/change_password.html:21
+msgid "change_password:content:forced_change"
+msgstr ""
+"Uw huidige wachtwoord is ingesteld door een beheerder. Om veiligheidsredenen "
+"vragen we u dit wachtwoord te wijzigen naar iets anders."
+
+#: main/templates/main/change_password.html:32
 msgid "globals:save_button"
 msgstr "Opslaan"
 
