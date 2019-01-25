@@ -33,6 +33,19 @@ class ChangePasswordView(SuccessMessageMixin, generic.FormView):
     success_message = _('password:message:updated')
     success_url = reverse('main:change_password')
 
+    def form_valid(self, form):
+        self.request.session['force_password_change'] = False
+
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['forced'] = self.request.session.get('force_password_change',
+                                                     False)
+
+        return context
+
 
 class CustomLoginView(LoginView):
 

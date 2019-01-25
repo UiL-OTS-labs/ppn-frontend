@@ -18,6 +18,9 @@ class ApiAuthenticationBackend:
 
         user = self._get_or_create_user(resource, username, request)
 
+        if resource.needs_password_change:
+            request.session['force_password_change'] = True
+
         return user
 
     def get_user(self, user_id):
