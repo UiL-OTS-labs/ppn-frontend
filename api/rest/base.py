@@ -130,7 +130,9 @@ class Resource(metaclass=ResourceMetaclass):
             path = "/item/{pk}/"
             path_variables = ['pk']
 
-    - identifier_field (optional): TODO: write this after implementation is complete
+    - identifier_field (optional): A string containing the name of the field
+      that represents a identifier for this resource. Only used in the default
+      __str__ implementation. It's just a helpful thing to have when debugging.
     - supported_operations (optional): A list of operation the API supports for
       this resource. Does not affect anything if no path is specified.
       Defaults to all operations.
