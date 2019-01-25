@@ -77,6 +77,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'api.middleware.ThreadLocalUserMiddleware',
+    'api.middleware.PasswordChangeMiddleware',
 ]
 
 if DEBUG and ENABLE_DEBUG_TOOLBAR:
