@@ -4,12 +4,26 @@
 {% load static %}
 
 {% block html_head %}
-        <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
+    <script src="{% static 'uil.core/js/form_helpers.js' %}"></script>
+
+    <script>
+    $(function () {
+        add_title('timeslot', 'Kies hieronder een tijdstip:');
+    });
+    </script>
+    <style>
+    @media (min-width: 869px) {
+        th, td {
+            padding: 20px 0;
+        }
+    }
+    </style>
 {% endblock%}
 
 {% block content %}
 <div class="uu-inner-container">
-    <div class="col-8">
+    <div class="col-sm-8 col-xs-12">
         <h3>
             {% trans 'register:content:header' %} '{{ experiment.name }}'
         </h3>
@@ -43,7 +57,7 @@
             </ul>
         </p>
     </div>
-    <div class="col-4">
+    <div class="col-sm-4 col-xs-12">
         <h4>
             {% trans 'register:content:leader' %} {{ experiment.leader.name }}
         </h4>
@@ -56,6 +70,20 @@
                 {{ experiment.display_additional_leaders }}
             </p>
         {% endif %}
+    </div>
+</div>
+<div class="uu-inner-container">
+    <div class="col-12">
+        <hr/>
+        <form>
+            <table width="100%">
+                {{ form.as_table }}
+            </table>
+            <div class="float-right mt-3">
+                <button type="reset">Reset</button>
+                <button type="submit">Schrijf je in!</button>
+            </div>
+        </form>
     </div>
 </div>
 {% endblock %}

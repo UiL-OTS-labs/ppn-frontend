@@ -1,0 +1,21 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load static %}
+
+{% block html_head %}
+        <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
+{% endblock%}
+
+{% block content %}
+<div class="uu-inner-container">
+    <div class="col-12">
+        <h3>
+            {% trans 'closed:content:header' %}
+        </h3>
+        <p>
+            {% trans 'closed:content:p1' %}
+        </p>
+    </div>
+</div>
+{% endblock %}
