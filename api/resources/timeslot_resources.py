@@ -9,7 +9,7 @@ class TimeSlot(rest.Resource):
 
     max_places = rest.IntegerField()
 
-    experiment = rest.IntegerField()
+    free_places = rest.IntegerField()
 
 
 class TimeSlots(rest.Collection):
