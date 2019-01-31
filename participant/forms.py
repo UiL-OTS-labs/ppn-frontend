@@ -15,10 +15,12 @@ class BaseRegisterForm(forms.Form):
 
     phone = forms.CharField(
         label="Telefoonnummer",
+        widget=forms.TextInput(attrs={'type':'tel'}),
     )
 
     birth_date = forms.DateField(
         label="Geboortedatum",
+        widget=forms.DateInput(attrs={'type':'date'}),
     )
 
     language = forms.CharField(
