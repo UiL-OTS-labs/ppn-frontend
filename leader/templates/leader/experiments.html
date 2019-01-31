@@ -32,7 +32,13 @@
             {% for experiment in experiments %}
                 <tr>
                     <td class="text-center">
-                        {{ experiment.name }}
+                        {% if experiment.open %}
+                            <a href="{% url 'participant:register' experiment.id %}">
+                                {{ experiment.name }}
+                            </a>
+                        {% else %}
+                            {{ experiment.name }}
+                        {% endif %}
                     </td>
                     <td>
                         {{ experiment.n_timeslots }}
