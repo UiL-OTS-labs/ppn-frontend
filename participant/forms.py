@@ -30,8 +30,8 @@ class BaseRegisterForm(forms.Form):
         label='Ik ben',
         widget=forms.RadioSelect(
             choices=(
-                (True, 'Meertalig (opgegroeid met meerdere moedertalen)'),
                 (False, 'Eentalig'),
+                (True, 'Meertalig (opgegroeid met meerdere moedertalen)'),
             ),
         ),
     )
