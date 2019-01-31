@@ -26,12 +26,12 @@ class BaseRegisterForm(forms.Form):
         widget=LanguageWidget,
     )
 
-    mutlilingual = forms.BooleanField(
+    mutlilingual = forms.CharField(
         label='Ik ben',
         widget=forms.RadioSelect(
             choices=(
-                (False, 'Eentalig'),
-                (True, 'Meertalig (opgegroeid met meerdere moedertalen)'),
+                ('O', 'Eentalig'),
+                ('M', 'Meertalig (opgegroeid met meerdere moedertalen)'),
             ),
         ),
     )
@@ -56,12 +56,12 @@ class BaseRegisterForm(forms.Form):
         ),
     )
 
-    dyslexic = forms.BooleanField(
+    dyslexic = forms.CharField(
         label='Ik ben',
         widget=forms.RadioSelect(
             choices=(
-                (True, 'Dyslectisch'),
-                (False, 'Niet dyslectisch'),
+                ('D', 'Dyslectisch'),
+                ('ND', 'Niet dyslectisch'),
             ),
         )
     )
