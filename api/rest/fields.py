@@ -1,13 +1,19 @@
-from functools import total_ordering
-from abc import ABC, abstractmethod
-import itertools
 import collections
+from abc import ABC, abstractmethod
+from datetime import date, datetime, time
+from functools import total_ordering
+
+import itertools
+from backports.datetime_fromisoformat import MonkeyPatch
 from django.core import exceptions, validators
 from django.utils.functional import cached_property
 from django.utils.translation import gettext_lazy as _
 
-from .base import Resource, Collection
+from .base import Collection, Resource
 from .registry import registry
+
+MonkeyPatch.patch_fromisoformat()
+
 
 @total_ordering
 class BaseField(ABC):
@@ -29,8 +35,10 @@ class BaseField(ABC):
     empty_values = list(validators.EMPTY_VALUES)
     default_validators = []
 
-    def __init__(self, verbose_name: str = None, default: object = None, choices: object = None, name: str = None,
-                 null: bool = False, blank: bool = False, error_messages: dict = None, validators: tuple = ()):
+    def __init__(self, verbose_name: str = None, default: object = None,
+                 choices: object = None, name: str = None,
+                 null: bool = False, blank: bool = False,
+                 error_messages: dict = None, validators: tuple = ()):
         """
         A field contains data within a REST resource.
 
@@ -127,14 +135,18 @@ class BaseField(ABC):
             raise exceptions.ValidationError(
                 self.error_messages['invalid_choice'],
                 code='invalid_choice',
-                params={'value': value},
+                params={
+                    'value': value
+                },
             )
 
         if value is None and not self.null:
-            raise exceptions.ValidationError(self.error_messages['null'], code='null')
+            raise exceptions.ValidationError(self.error_messages['null'],
+                                             code='null')
 
         if not self.blank and value in self.empty_values:
-            raise exceptions.ValidationError(self.error_messages['blank'], code='blank')
+            raise exceptions.ValidationError(self.error_messages['blank'],
+                                             code='blank')
 
     def clean(self, value: object) -> object:
         """
@@ -167,7 +179,8 @@ class BaseField(ABC):
         return '{}.{}'.format(resource.__class__.__name__, self.name)
 
     def __repr__(self):
-        path = '{}.{}'.format(self.__class__.__module__, self.__class__.__qualname__)
+        path = '{}.{}'.format(self.__class__.__module__,
+                              self.__class__.__qualname__)
         name = getattr(self, 'name', None)
         if name is not None:
             return '<{}: {}>'.format(path, name)
@@ -195,7 +208,7 @@ class BasicTypeField(BaseField):
     def __init__(self, *args, **kwargs):
         super(BasicTypeField, self).__init__(*args, **kwargs)
 
-    def to_api(self, value: object) -> object:
+    def to_api(self, value: object) -> basic_type:
         """Cleans and validates values before casting them to the right
         API type
         """
@@ -208,7 +221,9 @@ class BasicTypeField(BaseField):
             raise exceptions.ValidationError(
                 self.error_messages['invalid'],
                 code='invalid',
-                params={'value': value},
+                params={
+                    'value': value
+                },
             )
 
 
@@ -230,6 +245,45 @@ class TextField(BasicTypeField):
 class BoolField(BasicTypeField):
     """Field containing a boolean"""
     basic_type = bool
+
+
+class DateTimeField(BaseField):
+    """Field that parses a ISO-formatted datetime-string"""
+    type = datetime
+
+    def to_python(self, value: str) -> type:
+        if value is None:
+            return value
+
+        try:
+            # Fix the fact that datetime.fromisoformat doesn't adhere to iso
+            # 8601 properly when 'Z(ulu)' is used instead of '+00:00'
+            if value[-1] == 'Z':
+                value = "{}+00:00".format(value[:-1])
+
+            return self.type.fromisoformat(value)
+        except (TypeError, ValueError) as e:
+            raise exceptions.ValidationError(
+                "Some error!",
+                code='invalid',
+                params={
+                    'value': value
+                },
+            )
+
+    def to_api(self, value: type) -> str:
+        value = self.clean(value)
+        return value.isoformat()
+
+
+class DateField(DateTimeField):
+    """Field that parses a ISO-formatted date-string"""
+    type = date
+
+
+class TimeField(DateTimeField):
+    """Field that parses a ISO-formatted date-string"""
+    type = time
 
 
 class CollectionField(BaseField):
