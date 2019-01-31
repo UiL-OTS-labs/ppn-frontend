@@ -48,7 +48,7 @@ class Experiment(rest.Resource):
     timeslots = rest.CollectionField('TimeSlots')
 
     def n_timeslots(self):
-        return sum([x.max_places for x in self.timeslot_set])
+        return sum([x.max_places for x in self.timeslots])
 
     def display_additional_leaders(self):
         return ",".join([leader.name for leader in self.additional_leaders])
