@@ -6,6 +6,7 @@
 #
 -e git+https://github.com/UiL-OTS-labs/django-shared-core.git@master#egg=uil-django-core
 asn1crypto==0.24.0        # via cryptography
+babel==2.6.0
 backports-datetime-fromisoformat==1.0.0
 blessings==1.7            # via curtsies
 bpython==0.17.1
@@ -28,7 +29,7 @@ pip-tools==3.3.2
 pycparser==2.19           # via cffi
 pygments==2.3.1           # via bpython
 pyjwt==1.7.1
-pytz==2018.9              # via django
+pytz==2018.9              # via babel, django
 requests==2.21.0
 six==1.12.0               # via blessings, bpython, cryptography, pip-tools
 sqlparse==0.2.4           # via django-debug-toolbar
