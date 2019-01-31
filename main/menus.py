@@ -10,13 +10,13 @@ Menu.add_item("home", MenuItem(_('mainmenu:home'),
 Menu.add_item("main", MenuItem(_('mainmenu:leader_experiments'),
                                reverse('leader:experiments'),
                                check=lambda x: x.user.is_authenticated and
-                                               x.user.is_leader()
+                                               x.user.is_leader
                                ))
 
 Menu.add_item("main", MenuItem(_('mainmenu:leader_profile'),
                                reverse('leader:profile'),
                                check=lambda x: x.user.is_authenticated and
-                                               x.user.is_leader()
+                                               x.user.is_leader
                                ))
 
 Menu.add_item("main", MenuItem(_('mainmenu:mailinglist'),
