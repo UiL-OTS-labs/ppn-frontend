@@ -1,3 +1,4 @@
+from braces import views as braces
 from django.contrib.auth.views import LoginView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
@@ -27,7 +28,8 @@ class HomeView(OverrideLanguageMixin, generic.TemplateView):
         return context
 
 
-class ChangePasswordView(SuccessMessageMixin, generic.FormView):
+class ChangePasswordView(braces.LoginRequiredMixin, SuccessMessageMixin,
+                         generic.FormView):
     template_name = 'main/change_password.html'
     form_class = ChangePasswordForm
     success_message = _('password:message:updated')
