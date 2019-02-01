@@ -1,6 +1,14 @@
 {% extends "base/base.html" %}
 {% load i18n %}
 
+{% block html_head %}
+    <style>
+    form {
+        display: block;
+        width: 400px;
+    }
+    </style>
+{% endblock %}
 
 {% block content %}
     <div class="uu-inner-container">
@@ -11,7 +19,10 @@
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit">
+                <a href="{% url 'main:forgot_password' %}">
+                    {% trans 'login:content:forgot_password' %}
+                </a>
+                <button type="submit" class="float-right">
                     {% trans 'login:button:login' %}
                 </button>
             </form>

@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="uu-inner-container">
+    <div class="col-12">
+        <h1>
+            {% trans 'enter_reset_token:content:header' %}
+        </h1>
+        <p>
+            {% trans 'enter_reset_token:content:help_text' %}
+        </p>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table width="100%">
+                {{ form.as_table }}
+            </table>
+            <br/>
+            <div class="float-right">
+                <button type="submit">{% trans 'enter_reset_token:content:continue' %}</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

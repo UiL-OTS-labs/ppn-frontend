@@ -2,13 +2,11 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-25 09:43+0000\n"
+"POT-Creation-Date: 2019-02-01 09:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,23 +16,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: main/forms.py:11
+#: main/forms.py:14
+msgid "forms:forgot_password:token_placeholder"
+msgstr "Enter your reset token"
+
+#: main/forms.py:24
+msgid "forms:forgot_password:email_placeholder"
+msgstr "Enter your email"
+
+#: main/forms.py:38
+msgid "form:forgot_password:email_incorrect"
+msgstr ""
+"The email address you've entered is invalid or not attached to an account."
+
+#: main/forms.py:48 main/forms.py:101
 msgid "forms:change_password:password_mismatch"
 msgstr "The two password fields didn't match."
 
-#: main/forms.py:12
-msgid "forms:change_password:password_incorrect"
-msgstr "Your old password was entered incorrectly. Please enter it again."
+#: main/forms.py:49
+msgid "forms:change_password:token_incorrect"
+msgstr "Your token has expired!"
 
-#: main/forms.py:16
+#: main/forms.py:57 main/forms.py:106
 msgid "forms:change_password:new1"
 msgstr "New password"
 
-#: main/forms.py:22
+#: main/forms.py:63 main/forms.py:112
 msgid "forms:change_password:new2"
 msgstr "Confirm new password"
 
-#: main/forms.py:28
+#: main/forms.py:102
+msgid "forms:change_password:password_incorrect"
+msgstr "Your old password was entered incorrectly. Please enter it again."
+
+#: main/forms.py:118
 msgid "forms:change_password:old"
 msgstr "Current password"
 
@@ -106,6 +121,30 @@ msgstr ""
 msgid "globals:save_button"
 msgstr "Save "
 
+#: main/templates/main/enter_reset_token.html:8
+msgid "enter_reset_token:content:header"
+msgstr "Reset password"
+
+#: main/templates/main/enter_reset_token.html:11
+msgid "enter_reset_token:content:help_text"
+msgstr "Please enter your reset token."
+
+#: main/templates/main/enter_reset_token.html:20
+msgid "enter_reset_token:content:continue"
+msgstr "Continue"
+
+#: main/templates/main/forgot_password.html:8
+msgid "forgot_password:content:header"
+msgstr "Forgotten password"
+
+#: main/templates/main/forgot_password.html:11
+msgid "forgot_password:content:help_text"
+msgstr "Follow these instructions to reset your password."
+
+#: main/templates/main/forgot_password.html:20
+msgid "forgot_password:content:request_button"
+msgstr "Request password reset"
+
 #: main/templates/main/index.html:9
 msgid "index:content:intro1"
 msgstr ""
@@ -159,6 +198,22 @@ msgstr ""
 "If you no longer wish to receive messages about new experiments, or if you "
 "wish to have your data deleted, you can send an e-mail to "
 
+#: main/templates/main/reset_password.html:8
+msgid "reset_password:content:header"
+msgstr "Reset password"
+
+#: main/templates/main/reset_password.html:12
+msgid "reset_password:content:help_text"
+msgstr "Please enter the new password you want to use."
+
+#: main/templates/main/reset_password.html:22
+msgid "reset_password:content:change_button"
+msgstr "Change password"
+
+#: main/templates/main/reset_password.html:27
+msgid "reset_password:content:invalid_token"
+msgstr "Your password reset token is invalid or has expired!"
+
 #: main/templates/registration/logged_out.html:8
 msgid "main:logged_out_title"
 msgstr "Logged out"
@@ -167,14 +222,27 @@ msgstr "Logged out"
 msgid "main:logged_out_text"
 msgstr "You have been successfully logged out!"
 
-#: main/templates/registration/login.html:9
+#: main/templates/registration/login.html:17
 msgid "login:header:login"
 msgstr "Log in"
 
-#: main/templates/registration/login.html:15
+#: main/templates/registration/login.html:23
+msgid "login:content:forgot_password"
+msgstr "Forgot password?"
+
+#: main/templates/registration/login.html:26
 msgid "login:button:login"
 msgstr "Log in"
 
-#: main/views.py:33
+#: main/views.py:37
 msgid "password:message:updated"
 msgstr "Password changed!"
+
+#: main/views.py:58
+msgid "password:message:reset_requested"
+msgstr ""
+"We've sent you an email with instructions on how to reset your password!"
+
+#: main/views.py:75
+msgid "password:message:reset_successful"
+msgstr "Password successfully reset!"

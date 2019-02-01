@@ -1,14 +1,16 @@
 from braces import views as braces
 from django.contrib.auth.views import LoginView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy as reverse
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
-from api.resources import Admin, OpenExperiments
+from api.resources import Admin, OpenExperiments, ValidateToken
 from main.mixins import OverrideLanguageMixin
-from .forms import ChangePasswordForm
+from .forms import ChangePasswordForm, ForgotPasswordForm, ResetPasswordForm, \
+    EnterTokenForm
 
 
 class HomeView(OverrideLanguageMixin, generic.TemplateView):
@@ -45,6 +47,51 @@ class ChangePasswordView(braces.LoginRequiredMixin, SuccessMessageMixin,
 
         context['forced'] = self.request.session.get('force_password_change',
                                                      False)
+
+        return context
+
+
+class ForgotPasswordView(braces.AnonymousRequiredMixin, SuccessMessageMixin,
+                         generic.FormView):
+    template_name = 'main/forgot_password.html'
+    form_class = ForgotPasswordForm
+    success_message = _('password:message:reset_requested')
+    success_url = reverse('main:forgot_password')
+
+
+class EnterTokenView(braces.AnonymousRequiredMixin, generic.FormView):
+    template_name = 'main/enter_reset_token.html'
+    form_class = EnterTokenForm
+
+    def form_valid(self, form):
+        args = [form.cleaned_data['token']]
+        return HttpResponseRedirect(reverse('main:reset_password', args=args))
+
+
+class ResetPasswordView(braces.AnonymousRequiredMixin, SuccessMessageMixin,
+                         generic.FormView):
+    template_name = 'main/reset_password.html'
+    form_class = ResetPasswordForm
+    success_message = _('password:message:reset_successful')
+    success_url = reverse('main:login')
+
+    def get_initial(self):
+        initial = super(ResetPasswordView, self).get_initial()
+
+        initial['token'] = self.kwargs.get('token')
+
+        return initial
+
+    def get_context_data(self, **kwargs):
+        context = super(ResetPasswordView, self).get_context_data(**kwargs)
+        token = self.kwargs.get('token')
+
+        req = ValidateToken()
+        req.token = token
+
+        response = req.put()
+
+        context['valid'] = response.success
 
         return context
 
