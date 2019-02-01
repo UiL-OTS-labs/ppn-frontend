@@ -6,8 +6,8 @@ from django.views import generic
 
 from api.resources import Experiment
 from main.mixins import OverrideLanguageMixin
-from participant.forms import BaseRegisterForm
-from participant.utils import get_register_form
+from participant.forms import BaseRegisterForm, SubscribeToMailinglistForm
+from participant.utils import get_register_form, submit_register_form
 
 
 class RegisterView(OverrideLanguageMixin, generic.FormView):
@@ -28,6 +28,10 @@ class RegisterView(OverrideLanguageMixin, generic.FormView):
 
         return get_register_form(base_form, self.experiment)
 
+    def form_valid(self, form):
+        submit_register_form(form)
+        return HttpResponseRedirect(self.get_success_url())
+
     @cached_property
     def experiment(self):
         try:
@@ -43,6 +47,12 @@ class RegisterView(OverrideLanguageMixin, generic.FormView):
         context['experiment'] = self.experiment
 
         return context
+
+
+class SubscribeToMailinglistView(OverrideLanguageMixin, generic.FormView):
+    template_name = 'participant/subscribe_mailinglist.html'
+    language_override = 'nl'
+    form_class = SubscribeToMailinglistForm
 
 
 class ClosedExperimentView(OverrideLanguageMixin, generic.TemplateView):

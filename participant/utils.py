@@ -47,3 +47,7 @@ def get_register_form(form: BaseRegisterForm, experiment: Experiment):
         )
 
     return form
+
+
+def submit_register_form(form: BaseRegisterForm):
+    pass

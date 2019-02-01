@@ -3,6 +3,38 @@ from django import forms
 from .widgets import LanguageWidget
 
 
+class SubscribeToMailinglistForm(forms.Form):
+
+    email = forms.EmailField(
+        label="Emailadres",
+    )
+
+    language = forms.CharField(
+        label="Mijn moedertaal is",
+        widget=LanguageWidget,
+    )
+
+    mutlilingual = forms.CharField(
+        label='Ik ben',
+        widget=forms.RadioSelect(
+            choices=(
+                ('O', 'Eentalig'),
+                ('M', 'Meertalig (opgegroeid met meerdere moedertalen)'),
+            ),
+        ),
+    )
+
+    dyslexic = forms.CharField(
+        label='Ik ben',
+        widget=forms.RadioSelect(
+            choices=(
+                ('D', 'Dyslectisch'),
+                ('ND', 'Niet dyslectisch'),
+            ),
+        )
+    )
+
+
 class BaseRegisterForm(forms.Form):
 
     name = forms.CharField(
