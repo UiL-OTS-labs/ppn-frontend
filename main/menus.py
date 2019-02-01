@@ -20,7 +20,7 @@ Menu.add_item("main", MenuItem(_('mainmenu:leader_profile'),
                                ))
 
 Menu.add_item("main", MenuItem(_('mainmenu:mailinglist'),
-                               '#',
+                               reverse('participant:subscribe'),
                                check=lambda x: not x.user.is_authenticated
                                ))
 

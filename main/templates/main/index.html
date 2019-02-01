@@ -1,6 +1,6 @@
 {% extends "base/base.html" %}
 {% load i18n %}
-
+{% load transformat %}
 
 {% block content %}
 <div class="uu-inner-container">
@@ -32,7 +32,8 @@
                 {% trans 'index:header:maillinglist' %}
             </h3>
             <p>
-                {% trans 'index:content:maillinglist1' %}
+                {% url 'participant:subscribe' as mailinglist_url %}
+                {% transformat 'index:content:maillinglist1' mailinglist_url %}
             </p>
             <p>
                 {% trans 'index:content:maillinglist2' %}

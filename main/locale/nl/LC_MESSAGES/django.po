@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-01 09:35+0000\n"
+"POT-Creation-Date: 2019-02-01 11:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -184,17 +184,17 @@ msgstr ""
 msgid "index:header:maillinglist"
 msgstr " Mailing list UiL OTS experimenten"
 
-#: main/templates/main/index.html:35
+#: main/templates/main/index.html:36
 msgid "index:content:maillinglist1"
 msgstr ""
 " Wil je op de hoogte gehouden worden van nieuwe experimenten bij het UiL "
-"OTS? Geef dan hier je emailadres op. Je persoonlijke gegevens worden "
-"uiteraard vertrouwelijk behandeld. Onderzoeksgegevens zijn niet toegankelijk "
-"voor derden, en in publicaties worden meestal alleen groepsgemiddelden "
-"gerapporteerd. Als er toch individuele resultaten vermeld worden, gebeurt "
-"dat altijd geanonymiseerd. "
+"OTS? <a href=\"{}\">Geef dan hier je emailadres op.</a> Je persoonlijke "
+"gegevens worden uiteraard vertrouwelijk behandeld. Onderzoeksgegevens zijn "
+"niet toegankelijk voor derden, en in publicaties worden meestal alleen "
+"groepsgemiddelden gerapporteerd. Als er toch individuele resultaten vermeld "
+"worden, gebeurt dat altijd geanonymiseerd. "
 
-#: main/templates/main/index.html:38
+#: main/templates/main/index.html:39
 msgid "index:content:maillinglist2"
 msgstr ""
 " Als je geen berichten meer wil ontvangen over nieuwe experimenten, of als "
