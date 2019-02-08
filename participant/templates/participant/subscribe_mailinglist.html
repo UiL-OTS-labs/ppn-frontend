@@ -17,7 +17,9 @@
             {% trans 'subscribe_mailinglist:content:p1' %}
         </p>
         <p>
-            {% trans 'subscribe_mailinglist:content:p2' %}
+            {% trans 'subscribe_mailinglist:content:p2' %} <a href="mailto:{{ admin.email }}">
+                {{ admin.email }}
+            </a>.
         </p>
         <p>
             {% trans 'subscribe_mailinglist:content:p3' %}
