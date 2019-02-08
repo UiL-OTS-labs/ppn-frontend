@@ -6,4 +6,5 @@ from .criteria_resources import Criterium, DefaultCriteria, ExperimentCriteria, 
 from .experiment_resources import Experiment, LeaderExperiments, \
     OpenExperiments, SwitchExperimentOpen
 from .leader_resources import ChangeLeader, Leader, Leaders
+from .participant_resources import MailinglistSubscribe
 from .timeslot_resources import TimeSlot, TimeSlots

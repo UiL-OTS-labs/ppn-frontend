@@ -13,27 +13,37 @@
         <h3>
             {% trans 'subscribe_mailinglist:content:header' %}
         </h3>
-        <p>
+        {% if success is not None %}
+            <p>
+                {% if success %}
+                    {% trans 'subscribe_mailinglist:content:successfully_added' %}
+                {% else %}
+                    {% trans 'subscribe_mailinglist:content:already_known' %}
+                {% endif %}
+            </p>
+        {% else %}
+            <p>
             {% trans 'subscribe_mailinglist:content:p1' %}
-        </p>
-        <p>
-            {% trans 'subscribe_mailinglist:content:p2' %} <a href="mailto:{{ admin.email }}">
-                {{ admin.email }}
-            </a>.
-        </p>
-        <p>
-            {% trans 'subscribe_mailinglist:content:p3' %}
-        </p>
-        <form method="post">
-            {% csrf_token %}
-            <table width="100%">
-                {{ form.as_table }}
-            </table>
-            <div class="float-right mt-3">
-                <button type="reset">Reset</button>
-                <button type="submit">Geef je op</button>
-            </div>
-        </form>
+            </p>
+            <p>
+                {% trans 'subscribe_mailinglist:content:p2' %} <a href="mailto:{{ admin.email }}">
+                    {{ admin.email }}
+                </a>.
+            </p>
+            <p>
+                {% trans 'subscribe_mailinglist:content:p3' %}
+            </p>
+            <form method="post">
+                {% csrf_token %}
+                <table width="100%">
+                    {{ form.as_table }}
+                </table>
+                <div class="float-right mt-3">
+                    <button type="reset">Reset</button>
+                    <button type="submit">Geef je op</button>
+                </div>
+            </form>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

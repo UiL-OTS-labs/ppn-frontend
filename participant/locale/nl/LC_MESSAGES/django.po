@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-01 11:01+0000\n"
+"POT-Creation-Date: 2019-02-08 09:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,19 +60,27 @@ msgstr "Overige proefleiders: "
 msgid "subscribe_mailinglist:content:header"
 msgstr "Emailadres opgeven voor taalexperimenten"
 
-#: participant/templates/participant/subscribe_mailinglist.html:17
+#: participant/templates/participant/subscribe_mailinglist.html:19
+msgid "subscribe_mailinglist:content:successfully_added"
+msgstr "Je emailadres is toegevoegd aan onze lijst. Dankjewel voor je belangstelling!"
+
+#: participant/templates/participant/subscribe_mailinglist.html:21
+msgid "subscribe_mailinglist:content:already_known"
+msgstr "Je emailadres kwam al voor in onze gegevens. Dankjewel voor je belangstelling!"
+
+#: participant/templates/participant/subscribe_mailinglist.html:26
 msgid "subscribe_mailinglist:content:p1"
 msgstr ""
 "Hieronder kun je je emailadres opgeven als je op de hoogte gehouden wilt "
 "worden van nieuwe experimenten aan het UiL OTS."
 
-#: participant/templates/participant/subscribe_mailinglist.html:20
+#: participant/templates/participant/subscribe_mailinglist.html:29
 msgid "subscribe_mailinglist:content:p2"
 msgstr ""
 "Je gegevens worden vertrouwelijk behandeld, en je kunt je op elk moment weer "
 "uitschrijven van onze mailinglist door een mailtje te sturen aan "
 
-#: participant/templates/participant/subscribe_mailinglist.html:23
+#: participant/templates/participant/subscribe_mailinglist.html:34
 msgid "subscribe_mailinglist:content:p3"
 msgstr ""
 "Voor de meeste experimenten zoeken we proefpersonen tussen de 18 en de 35 "

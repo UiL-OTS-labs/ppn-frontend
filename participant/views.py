@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.utils.functional import cached_property
 from django.views import generic
 
-from api.resources import Experiment, Admin
+from api.resources import Experiment, Admin, MailinglistSubscribe
 from main.mixins import OverrideLanguageMixin
 from participant.forms import BaseRegisterForm, SubscribeToMailinglistForm
 from participant.utils import get_register_form, submit_register_form
@@ -60,11 +60,24 @@ class SubscribeToMailinglistView(OverrideLanguageMixin, generic.FormView):
         )
 
         context['admin'] = Admin.client.get()
+        context['success'] = getattr(self, 'success', None)
 
         return context
 
     def form_valid(self, form):
-        print(form.cleaned_data)
+        data = form.cleaned_data
+
+        o = MailinglistSubscribe()
+        o.email = data.get('email')
+        o.language = data.get('language')
+        o.multilingual = data.get('multilingual')
+        o.dyslexic = data.get('dyslexic') == 'D'
+
+        response = o.put()
+
+        self.success = response.success
+
+        return self.get(self.request)
 
 
 class ClosedExperimentView(OverrideLanguageMixin, generic.TemplateView):
