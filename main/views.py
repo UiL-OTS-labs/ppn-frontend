@@ -4,6 +4,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy as reverse
+from django.utils.http import is_safe_url
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
@@ -105,6 +106,21 @@ class CustomLoginView(LoginView):
         # english. This solves that problem.
         if '_language' in self.request.session:
             del self.request.session['_language']
+
+        redirect_to = self.request.POST.get(
+            'next',
+            self.request.GET.get('next', None)
+        )
+
+        if redirect_to:
+            url_is_safe = is_safe_url(
+                url=redirect_to,
+                allowed_hosts=self.get_success_url_allowed_hosts(),
+                require_https=self.request.is_secure(),
+            )
+
+            if url_is_safe:
+                return redirect_to
 
         if self.request.user.is_leader:
             return reverse('leader:experiments')
