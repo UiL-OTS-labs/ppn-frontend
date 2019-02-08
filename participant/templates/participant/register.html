@@ -21,6 +21,10 @@
     </style>
 {% endblock%}
 
+{% block header_title %}
+    {% trans 'register:content:header' %} - {{ block.super }}
+{% endblock %}
+
 {% block content %}
 <div class="uu-inner-container">
     <div class="col-sm-8 col-xs-12">

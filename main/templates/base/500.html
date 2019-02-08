@@ -1,6 +1,11 @@
 {% extends "base/base.html" %}
 {% load i18n %}
 
+{#  TODO: translations #}
+
+{% block header_title %}
+    Server error - {{ block.super }}
+{% endblock %}
 
 {% block content %}
 <div class="uu-inner-container">

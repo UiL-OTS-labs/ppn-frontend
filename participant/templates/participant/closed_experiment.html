@@ -7,6 +7,10 @@
         <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
 {% endblock%}
 
+{% block header_title %}
+    {% trans 'closed:content:header' %} - {{ block.super }}
+{% endblock %}
+
 {% block content %}
 <div class="uu-inner-container">
     <div class="col-12">
