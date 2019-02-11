@@ -1,10 +1,10 @@
 from datetime import datetime
 
+from django import forms
+
+from api.middleware import get_current_user
 from api.resources import Experiment
 from participant.forms import BaseRegisterForm
-
-from django import forms
-from api.middleware import get_current_user
 
 
 def get_register_form(form: BaseRegisterForm, experiment: Experiment):
