@@ -35,10 +35,10 @@ class ApiAuthenticationBackend:
             return None
 
         try:
-            user = RemoteApiUser.objects.get(pk=resource.pk)
+            user = RemoteApiUser.objects.get(pk=resource.id)
         except RemoteApiUser.DoesNotExist:
             user = RemoteApiUser()
-            user.pk = resource.pk
+            user.pk = resource.id
             user.email = username
 
         request.session['token'] = resource.token
