@@ -20,7 +20,7 @@ class ApiUserResource(Resource):
         path = '/api/auth/'
         supported_operations = [Operations.get_over_post]
 
-    pk = fields.IntegerField()
+    id = fields.IntegerField()
 
     token = fields.TextField()
 
