@@ -21,7 +21,7 @@ class TimeSlot(rest.Resource):
         # Behold! The function chain FROM HELL! (Sorry)
         return format_datetime(
             self.datetime,
-            'EEEE, DD-MM-YYYY, HH:mm {}',
+            'EEEE, dd-MM-YYYY, HH:mm {}',
             locale=get_language()
         ).format(
             places_str
