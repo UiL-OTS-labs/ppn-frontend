@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import api.rest as rest
 
 from .generic_resources import SuccessResponse
@@ -16,3 +18,31 @@ class MailinglistSubscribe(rest.Resource):
     multilingual = rest.TextField()
 
     dyslexic = rest.BoolField()
+
+
+class Appointment(rest.Resource):
+    class Meta:
+        path = '/api/participant/appointments/'
+        supported_operations = []
+
+    id = rest.IntegerField()
+
+    creation_date = rest.DateTimeField()
+
+    timeslot = rest.ResourceField('TimeSlot')
+
+    experiment = rest.ResourceField('Experiment')
+
+    @property
+    def can_cancel(self) -> bool:
+        # If the appointment is in the future, one can cancel
+        return self.timeslot.datetime > datetime.now(
+            tz=self.timeslot.datetime.tzinfo
+        )
+
+
+class Appointments(rest.Collection):
+    class Meta:
+        path = '/api/participant/appointments/'
+        supported_operations = [rest.Operations.get]
+        resource = Appointment

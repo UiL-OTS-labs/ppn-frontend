@@ -1,0 +1,73 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load static %}
+
+{% block html_head %}
+    <style>
+    form {
+        display: block;
+        width: 400px;
+    }
+    </style>
+{% endblock%}
+
+{% block header_title %}
+    {% trans 'cancel_landing:content:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<div class="uu-inner-container">
+    <div class="col-12">
+        <h3>
+            {% trans 'cancel_landing:content:header' %}
+        </h3>
+        <p>
+            {% trans 'cancel_landing:content:p1' %}
+        </p>
+        <p>
+            {% trans 'cancel_landing:content:p2' %}
+        </p>
+    </div>
+</div>
+<div class="uu-inner-container">
+    <div class="col-lg-6 col-12">
+        <h4>{% trans 'cancel_landing:content:account:header' %}</h4>
+        <p class="">
+            {% url 'participant:appointments' as redirect_url %}
+            <form method="post" action="{% url 'main:login' %}?next={{ redirect_url }}">
+                {% csrf_token %}
+                <p>
+                    <label for="id_username">{% trans 'cancel_landing:form:email' %}:</label>
+                    <input type="text" name="username" required="" placeholder="{% trans 'cancel_landing:form:email' %}" maxlength="254" id="id_username">
+                </p>
+                <p>
+                    <label for="id_password">{% trans 'cancel_landing:form:password' %}:</label>
+                    <input type="password" name="password" placeholder="{% trans 'cancel_landing:form:password' %}" required="" id="id_password">
+                </p>
+                <a href="{% url 'main:forgot_password' %}">
+                    {% trans 'login:content:forgot_password' %}
+                </a>
+                <button type="submit" class="float-right">
+                    {% trans 'login:button:login' %}
+                </button>
+            </form>
+        </p>
+    </div>
+    <div class="col-lg-6 col-12">
+        <h4>{% trans 'cancel_landing:content:email:header' %}</h4>
+        <form method="post">
+            <p>
+                <label for="id_email">
+                    {% trans 'cancel_landing:form:email' %}:
+                </label>
+                <input id="id_email" placeholder="{% trans 'cancel_landing:form:email' %}" type="email">
+            </p>
+            <button type="submit" class="float-right">
+                {% trans 'cancel_landing:content:email:send_button' %}
+            </button>
+        </form>
+    </div>
+</div>
+<br/>
+{% endblock %}

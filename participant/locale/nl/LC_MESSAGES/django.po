@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-08 09:34+0000\n"
+"POT-Creation-Date: 2019-02-11 09:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,69 +18,169 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: participant/templates/participant/closed_experiment.html:14
+#: participant/templates/participant/appointments/appointments.html:11
+#: participant/templates/participant/appointments/appointments.html:18
+msgid "appointments:content:header"
+msgstr "Mijn afspraken"
+
+#: participant/templates/participant/appointments/appointments.html:21
+msgid "appointments:content:p1"
+msgstr " "
+
+#: participant/templates/participant/appointments/appointments.html:27
+msgid "appointments:thead:experiment"
+msgstr "Experiment"
+
+#: participant/templates/participant/appointments/appointments.html:30
+msgid "appointments:thead:day"
+msgstr "Dag"
+
+#: participant/templates/participant/appointments/appointments.html:33
+msgid "appointments:thead:date"
+msgstr "Datum"
+
+#: participant/templates/participant/appointments/appointments.html:36
+msgid "appointments:thead:time"
+msgstr "Tijd"
+
+#: participant/templates/participant/appointments/appointments.html:39
+msgid "appointments:thead:leader"
+msgstr "Proefleider"
+
+#: participant/templates/participant/appointments/appointments.html:42
+msgid "appointments:thead:leader_email"
+msgstr "Proefleider e-mail"
+
+#: participant/templates/participant/appointments/appointments.html:45
+msgid "appointments:thead:actions"
+msgstr "Acties"
+
+#: participant/templates/participant/appointments/appointments.html:73
+msgid "appointments:content:cannot_cancel"
+msgstr "Uitschrijven is niet meer mogelijk."
+
+#: participant/templates/participant/appointments/cancel_landing.html:16
+#: participant/templates/participant/appointments/cancel_landing.html:23
+msgid "cancel_landing:content:header"
+msgstr "Afspraak afzeggen"
+
+#: participant/templates/participant/appointments/cancel_landing.html:26
+msgid "cancel_landing:content:p1"
+msgstr ""
+"Indien je een account hebt, kan je je uitschrijven door hieronder in te "
+"loggen."
+
+#: participant/templates/participant/appointments/cancel_landing.html:29
+msgid "cancel_landing:content:p2"
+msgstr ""
+"Indien je geen account hebt, kan je hier het email adres invullen waarmee je "
+"jezelf hebt opgegeven. Je zult dan een email ontvangen met een link om je "
+"uit te schrijven."
+
+#: participant/templates/participant/appointments/cancel_landing.html:35
+msgid "cancel_landing:content:account:header"
+msgstr "Via account"
+
+#: participant/templates/participant/appointments/cancel_landing.html:41
+#: participant/templates/participant/appointments/cancel_landing.html:42
+#: participant/templates/participant/appointments/cancel_landing.html:62
+#: participant/templates/participant/appointments/cancel_landing.html:64
+msgid "cancel_landing:form:email"
+msgstr "Email"
+
+#: participant/templates/participant/appointments/cancel_landing.html:45
+#: participant/templates/participant/appointments/cancel_landing.html:46
+msgid "cancel_landing:form:password"
+msgstr "Wachtwoord"
+
+#: participant/templates/participant/appointments/cancel_landing.html:49
+msgid "login:content:forgot_password"
+msgstr "Wachtwoord vergeten?"
+
+#: participant/templates/participant/appointments/cancel_landing.html:52
+msgid "login:button:login"
+msgstr "Log in"
+
+#: participant/templates/participant/appointments/cancel_landing.html:58
+msgid "cancel_landing:content:email:header"
+msgstr "Via e-mail"
+
+#: participant/templates/participant/appointments/cancel_landing.html:67
+msgid "cancel_landing:content:email:send_button"
+msgstr "Verstuur"
+
+#: participant/templates/participant/closed_experiment.html:11
+#: participant/templates/participant/closed_experiment.html:18
 #, fuzzy
 #| msgid "register:content:header"
 msgid "closed:content:header"
 msgstr "Opgaveformulier experiment"
 
-#: participant/templates/participant/closed_experiment.html:17
+#: participant/templates/participant/closed_experiment.html:21
 msgid "closed:content:p1"
 msgstr ""
 
-#: participant/templates/participant/register.html:28
+#: participant/templates/participant/register.html:25
+#: participant/templates/participant/register.html:32
 msgid "register:content:header"
 msgstr "Opgaveformulier experiment"
 
-#: participant/templates/participant/register.html:31
+#: participant/templates/participant/register.html:35
 msgid "register:content:duration"
 msgstr "Dit experiment duurt {}."
 
-#: participant/templates/participant/register.html:32
+#: participant/templates/participant/register.html:36
 msgid "register:content:location"
 msgstr "Het wordt afgenomen op"
 
-#: participant/templates/participant/register.html:42
+#: participant/templates/participant/register.html:46
 msgid "register:content:details"
 msgstr "Bijzonderheden"
 
-#: participant/templates/participant/register.html:45
+#: participant/templates/participant/register.html:49
 msgid "register:content:compensation"
 msgstr "Je krijgt {} om mee te doen."
 
-#: participant/templates/participant/register.html:62
+#: participant/templates/participant/register.html:66
 msgid "register:content:leader"
 msgstr "Proefleider: "
 
-#: participant/templates/participant/register.html:69
+#: participant/templates/participant/register.html:73
 msgid "register:content:other_leaders"
 msgstr "Overige proefleiders: "
 
-#: participant/templates/participant/subscribe_mailinglist.html:14
+#: participant/templates/participant/subscribe_mailinglist.html:11
+msgid "subscribe_mailinglist:content:title"
+msgstr "Mailing lijst"
+
+#: participant/templates/participant/subscribe_mailinglist.html:18
 msgid "subscribe_mailinglist:content:header"
 msgstr "Emailadres opgeven voor taalexperimenten"
 
-#: participant/templates/participant/subscribe_mailinglist.html:19
+#: participant/templates/participant/subscribe_mailinglist.html:23
 msgid "subscribe_mailinglist:content:successfully_added"
-msgstr "Je emailadres is toegevoegd aan onze lijst. Dankjewel voor je belangstelling!"
+msgstr ""
+"Je emailadres is toegevoegd aan onze lijst. Dankjewel voor je belangstelling!"
 
-#: participant/templates/participant/subscribe_mailinglist.html:21
+#: participant/templates/participant/subscribe_mailinglist.html:25
 msgid "subscribe_mailinglist:content:already_known"
-msgstr "Je emailadres kwam al voor in onze gegevens. Dankjewel voor je belangstelling!"
+msgstr ""
+"Je emailadres kwam al voor in onze gegevens. Dankjewel voor je "
+"belangstelling!"
 
-#: participant/templates/participant/subscribe_mailinglist.html:26
+#: participant/templates/participant/subscribe_mailinglist.html:30
 msgid "subscribe_mailinglist:content:p1"
 msgstr ""
 "Hieronder kun je je emailadres opgeven als je op de hoogte gehouden wilt "
 "worden van nieuwe experimenten aan het UiL OTS."
 
-#: participant/templates/participant/subscribe_mailinglist.html:29
+#: participant/templates/participant/subscribe_mailinglist.html:33
 msgid "subscribe_mailinglist:content:p2"
 msgstr ""
 "Je gegevens worden vertrouwelijk behandeld, en je kunt je op elk moment weer "
 "uitschrijven van onze mailinglist door een mailtje te sturen aan "
 
-#: participant/templates/participant/subscribe_mailinglist.html:34
+#: participant/templates/participant/subscribe_mailinglist.html:38
 msgid "subscribe_mailinglist:content:p3"
 msgstr ""
 "Voor de meeste experimenten zoeken we proefpersonen tussen de 18 en de 35 "

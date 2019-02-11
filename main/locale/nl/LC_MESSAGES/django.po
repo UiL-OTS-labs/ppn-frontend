@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-01 11:01+0000\n"
+"POT-Creation-Date: 2019-02-11 09:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,17 +72,25 @@ msgstr "Mailing list"
 
 #: main/menus.py:27
 msgid "mainmenu:register"
-msgstr "<PLACEHOLDER TODO: FIND A NAME>"
+msgstr "Account aanmaken"
 
 #: main/menus.py:32
+msgid "mainmenu:cancel_appointment"
+msgstr "Afspraak afzeggen"
+
+#: main/menus.py:37
+msgid "mainmenu:my_appointments"
+msgstr "Mijn afspraken"
+
+#: main/menus.py:43
 msgid "mainmenu:change_password"
 msgstr "Verander wachtwoord"
 
-#: main/menus.py:37 main/templates/base/login_header.html:12
+#: main/menus.py:48 main/templates/base/login_header.html:12
 msgid "main:globals:login"
 msgstr "Log in"
 
-#: main/menus.py:42 main/templates/base/login_header.html:7
+#: main/menus.py:53 main/templates/base/login_header.html:7
 msgid "main:globals:logout"
 msgstr "Log uit"
 
@@ -108,41 +116,44 @@ msgstr "Experimenten UiL OTS"
 msgid "site:name"
 msgstr "Experimenten UiL OTS"
 
-#: main/templates/main/change_password.html:17
+#: main/templates/main/change_password.html:14
+#: main/templates/main/change_password.html:21
 msgid "change_password:content:header"
 msgstr "Verander wachtwoord"
 
-#: main/templates/main/change_password.html:21
+#: main/templates/main/change_password.html:25
 msgid "change_password:content:forced_change"
 msgstr ""
 "Uw huidige wachtwoord is ingesteld door een beheerder. Om veiligheidsredenen "
 "vragen we u dit wachtwoord te wijzigen naar iets anders."
 
-#: main/templates/main/change_password.html:32
+#: main/templates/main/change_password.html:36
 msgid "globals:save_button"
 msgstr "Opslaan"
 
-#: main/templates/main/enter_reset_token.html:8
+#: main/templates/main/enter_reset_token.html:5
+#: main/templates/main/enter_reset_token.html:12
 msgid "enter_reset_token:content:header"
 msgstr "Wachtwoord opnieuw instellen "
 
-#: main/templates/main/enter_reset_token.html:11
+#: main/templates/main/enter_reset_token.html:15
 msgid "enter_reset_token:content:help_text"
 msgstr "Voer uw reset-token in."
 
-#: main/templates/main/enter_reset_token.html:20
+#: main/templates/main/enter_reset_token.html:24
 msgid "enter_reset_token:content:continue"
 msgstr "Volgende"
 
-#: main/templates/main/forgot_password.html:8
+#: main/templates/main/forgot_password.html:5
+#: main/templates/main/forgot_password.html:12
 msgid "forgot_password:content:header"
 msgstr "Wachtwoord vergeten"
 
-#: main/templates/main/forgot_password.html:11
+#: main/templates/main/forgot_password.html:15
 msgid "forgot_password:content:help_text"
 msgstr "Volg deze instructies om uw wachtwoord opnieuw in te stellen."
 
-#: main/templates/main/forgot_password.html:20
+#: main/templates/main/forgot_password.html:24
 msgid "forgot_password:content:request_button"
 msgstr "Vraag wachtwoord reset aan"
 
@@ -200,19 +211,20 @@ msgstr ""
 " Als je geen berichten meer wil ontvangen over nieuwe experimenten, of als "
 "je je gegevens wil laten verwijderen, kun je een mailtje sturen naar "
 
-#: main/templates/main/reset_password.html:8
+#: main/templates/main/reset_password.html:5
+#: main/templates/main/reset_password.html:12
 msgid "reset_password:content:header"
 msgstr "Wachtwoord opnieuw instellen"
 
-#: main/templates/main/reset_password.html:12
+#: main/templates/main/reset_password.html:16
 msgid "reset_password:content:help_text"
 msgstr "Voer het nieuwe wachtwoord in dat u wilt gebruiken."
 
-#: main/templates/main/reset_password.html:22
+#: main/templates/main/reset_password.html:26
 msgid "reset_password:content:change_button"
 msgstr "Verander wachtwoord"
 
-#: main/templates/main/reset_password.html:27
+#: main/templates/main/reset_password.html:31
 msgid "reset_password:content:invalid_token"
 msgstr ""
 "Uw token voor het opnieuw instellen van uw wachtwoord is ongeldig of is "
@@ -238,14 +250,14 @@ msgstr "Wachtwoord vergeten?"
 msgid "login:button:login"
 msgstr "Log in"
 
-#: main/views.py:37
+#: main/views.py:38
 msgid "password:message:updated"
 msgstr "Wachtwoord veranderd!"
 
-#: main/views.py:58
+#: main/views.py:59
 msgid "password:message:reset_requested"
 msgstr "We hebben u een e-mail gestuurd met verdere instructies!"
 
-#: main/views.py:75
+#: main/views.py:76
 msgid "password:message:reset_successful"
 msgstr "Wachtwoord veranderd!"

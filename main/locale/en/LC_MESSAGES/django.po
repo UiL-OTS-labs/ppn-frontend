@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-01 11:01+0000\n"
+"POT-Creation-Date: 2019-02-11 09:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,14 +74,22 @@ msgid "mainmenu:register"
 msgstr "Register"
 
 #: main/menus.py:32
+msgid "mainmenu:cancel_appointment"
+msgstr "Cancel appointment"
+
+#: main/menus.py:37
+msgid "mainmenu:my_appointments"
+msgstr "My appointments"
+
+#: main/menus.py:43
 msgid "mainmenu:change_password"
 msgstr "Change password"
 
-#: main/menus.py:37 main/templates/base/login_header.html:12
+#: main/menus.py:48 main/templates/base/login_header.html:12
 msgid "main:globals:login"
 msgstr "Log in"
 
-#: main/menus.py:42 main/templates/base/login_header.html:7
+#: main/menus.py:53 main/templates/base/login_header.html:7
 msgid "main:globals:logout"
 msgstr "Log out"
 
@@ -107,41 +115,44 @@ msgstr "UiL OTS Experiments"
 msgid "site:name"
 msgstr "UiL OTS Experiments"
 
-#: main/templates/main/change_password.html:17
+#: main/templates/main/change_password.html:14
+#: main/templates/main/change_password.html:21
 msgid "change_password:content:header"
 msgstr "Change password"
 
-#: main/templates/main/change_password.html:21
+#: main/templates/main/change_password.html:25
 msgid "change_password:content:forced_change"
 msgstr ""
 "Your current password has been set by an administrator. For security "
 "reasons, we ask you to change this password to something else. "
 
-#: main/templates/main/change_password.html:32
+#: main/templates/main/change_password.html:36
 msgid "globals:save_button"
 msgstr "Save "
 
-#: main/templates/main/enter_reset_token.html:8
+#: main/templates/main/enter_reset_token.html:5
+#: main/templates/main/enter_reset_token.html:12
 msgid "enter_reset_token:content:header"
 msgstr "Reset password"
 
-#: main/templates/main/enter_reset_token.html:11
+#: main/templates/main/enter_reset_token.html:15
 msgid "enter_reset_token:content:help_text"
 msgstr "Please enter your reset token."
 
-#: main/templates/main/enter_reset_token.html:20
+#: main/templates/main/enter_reset_token.html:24
 msgid "enter_reset_token:content:continue"
 msgstr "Continue"
 
-#: main/templates/main/forgot_password.html:8
+#: main/templates/main/forgot_password.html:5
+#: main/templates/main/forgot_password.html:12
 msgid "forgot_password:content:header"
 msgstr "Forgotten password"
 
-#: main/templates/main/forgot_password.html:11
+#: main/templates/main/forgot_password.html:15
 msgid "forgot_password:content:help_text"
 msgstr "Follow these instructions to reset your password."
 
-#: main/templates/main/forgot_password.html:20
+#: main/templates/main/forgot_password.html:24
 msgid "forgot_password:content:request_button"
 msgstr "Request password reset"
 
@@ -198,19 +209,20 @@ msgstr ""
 "If you no longer wish to receive messages about new experiments, or if you "
 "wish to have your data deleted, you can send an e-mail to "
 
-#: main/templates/main/reset_password.html:8
+#: main/templates/main/reset_password.html:5
+#: main/templates/main/reset_password.html:12
 msgid "reset_password:content:header"
 msgstr "Reset password"
 
-#: main/templates/main/reset_password.html:12
+#: main/templates/main/reset_password.html:16
 msgid "reset_password:content:help_text"
 msgstr "Please enter the new password you want to use."
 
-#: main/templates/main/reset_password.html:22
+#: main/templates/main/reset_password.html:26
 msgid "reset_password:content:change_button"
 msgstr "Change password"
 
-#: main/templates/main/reset_password.html:27
+#: main/templates/main/reset_password.html:31
 msgid "reset_password:content:invalid_token"
 msgstr "Your password reset token is invalid or has expired!"
 
@@ -234,15 +246,15 @@ msgstr "Forgot password?"
 msgid "login:button:login"
 msgstr "Log in"
 
-#: main/views.py:37
+#: main/views.py:38
 msgid "password:message:updated"
 msgstr "Password changed!"
 
-#: main/views.py:58
+#: main/views.py:59
 msgid "password:message:reset_requested"
 msgstr ""
 "We've sent you an email with instructions on how to reset your password!"
 
-#: main/views.py:75
+#: main/views.py:76
 msgid "password:message:reset_successful"
 msgstr "Password successfully reset!"

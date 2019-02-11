@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-18 09:09+0000\n"
+"POT-Creation-Date: 2019-02-11 09:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,35 +18,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: leader/templates/leader/experiments.html:9
+#: leader/templates/leader/experiments.html:5
+#: leader/templates/leader/experiments.html:12
 msgid "experiments:content:header"
 msgstr "My experiments"
 
-#: leader/templates/leader/experiments.html:16
+#: leader/templates/leader/experiments.html:19
 msgid "experiments:table:name"
 msgstr "Name"
 
-#: leader/templates/leader/experiments.html:19
+#: leader/templates/leader/experiments.html:22
 msgid "experiments:table:timeslots"
 msgstr "# Timeslots"
 
-#: leader/templates/leader/experiments.html:22
+#: leader/templates/leader/experiments.html:25
 msgid "experiments:table:participants"
 msgstr "# Participants"
 
-#: leader/templates/leader/experiments.html:25
+#: leader/templates/leader/experiments.html:28
 msgid "experiments:table:status"
 msgstr "Status"
 
-#: leader/templates/leader/experiments.html:28
+#: leader/templates/leader/experiments.html:31
 msgid "global:actions"
 msgstr "Actions"
 
-#: leader/templates/leader/profile.html:17
+#: leader/templates/leader/profile.html:14
+#: leader/templates/leader/profile.html:21
 msgid "profile:content:header"
 msgstr "Change leader profile"
 
-#: leader/templates/leader/profile.html:27
+#: leader/templates/leader/profile.html:31
 msgid "globals:save_button"
 msgstr "Save"
 

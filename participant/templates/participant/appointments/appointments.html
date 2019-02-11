@@ -1,0 +1,81 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load static %}
+
+{% block html_head %}
+        <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
+{% endblock%}
+
+{% block header_title %}
+    {% trans 'appointments:content:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<div class="uu-inner-container">
+    <div class="col-12">
+        <h3>
+            {% trans 'appointments:content:header' %}
+        </h3>
+        <p>
+            {% trans 'appointments:content:p1' %}
+        </p>
+        <table class="dt" width="100%">
+            <thead>
+                <tr>
+                    <th>
+                        {% trans 'appointments:thead:experiment' %}
+                    </th>
+                    <th>
+                        {% trans 'appointments:thead:day' %}
+                    </th>
+                    <th>
+                        {% trans 'appointments:thead:date' %}
+                    </th>
+                    <th>
+                        {% trans 'appointments:thead:time' %}
+                    </th>
+                    <th>
+                        {% trans 'appointments:thead:leader' %}
+                    </th>
+                    <th>
+                        {% trans 'appointments:thead:leader_email' %}
+                    </th>
+                    <th>
+                        {% trans 'appointments:thead:actions' %}
+                    </th>
+                </tr>
+            </thead>
+            {% for appointment in appointments %}
+                <tr>
+                    <td>
+                        {{ appointment.experiment.name }}
+                    </td>
+                    <td>
+                        {{ appointment.timeslot.datetime|date:"l"|capfirst }}
+                    </td>
+                    <td>
+                        {{ appointment.timeslot.datetime|date:'d-m-Y' }}
+                    </td>
+                    <td>
+                        {{ appointment.timeslot.datetime|date:'H:i' }}
+                    </td>
+                    <td>
+                        {{ appointment.experiment.leader.name }}
+                    </td>
+                    <td>
+                        {{ appointment.experiment.leader.email }}
+                    </td>
+                    <td>
+                        {% if appointment.can_cancel %}
+                            Yay
+                        {% else %}
+                            {% trans 'appointments:content:cannot_cancel' %}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

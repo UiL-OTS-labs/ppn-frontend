@@ -1,6 +1,6 @@
-from menu import Menu, MenuItem
-from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
+from menu import Menu, MenuItem
 
 Menu.add_item("home", MenuItem(_('mainmenu:home'),
                                reverse('main:home'),
@@ -27,6 +27,17 @@ Menu.add_item("main", MenuItem(_('mainmenu:mailinglist'),
 Menu.add_item("main", MenuItem(_('mainmenu:register'),
                                '#',
                                check=lambda x: not x.user.is_authenticated
+                               ))
+
+Menu.add_item("main", MenuItem(_('mainmenu:cancel_appointment'),
+                               reverse('participant:cancel_landing'),
+                               check=lambda x: not x.user.is_authenticated
+                               ))
+
+Menu.add_item("main", MenuItem(_('mainmenu:my_appointments'),
+                               reverse('participant:appointments'),
+                               check=lambda x: x.user.is_authenticated and
+                                               x.user.is_participant
                                ))
 
 Menu.add_item("main", MenuItem(_('mainmenu:change_password'),

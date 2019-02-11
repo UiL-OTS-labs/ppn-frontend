@@ -4,9 +4,9 @@ from django.urls import reverse
 from django.utils.functional import cached_property
 from django.views import generic
 
-from api.resources import Experiment, Admin, MailinglistSubscribe
+from api.resources import Experiment, Appointments
 from main.mixins import OverrideLanguageMixin
-from participant.forms import BaseRegisterForm, SubscribeToMailinglistForm
+from participant.forms import BaseRegisterForm
 from participant.utils import get_register_form, submit_register_form
 
 
@@ -49,37 +49,25 @@ class RegisterView(OverrideLanguageMixin, generic.FormView):
         return context
 
 
-class SubscribeToMailinglistView(OverrideLanguageMixin, generic.FormView):
-    template_name = 'participant/subscribe_mailinglist.html'
-    language_override = 'nl'
-    form_class = SubscribeToMailinglistForm
-
-    def get_context_data(self, **kwargs):
-        context = super(SubscribeToMailinglistView, self).get_context_data(
-            **kwargs
-        )
-
-        context['admin'] = Admin.client.get()
-        context['success'] = getattr(self, 'success', None)
-
-        return context
-
-    def form_valid(self, form):
-        data = form.cleaned_data
-
-        o = MailinglistSubscribe()
-        o.email = data.get('email')
-        o.language = data.get('language')
-        o.multilingual = data.get('multilingual')
-        o.dyslexic = data.get('dyslexic') == 'D'
-
-        response = o.put()
-
-        self.success = response.success
-
-        return self.get(self.request)
-
-
 class ClosedExperimentView(OverrideLanguageMixin, generic.TemplateView):
     template_name = 'participant/closed_experiment.html'
     language_override = 'nl'
+
+
+class MyAppointmentsView(OverrideLanguageMixin, generic.TemplateView):
+    template_name = 'participant/appointments/appointments.html'
+    language_override = 'nl'
+
+    def get(self, request, *args, **kwargs):
+        user = request.user
+        if user.is_authenticated and not user.is_participant:
+            return HttpResponseRedirect(reverse('main:login'))
+
+        return super(MyAppointmentsView, self).get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(MyAppointmentsView, self).get_context_data(**kwargs)
+
+        context['appointments'] = Appointments.client.get()
+
+        return context

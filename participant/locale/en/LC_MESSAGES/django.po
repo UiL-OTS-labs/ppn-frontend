@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-01 11:01+0000\n"
+"POT-Creation-Date: 2019-02-11 09:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,58 +18,199 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: participant/templates/participant/closed_experiment.html:14
+#: participant/templates/participant/appointments/appointments.html:11
+#: participant/templates/participant/appointments/appointments.html:18
+#, fuzzy
+#| msgid "register:content:header"
+msgid "appointments:content:header"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/appointments/appointments.html:21
+msgid "appointments:content:p1"
+msgstr ""
+
+#: participant/templates/participant/appointments/appointments.html:27
+#, fuzzy
+#| msgid "register:content:header"
+msgid "appointments:thead:experiment"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/appointments/appointments.html:30
+#, fuzzy
+#| msgid "register:content:header"
+msgid "appointments:thead:day"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/appointments/appointments.html:33
+#, fuzzy
+#| msgid "register:content:header"
+msgid "appointments:thead:date"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/appointments/appointments.html:36
+#, fuzzy
+#| msgid "register:content:header"
+msgid "appointments:thead:time"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/appointments/appointments.html:39
+#, fuzzy
+#| msgid "register:content:header"
+msgid "appointments:thead:leader"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/appointments/appointments.html:42
+#, fuzzy
+#| msgid "register:content:header"
+msgid "appointments:thead:leader_email"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/appointments/appointments.html:45
+#, fuzzy
+#| msgid "register:content:header"
+msgid "appointments:thead:actions"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/appointments/appointments.html:73
+msgid "appointments:content:cannot_cancel"
+msgstr ""
+
+#: participant/templates/participant/appointments/cancel_landing.html:16
+#: participant/templates/participant/appointments/cancel_landing.html:23
+#, fuzzy
+#| msgid "register:content:header"
+msgid "cancel_landing:content:header"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/appointments/cancel_landing.html:26
+msgid "cancel_landing:content:p1"
+msgstr ""
+
+#: participant/templates/participant/appointments/cancel_landing.html:29
+#, fuzzy
+#| msgid "register:content:header"
+msgid "cancel_landing:content:p2"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/appointments/cancel_landing.html:35
+#, fuzzy
+#| msgid "register:content:header"
+msgid "cancel_landing:content:account:header"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/appointments/cancel_landing.html:41
+#: participant/templates/participant/appointments/cancel_landing.html:42
+#: participant/templates/participant/appointments/cancel_landing.html:62
+#: participant/templates/participant/appointments/cancel_landing.html:64
+#, fuzzy
+#| msgid "register:content:header"
+msgid "cancel_landing:form:email"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/appointments/cancel_landing.html:45
+#: participant/templates/participant/appointments/cancel_landing.html:46
+#, fuzzy
+#| msgid "register:content:header"
+msgid "cancel_landing:form:password"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/appointments/cancel_landing.html:49
+msgid "login:content:forgot_password"
+msgstr ""
+
+#: participant/templates/participant/appointments/cancel_landing.html:52
+msgid "login:button:login"
+msgstr ""
+
+#: participant/templates/participant/appointments/cancel_landing.html:58
+#, fuzzy
+#| msgid "register:content:header"
+msgid "cancel_landing:content:email:header"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/appointments/cancel_landing.html:67
+#, fuzzy
+#| msgid "register:content:header"
+msgid "cancel_landing:content:email:send_button"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/closed_experiment.html:11
+#: participant/templates/participant/closed_experiment.html:18
 #, fuzzy
 #| msgid "register:content:header"
 msgid "closed:content:header"
 msgstr "Participation form experiment"
 
-#: participant/templates/participant/closed_experiment.html:17
+#: participant/templates/participant/closed_experiment.html:21
 msgid "closed:content:p1"
 msgstr ""
 
-#: participant/templates/participant/register.html:28
+#: participant/templates/participant/register.html:25
+#: participant/templates/participant/register.html:32
 msgid "register:content:header"
 msgstr "Participation form experiment"
 
-#: participant/templates/participant/register.html:31
+#: participant/templates/participant/register.html:35
 msgid "register:content:duration"
 msgstr "This experiment will take {}."
 
-#: participant/templates/participant/register.html:32
+#: participant/templates/participant/register.html:36
 msgid "register:content:location"
 msgstr "It will be held at "
 
-#: participant/templates/participant/register.html:42
+#: participant/templates/participant/register.html:46
 msgid "register:content:details"
 msgstr "Details:"
 
-#: participant/templates/participant/register.html:45
+#: participant/templates/participant/register.html:49
 msgid "register:content:compensation"
 msgstr "You will receive {} for participating."
 
-#: participant/templates/participant/register.html:62
+#: participant/templates/participant/register.html:66
 msgid "register:content:leader"
 msgstr "Experiment leader:"
 
-#: participant/templates/participant/register.html:69
+#: participant/templates/participant/register.html:73
 msgid "register:content:other_leaders"
 msgstr "Other experiment leaders:"
 
-#: participant/templates/participant/subscribe_mailinglist.html:14
+#: participant/templates/participant/subscribe_mailinglist.html:11
+#, fuzzy
+#| msgid "register:content:header"
+msgid "subscribe_mailinglist:content:title"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/subscribe_mailinglist.html:18
 #, fuzzy
 #| msgid "register:content:header"
 msgid "subscribe_mailinglist:content:header"
 msgstr "Participation form experiment"
 
-#: participant/templates/participant/subscribe_mailinglist.html:17
+#: participant/templates/participant/subscribe_mailinglist.html:23
+#, fuzzy
+#| msgid "register:content:header"
+msgid "subscribe_mailinglist:content:successfully_added"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/subscribe_mailinglist.html:25
+#, fuzzy
+#| msgid "register:content:header"
+msgid "subscribe_mailinglist:content:already_known"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/subscribe_mailinglist.html:30
 msgid "subscribe_mailinglist:content:p1"
 msgstr ""
 
-#: participant/templates/participant/subscribe_mailinglist.html:20
+#: participant/templates/participant/subscribe_mailinglist.html:33
 msgid "subscribe_mailinglist:content:p2"
 msgstr ""
 
-#: participant/templates/participant/subscribe_mailinglist.html:23
+#: participant/templates/participant/subscribe_mailinglist.html:38
 msgid "subscribe_mailinglist:content:p3"
 msgstr ""
+
+#, fuzzy
+#~| msgid "register:content:header"
+#~ msgid "cancel_landing:content:account:login_button"
+#~ msgstr "Participation form experiment"
