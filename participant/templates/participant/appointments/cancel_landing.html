@@ -57,11 +57,12 @@
     <div class="col-lg-6 col-12">
         <h4>{% trans 'cancel_landing:content:email:header' %}</h4>
         <form method="post">
+            {% csrf_token %}
             <p>
                 <label for="id_email">
                     {% trans 'cancel_landing:form:email' %}:
                 </label>
-                <input id="id_email" placeholder="{% trans 'cancel_landing:form:email' %}" type="email">
+                <input id="id_email" name="email" placeholder="{% trans 'cancel_landing:form:email' %}" type="email">
             </p>
             <button type="submit" class="float-right">
                 {% trans 'cancel_landing:content:email:send_button' %}

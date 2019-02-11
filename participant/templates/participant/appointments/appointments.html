@@ -82,7 +82,15 @@
                     </td>
                     <td>
                         {% if appointment.can_cancel %}
-                            Yay
+                            {% if token %}
+                                <a href="{% url 'participant:cancel_appointment' token appointment.id %}">
+                                    {% trans 'appointments:content:cancel' %}
+                                </a>
+                            {% else %}
+                                <a href="{% url 'participant:cancel_appointment' appointment.id %}">
+                                    {% trans 'appointments:content:cancel' %}
+                                </a>
+                            {% endif %}
                         {% else %}
                             {% trans 'appointments:content:cannot_cancel' %}
                         {% endif %}

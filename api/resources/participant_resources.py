@@ -20,10 +20,21 @@ class MailinglistSubscribe(rest.Resource):
     dyslexic = rest.BoolField()
 
 
+class SendCancelToken(rest.Resource):
+    class Meta:
+        path = '/api/participant/send_cancel_token/'
+        supported_operations = [rest.Operations.put]
+        default_return_resource = SuccessResponse
+
+    email = rest.TextField()
+
+
 class Appointment(rest.Resource):
     class Meta:
-        path = '/api/participant/appointments/'
-        supported_operations = []
+        path = '/api/participant/appointments/{pk}/'
+        path_variables = ['pk']
+
+        supported_operations = [rest.Operations.get, rest.Operations.delete]
 
     id = rest.IntegerField()
 

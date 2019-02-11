@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-11 09:53+0000\n"
+"POT-Creation-Date: 2019-02-11 14:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,44 +18,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: participant/templates/participant/appointments/appointments.html:11
-#: participant/templates/participant/appointments/appointments.html:18
+#: participant/templates/participant/appointments/appointments.html:25
+#: participant/templates/participant/appointments/appointments.html:32
 msgid "appointments:content:header"
 msgstr "Mijn afspraken"
 
-#: participant/templates/participant/appointments/appointments.html:21
+#: participant/templates/participant/appointments/appointments.html:35
 msgid "appointments:content:p1"
 msgstr " "
 
-#: participant/templates/participant/appointments/appointments.html:27
+#: participant/templates/participant/appointments/appointments.html:41
 msgid "appointments:thead:experiment"
 msgstr "Experiment"
 
-#: participant/templates/participant/appointments/appointments.html:30
+#: participant/templates/participant/appointments/appointments.html:44
 msgid "appointments:thead:day"
 msgstr "Dag"
 
-#: participant/templates/participant/appointments/appointments.html:33
+#: participant/templates/participant/appointments/appointments.html:47
 msgid "appointments:thead:date"
 msgstr "Datum"
 
-#: participant/templates/participant/appointments/appointments.html:36
+#: participant/templates/participant/appointments/appointments.html:50
 msgid "appointments:thead:time"
 msgstr "Tijd"
 
-#: participant/templates/participant/appointments/appointments.html:39
+#: participant/templates/participant/appointments/appointments.html:53
 msgid "appointments:thead:leader"
 msgstr "Proefleider"
 
-#: participant/templates/participant/appointments/appointments.html:42
+#: participant/templates/participant/appointments/appointments.html:56
 msgid "appointments:thead:leader_email"
 msgstr "Proefleider e-mail"
 
-#: participant/templates/participant/appointments/appointments.html:45
+#: participant/templates/participant/appointments/appointments.html:59
 msgid "appointments:thead:actions"
 msgstr "Acties"
 
-#: participant/templates/participant/appointments/appointments.html:73
+#: participant/templates/participant/appointments/appointments.html:87
+#: participant/templates/participant/appointments/appointments.html:91
+msgid "appointments:content:cancel"
+msgstr "Afzeggen"
+
+#: participant/templates/participant/appointments/appointments.html:95
 msgid "appointments:content:cannot_cancel"
 msgstr "Uitschrijven is niet meer mogelijk."
 
@@ -83,8 +88,8 @@ msgstr "Via account"
 
 #: participant/templates/participant/appointments/cancel_landing.html:41
 #: participant/templates/participant/appointments/cancel_landing.html:42
-#: participant/templates/participant/appointments/cancel_landing.html:62
-#: participant/templates/participant/appointments/cancel_landing.html:64
+#: participant/templates/participant/appointments/cancel_landing.html:63
+#: participant/templates/participant/appointments/cancel_landing.html:65
 msgid "cancel_landing:form:email"
 msgstr "Email"
 
@@ -105,20 +110,21 @@ msgstr "Log in"
 msgid "cancel_landing:content:email:header"
 msgstr "Via e-mail"
 
-#: participant/templates/participant/appointments/cancel_landing.html:67
+#: participant/templates/participant/appointments/cancel_landing.html:68
 msgid "cancel_landing:content:email:send_button"
 msgstr "Verstuur"
 
 #: participant/templates/participant/closed_experiment.html:11
 #: participant/templates/participant/closed_experiment.html:18
-#, fuzzy
-#| msgid "register:content:header"
 msgid "closed:content:header"
-msgstr "Opgaveformulier experiment"
+msgstr "Experiment gesloten"
 
 #: participant/templates/participant/closed_experiment.html:21
 msgid "closed:content:p1"
 msgstr ""
+"Dit experiment is gesloten voor inschrijvingen; er zijn op dit moment geen "
+"tijdstippen meer waar je je voor op kunt geven. Dankjewel voor je "
+"belangstelling!"
 
 #: participant/templates/participant/register.html:25
 #: participant/templates/participant/register.html:32
@@ -188,3 +194,13 @@ msgstr ""
 "moedertaalsprekers van het Nederlands, maar we zijn ook erg blij met "
 "proefpersonen die dyslectisch zijn, of Nederlands als tweede taal spreken. "
 "Je krijgt dan alleen bericht over voor jou relevante experimenten. "
+
+#: participant/views/appointments_views.py:32
+msgid "cancel_landing:message:send_token"
+msgstr ""
+"Indien het email adres bestaat in onze database hebben wij een mail gestuurd "
+"met verdere instructies!"
+
+#: participant/views/appointments_views.py:81
+msgid "cancel:message:cancelled"
+msgstr "Afspraak afgezegd. Er is een bevestiging per mail verstuurd."

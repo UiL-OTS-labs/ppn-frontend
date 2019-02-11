@@ -1,7 +1,8 @@
 from django.urls import include, path
 
-from participant.views import CancelLandingView, ClosedExperimentView, \
-    MyAppointmentsView, RegisterView, SubscribeToMailinglistView
+from participant.views import CancelAppointmentView, CancelLandingView, \
+    ClosedExperimentView, MyAppointmentsView, RegisterView, \
+    SubscribeToMailinglistView
 
 app_name = 'participant'
 
@@ -13,4 +14,11 @@ urlpatterns = [
         path('', CancelLandingView.as_view(), name='cancel_landing'),
     ])),
     path('appointments/', MyAppointmentsView.as_view(), name='appointments'),
+    path('appointments/<str:token>/', MyAppointmentsView.as_view(),
+         name='appointments'),
+
+    path('appointments/<int:appointment>/cancel/', CancelAppointmentView.as_view(),
+         name='cancel_appointment'),
+    path('appointments/<str:token>/<int:appointment>/cancel/',
+         CancelAppointmentView.as_view(), name='cancel_appointment'),
 ]

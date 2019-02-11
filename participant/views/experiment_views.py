@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.utils.functional import cached_property
 from django.views import generic
 
-from api.resources import Experiment, Appointments
+from api.resources import Experiment
 from main.mixins import OverrideLanguageMixin
 from participant.forms import BaseRegisterForm
 from participant.utils import get_register_form, submit_register_form
