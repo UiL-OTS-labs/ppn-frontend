@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from api.resources import Experiment
 from participant.forms import BaseRegisterForm
 
@@ -24,7 +26,8 @@ def get_register_form(form: BaseRegisterForm, experiment: Experiment):
         form.fields[exp_crit.criterium.name_form] = field
 
     timeslot_options = ((timeslot.id, str(timeslot)) for timeslot in
-                        experiment.timeslots)
+                        experiment.timeslots if timeslot.datetime >
+                        _2_hours_ago(timeslot.datetime))
 
     form.fields['timeslot'] = forms.IntegerField(
             label='',
@@ -47,6 +50,13 @@ def get_register_form(form: BaseRegisterForm, experiment: Experiment):
         )
 
     return form
+
+
+def _2_hours_ago(original_dt: datetime):
+    dt = datetime.now(tz=original_dt.tzinfo)
+    hours = dt.hour - 2
+
+    return dt.replace(hour=hours)
 
 
 def submit_register_form(form: BaseRegisterForm):
