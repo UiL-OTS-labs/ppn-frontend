@@ -22,7 +22,7 @@ class DefaultCriteria(rest.Resource):
     max_age = rest.IntegerField()
 
 
-class Criterium(rest.Resource):
+class Criterion(rest.Resource):
 
     id = rest.IntegerField()
 
@@ -37,11 +37,11 @@ class Criterium(rest.Resource):
         return self.values.split(',')
 
 
-class ExperimentCriterium(rest.Resource):
+class ExperimentCriterion(rest.Resource):
 
     id = rest.IntegerField()
 
-    criterium = rest.ResourceField(Criterium)
+    criterion = rest.ResourceField(Criterion)
 
     correct_value = rest.TextField()
 
@@ -50,4 +50,4 @@ class ExperimentCriterium(rest.Resource):
 
 class ExperimentCriteria(rest.Collection):
     class Meta:
-        resource = ExperimentCriterium
+        resource = ExperimentCriterion

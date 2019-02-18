@@ -41,7 +41,7 @@ class RegisterView(OverrideLanguageMixin, generic.FormView):
             pk = self.kwargs.get('experiment')
             return Experiment.client.get(pk=pk)
         except Exception as e:
-            print(e)
+            print(e)  # TODO: remove this when this view is stable
             raise ObjectDoesNotExist
 
     def get_context_data(self, **kwargs):

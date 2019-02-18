@@ -13,17 +13,17 @@ def get_register_form(form: BaseRegisterForm, experiment: Experiment):
     extra fields, as directed by experiment criteria.
     """
     for exp_crit in experiment.specific_criteria:
-        answers = exp_crit.criterium.value_list
+        answers = exp_crit.criterion.value_list
         options = ((i, x) for i, x in enumerate(answers))
 
         field = forms.CharField(
-            label=exp_crit.criterium.name_natural,
+            label=exp_crit.criterion.name_natural,
             widget=forms.RadioSelect(
                 choices=options,
             )
         )
 
-        form.fields[exp_crit.criterium.name_form] = field
+        form.fields[exp_crit.criterion.name_form] = field
 
     timeslot_options = ((timeslot.id, str(timeslot)) for timeslot in
                         experiment.timeslots if timeslot.datetime >
@@ -60,4 +60,5 @@ def _2_hours_ago(original_dt: datetime):
 
 
 def submit_register_form(form: BaseRegisterForm):
+    print(form.cleaned_data)
     pass
