@@ -16,7 +16,10 @@ class RegisterView(OverrideLanguageMixin, generic.FormView):
     form_class = BaseRegisterForm
 
     def dispatch(self, request, *args, **kwargs):
-        if not self.experiment.open:
+        try:
+            if not self.experiment.open:
+                raise ObjectDoesNotExist
+        except ObjectDoesNotExist:
             return HttpResponseRedirect(
                 reverse('participant:closed_experiment')
             )
