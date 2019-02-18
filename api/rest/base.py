@@ -72,6 +72,13 @@ class ResourceMetaclass(type):
         """This either runs a class' contribute_to_class method, or adds the
         object to the class as a class attribute.
         """
+        from api.rest import BaseField
+
+        # This enables just specifying the field class, without making an
+        # instance
+        if inspect.isclass(value) and issubclass(value, BaseField):
+            value = value()
+
         # We should call the contribute_to_class method only if it's bound
         if not inspect.isclass(value) and hasattr(value, 'contribute_to_class'):
             value.contribute_to_class(cls, name)
