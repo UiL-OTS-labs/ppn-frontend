@@ -14,11 +14,18 @@ class ChangePassword(rest.Resource):
     new_password = rest.TextField()
 
 
+class ForgotPasswordResponse(rest.Resource):
+
+    success = rest.BoolField()
+
+    ldap_blocked = rest.BoolField()
+
+
 class ForgotPassword(rest.Resource):
     class Meta:
         path = '/api/account/forgot_password/'
         supported_operations = [rest.Operations.put]
-        default_return_resource = SuccessResponse
+        default_return_resource = ForgotPasswordResponse
 
     email = rest.TextField()
 

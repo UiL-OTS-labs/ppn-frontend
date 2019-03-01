@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-11 09:53+0000\n"
+"POT-Creation-Date: 2019-03-01 09:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,32 +24,32 @@ msgstr "Enter your reset token"
 msgid "forms:forgot_password:email_placeholder"
 msgstr "Enter your email"
 
-#: main/forms.py:38
+#: main/forms.py:44
 msgid "form:forgot_password:email_incorrect"
 msgstr ""
 "The email address you've entered is invalid or not attached to an account."
 
-#: main/forms.py:48 main/forms.py:101
+#: main/forms.py:56 main/forms.py:109
 msgid "forms:change_password:password_mismatch"
 msgstr "The two password fields didn't match."
 
-#: main/forms.py:49
+#: main/forms.py:57
 msgid "forms:change_password:token_incorrect"
 msgstr "Your token has expired!"
 
-#: main/forms.py:57 main/forms.py:106
+#: main/forms.py:65 main/forms.py:114
 msgid "forms:change_password:new1"
 msgstr "New password"
 
-#: main/forms.py:63 main/forms.py:112
+#: main/forms.py:71 main/forms.py:120
 msgid "forms:change_password:new2"
 msgstr "Confirm new password"
 
-#: main/forms.py:102
+#: main/forms.py:110
 msgid "forms:change_password:password_incorrect"
 msgstr "Your old password was entered incorrectly. Please enter it again."
 
-#: main/forms.py:118
+#: main/forms.py:126
 msgid "forms:change_password:old"
 msgstr "Current password"
 
@@ -209,6 +209,22 @@ msgstr ""
 "If you no longer wish to receive messages about new experiments, or if you "
 "wish to have your data deleted, you can send an e-mail to "
 
+#: main/templates/main/ldap_password.html:6
+#: main/templates/main/ldap_password.html:13
+msgid "ldap_password:header"
+msgstr "Solis account"
+
+#: main/templates/main/ldap_password.html:16
+msgid "ldap_password:content"
+msgstr ""
+"Your account is linked to your Solis account, which means you cannot change/"
+"reset your password through this application. Please use the university's "
+"'MySolisID' portal to change/reset your password."
+
+#: main/templates/main/ldap_password.html:20
+msgid "ldap_password:link"
+msgstr "Click here to go to the 'MySolisID' portal."
+
 #: main/templates/main/reset_password.html:5
 #: main/templates/main/reset_password.html:12
 msgid "reset_password:content:header"
@@ -250,11 +266,11 @@ msgstr "Log in"
 msgid "password:message:updated"
 msgstr "Password changed!"
 
-#: main/views.py:59
+#: main/views.py:73
 msgid "password:message:reset_requested"
 msgstr ""
 "We've sent you an email with instructions on how to reset your password!"
 
-#: main/views.py:76
+#: main/views.py:96
 msgid "password:message:reset_successful"
 msgstr "Password successfully reset!"

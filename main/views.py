@@ -10,8 +10,8 @@ from django.views import generic
 
 from api.resources import Admin, OpenExperiments, ValidateToken
 from main.mixins import OverrideLanguageMixin
-from .forms import ChangePasswordForm, ForgotPasswordForm, ResetPasswordForm, \
-    EnterTokenForm
+from .forms import ChangePasswordForm, EnterTokenForm, ForgotPasswordForm, \
+    ResetPasswordForm
 
 
 class HomeView(OverrideLanguageMixin, generic.TemplateView):
@@ -38,6 +38,16 @@ class ChangePasswordView(braces.LoginRequiredMixin, SuccessMessageMixin,
     success_message = _('password:message:updated')
     success_url = reverse('main:change_password')
 
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_ldap_account:
+            return HttpResponseRedirect(reverse('main:ldap_password'))
+
+        return super(ChangePasswordView, self).dispatch(
+            request,
+            *args,
+            **kwargs
+        )
+
     def form_valid(self, form):
         self.request.session['force_password_change'] = False
 
@@ -52,12 +62,22 @@ class ChangePasswordView(braces.LoginRequiredMixin, SuccessMessageMixin,
         return context
 
 
+class LDAPPasswordView(generic.TemplateView):
+    template_name = 'main/ldap_password.html'
+
+
 class ForgotPasswordView(braces.AnonymousRequiredMixin, SuccessMessageMixin,
                          generic.FormView):
     template_name = 'main/forgot_password.html'
     form_class = ForgotPasswordForm
     success_message = _('password:message:reset_requested')
     success_url = reverse('main:forgot_password')
+
+    def form_valid(self, form):
+        if form.ldap:
+            return HttpResponseRedirect(reverse('main:ldap_password'))
+
+        return super(ForgotPasswordView, self).form_valid(form)
 
 
 class EnterTokenView(braces.AnonymousRequiredMixin, generic.FormView):
@@ -70,7 +90,7 @@ class EnterTokenView(braces.AnonymousRequiredMixin, generic.FormView):
 
 
 class ResetPasswordView(braces.AnonymousRequiredMixin, SuccessMessageMixin,
-                         generic.FormView):
+                        generic.FormView):
     template_name = 'main/reset_password.html'
     form_class = ResetPasswordForm
     success_message = _('password:message:reset_successful')

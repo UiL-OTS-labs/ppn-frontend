@@ -7,6 +7,25 @@ class RemoteApiUserManager(BaseUserManager):
 
     # TODO: create API calls to handle this
 
+    def get_by_email(self, email:str, stop_recursion: bool=False):
+        email = email.strip()
+
+        try:
+            user = self.get(email=email)
+        except RemoteApiUser.DoesNotExist:
+            # Fix the annoying problem that the university allows student
+            # assistants to have 2 emails
+            if not stop_recursion and email.endswith('@students.uu.nl'):
+                email = email.replace('students.uu.nl', 'uu.nl')
+                user = self.get_by_email(email, True)
+            elif not stop_recursion and email.endswith('@uu.nl'):
+                email = email.replace('uu.nl', 'students.uu.nl')
+                user = self.get_by_email(email, True)
+            else:
+                user = None
+
+        return user
+
     def create_user(self, *args, **kwargs):
         raise RuntimeError("User generation is not supported in this application. Create users in the backend!")
 

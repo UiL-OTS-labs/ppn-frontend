@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-11 09:53+0000\n"
+"POT-Creation-Date: 2019-03-01 09:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,33 +24,33 @@ msgstr "Vul uw token in"
 msgid "forms:forgot_password:email_placeholder"
 msgstr "Vul uw e-mailadres in"
 
-#: main/forms.py:38
+#: main/forms.py:44
 msgid "form:forgot_password:email_incorrect"
 msgstr ""
 "Het e-mailadres dat je hebt ingevoerd is ongeldig of niet gekoppeld aan een "
 "account"
 
-#: main/forms.py:48 main/forms.py:101
+#: main/forms.py:56 main/forms.py:109
 msgid "forms:change_password:password_mismatch"
 msgstr "De twee wachtwoordvelden komen niet overeen."
 
-#: main/forms.py:49
+#: main/forms.py:57
 msgid "forms:change_password:token_incorrect"
 msgstr "Uw token is verlopen!"
 
-#: main/forms.py:57 main/forms.py:106
+#: main/forms.py:65 main/forms.py:114
 msgid "forms:change_password:new1"
 msgstr "Nieuw wachtwoord"
 
-#: main/forms.py:63 main/forms.py:112
+#: main/forms.py:71 main/forms.py:120
 msgid "forms:change_password:new2"
 msgstr "Bevestig nieuw wachtwoord"
 
-#: main/forms.py:102
+#: main/forms.py:110
 msgid "forms:change_password:password_incorrect"
 msgstr "Uw oude wachtwoord is verkeerd ingevoerd. Voer het opnieuw in."
 
-#: main/forms.py:118
+#: main/forms.py:126
 msgid "forms:change_password:old"
 msgstr "Huidig wachtwoord"
 
@@ -211,6 +211,22 @@ msgstr ""
 " Als je geen berichten meer wil ontvangen over nieuwe experimenten, of als "
 "je je gegevens wil laten verwijderen, kun je een mailtje sturen naar "
 
+#: main/templates/main/ldap_password.html:6
+#: main/templates/main/ldap_password.html:13
+msgid "ldap_password:header"
+msgstr "Solis account"
+
+#: main/templates/main/ldap_password.html:16
+msgid "ldap_password:content"
+msgstr ""
+"Uw account is gelinkt aan uw Solis account. Dit betekent dat u uw wachtwoord "
+"niet kan aanpassen/resetten in deze applicatie. U kunt dit wel doen via het "
+"'MySolisID' portaal van de universiteit."
+
+#: main/templates/main/ldap_password.html:20
+msgid "ldap_password:link"
+msgstr "Klik hier om naar het 'MySolisID' portaal te gaan."
+
 #: main/templates/main/reset_password.html:5
 #: main/templates/main/reset_password.html:12
 msgid "reset_password:content:header"
@@ -254,10 +270,10 @@ msgstr "Log in"
 msgid "password:message:updated"
 msgstr "Wachtwoord veranderd!"
 
-#: main/views.py:59
+#: main/views.py:73
 msgid "password:message:reset_requested"
 msgstr "We hebben u een e-mail gestuurd met verdere instructies!"
 
-#: main/views.py:76
+#: main/views.py:96
 msgid "password:message:reset_successful"
 msgstr "Wachtwoord veranderd!"

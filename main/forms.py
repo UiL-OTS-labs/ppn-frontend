@@ -25,19 +25,27 @@ class ForgotPasswordForm(forms.Form):
         }),
     )
 
+    def __init__(self, *args, **kwargs):
+        self.ldap = False
+        super(ForgotPasswordForm, self).__init__(*args, **kwargs)
+
     def clean_email(self):
         email = self.cleaned_data.get('email')
+
+        email = email.lower()
 
         req = ForgotPassword()
         req.email = email
 
         response = req.put()
 
-        if not response.success:
+        if not response.success and not response.ldap_blocked:
             raise forms.ValidationError(
                 _('form:forgot_password:email_incorrect'),
                 code='email_incorrect',
             )
+
+        self.ldap = response.ldap_blocked
 
         return email
 
