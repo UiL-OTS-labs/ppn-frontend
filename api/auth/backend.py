@@ -46,6 +46,7 @@ class ApiAuthenticationBackend:
         user.is_superuser = resource.is_admin
         user.is_staff = resource.is_admin
         user.is_active = resource.is_active
+        user.is_ldap_account = resource.is_ldap_account
 
         # We need to save first, otherwise we get errors when adding groups
         user.save()

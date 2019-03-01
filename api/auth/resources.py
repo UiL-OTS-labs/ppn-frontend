@@ -28,6 +28,8 @@ class ApiUserResource(Resource):
 
     is_admin = fields.BoolField(default=False)
 
+    is_ldap_account = fields.BoolField(default=False)
+
     needs_password_change = fields.BoolField(default=False)
 
     groups = fields.CollectionField(ApiGroupCollection)

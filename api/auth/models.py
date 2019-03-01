@@ -26,6 +26,8 @@ class RemoteApiUser(PermissionsMixin, AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
+    is_ldap_account = models.BooleanField(default=False)
+
     @property
     def is_leader(self) -> bool:
         return self.groups.filter(name=settings.GROUPS_LEADER).exists()
