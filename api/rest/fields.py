@@ -2,6 +2,7 @@ import collections
 from abc import ABC, abstractmethod
 from datetime import date, datetime, time
 from functools import total_ordering
+from typing import Union
 
 import itertools
 from backports.datetime_fromisoformat import MonkeyPatch
@@ -9,7 +10,8 @@ from django.core import exceptions, validators
 from django.utils.functional import cached_property
 from django.utils.translation import gettext_lazy as _
 
-from .base import Collection, Resource
+from .collection import ResourceCollection, _TypeCollection
+from .resource import Resource
 from .registry import registry
 
 MonkeyPatch.patch_fromisoformat()
@@ -255,6 +257,9 @@ class DateTimeField(BaseField):
         if value is None:
             return value
 
+        if isinstance(value, self.type):
+            return value
+
         try:
             # Fix the fact that datetime.fromisoformat doesn't adhere to iso
             # 8601 properly when 'Z(ulu)' is used instead of '+00:00'
@@ -298,14 +303,14 @@ class CollectionField(BaseField):
         super(CollectionField, self).__init__(**kwargs)
         self.collection = collection
 
-    def to_api(self, value: Collection):
+    def to_api(self, value: Union[ResourceCollection, _TypeCollection]):
         """Transforms the collection into a list, and chains the call to it's
         children.
         """
         if value is None or value in self.empty_values:
             return []
 
-        return [obj.to_api() for obj in value]
+        return value.to_api()
 
     def to_python(self, value: list):
         """Creates a collection object from the supplied list"""
@@ -333,7 +338,7 @@ class ResourceField(BaseField):
         super(ResourceField, self).__init__(**kwargs)
         self.resource_class = resource
 
-    def to_api(self, value: Collection):
+    def to_api(self, value: Resource):
         """Transforms the resource into a dict, and chains the call to it's
         children.
         """

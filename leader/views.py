@@ -10,7 +10,7 @@ from uil.core.views import RedirectActionView
 from uil.core.views.mixins import RedirectSuccessMessageMixin
 
 from api.auth.models import RemoteApiUser
-from api.exceptions import ApiError
+from api.rest.exceptions import ApiError
 from api.resources import Leader, LeaderExperiments, SwitchExperimentOpen, \
     ChangeLeader
 from leader.forms import ChangeProfileForm

@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
-from api.exceptions import ApiError
+from api.rest.exceptions import ApiError
 from api.resources import Appointments
 from api.resources.participant_resources import SendCancelToken, Appointment
 from main.mixins import OverrideLanguageMixin

@@ -28,6 +28,6 @@ class TimeSlot(rest.Resource):
         ).capitalize()
 
 
-class TimeSlots(rest.Collection):
+class TimeSlots(rest.ResourceCollection):
     class Meta:
         resource = TimeSlot

@@ -52,7 +52,7 @@ class Appointment(rest.Resource):
         )
 
 
-class Appointments(rest.Collection):
+class Appointments(rest.ResourceCollection):
     class Meta:
         path = '/api/participant/appointments/'
         supported_operations = [rest.Operations.get]

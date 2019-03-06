@@ -34,7 +34,7 @@ class Leader(rest.Resource):
             return None
 
 
-class Leaders(rest.Collection):
+class Leaders(rest.ResourceCollection):
     class Meta:
         resource = Leader
 

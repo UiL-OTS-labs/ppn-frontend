@@ -8,8 +8,8 @@ from django.core.exceptions import ImproperlyConfigured, ObjectDoesNotExist
 from django.utils.translation import gettext as _
 from requests.exceptions import ConnectionError
 
-from .options import Operations
-from ..exceptions import ApiError, OperationNotEnabled
+from .operations import Operations
+from .exceptions import ApiError, OperationNotEnabled
 from ..middleware import get_current_authenticated_user, get_current_request, \
     get_current_session
 
@@ -169,7 +169,7 @@ class ResourceClient(BaseClient):
 
         self._handle_api_error(request)
 
-    def put(self, obj, return_resource=None, **kwargs):
+    def put(self, obj, return_resource=None, as_json=False, **kwargs):
         """Posts a resource to the API. Please note that while it's called put,
         the actual HTTP method used is POST. PUT is not as supported as POST in
         many API frameworks, including Django.
@@ -183,6 +183,11 @@ class ResourceClient(BaseClient):
         :param return_resource: An optional class that describes the resource
         that the server returns as a response. (A default can be specified on
         a resource level)
+        :param as_json: If the request's json argument should be used over
+        'data'. Defaults to False. When True, the client will send the data
+        as a JSON string to the server. If False, it will instead encode the
+        data as 'multipart/form-data'. JSON is more flexible, as it allows
+        for nested data structures.
         :param kwargs: Any additional info to be sent.
         :return: A return_response instance, or a Boolean (False indicated
         a connection error)
@@ -196,11 +201,19 @@ class ResourceClient(BaseClient):
         url, kwargs = self._make_url(obj, **kwargs)
 
         try:
+            request_kwargs = {
+                'params': kwargs,
+                'headers': self._make_auth_headers(),
+            }
+
+            if as_json:
+                request_kwargs['json'] = obj.to_api()
+            else:
+                request_kwargs['data'] = obj.to_api()
+
             request = self._http_client.post(
                 url,
-                data=obj.to_api(),
-                params=kwargs,
-                headers=self._make_auth_headers(),
+                **request_kwargs
             )
         except ConnectionError:
             host_unreachable()

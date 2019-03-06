@@ -48,6 +48,6 @@ class ExperimentCriterion(rest.Resource):
     message_failed = rest.TextField()
 
 
-class ExperimentCriteria(rest.Collection):
+class ExperimentCriteria(rest.ResourceCollection):
     class Meta:
         resource = ExperimentCriterion

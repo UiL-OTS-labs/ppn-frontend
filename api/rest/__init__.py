@@ -19,6 +19,9 @@ For implementation details, see the :class:Resource and :class:Collection
 classes.
 """
 
-from .base import Resource, Collection
+from .collection import ResourceCollection, StringCollection, \
+    IntegerCollection, FloatCollection
+from .exceptions import ApiError, OperationNotEnabled
 from .fields import *
-from .options import Operations
+from .operations import Operations
+from .resource import Resource

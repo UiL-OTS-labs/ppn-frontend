@@ -1,4 +1,4 @@
-from ..rest import Resource, fields, Operations, Collection
+from ..rest import Resource, fields, Operations, ResourceCollection
 
 
 class ApiGroupResource(Resource):
@@ -8,7 +8,7 @@ class ApiGroupResource(Resource):
     name = fields.TextField()
 
 
-class ApiGroupCollection(Collection):
+class ApiGroupResourceCollection(ResourceCollection):
 
     class Meta:
         resource = ApiGroupResource
@@ -32,4 +32,4 @@ class ApiUserResource(Resource):
 
     needs_password_change = fields.BoolField(default=False)
 
-    groups = fields.CollectionField(ApiGroupCollection)
+    groups = fields.CollectionField(ApiGroupResourceCollection)
