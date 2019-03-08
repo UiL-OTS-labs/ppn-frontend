@@ -33,7 +33,6 @@ class Appointment(rest.Resource):
     class Meta:
         path = '/api/participant/appointments/{pk}/'
         path_variables = ['pk']
-
         supported_operations = [rest.Operations.get, rest.Operations.delete]
 
     id = rest.IntegerField()
@@ -57,3 +56,19 @@ class Appointments(rest.ResourceCollection):
         path = '/api/participant/appointments/'
         supported_operations = [rest.Operations.get]
         resource = Appointment
+
+
+class RequiredRegistrationFields(rest.Resource):
+    class Meta:
+        path = '/api/participant/get_required_fields/{experiment}/'
+        path_variables = ['experiment']
+
+        supported_operations = [rest.Operations.get]
+
+    # Yes, you can use str as a resource type. It's not a resource,
+    # but what's important is that the type that is in the JSON array can be
+    # put in the init function as an argument. str() vs Resource() isn't that
+    # different.
+    fields = rest.CollectionField(
+        rest.StringCollection
+    )

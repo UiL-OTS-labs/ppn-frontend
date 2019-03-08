@@ -78,6 +78,7 @@
 </div>
 <div class="uu-inner-container">
     <div class="col-12">
+        {% if success == None or recoverable == True %}
         <hr/>
         <form method="post">
             {% csrf_token %}
@@ -89,6 +90,7 @@
                 <button type="submit">Schrijf je in!</button>
             </div>
         </form>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

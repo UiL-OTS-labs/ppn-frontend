@@ -65,13 +65,72 @@ class SwitchExperimentOpen(rest.Resource):
     open = rest.BoolField()
 
 
-class LeaderExperiments(rest.Collection):
+class LeaderExperiments(rest.ResourceCollection):
     class Meta:
         resource = Experiment
         path = '/api/leader_experiments/'
 
 
-class OpenExperiments(rest.Collection):
+class OpenExperiments(rest.ResourceCollection):
     class Meta:
         resource = Experiment
         path = '/api/experiments/'
+
+
+class RegistrationCriterion(rest.Resource):
+
+    name = rest.TextField()
+
+    value = rest.TextField()
+
+
+class RegistrationCriteria(rest.ResourceCollection):
+    class Meta:
+        resource = RegistrationCriterion
+
+
+class ExperimentRegistrationResponse(rest.Resource):
+
+    success = rest.BoolField()
+
+    recoverable = rest.BoolField()
+
+    messages = rest.CollectionField(rest.StringCollection)
+
+
+class ExperimentRegistration(rest.Resource):
+    class Meta:
+        path = '/api/experiment/{experiment}/register/'
+        supported_operations = [rest.Operations.put]
+        path_variables = ['experiment']
+        default_return_resource = ExperimentRegistrationResponse
+
+    name = rest.TextField()
+
+    email = rest.TextField()
+
+    phone = rest.TextField()
+
+    birth_date = rest.DateField()
+
+    multilingual = rest.TextField()
+
+    language = rest.TextField()
+
+    sex = rest.TextField()
+
+    handedness = rest.TextField()
+
+    dyslexic = rest.TextField()
+
+    social_status = rest.TextField()
+
+    specific_criteria = rest.CollectionField(
+        RegistrationCriteria
+    )
+
+    timeslot = rest.IntegerField()
+
+    mailinglist = rest.BoolField(
+        default=False
+    )
