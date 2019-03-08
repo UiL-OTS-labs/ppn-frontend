@@ -50,7 +50,7 @@ class RegisterView(OverrideLanguageMixin, ExperimentRegisterMixin,
 
         context['success'] = self.success
         context['recoverable'] = self.recoverable
-        context['messages'] = self.messages
+        context['error_messages'] = self.messages
 
         return context
 

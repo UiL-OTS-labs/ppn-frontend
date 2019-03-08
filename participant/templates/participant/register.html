@@ -78,6 +78,19 @@
 </div>
 <div class="uu-inner-container">
     <div class="col-12">
+        {% if error_messages %}
+            <hr>
+            {% if success %}
+                <h3>Aangemeld</h3>
+            {% else %}
+                <h3>Waarschuwing! Je bent nog niet aangemeld!</h3>
+            {% endif %}
+            {% for message in error_messages %}
+                <p>
+                    {{ message }}
+                </p>
+            {% endfor %}
+        {% endif %}
         {% if success == None or recoverable == True %}
         <hr/>
         <form method="post">

@@ -1,14 +1,14 @@
 from datetime import datetime
-from typing import List, Dict, Tuple
+from typing import Tuple
 
 from django import forms
 from django.core.exceptions import ValidationError
+from django.utils.safestring import mark_safe
 
 from api.middleware import get_current_user
 from api.resources import Experiment
-from api.resources.experiment_resources import RegistrationCriterion, \
-    ExperimentRegistration, RegistrationCriteria
-from api.rest import StringCollection
+from api.resources.experiment_resources import ExperimentRegistration, \
+    RegistrationCriteria, RegistrationCriterion
 from participant.forms import BaseRegisterForm
 
 
@@ -111,7 +111,7 @@ def _2_hours_ago(original_dt: datetime):
 
 
 def submit_register_form(form: BaseRegisterForm, experiment: Experiment) -> \
-        Tuple[bool, bool, StringCollection]:
+        Tuple[bool, bool, list]:
     data = form.cleaned_data
 
     specific_criteria = []
@@ -138,4 +138,6 @@ def submit_register_form(form: BaseRegisterForm, experiment: Experiment) -> \
         as_json=True,
     )
 
-    return response.success, response.recoverable, response.messages
+    messages = [mark_safe(message) for message in response.messages]
+
+    return response.success, response.recoverable, messages
