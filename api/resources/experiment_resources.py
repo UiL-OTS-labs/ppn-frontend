@@ -105,6 +105,10 @@ class ExperimentRegistration(rest.Resource):
         path_variables = ['experiment']
         default_return_resource = ExperimentRegistrationResponse
 
+    full = rest.BoolField(
+        default=True,
+    )
+
     name = rest.TextField(
         blank=True,
         null=True,

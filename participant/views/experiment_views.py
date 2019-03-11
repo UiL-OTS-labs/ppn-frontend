@@ -6,7 +6,8 @@ from django.utils.functional import cached_property
 from django.views import generic
 
 from api.resources import Experiment
-from api.resources.participant_resources import RequiredRegistrationFields
+from api.resources.participant_resources import Appointments, \
+    RequiredRegistrationFields
 from main.mixins import OverrideLanguageMixin
 from participant.forms import BaseRegisterForm
 from participant.utils import get_register_form, submit_register_form
@@ -14,7 +15,6 @@ from participant.utils import get_register_form, submit_register_form
 
 class ExperimentRegisterMixin:
     template_name = 'participant/register.html'
-    language_override = 'nl'
 
     def __init__(self):
         super(ExperimentRegisterMixin, self).__init__()
@@ -103,6 +103,35 @@ class AuthenticatedRegisterView(braces.LoginRequiredMixin,
                                 ExperimentRegisterMixin,
                                 generic.FormView):
     form_class = BaseRegisterForm
+    language_override = 'nl'
+
+    def get_context_data(self, **kwargs):
+        context = super(AuthenticatedRegisterView, self).get_context_data(
+            **kwargs
+        )
+
+        # Don't add anything if we are submitting the form!
+        if getattr(self, 'success', False):
+            return context
+
+        appointments = Appointments.client.get()
+
+        for appointment in appointments:
+            if self.experiment.id == appointment.experiment.id:
+                context['already_registered'] = True
+                context['appointment'] = appointment.timeslot.datetime
+
+                if 'messages' in context:
+                    context['messages'].append('Je bent al ingeschreven voor '
+                                               'dit experiment')
+                else:
+                    context['messages'] = [
+                        'Je bent al ingeschreven voor dit experiment'
+                    ]
+
+                break
+
+        return context
 
     def dispatch(self, request, *args, **kwargs):
         try:
