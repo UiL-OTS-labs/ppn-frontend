@@ -278,6 +278,10 @@ class DateTimeField(BaseField):
 
     def to_api(self, value: type) -> str:
         value = self.clean(value)
+
+        if value is None:
+            return None
+
         return value.isoformat()
 
 
