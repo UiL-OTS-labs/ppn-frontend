@@ -51,7 +51,7 @@ class ExperimentRegisterMixin:
             form,
             self.experiment,
             self._required_fields,
-            self.request
+            self.request,
         )
 
         self.success = success
@@ -111,15 +111,16 @@ class AuthenticatedRegisterView(braces.LoginRequiredMixin,
         )
 
         # Don't add anything if we are submitting the form!
-        if getattr(self, 'success', False):
+        if getattr(self, 'success') is not None:
             return context
 
         appointments = Appointments.client.get()
 
+        # Check if this participant already has an appointment for this
+        # experiment and add relevant context if so
         for appointment in appointments:
             if self.experiment.id == appointment.experiment.id:
                 context['already_registered'] = True
-                context['appointment'] = appointment.timeslot.datetime
 
                 if 'messages' in context:
                     context['messages'].append('Je bent al ingeschreven voor '
