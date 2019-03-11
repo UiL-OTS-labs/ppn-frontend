@@ -78,14 +78,14 @@
 </div>
 <div class="uu-inner-container">
     <div class="col-12">
-        {% if error_messages %}
+        {% if api_messages %}
             <hr>
             {% if success %}
                 <h3>Aangemeld</h3>
             {% else %}
                 <h3>Waarschuwing! Je bent nog niet aangemeld!</h3>
             {% endif %}
-            {% for message in error_messages %}
+            {% for message in api_messages %}
                 <p>
                     {{ message }}
                 </p>
