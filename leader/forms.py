@@ -19,3 +19,24 @@ class ChangeProfileForm(forms.Form):
         self.fields['email'].widget.attrs.update({
             'disabled': 'disabled'
         })
+
+
+class TimeSlotForm(forms.Form):
+
+    datetime = forms.DateTimeField()
+
+    max_places = forms.IntegerField()
+
+    experiment = forms.Field(
+        widget=forms.HiddenInput
+    )
+
+    def __init__(self, *args, **kwargs):
+        super(TimeSlotForm, self).__init__(*args, **kwargs)
+
+        self.fields['max_places'].widget.attrs.update(
+            {
+                'min': 1,
+                'max': 10,
+            }
+        )

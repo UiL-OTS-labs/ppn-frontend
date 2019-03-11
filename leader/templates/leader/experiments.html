@@ -50,12 +50,22 @@
                         0
                     </td>
                     <td class="text-center">
-                        <a href="{% url 'leader:experiment_switch_open' experiment.id %}" class="icon-open">
+                        <a
+                            href="{% url 'leader:experiment_switch_open' experiment.id %}"
+                            class="icon-open"
+                            title="{% trans 'experiment:switch_open:title' %}"
+                        >
                             {{ experiment.open|yesno:"," }}
                         </a>
                     </td>
                     <td>
-
+                        <a
+                            href="{% url 'leader:timeslots' experiment.id %}"
+                            class="icon-timeslot"
+                            title="{% trans 'experiment:timeslots:title' %}"
+                        >
+                            
+                        </a>
                     </td>
                 </tr>
             {% endfor %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-11 09:53+0000\n"
+"POT-Creation-Date: 2019-03-11 13:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,8 +40,17 @@ msgid "experiments:table:status"
 msgstr "Status"
 
 #: leader/templates/leader/experiments.html:31
+#: leader/templates/leader/timeslots.html:70
 msgid "global:actions"
 msgstr "Actions"
+
+#: leader/templates/leader/experiments.html:56
+msgid "experiment:switch_open:title"
+msgstr "Open/close experiment"
+
+#: leader/templates/leader/experiments.html:65
+msgid "experiment:timeslots:title"
+msgstr "Edit/view timeslots"
 
 #: leader/templates/leader/profile.html:14
 #: leader/templates/leader/profile.html:21
@@ -52,18 +61,123 @@ msgstr "Change leader profile"
 msgid "globals:save_button"
 msgstr "Save"
 
-#: leader/views.py:53
+#: leader/templates/leader/timeslots.html:9
+#: leader/templates/leader/timeslots.html:37
+msgid "timeslots:home:header"
+msgstr "Timeslots for experiment '{}'"
+
+#: leader/templates/leader/timeslots.html:19
+msgid "timeslot:error:cannot_validate_datetime"
+msgstr ""
+"An error occurred while validating the date and time. This probably means "
+"that you've entered an invalid value. Please ensure the date and time you've "
+"entered is a valid datetime, in the 'yyyy-mm-dd hh:mm' format."
+
+#: leader/templates/leader/timeslots.html:20
+msgid "timeslot:error:invalid_date"
+msgstr ""
+"Invalid date entered! Please ensure the date you've entered is a valid date, "
+"in the yyyy-mm-dd format."
+
+#: leader/templates/leader/timeslots.html:21
+msgid "timeslot:error:invalid_time"
+msgstr ""
+"Invalid time entered! Please ensure the date you've entered is a valid "
+"timestamp, in the hh:mm format."
+
+#: leader/templates/leader/timeslots.html:22
+msgid "timeslot:error:invalid_datetime"
+msgstr ""
+"Invalid value entered in 'Date & Time'! Please ensure the date and time "
+"you've entered is a valid datetime, in the 'yyyy-mm-dd hh:mm' format."
+
+#: leader/templates/leader/timeslots.html:23
+msgid "timeslot:warning:deleting_timeslot"
+msgstr ""
+"Are you sure you want to delete this this timeslot? (An automatic email will "
+"be sent to any participants affected, but be sure to send a personal mail as "
+"well, if you haven\\'t done so already.)"
+
+#: leader/templates/leader/timeslots.html:24
+msgid "timeslot:warning:deleting_timeslots"
+msgstr ""
+"Are you sure you want to delete this these timeslots? (An automatic email "
+"will be sent to any participants affected, but be sure to send a personal "
+"mail as well, if you haven\\'t done so already.)"
+
+#: leader/templates/leader/timeslots.html:25
+msgid "timeslot:warning:confirm_remove_participant"
+msgstr ""
+
+#: leader/templates/leader/timeslots.html:40
+msgid "timeslots:home:info_text"
+msgstr ""
+"Timeslots can be edited here. Please note that you can only delete the last "
+"place in a certain timeslot.<br/> If you need to delete multiple (or all) "
+"places, you can use the checkboxes. By default you can only check the last "
+"checkbox for a timeslot. Once a checkbox has been clicked, the one below it "
+"(in terms of place) can be checked too. "
+
+#: leader/templates/leader/timeslots.html:49
+msgid "timeslots:id"
+msgstr "ID"
+
+#: leader/templates/leader/timeslots.html:52
+msgid "timeslots:day"
+msgstr "Day"
+
+#: leader/templates/leader/timeslots.html:55
+msgid "timeslots:date"
+msgstr "Date"
+
+#: leader/templates/leader/timeslots.html:58
+msgid "timeslots:time"
+msgstr "Time"
+
+#: leader/templates/leader/timeslots.html:61
+msgid "timeslots:place"
+msgstr "Place #"
+
+#: leader/templates/leader/timeslots.html:64
+msgid "timeslots:participant:name"
+msgstr "Participant"
+
+#: leader/templates/leader/timeslots.html:67
+msgid "timeslots:participant:email"
+msgstr "Participant email"
+
+#: leader/templates/leader/timeslots.html:125
+msgid "timeslots:remove_participant:title"
+msgstr "Unsubscribe participant"
+
+#: leader/templates/leader/timeslots.html:150
+msgid "global:delete"
+msgstr "Delete"
+
+#: leader/templates/leader/timeslots.html:160
+msgid "timeslots:home:new_timeslots:header"
+msgstr "New timeslot"
+
+#: leader/templates/leader/timeslots.html:166
+msgid "timeslotss:add_button"
+msgstr "Add"
+
+#: leader/views.py:55
 msgid "experiment:message:open"
 msgstr "Successfully opened experiment for participants."
 
-#: leader/views.py:55
+#: leader/views.py:57
 msgid "experiment:message:closed"
 msgstr "Successfully closed experiment for participants."
 
-#: leader/views.py:57 leader/views.py:63
+#: leader/views.py:59 leader/views.py:65
 msgid "experiment:message:fail"
 msgstr "Something went wrong when trying to change the experiments status"
 
-#: leader/views.py:74
+#: leader/views.py:99
+msgid "timeslots:message:added"
+msgstr "Successfully added timeslot(s)"
+
+#: leader/views.py:138
 msgid "profile:message:updated"
 msgstr "Successfully updated profile."

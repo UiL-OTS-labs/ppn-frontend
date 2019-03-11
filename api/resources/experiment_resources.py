@@ -45,7 +45,12 @@ class Experiment(rest.Resource):
 
     specific_criteria = rest.CollectionField('ExperimentCriteria')
 
-    timeslots = rest.CollectionField('TimeSlots')
+    timeslots = rest.CollectionField('InlineTimeSlots')
+
+    default_max_places = rest.IntegerField()
+
+    def __str__(self):
+        return self.name
 
     def n_timeslots(self):
         return sum([x.max_places for x in self.timeslots])

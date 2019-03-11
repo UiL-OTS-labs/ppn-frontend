@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-01 09:01+0000\n"
+"POT-Creation-Date: 2019-03-11 13:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,8 +40,17 @@ msgid "experiments:table:status"
 msgstr "Status"
 
 #: leader/templates/leader/experiments.html:31
+#: leader/templates/leader/timeslots.html:70
 msgid "global:actions"
 msgstr "Acties"
+
+#: leader/templates/leader/experiments.html:56
+msgid "experiment:switch_open:title"
+msgstr "Open/sluit experiment"
+
+#: leader/templates/leader/experiments.html:65
+msgid "experiment:timeslots:title"
+msgstr "Pas timeslots aan"
 
 #: leader/templates/leader/profile.html:14
 #: leader/templates/leader/profile.html:21
@@ -52,18 +61,128 @@ msgstr "Proefleider profiel aanpassen"
 msgid "globals:save_button"
 msgstr "Opslaan"
 
-#: leader/views.py:53
+#: leader/templates/leader/timeslots.html:9
+#: leader/templates/leader/timeslots.html:37
+msgid "timeslots:home:header"
+msgstr "Timeslots voor experiment '{}'"
+
+#: leader/templates/leader/timeslots.html:19
+msgid "timeslot:error:cannot_validate_datetime"
+msgstr ""
+"Er is een error opgetreden tijdens het valideren van de datum en tijd. Dit "
+"betekend hoogstwaarschijnlijk dat je een fout hebt gemaakt bij het intypen. "
+"Controleer of je een valide datum en tijd hebt ingevuld in 'yyyy-mm-dd hh:"
+"mm' formaat."
+
+#: leader/templates/leader/timeslots.html:20
+msgid "timeslot:error:invalid_date"
+msgstr ""
+"De ingevoerde datum kon niet gevalideerd worden! Controleer of je een valide "
+"datum hebt ingevuld in 'yyyy-mm-dd' formaat."
+
+#: leader/templates/leader/timeslots.html:21
+msgid "timeslot:error:invalid_time"
+msgstr ""
+"De ingevoerde tijd kon niet gevalideerd worden! Controleer of je een valide "
+"tijd hebt ingevuld in 'hh:mm' formaat."
+
+#: leader/templates/leader/timeslots.html:22
+msgid "timeslot:error:invalid_datetime"
+msgstr ""
+"De ingevoerde datum en/of tijd kon niet gevalideerd worden! Controleer of je "
+"een valide datum en/of tijd hebt ingevuld in 'yyyy-mm-dd hh:mm' formaat."
+
+#: leader/templates/leader/timeslots.html:23
+msgid "timeslot:warning:deleting_timeslot"
+msgstr ""
+"Weet je zeker dat je dit timeslot wilt verwijderen? (Indien nodig wordt er "
+"een mail naar de participant gestuurd, maar stuur toch nog een persoonlijke "
+"mail als je dit nog niet gedaan hebt."
+
+#: leader/templates/leader/timeslots.html:24
+msgid "timeslot:warning:deleting_timeslots"
+msgstr ""
+"Weet je zeker dat je deze timeslots wilt verwijderen? (Indien nodig wordt er "
+"een mail naar de participant(en) gestuurd, maar stuur toch nog een "
+"persoonlijke mail als je dit nog niet hebt gedaan."
+
+#: leader/templates/leader/timeslots.html:25
+msgid "timeslot:warning:confirm_remove_participant"
+msgstr ""
+"Weet u zeker dat u deze participant wilt verwijderen uit dit timeslot? (Er "
+"zal een bevestigingsmail naar de participant worden gestuurd, maar stuur "
+"toch nog een persoonlijke mail als je dit nog niet hebt gedaan."
+
+#: leader/templates/leader/timeslots.html:40
+msgid "timeslots:home:info_text"
+msgstr ""
+"Hier kunt u de timeslots voor dit experiment aanpassen. Standaard is alleen "
+"de laatste plek binnen een timeslot verwijderenbaar. <br/> Indien u meerdere "
+"timeslots wilt verwijderen, kunt u de checkboxes gebruiken. Alleen de laaste "
+"checkbox is klikbaar, maar zodra deze is aangeklikt wordt de checkbox van de "
+"plaats eronder geactiveerd. Op deze manier zijn meerdere plaatsen in een "
+"timeslot te verwijderen."
+
+#: leader/templates/leader/timeslots.html:49
+msgid "timeslots:id"
+msgstr "ID"
+
+#: leader/templates/leader/timeslots.html:52
+msgid "timeslots:day"
+msgstr "Dag"
+
+#: leader/templates/leader/timeslots.html:55
+msgid "timeslots:date"
+msgstr "Datum"
+
+#: leader/templates/leader/timeslots.html:58
+msgid "timeslots:time"
+msgstr "Tijd"
+
+#: leader/templates/leader/timeslots.html:61
+msgid "timeslots:place"
+msgstr "Plaats #"
+
+#: leader/templates/leader/timeslots.html:64
+msgid "timeslots:participant:name"
+msgstr "Participant"
+
+#: leader/templates/leader/timeslots.html:67
+msgid "timeslots:participant:email"
+msgstr "Participant's e-mail"
+
+#: leader/templates/leader/timeslots.html:125
+msgid "timeslots:remove_participant:title"
+msgstr "Verwijder participant uit dit timeslot."
+
+#: leader/templates/leader/timeslots.html:150
+msgid "global:delete"
+msgstr "Verwijder"
+
+#: leader/templates/leader/timeslots.html:160
+msgid "timeslots:home:new_timeslots:header"
+msgstr "Nieuw timeslot"
+
+#: leader/templates/leader/timeslots.html:166
+msgid "timeslotss:add_button"
+msgstr "Voeg toe"
+
+#: leader/views.py:55
 msgid "experiment:message:open"
 msgstr "Experiment succesvol geopend voor participanten."
 
-#: leader/views.py:55
+#: leader/views.py:57
 msgid "experiment:message:closed"
 msgstr "Experiment succesvol gesloten voor participanten."
 
-#: leader/views.py:57 leader/views.py:63
+#: leader/views.py:59 leader/views.py:65
 msgid "experiment:message:fail"
 msgstr "Er is iets fout gegaan tijdens het wijzigen!"
 
-#: leader/views.py:74
+#: leader/views.py:99
+msgid "timeslots:message:added"
+msgstr "Timeslots successvol toegevoegd"
+
+#: leader/views.py:138
 msgid "profile:message:updated"
 msgstr "Profiel succesvol aangepast."

@@ -8,4 +8,4 @@ from .experiment_resources import Experiment, LeaderExperiments, \
 from .leader_resources import ChangeLeader, Leader, Leaders
 from .participant_resources import Appointment, Appointments, \
     MailinglistSubscribe
-from .timeslot_resources import TimeSlot, TimeSlots
+from .timeslot_resources import InlineTimeSlot, InlineTimeSlots, TimeSlot
