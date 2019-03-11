@@ -9,13 +9,30 @@ from api.resources import Experiment
 from api.resources.participant_resources import RequiredRegistrationFields
 from main.mixins import OverrideLanguageMixin
 from participant.forms import BaseRegisterForm
-from participant.utils import get_register_form, submit_register_form, \
-    get_authenticated_register_form
+from participant.utils import get_register_form, submit_register_form
 
 
 class ExperimentRegisterMixin:
     template_name = 'participant/register.html'
     language_override = 'nl'
+
+    def __init__(self):
+        super(ExperimentRegisterMixin, self).__init__()
+        self.success = None
+        self.recoverable = None
+        self.messages = []
+
+    def get_context_data(self, **kwargs):
+        context = super(ExperimentRegisterMixin, self).get_context_data(
+            **kwargs
+        )
+
+        context['success'] = self.success
+        context['recoverable'] = self.recoverable
+        context['api_messages'] = self.messages
+        context['experiment'] = self.experiment
+
+        return context
 
     @cached_property
     def experiment(self):
@@ -25,34 +42,38 @@ class ExperimentRegisterMixin:
         except Exception as e:
             raise ObjectDoesNotExist
 
-    def get_context_data(self, **kwargs):
-        context = super(ExperimentRegisterMixin, self).get_context_data(
-            **kwargs)
+    @cached_property
+    def _required_fields(self):
+        return '__all__'
 
-        context['experiment'] = self.experiment
+    def form_valid(self, form):
+        success, recoverable, messages = submit_register_form(
+            form,
+            self.experiment,
+            self._required_fields,
+            self.request
+        )
 
-        return context
+        self.success = success
+        self.recoverable = recoverable
+        self.messages = messages
+        return self.get(self.request, [], {})
+
+    def get_form(self, form_class=None):
+        base_form = super(ExperimentRegisterMixin, self).get_form(form_class)
+
+        return get_register_form(
+            base_form,
+            self.experiment,
+            self._required_fields
+        )
 
 
-class RegisterView(OverrideLanguageMixin, ExperimentRegisterMixin,
+class RegisterView(OverrideLanguageMixin,
+                   ExperimentRegisterMixin,
                    generic.FormView):
     form_class = BaseRegisterForm
     language_override = 'nl'
-
-    def __init__(self):
-        super(RegisterView, self).__init__()
-        self.success = None
-        self.recoverable = None
-        self.messages = []
-
-    def get_context_data(self, **kwargs):
-        context = super(RegisterView, self).get_context_data(**kwargs)
-
-        context['success'] = self.success
-        context['recoverable'] = self.recoverable
-        context['api_messages'] = self.messages
-
-        return context
 
     def dispatch(self, request, *args, **kwargs):
         try:
@@ -75,20 +96,6 @@ class RegisterView(OverrideLanguageMixin, ExperimentRegisterMixin,
             )
 
         return super(RegisterView, self).dispatch(request, *args, **kwargs)
-
-    def get_form(self, form_class=None):
-        base_form = super(RegisterView, self).get_form(form_class)
-
-        return get_register_form(base_form, self.experiment)
-
-    def form_valid(self, form):
-        success, recoverable, messages =\
-            submit_register_form(form, self.experiment)
-
-        self.success = success
-        self.recoverable = recoverable
-        self.messages = messages
-        return self.get(self.request, [], {})
 
 
 class AuthenticatedRegisterView(braces.LoginRequiredMixin,
@@ -123,18 +130,13 @@ class AuthenticatedRegisterView(braces.LoginRequiredMixin,
             **kwargs
         )
 
-    def get_form(self, form_class=None):
-        base_form = super(AuthenticatedRegisterView, self).get_form(form_class)
-
+    @cached_property
+    def _required_fields(self):
         fields = RequiredRegistrationFields.client.get(
             experiment=self.experiment.id
         ).fields
 
-        return get_authenticated_register_form(
-            base_form,
-            self.experiment,
-            fields
-        )
+        return list(fields)
 
 
 class ClosedExperimentView(OverrideLanguageMixin, generic.TemplateView):

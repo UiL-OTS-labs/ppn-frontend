@@ -65,10 +65,6 @@ class RequiredRegistrationFields(rest.Resource):
 
         supported_operations = [rest.Operations.get]
 
-    # Yes, you can use str as a resource type. It's not a resource,
-    # but what's important is that the type that is in the JSON array can be
-    # put in the init function as an argument. str() vs Resource() isn't that
-    # different.
     fields = rest.CollectionField(
         rest.StringCollection
     )

@@ -1,8 +1,8 @@
 from datetime import datetime
-from typing import Tuple
+from typing import Tuple, Union
 
 from django import forms
-from django.core.exceptions import ValidationError
+from django.core.exceptions import ImproperlyConfigured, ValidationError
 from django.utils.safestring import mark_safe
 
 from api.middleware import get_current_user
@@ -28,7 +28,25 @@ class SpecificCriteriaValidator:
             raise ValidationError(self.error_message)
 
 
-def get_register_form(form: BaseRegisterForm, experiment: Experiment):
+def get_register_form(
+        form: BaseRegisterForm,
+        experiment: Experiment,
+        allowed_fields: Union[str, list]):
+    if isinstance(allowed_fields, str) and allowed_fields == '__all__':
+        return _get_register_form(form, experiment)
+    elif isinstance(allowed_fields, list):
+        return _get_authenticated_register_form(
+            form,
+            experiment,
+            allowed_fields
+        )
+    else:
+        raise ImproperlyConfigured('get_register_form must be passed a list '
+                                   'or "__all__" to the allowed_fields '
+                                   'parameter')
+
+
+def _get_register_form(form: BaseRegisterForm, experiment: Experiment):
     """This function takes a BaseRegisterForm instance and an Experiment
     instance, and returns a modified BaseRegisterForm instance containing
     extra fields, as directed by experiment criteria.
@@ -55,15 +73,16 @@ def get_register_form(form: BaseRegisterForm, experiment: Experiment):
         form.fields[exp_crit.criterion.name_form] = field
 
     timeslot_options = ((timeslot.id, str(timeslot)) for timeslot in
-                        experiment.timeslots if timeslot.datetime >
-                        _2_hours_ago(timeslot.datetime))
+                        experiment.timeslots if
+                        timeslot.datetime > _2_hours_ago(timeslot.datetime)
+                        and timeslot.free_places > 0)
 
     form.fields['timeslot'] = forms.IntegerField(
-            label='',
-            widget=forms.RadioSelect(
-                choices=timeslot_options,
-            )
+        label='',
+        widget=forms.RadioSelect(
+            choices=timeslot_options,
         )
+    )
 
     current_user = get_current_user()
 
@@ -81,7 +100,7 @@ def get_register_form(form: BaseRegisterForm, experiment: Experiment):
     return form
 
 
-def get_authenticated_register_form(
+def _get_authenticated_register_form(
         form: BaseRegisterForm,
         experiment: Experiment,
         allowed_fields: list):
@@ -90,10 +109,12 @@ def get_authenticated_register_form(
     extra fields, as directed by experiment criteria.
 
     This version also filters out the fields that the API doesn't need anymore.
+    (This is dictated by the API, and retrieved by the frontend through a
+    dedicated Resource)
     """
-    form = get_register_form(form, experiment)
+    form = _get_register_form(form, experiment)
 
-    allowed_fields = list(allowed_fields) + ['timeslot']
+    allowed_fields = set(allowed_fields + ['timeslot'])
 
     form_fields = [field for field in form.fields.keys()]
     for field in form_fields:
@@ -110,14 +131,29 @@ def _2_hours_ago(original_dt: datetime):
     return dt.replace(hour=hours)
 
 
-def submit_register_form(form: BaseRegisterForm, experiment: Experiment) -> \
+def submit_register_form(form: BaseRegisterForm, experiment: Experiment,
+                         required_fields: Union[list, str], request = None) -> \
         Tuple[bool, bool, list]:
     data = form.cleaned_data
 
     specific_criteria = []
 
+    if required_fields == '__all__':
+        required_fields = form.fields
+    elif request and request.user.is_authenticated:
+        # Insert the email field from the user object
+        # We need to do this for the API to get a user object and email isn't
+        # provided through the form on participant account registrations.
+        data['email'] = request.user.email
+    else:
+        # Should not happen, but just in case....
+        return False, False, ['Er is iets fout gegaan!']
+
     for exp_crit in experiment.specific_criteria:
         name_form = exp_crit.criterion.name_form
+
+        if name_form not in required_fields:
+            continue
 
         criterion = RegistrationCriterion(
             name=name_form,

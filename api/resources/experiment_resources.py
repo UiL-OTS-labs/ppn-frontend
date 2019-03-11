@@ -105,25 +105,55 @@ class ExperimentRegistration(rest.Resource):
         path_variables = ['experiment']
         default_return_resource = ExperimentRegistrationResponse
 
-    name = rest.TextField()
+    name = rest.TextField(
+        blank=True,
+        null=True,
+    )
 
-    email = rest.TextField()
+    email = rest.TextField(
+        blank=True,
+        null=True,
+    )
 
-    phone = rest.TextField()
+    phone = rest.TextField(
+        blank=True,
+        null=True,
+    )
 
-    birth_date = rest.DateField()
+    birth_date = rest.DateField(
+        blank=True,
+        null=True,
+    )
 
-    multilingual = rest.TextField()
+    multilingual = rest.TextField(
+        blank=True,
+        null=True,
+    )
 
-    language = rest.TextField()
+    language = rest.TextField(
+        blank=True,
+        null=True,
+    )
 
-    sex = rest.TextField()
+    sex = rest.TextField(
+        blank=True,
+        null=True,
+    )
 
-    handedness = rest.TextField()
+    handedness = rest.TextField(
+        blank=True,
+        null=True,
+    )
 
-    dyslexic = rest.TextField()
+    dyslexic = rest.TextField(
+        blank=True,
+        null=True,
+    )
 
-    social_status = rest.TextField()
+    social_status = rest.TextField(
+        blank=True,
+        null=True,
+    )
 
     specific_criteria = rest.CollectionField(
         RegistrationCriteria
