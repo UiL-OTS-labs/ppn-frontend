@@ -72,8 +72,10 @@ def _get_register_form(form: BaseRegisterForm, experiment: Experiment):
 
         form.fields[exp_crit.criterion.name_form] = field
 
+    timeslots = sorted(experiment.timeslots, key=lambda x: x.datetime)
+
     timeslot_options = ((timeslot.id, str(timeslot)) for timeslot in
-                        experiment.timeslots if
+                        timeslots if
                         timeslot.datetime > _2_hours_ago(timeslot.datetime)
                         and timeslot.free_places > 0)
 
