@@ -5,15 +5,14 @@ from django.urls import reverse
 from django.utils.functional import cached_property
 from django.views import generic
 
-from api.resources import Experiment
 from api.resources.participant_resources import Appointments, \
     RequiredRegistrationFields
-from main.mixins import OverrideLanguageMixin
+from main.mixins import OverrideLanguageMixin, ExperimentObjectMixin
 from participant.forms import BaseRegisterForm
 from participant.utils import get_register_form, submit_register_form
 
 
-class ExperimentRegisterMixin:
+class ExperimentRegisterMixin(ExperimentObjectMixin):
     template_name = 'participant/register.html'
 
     def __init__(self):
@@ -33,14 +32,6 @@ class ExperimentRegisterMixin:
         context['experiment'] = self.experiment
 
         return context
-
-    @cached_property
-    def experiment(self):
-        try:
-            pk = self.kwargs.get('experiment')
-            return Experiment.client.get(pk=pk)
-        except Exception as e:
-            raise ObjectDoesNotExist
 
     @cached_property
     def _required_fields(self):

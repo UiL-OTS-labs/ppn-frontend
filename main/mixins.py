@@ -1,4 +1,8 @@
+from django.core.exceptions import ObjectDoesNotExist
+from django.utils.functional import cached_property
 from django.utils.translation import activate as activate_language
+
+from api.resources import Experiment
 
 
 class OverrideLanguageMixin:
@@ -35,3 +39,27 @@ class OverrideLanguageMixin:
             context['language_override'] = override
 
         return context
+
+
+class ExperimentObjectMixin:
+    """
+    This mixin adds a new property to a view, which contains an experiment
+    object.
+
+    It does this by defining a cached property method, which looks up the
+    experiment pk form self.kwargs, and returns the appropriate Experiment
+    object.
+
+    One can set the kwargs variable name with the 'experiment_kwargs_name'
+    class variable, which defaults to 'experiment'. (Not pk, as in those
+    cases the default views provides the self.object variable).
+    """
+    experiment_kwargs_name = 'experiment'
+
+    @cached_property
+    def experiment(self):
+        try:
+            pk = self.kwargs.get(self.experiment_kwargs_name)
+            return Experiment.client.get(pk=pk)
+        except Exception as e:
+            raise ObjectDoesNotExist
