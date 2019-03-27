@@ -6,19 +6,6 @@ from babel.dates import format_datetime
 from django.utils.translation import get_language
 
 
-class TimeSlotParticipant(rest.Resource):
-    """
-    This resource is not a full participant resource, but only contains the
-    fields sent in TimeSlotAppointment resources.
-    """
-
-    id = rest.IntegerField()
-
-    name = rest.TextField()
-
-    email = rest.TextField()
-
-
 class TimeSlotAppointment(rest.Resource):
     """Different from the participant appointment, as this one is a child of
     a timeslot. The participant appointment has a timeslot resource as a
@@ -26,8 +13,6 @@ class TimeSlotAppointment(rest.Resource):
     id = rest.IntegerField()
 
     creation_date = rest.DateTimeField()
-
-    participant = rest.ResourceField(TimeSlotParticipant)
 
 
 class TimeSlotAppointments(rest.ResourceCollection):
