@@ -57,6 +57,12 @@ class ResourceMetaclass(type):
             new_class.client = meta.client_class()
             new_class.client.contribute_to_class(new_class, 'client')
 
+        for base in bases:
+            for attr, val in base.__dict__.items():
+                if hasattr(val, 'resource'):  # Hack, should check if this is
+                    # a field. But using BaseField crashes things
+                    attrs[attr] = val
+
         # Add all attributes to the class.
         for obj_name, obj in attrs.items():
             new_class.add_to_class(obj_name, obj)
