@@ -1,4 +1,5 @@
 import inspect
+import copy
 
 from django.apps import apps
 from django.core.exceptions import ImproperlyConfigured
@@ -53,16 +54,15 @@ class ResourceMetaclass(type):
         meta = new_class._get_options_class()(meta, app_label)
         meta.contribute_to_class(new_class, '_meta')
 
+        for parent in parents:
+            if hasattr(parent, '_meta') and parent._meta:
+                for field, value in parent._meta.fields.items():
+                    if field not in attrs:
+                        attrs[field] = copy.copy(value)
+
         if 'client' not in attrs:
             new_class.client = meta.client_class()
             new_class.client.contribute_to_class(new_class, 'client')
-
-        for base in bases:
-            for attr, val in base.__dict__.items():
-                if hasattr(val, 'resource') and attr not in attrs:
-                    # Hack, should check if this is a field. But using
-                    # BaseField crashes things
-                    attrs[attr] = val
 
         # Add all attributes to the class.
         for obj_name, obj in attrs.items():
