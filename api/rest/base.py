@@ -59,8 +59,9 @@ class ResourceMetaclass(type):
 
         for base in bases:
             for attr, val in base.__dict__.items():
-                if hasattr(val, 'resource'):  # Hack, should check if this is
-                    # a field. But using BaseField crashes things
+                if hasattr(val, 'resource') and attr not in attrs:
+                    # Hack, should check if this is a field. But using
+                    # BaseField crashes things
                     attrs[attr] = val
 
         # Add all attributes to the class.
