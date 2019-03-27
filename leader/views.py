@@ -11,10 +11,11 @@ from django.views import generic
 from api.auth.models import RemoteApiUser
 from api.resources import ChangeLeader, Leader, LeaderExperiments, \
     SwitchExperimentOpen
+from api.resources.experiment_resources import LeaderExperiment
 from api.rest.exceptions import ApiError
 from leader.forms import ChangeProfileForm, TimeSlotForm
 from leader.models import LeaderPhoto
-from leader.utils import add_timeslot, now, delete_timeslots, delete_timeslot
+from leader.utils import add_timeslot, delete_timeslot, delete_timeslots, now
 from main.mixins import ExperimentObjectMixin
 from uil.core.views import RedirectActionView
 from uil.core.views.mixins import RedirectSuccessMessageMixin
@@ -30,6 +31,23 @@ class ExperimentsView(braces.LoginRequiredMixin,
         context = super(ExperimentsView, self).get_context_data(**kwargs)
 
         context['experiments'] = LeaderExperiments.client.get()
+
+        return context
+
+
+class ExperimentParticipantsView(braces.LoginRequiredMixin,
+                                 braces.GroupRequiredMixin,
+                                 ExperimentObjectMixin,
+                                 generic.TemplateView):
+    template_name = 'leader/experiment_participants.html'
+    group_required = [settings.GROUPS_LEADER]
+
+    experiment_resource = LeaderExperiment
+
+    def get_context_data(self, *_, **kwargs):
+        context = super(ExperimentParticipantsView, self).get_context_data(**kwargs)
+
+        context['experiment'] = self.experiment
 
         return context
 
@@ -66,7 +84,8 @@ class SwitchExperimentOpenView(braces.RecentLoginRequiredMixin,
 
 
 class TimeSlotHomeView(braces.LoginRequiredMixin,
-                       ExperimentObjectMixin, generic.FormView):
+                       ExperimentObjectMixin,
+                       generic.FormView):
     template_name = 'leader/timeslots.html'
     form_class = TimeSlotForm
 
@@ -162,6 +181,7 @@ class TimeSlotBulkDeleteView(braces.LoginRequiredMixin,
         return reverse('leader:timeslots', args=args)
 
 
+# TODO: This
 # class UnsubscribeParticipantView(braces.LoginRequiredMixin,
 #                                  RedirectSuccessMessageMixin,
 #                                  RedirectActionView):

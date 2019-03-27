@@ -1,7 +1,7 @@
 from django.urls import path
 
 from .views import ExperimentsView, ProfileView, SwitchExperimentOpenView, \
-    TimeSlotHomeView, TimeSlotDeleteView, TimeSlotBulkDeleteView
+    TimeSlotHomeView, TimeSlotDeleteView, TimeSlotBulkDeleteView, ExperimentParticipantsView
 
 app_name = 'leader'
 
@@ -9,8 +9,13 @@ urlpatterns = [
     path('', ExperimentsView.as_view(), name='experiments'),
     path('experiment/<int:experiment>/switch_open',
          SwitchExperimentOpenView.as_view(), name='experiment_switch_open'),
+
     path('experiment/<int:experiment>/timeslots/',
          TimeSlotHomeView.as_view(), name='timeslots',
+    ),
+
+    path('experiment/<int:experiment>/participants/',
+         ExperimentParticipantsView.as_view(), name='participants',
     ),
 
     path('experiment/<int:experiment>/timeslots/<int:timeslot>/delete/',

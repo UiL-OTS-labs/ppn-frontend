@@ -1,0 +1,240 @@
+{# WARNING! This view has a twin in the backend! Please check if any changes you made here also need to be made there! #}
+{# Also, the frotend should not show any dyslexia information. The leader should already know this, and this way we don't have medical information in the frontend (#SecurityClassificationWorkaround) #}
+{% extends "base/base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load datatables %}
+{% load get_field_name %}
+{% load static %}
+
+{% block header_title %}
+    {% transformat 'participants:header' experiment.name %} - {{ block.super }}
+{% endblock %}
+
+{% block html_head %}
+    <script>
+        // Because of I18N reasons, we do this stuff here.
+        var strings = {
+            'confirm_remove_participant': "{% trans 'timeslot:warning:confirm_remove_participant' %}",
+        };
+    </script>
+    <script src="{% static 'leader/participants/list.js' %}"></script>
+    <link href="{% static 'leader/participants/table.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+
+{% block content %}
+    <div class="uu-inner-container">
+        <div class="col-12">
+            <h1>
+                {% transformat 'participants:header' experiment.name %}
+            </h1>
+        </div>
+    </div>
+    <div class="uu-inner-container">
+        <div class="col-7">
+            {% include 'leader/criteria_snippit.html' %}
+        </div>
+        <div class="col-5">
+            <p>
+                {% trans 'participants:info_text' %}
+            </p>
+        </div>
+    </div>
+    <br/>
+    <div class="mt-2">
+        <div class="col-12">
+            <form method="post" action="#">
+                {% csrf_token %}
+                <table class="dt_custom" width="100%" data-language="{% datatables_lang %}" data-responsive="">
+                    <thead>
+                    <tr>
+                        <th>
+                            {% trans 'participants:datetime' %}
+                        </th>
+                        <th>
+                            {% trans 'timeslots:day' %}
+                        </th>
+                        <th>
+                            {% trans 'participants:place' %}
+                        </th>
+                        <th>
+                            {% trans 'participants:name' %}
+                        </th>
+                        <th>
+                            {% trans 'participants:reminder' %}
+                        </th>
+                        <th>
+                            {% trans 'globals:actions' %}
+                        </th>
+                        <th>
+                            {% trans 'participants:email' %}
+                        </th>
+                        <th>
+                            {% trans 'participants:phone_number' %}
+                        </th>
+                        <th>
+                            {% trans 'participants:birth_date' %}
+                        </th>
+                        <th>
+                            {% trans 'participants:language' %}
+                        </th>
+                        <th>
+                            {% trans 'participants:multilingual' %}
+                        </th>
+                        <th>
+                            {% trans 'participants:handedness' %}
+                        </th>
+                        <th>
+                            {% trans 'participants:sex' %}
+                        </th>
+                        <th>
+                            {% trans 'participants:social_status' %}
+                        </th>
+                        <th>
+                            {% trans 'participants:email_subscription' %}
+                        </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for timeslot in experiment.timeslots %}
+
+                    {% for n, appointment in timeslot.takes_places_tuple %}
+                        <tr>
+                            <td>
+                                {{ timeslot.datetime|date:"Y-m-d H:m" }}
+                            </td>
+                            <td>
+                                {{ timeslot.datetime|date:"l" }}
+                            </td>
+                            <td>
+                                {{ n }}
+                            </td>
+                            <td>
+                                {{ appointment.participant.name }}
+                            </td>
+                            <td class="text-center">
+                                <input type="checkbox" name="reminder[]" value="{{ appointment.pk }}">
+                            </td>
+                            <td>
+                                <a
+                                        href="#?next={{ request.path }}"
+                                        class="icon-remove-participant"
+                                        title="{% trans 'timeslots:remove_participant:title' %}"
+                                >
+                                    
+                                </a>
+                                <a
+                                        href="#"
+                                        class="icon-comment"
+                                >
+                                    
+                                </a>
+                            </td>
+                            <td>
+                                <a href="mailto:{{ appointment.participant.email }}">
+                                    {{ appointment.participant.email }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ appointment.participant.phonenumber }}
+                            </td>
+                            <td>
+                                {{ appointment.participant.birth_date|date:"Y-m-d" }}
+                            </td>
+                            <td>
+                                {{ appointment.participant.language }}
+                            </td>
+                            <td>
+                                {{ appointment.participant.multilingual|yesno:_('many,one') }}
+                            </td>
+                            <td>
+                                {{ appointment.participant.handedness|default_if_none:"" }}
+                            </td>
+                            <td>
+                                {{ appointment.participant.sex|default_if_none:"" }}
+                            </td>
+                            <td>
+                                {{ appointment.participant.get_social_status_display|default_if_none:"" }}
+                            </td>
+                            <td>
+                                {{ appointment.participant.email_subscription|yesno:_('yes,no') }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>
+                            <input type="text" name="date"
+                                   value="{% trans 'participants:datetime' %}"
+                                   class="search_init"/>
+                        </th>
+                        <th>
+                            <input type="text" name="day" value="{% trans 'timeslots:day' %}" class="search_init"/>
+                        </th>
+                        <th>
+                            <input type="text" name="place" value="{% trans 'participants:place' %}"
+                                   class="search_init"/>
+                        </th>
+                        <th>
+                            <input type="text" name="name"
+                                   value="{% trans 'participants:name' %}"
+                                   class="search_init"/>
+                        </th>
+                        <th class="text-center">
+                            <button class="button-colored">
+                                {% trans 'participants:send' %}
+                            </button>
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+                            <input type="text" name="name" value="{% trans 'participants:email' %}"
+                                   class="search_init"/>
+                        </th>
+                        <th>
+                            <input type="text" name="phone" value="{% trans 'participants:phone_number' %}"
+                                   class="search_init"/>
+                        </th>
+                        <th>
+                            <input type="text" name="birth_date"
+                                   value="{% trans 'participants:birth_date' %}" class="search_init"/>
+                        </th>
+                        <th>
+                            <input type="text" name="language" value="{% trans 'participants:language' %}"
+                                   class="search_init"/>
+                        </th>
+                        <th>
+                            <input type="text" name="multilingual"
+                                   value="{% trans 'participants:multilingual' %}" class="search_init"/>
+                        </th>
+                        <th>
+                            <input type="text" name="handedness"
+                                   value="{% trans 'participants:handedness' %}" class="search_init"/>
+                        </th>
+                        <th>
+                            <input type="text" name="sex" value="{% trans 'participants:sex' %}"
+                                   class="search_init"/>
+                        </th>
+                        <th>
+                            <input type="text" name="social_status"
+                                   value="{% trans 'participants:social_status' %}"
+                                   class="search_init"/>
+                        </th>
+                        <th>
+                            <input type="text" name="email_subscription"
+                                   value="{% trans 'participants:email_subscription' %}"
+                                   class="search_init"/>
+                        </th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </form>
+            <br/>
+        </div>
+    </div>
+{% endblock %}

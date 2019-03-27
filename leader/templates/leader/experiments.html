@@ -66,6 +66,13 @@
                         >
                             
                         </a>
+                        <a
+                            href="{% url 'leader:participants' experiment.id %}"
+                            class="icon-participants"
+                            title="{% trans 'experiment:participants:title' %}"
+                        >
+                            
+                        </a>
                     </td>
                 </tr>
             {% endfor %}

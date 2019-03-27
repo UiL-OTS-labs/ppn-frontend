@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-15 12:52+0000\n"
+"POT-Creation-Date: 2019-03-27 14:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,33 +26,47 @@ msgstr ""
 msgid "Important dates"
 msgstr ""
 
-#: api/rest/client.py:327 api/rest/client.py:328 api/rest/client.py:332
+#: api/resources/criteria_resources.py:27
+#: api/resources/criteria_resources.py:33
+#: api/resources/criteria_resources.py:39
+#: api/resources/criteria_resources.py:45
+#: api/resources/criteria_resources.py:51
+#: api/resources/criteria_resources.py:57
+#: api/resources/criteria_resources.py:63
+msgid "globals:indifferent"
+msgstr "Maakt niet uit"
+
+#: api/resources/participant_resources.py:104
+msgid "Other"
+msgstr "Overig"
+
+#: api/rest/client.py:338 api/rest/client.py:341
 msgid "api:host_unreachable"
 msgstr ""
 "Kon geen connectie maken met de data server. Functionaliteit van deze site "
 "is gelimiteerd."
 
-#: api/rest/fields.py:19
+#: api/rest/fields.py:27
 #, python-format
 msgid "Value %(value)r is not a valid choice."
 msgstr ""
 
-#: api/rest/fields.py:20
+#: api/rest/fields.py:28
 msgid "This field cannot be null."
 msgstr ""
 
-#: api/rest/fields.py:21
+#: api/rest/fields.py:29
 msgid "This field cannot be blank."
 msgstr ""
 
-#: api/rest/fields.py:22
+#: api/rest/fields.py:30
 #, python-format
 msgid "%(model_name)s with this %(field_label)s already exists."
 msgstr ""
 
 #. Translators: The 'lookup_type' is one of 'date', 'year' or 'month'.
 #. Eg: "Title must be unique for pub_date year"
-#: api/rest/fields.py:26
+#: api/rest/fields.py:34
 #, python-format
 msgid ""
 "%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."

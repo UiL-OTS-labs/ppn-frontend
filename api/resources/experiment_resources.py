@@ -59,6 +59,14 @@ class Experiment(rest.Resource):
         return ",".join([leader.name for leader in self.additional_leaders])
 
 
+class LeaderExperiment(Experiment):
+    class Meta:
+        path = '/api/leader_experiments/{pk}/'
+        path_variables = ['pk']
+
+    timeslots = rest.CollectionField('LeaderInlineTimeSlots')
+
+
 class SwitchExperimentOpen(rest.Resource):
     class Meta:
         path = '/api/experiment/{experiment}/switch_open/'
@@ -72,7 +80,7 @@ class SwitchExperimentOpen(rest.Resource):
 
 class LeaderExperiments(rest.ResourceCollection):
     class Meta:
-        resource = Experiment
+        resource = LeaderExperiment
         path = '/api/leader_experiments/'
 
 

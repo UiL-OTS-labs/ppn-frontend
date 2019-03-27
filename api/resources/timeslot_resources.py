@@ -1,4 +1,5 @@
 from api.resources.generic_resources import SuccessResponse
+from api.resources.participant_resources import Participant
 from uil.core.utils import enumerate_to
 
 import api.rest as rest
@@ -15,9 +16,24 @@ class TimeSlotAppointment(rest.Resource):
     creation_date = rest.DateTimeField()
 
 
+class LeaderTimeSlotAppointment(TimeSlotAppointment):
+    """Different from the normal TimeSlotAppointment, as this one includes
+    info about the participant."""
+    id = rest.IntegerField()
+
+    creation_date = rest.DateTimeField()
+
+    participant = rest.ResourceField(Participant)
+
+
 class TimeSlotAppointments(rest.ResourceCollection):
     class Meta:
         resource = TimeSlotAppointment
+
+
+class LeaderTimeSlotAppointments(rest.ResourceCollection):
+    class Meta:
+        resource = LeaderTimeSlotAppointment
 
 
 class InlineTimeSlot(rest.Resource):
@@ -42,6 +58,11 @@ class InlineTimeSlot(rest.Resource):
         } for n, appointment in enumerate_to(appointments,
                                              self.max_places, 1)]
 
+    @property
+    def takes_places_tuple(self) -> tuple:
+        return [(x['n'], x['appointment']) for x in self.places if
+                x['appointment']]
+
     def has_free_places(self) -> bool:
         return self.free_places != 0
 
@@ -65,6 +86,16 @@ class InlineTimeSlot(rest.Resource):
         ).format(
             places_str
         ).capitalize()
+
+
+class LeaderInlineTimeSlot(InlineTimeSlot):
+
+    appointments = rest.CollectionField(LeaderTimeSlotAppointments)
+
+
+class LeaderInlineTimeSlots(rest.ResourceCollection):
+    class Meta:
+        resource = LeaderInlineTimeSlot
 
 
 class InlineTimeSlots(rest.ResourceCollection):

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 13:33+0000\n"
+"POT-Creation-Date: 2019-03-27 14:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,142 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: leader/templates/leader/criteria_snippit.html:11
+msgid "criteria_snippit:language"
+msgstr "Language"
+
+#: leader/templates/leader/criteria_snippit.html:19
+msgid "criteria_snippit:multilingual"
+msgstr "Multilingual"
+
+#: leader/templates/leader/criteria_snippit.html:27
+msgid "criteria_snippit:handedness"
+msgstr "Handedness"
+
+#: leader/templates/leader/criteria_snippit.html:35
+msgid "criteria_snippit:sex"
+msgstr "Sex"
+
+#: leader/templates/leader/criteria_snippit.html:43
+msgid "criteria_snippit:social_status"
+msgstr "Social Role"
+
+#: leader/templates/leader/criteria_snippit.html:51
+msgid "criteria_snippit:min_age"
+msgstr "Min Age"
+
+#: leader/templates/leader/criteria_snippit.html:59
+msgid "criteria_snippit:max_age"
+msgstr "Max Age"
+
+#: leader/templates/leader/experiment_participants.html:11
+#: leader/templates/leader/experiment_participants.html:30
+msgid "participants:header"
+msgstr "Participants - Experiment '{}'"
+
+#: leader/templates/leader/experiment_participants.html:18
+#: leader/templates/leader/timeslots.html:25
+msgid "timeslot:warning:confirm_remove_participant"
+msgstr ""
+"Are you sure you want to unsubscribe this participant? (An automatic email "
+"will be sent to the participant, but be sure to send a personal mail as "
+"well, if you haven't done so already."
+
+#: leader/templates/leader/experiment_participants.html:40
+msgid "participants:info_text"
+msgstr " "
+
+#: leader/templates/leader/experiment_participants.html:53
+#: leader/templates/leader/experiment_participants.html:172
+msgid "participants:datetime"
+msgstr "Date & Time"
+
+#: leader/templates/leader/experiment_participants.html:56
+#: leader/templates/leader/experiment_participants.html:176
+#: leader/templates/leader/timeslots.html:51
+msgid "timeslots:day"
+msgstr "Day"
+
+#: leader/templates/leader/experiment_participants.html:59
+#: leader/templates/leader/experiment_participants.html:179
+msgid "participants:place"
+msgstr "WP"
+
+#: leader/templates/leader/experiment_participants.html:62
+#: leader/templates/leader/experiment_participants.html:184
+msgid "participants:name"
+msgstr "Name"
+
+#: leader/templates/leader/experiment_participants.html:65
+msgid "participants:reminder"
+msgstr "Reminder"
+
+#: leader/templates/leader/experiment_participants.html:68
+msgid "globals:actions"
+msgstr "Actions"
+
+#: leader/templates/leader/experiment_participants.html:71
+#: leader/templates/leader/experiment_participants.html:196
+msgid "participants:email"
+msgstr "Email"
+
+#: leader/templates/leader/experiment_participants.html:74
+#: leader/templates/leader/experiment_participants.html:200
+msgid "participants:phone_number"
+msgstr "Phone number"
+
+#: leader/templates/leader/experiment_participants.html:77
+#: leader/templates/leader/experiment_participants.html:205
+msgid "participants:birth_date"
+msgstr "Birth date"
+
+#: leader/templates/leader/experiment_participants.html:80
+#: leader/templates/leader/experiment_participants.html:208
+msgid "participants:language"
+msgstr "Lang."
+
+#: leader/templates/leader/experiment_participants.html:83
+#: leader/templates/leader/experiment_participants.html:213
+msgid "participants:multilingual"
+msgstr "Multiple Lang. (one/many)"
+
+#: leader/templates/leader/experiment_participants.html:86
+#: leader/templates/leader/experiment_participants.html:217
+msgid "participants:handedness"
+msgstr "Handedness (L/R)"
+
+#: leader/templates/leader/experiment_participants.html:89
+#: leader/templates/leader/experiment_participants.html:220
+msgid "participants:sex"
+msgstr "Sex (M/F)"
+
+#: leader/templates/leader/experiment_participants.html:92
+#: leader/templates/leader/experiment_participants.html:225
+msgid "participants:social_status"
+msgstr "Social Role"
+
+#: leader/templates/leader/experiment_participants.html:95
+#: leader/templates/leader/experiment_participants.html:230
+msgid "participants:email_subscription"
+msgstr "On mailing list"
+
+#: leader/templates/leader/experiment_participants.html:124
+#: leader/templates/leader/timeslots.html:123
+msgid "timeslots:remove_participant:title"
+msgstr "Unsubscribe participant"
+
+#: leader/templates/leader/experiment_participants.html:150
+msgid "many,one"
+msgstr "Many,One"
+
+#: leader/templates/leader/experiment_participants.html:162
+msgid "yes,no"
+msgstr "Yes,No"
+
+#: leader/templates/leader/experiment_participants.html:189
+msgid "participants:send"
+msgstr "Send"
 
 #: leader/templates/leader/experiments.html:5
 #: leader/templates/leader/experiments.html:12
@@ -40,7 +176,7 @@ msgid "experiments:table:status"
 msgstr "Status"
 
 #: leader/templates/leader/experiments.html:31
-#: leader/templates/leader/timeslots.html:70
+#: leader/templates/leader/timeslots.html:69
 msgid "global:actions"
 msgstr "Actions"
 
@@ -51,6 +187,10 @@ msgstr "Open/close experiment"
 #: leader/templates/leader/experiments.html:65
 msgid "experiment:timeslots:title"
 msgstr "Edit/view timeslots"
+
+#: leader/templates/leader/experiments.html:72
+msgid "experiment:participants:title"
+msgstr "Participants"
 
 #: leader/templates/leader/profile.html:14
 #: leader/templates/leader/profile.html:21
@@ -105,10 +245,6 @@ msgstr ""
 "will be sent to any participants affected, but be sure to send a personal "
 "mail as well, if you haven\\'t done so already.)"
 
-#: leader/templates/leader/timeslots.html:25
-msgid "timeslot:warning:confirm_remove_participant"
-msgstr ""
-
 #: leader/templates/leader/timeslots.html:40
 msgid "timeslots:home:info_text"
 msgstr ""
@@ -118,66 +254,66 @@ msgstr ""
 "checkbox for a timeslot. Once a checkbox has been clicked, the one below it "
 "(in terms of place) can be checked too. "
 
-#: leader/templates/leader/timeslots.html:49
+#: leader/templates/leader/timeslots.html:48
 msgid "timeslots:id"
 msgstr "ID"
 
-#: leader/templates/leader/timeslots.html:52
-msgid "timeslots:day"
-msgstr "Day"
-
-#: leader/templates/leader/timeslots.html:55
+#: leader/templates/leader/timeslots.html:54
 msgid "timeslots:date"
 msgstr "Date"
 
-#: leader/templates/leader/timeslots.html:58
+#: leader/templates/leader/timeslots.html:57
 msgid "timeslots:time"
 msgstr "Time"
 
-#: leader/templates/leader/timeslots.html:61
+#: leader/templates/leader/timeslots.html:60
 msgid "timeslots:place"
 msgstr "Place #"
 
-#: leader/templates/leader/timeslots.html:64
+#: leader/templates/leader/timeslots.html:63
 msgid "timeslots:participant:name"
 msgstr "Participant"
 
-#: leader/templates/leader/timeslots.html:67
+#: leader/templates/leader/timeslots.html:66
 msgid "timeslots:participant:email"
 msgstr "Participant email"
 
-#: leader/templates/leader/timeslots.html:125
-msgid "timeslots:remove_participant:title"
-msgstr "Unsubscribe participant"
-
-#: leader/templates/leader/timeslots.html:150
+#: leader/templates/leader/timeslots.html:148
 msgid "global:delete"
 msgstr "Delete"
 
-#: leader/templates/leader/timeslots.html:160
+#: leader/templates/leader/timeslots.html:158
 msgid "timeslots:home:new_timeslots:header"
 msgstr "New timeslot"
 
-#: leader/templates/leader/timeslots.html:166
+#: leader/templates/leader/timeslots.html:164
 msgid "timeslotss:add_button"
 msgstr "Add"
 
-#: leader/views.py:55
+#: leader/views.py:73
 msgid "experiment:message:open"
 msgstr "Successfully opened experiment for participants."
 
-#: leader/views.py:57
+#: leader/views.py:75
 msgid "experiment:message:closed"
 msgstr "Successfully closed experiment for participants."
 
-#: leader/views.py:59 leader/views.py:65
+#: leader/views.py:77 leader/views.py:83
 msgid "experiment:message:fail"
 msgstr "Something went wrong when trying to change the experiments status"
 
-#: leader/views.py:99
+#: leader/views.py:118
 msgid "timeslots:message:added"
 msgstr "Successfully added timeslot(s)"
 
-#: leader/views.py:138
+#: leader/views.py:153
+msgid "timeslots:message:deleted_timeslot"
+msgstr "Timeslot successfully deleted!"
+
+#: leader/views.py:169
+msgid "timeslots:message:deleted_timeslots"
+msgstr "Timeslots successfully deleted!"
+
+#: leader/views.py:216
 msgid "profile:message:updated"
 msgstr "Successfully updated profile."

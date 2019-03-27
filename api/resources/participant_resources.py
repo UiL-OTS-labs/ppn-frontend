@@ -68,3 +68,37 @@ class RequiredRegistrationFields(rest.Resource):
     fields = rest.CollectionField(
         rest.StringCollection
     )
+
+
+class Participant(rest.Resource):
+
+    id = rest.IntegerField()
+
+    name = rest.TextField()
+
+    email = rest.TextField()
+
+    phonenumber = rest.TextField(
+        null=True,
+        blank=True,
+    )
+
+    language = rest.TextField()
+
+    multilingual = rest.BoolField()
+
+    birth_date = rest.DateField()
+
+    handedness = rest.TextField()
+
+    sex = rest.TextField()
+
+    social_status = rest.TextField()
+
+    email_subscription = rest.BoolField()
+
+    def get_social_status_display(self):
+        if self.social_status == 'S':
+            return 'Student'
+
+        return _('Other')

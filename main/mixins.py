@@ -56,11 +56,12 @@ class ExperimentObjectMixin:
     """
     experiment_kwargs_name = 'experiment'
 
+    experiment_resource = Experiment
+
     @cached_property
     def experiment(self):
         try:
             pk = self.kwargs.get(self.experiment_kwargs_name)
-            return Experiment.client.get(pk=pk)
+            return self.experiment_resource.client.get(pk=pk)
         except Exception as e:
-            print(e)
             raise ObjectDoesNotExist
