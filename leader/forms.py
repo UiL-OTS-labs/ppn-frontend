@@ -2,7 +2,6 @@ from django import forms
 
 
 class ChangeProfileForm(forms.Form):
-
     name = forms.Field()
 
     email = forms.EmailField(required=False)
@@ -22,7 +21,6 @@ class ChangeProfileForm(forms.Form):
 
 
 class TimeSlotForm(forms.Form):
-
     datetime = forms.DateTimeField()
 
     max_places = forms.IntegerField()
@@ -40,3 +38,28 @@ class TimeSlotForm(forms.Form):
                 'max': 10,
             }
         )
+
+
+class AddCommentForm(forms.Form):
+    participant = forms.Field(
+        widget=forms.TextInput(
+            attrs={
+                'disabled': 'disabled'
+            },
+        ),
+        required=False
+    )
+
+    experiment = forms.Field(
+        widget=forms.TextInput(
+            attrs={
+                'disabled': 'disabled'
+            },
+        ),
+        required=False
+    )
+
+    comment = forms.Field(
+        widget=forms.Textarea(),
+        required=False
+    )

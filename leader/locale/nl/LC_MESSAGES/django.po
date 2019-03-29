@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-27 14:06+0000\n"
+"POT-Creation-Date: 2019-03-29 11:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: leader/templates/leader/add_comment.html:8
+#: leader/templates/leader/add_comment.html:15
+msgid "comments:new:header"
+msgstr "Opmerking toevoegen"
+
+#: leader/templates/leader/add_comment.html:18
+msgid "comments:new:info_text"
+msgstr " "
+
+#: leader/templates/leader/add_comment.html:27
+msgid "globals:add_button"
+msgstr "Toevoegen"
 
 #: leader/templates/leader/criteria_snippit.html:11
 msgid "criteria_snippit:language"
@@ -55,9 +68,9 @@ msgstr "Participanten - Experiment '{}'"
 #: leader/templates/leader/timeslots.html:25
 msgid "timeslot:warning:confirm_remove_participant"
 msgstr ""
-"Weet u zeker dat u deze participant wilt verwijderen? (Er "
-"zal een bevestigingsmail naar de participant worden gestuurd, maar stuur "
-"toch nog een persoonlijke mail als je dit nog niet hebt gedaan."
+"Weet u zeker dat u deze participant wilt verwijderen? (Er zal een "
+"bevestigingsmail naar de participant worden gestuurd, maar stuur toch nog "
+"een persoonlijke mail als je dit nog niet hebt gedaan."
 
 #: leader/templates/leader/experiment_participants.html:40
 msgid "participants:info_text"
@@ -292,33 +305,34 @@ msgstr "Nieuw timeslot"
 msgid "timeslotss:add_button"
 msgstr "Voeg toe"
 
-#: leader/views.py:73
+#: leader/views.py:75
 msgid "experiment:message:open"
 msgstr "Experiment succesvol geopend voor participanten."
 
-#: leader/views.py:75
+#: leader/views.py:77
 msgid "experiment:message:closed"
 msgstr "Experiment succesvol gesloten voor participanten."
 
-#: leader/views.py:77 leader/views.py:83
+#: leader/views.py:79 leader/views.py:85
 msgid "experiment:message:fail"
 msgstr "Er is iets fout gegaan tijdens het wijzigen!"
 
-#: leader/views.py:118
+#: leader/views.py:120
 msgid "timeslots:message:added"
 msgstr "Timeslots successvol toegevoegd"
 
-#: leader/views.py:153
+#: leader/views.py:155
 msgid "timeslots:message:deleted_timeslot"
 msgstr "Tijdslot successvol verwijderd"
 
-#: leader/views.py:169
-#, fuzzy
-#| msgid "timeslot:warning:deleting_timeslots"
+#: leader/views.py:171
 msgid "timeslots:message:deleted_timeslots"
 msgstr "Tijdslots successvol verwijderd"
 
+#: leader/views.py:251
+msgid "comment:message:added"
+msgstr "Opmerking successvol toegevoegd"
 
-#: leader/views.py:216
+#: leader/views.py:263
 msgid "profile:message:updated"
 msgstr "Profiel succesvol aangepast."

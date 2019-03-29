@@ -11,9 +11,10 @@ from django.views import generic
 from api.auth.models import RemoteApiUser
 from api.resources import ChangeLeader, Leader, LeaderExperiments, \
     SwitchExperimentOpen
+from api.resources.comment_resources import Comment
 from api.resources.experiment_resources import LeaderExperiment
 from api.rest.exceptions import ApiError
-from leader.forms import ChangeProfileForm, TimeSlotForm
+from leader.forms import ChangeProfileForm, TimeSlotForm, AddCommentForm
 from leader.models import LeaderPhoto
 from leader.utils import add_timeslot, delete_timeslot, delete_timeslots, now
 from main.mixins import ExperimentObjectMixin
@@ -45,7 +46,8 @@ class ExperimentParticipantsView(braces.LoginRequiredMixin,
     experiment_resource = LeaderExperiment
 
     def get_context_data(self, *_, **kwargs):
-        context = super(ExperimentParticipantsView, self).get_context_data(**kwargs)
+        context = super(ExperimentParticipantsView, self).get_context_data(
+            **kwargs)
 
         context['experiment'] = self.experiment
 
@@ -204,6 +206,51 @@ class TimeSlotBulkDeleteView(braces.LoginRequiredMixin,
 #     @cached_property
 #     def time_slot(self):
 #         return TimeSlot.objects.get(pk=)
+
+
+class AddCommentView(braces.RecentLoginRequiredMixin,
+                     braces.GroupRequiredMixin,
+                     ExperimentObjectMixin,
+                     generic.FormView):
+    template_name = 'leader/add_comment.html'
+    form_class = AddCommentForm
+    group_required = [settings.GROUPS_LEADER]
+    experiment_resource = LeaderExperiment
+
+    def get_initial(self):
+        initial = super(AddCommentView, self).get_initial()
+
+        initial['experiment'] = self.experiment.name
+        initial['participant'] = self.get_participant_name()
+
+        return initial
+
+    def get_participant_name(self):
+        participant_id = self.kwargs.get('participant')
+
+        for timeslot in self.experiment.timeslots:
+            for appointment in timeslot.appointments:
+                if appointment.participant.id == participant_id:
+                    return appointment.participant.name
+
+    def get_success_url(self):
+        args = [self.kwargs.get('experiment')]
+        return reverse('leader:participants', args=args)
+
+    def form_valid(self, form):
+        data = form.cleaned_data
+
+        comment = Comment()
+        comment.experiment = self.kwargs.get('experiment')
+        comment.participant = self.kwargs.get('participant')
+        comment.comment = data.get('comment')
+
+        response = comment.put(as_json=True)
+
+        if response.success:
+            messages.success(self.request, _('comment:message:added'))
+
+        return super(AddCommentView, self).form_valid(form)
 
 
 class ProfileView(braces.RecentLoginRequiredMixin,

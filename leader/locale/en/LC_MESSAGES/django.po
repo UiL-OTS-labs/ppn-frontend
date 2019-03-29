@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-27 14:06+0000\n"
+"POT-Creation-Date: 2019-03-29 11:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: leader/templates/leader/add_comment.html:8
+#: leader/templates/leader/add_comment.html:15
+msgid "comments:new:header"
+msgstr "Add comment"
+
+#: leader/templates/leader/add_comment.html:18
+msgid "comments:new:info_text"
+msgstr " "
+
+#: leader/templates/leader/add_comment.html:27
+msgid "globals:add_button"
+msgstr "Add"
 
 #: leader/templates/leader/criteria_snippit.html:11
 msgid "criteria_snippit:language"
@@ -290,30 +303,34 @@ msgstr "New timeslot"
 msgid "timeslotss:add_button"
 msgstr "Add"
 
-#: leader/views.py:73
+#: leader/views.py:75
 msgid "experiment:message:open"
 msgstr "Successfully opened experiment for participants."
 
-#: leader/views.py:75
+#: leader/views.py:77
 msgid "experiment:message:closed"
 msgstr "Successfully closed experiment for participants."
 
-#: leader/views.py:77 leader/views.py:83
+#: leader/views.py:79 leader/views.py:85
 msgid "experiment:message:fail"
 msgstr "Something went wrong when trying to change the experiments status"
 
-#: leader/views.py:118
+#: leader/views.py:120
 msgid "timeslots:message:added"
 msgstr "Successfully added timeslot(s)"
 
-#: leader/views.py:153
+#: leader/views.py:155
 msgid "timeslots:message:deleted_timeslot"
 msgstr "Timeslot successfully deleted!"
 
-#: leader/views.py:169
+#: leader/views.py:171
 msgid "timeslots:message:deleted_timeslots"
 msgstr "Timeslots successfully deleted!"
 
-#: leader/views.py:216
+#: leader/views.py:251
+msgid "comment:message:added"
+msgstr "Successfully added comment!"
+
+#: leader/views.py:263
 msgid "profile:message:updated"
 msgstr "Successfully updated profile."
