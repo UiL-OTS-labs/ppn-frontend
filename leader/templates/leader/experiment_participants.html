@@ -115,19 +115,19 @@
                                 {{ appointment.participant.name }}
                             </td>
                             <td class="text-center">
-                                <input type="checkbox" name="reminder[]" value="{{ appointment.pk }}">
+                                <input type="checkbox" name="reminder[]" value="{{ appointment.id }}">
                             </td>
                             <td>
                                 <a
-                                        href="#?next={{ request.path }}"
-                                        class="icon-remove-participant"
-                                        title="{% trans 'timeslots:remove_participant:title' %}"
+                                    href="{% url 'leader:delete_appointment' experiment.id appointment.id %}?next={{ request.path }}"
+                                    class="icon-remove-participant"
+                                    title="{% trans 'timeslots:remove_participant:title' %}"
                                 >
                                     
                                 </a>
                                 <a
-                                        href="{% url 'leader:add_comment' experiment.id appointment.participant.id %}"
-                                        class="icon-comment"
+                                    href="{% url 'leader:add_comment' experiment.id appointment.participant.id %}"
+                                    class="icon-comment"
                                 >
                                     
                                 </a>
