@@ -1,0 +1,40 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load static %}
+
+{% block html_head %}
+        <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
+{% endblock%}
+
+{% block header_title %}
+    {% trans 'unsubscribe_mailinglist:content:title' %} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<div class="uu-inner-container">
+    <div class="col-12 mb-3">
+        <h3>
+            {% trans 'unsubscribe_mailinglist:content:title' %}
+        </h3>
+        <p>
+            {% trans 'unsubscribe_mailinglist:content:p1' %}
+        </p>
+        {% if token_valid %}
+            <p>
+                {% trans 'unsubscribe_mailinglist:content:email' %}: <strong>{{ email }}</strong>
+            </p>
+            <form method="post" action="{{ http.path }}">
+                {% csrf_token %}
+                <button type="submit">
+                    {% trans 'unsubscribe_mailinglist:button:unsubscribe' %}
+                </button>
+            </form>
+        {% else %}
+            <p>
+                {% transformat 'unsubscribe_mailinglist:content:invalid_token' admin.email admin.name %}
+            </p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

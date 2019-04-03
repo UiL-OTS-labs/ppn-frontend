@@ -20,6 +20,31 @@ class MailinglistSubscribe(rest.Resource):
     dyslexic = rest.BoolField()
 
 
+class ValidateMailinglistTokenResponse(rest.Resource):
+
+    success = rest.BoolField()
+
+    email = rest.TextField(null=True, blank=True)
+
+
+class ValidateMailinglistToken(rest.Resource):
+    class Meta:
+        path = '/api/participant/validate_mailinglist_token/'
+        supported_operations = [rest.Operations.put]
+        default_return_resource = ValidateMailinglistTokenResponse
+
+    token = rest.TextField()
+
+
+class UnsubscribeFromMailinglist(rest.Resource):
+    class Meta:
+        path = '/api/participant/unsubscribe_from_mailinglist/'
+        supported_operations = [rest.Operations.put]
+        default_return_resource = SuccessResponse
+
+    token = rest.TextField()
+
+
 class SendCancelToken(rest.Resource):
     class Meta:
         path = '/api/participant/send_cancel_token/'
