@@ -91,6 +91,8 @@ class TimeSlotHomeView(braces.LoginRequiredMixin,
     template_name = 'leader/timeslots.html'
     form_class = TimeSlotForm
 
+    experiment_resource = LeaderExperiment
+
     def post(self, request, *args, **kwargs):
         """This override ensures that we don't redirect after a successfull
         form POST. This is because we actually want to stay on the page and
