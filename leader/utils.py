@@ -3,7 +3,7 @@ from datetime import datetime
 from pytz import timezone
 
 from api.resources import TimeSlot
-from api.resources.timeslot_resources import DeleteTimeSlots
+from api.resources.timeslot_resources import DeleteTimeSlots, DeleteAppointment
 from api.rest import StringCollection
 
 _TIMESLOT_KEY_PREFIX = len("timeslot_")
@@ -68,6 +68,16 @@ def _delete_timeslots(experiment_pk, to_delete) -> bool:
     delete_order = DeleteTimeSlots()
     delete_order.experiment = experiment_pk
     delete_order.to_delete = StringCollection(to_delete)
+
+    response = delete_order.put(as_json=True)
+
+    return response.success
+
+
+def unsubscribe_participant(experiment_pk, appointment_pk):
+    delete_order = DeleteAppointment()
+    delete_order.experiment = experiment_pk
+    delete_order.to_delete = appointment_pk
 
     response = delete_order.put(as_json=True)
 

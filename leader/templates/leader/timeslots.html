@@ -116,9 +116,8 @@
                                         </a>
                                     {% endif %}
                                     {% if place.appointment %}
-                                        {# TODO: this #}
                                         <a
-                                            href="#"
+                                            href="{% url 'leader:delete_appointment' experiment.id place.appointment.id %}"
                                             class="icon-remove-participant"
                                             title="{% trans 'timeslots:remove_participant:title' %}"
                                         >

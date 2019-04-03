@@ -127,3 +127,15 @@ class DeleteTimeSlots(rest.Resource):
     experiment = rest.IntegerField()
 
     to_delete = rest.CollectionField(rest.StringCollection)
+
+
+class DeleteAppointment(rest.Resource):
+    class Meta:
+        path = 'api/experiment/{experiment}/delete_appointment/'
+        path_variables = ['experiment']
+        supported_operation = [rest.Operations.put]
+        default_return_resource = SuccessResponse
+
+    experiment = rest.IntegerField()
+
+    to_delete = rest.IntegerField()

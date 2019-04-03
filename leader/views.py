@@ -14,9 +14,10 @@ from api.resources import ChangeLeader, Leader, LeaderExperiments, \
 from api.resources.comment_resources import Comment
 from api.resources.experiment_resources import LeaderExperiment
 from api.rest.exceptions import ApiError
-from leader.forms import ChangeProfileForm, TimeSlotForm, AddCommentForm
+from leader.forms import AddCommentForm, ChangeProfileForm, TimeSlotForm
 from leader.models import LeaderPhoto
-from leader.utils import add_timeslot, delete_timeslot, delete_timeslots, now
+from leader.utils import add_timeslot, delete_timeslot, delete_timeslots, now, \
+    unsubscribe_participant
 from main.mixins import ExperimentObjectMixin
 from uil.core.views import RedirectActionView
 from uil.core.views.mixins import RedirectSuccessMessageMixin
@@ -185,29 +186,23 @@ class TimeSlotBulkDeleteView(braces.LoginRequiredMixin,
         return reverse('leader:timeslots', args=args)
 
 
-# TODO: This
-# class UnsubscribeParticipantView(braces.LoginRequiredMixin,
-#                                  RedirectSuccessMessageMixin,
-#                                  RedirectActionView):
-#     success_message = _('timeslots:message:unsubscribed_participant')
-#
-#     def action(self, request):
-#         appointment_pk = self.kwargs.get('appointment')
-#
-#         unsubscribe_participant(self.kwargs.get('time_slot'), appointment_pk)
-#
-#     def get_redirect_url(self, *args, **kwargs):
-#         if self.request.GET.get('next'):
-#             return self.request.GET.get('next')
-#
-#         return reverse(
-#             'experiments:timeslots',
-#             args=[self.time_slot.experiment.pk]
-#         )
-#
-#     @cached_property
-#     def time_slot(self):
-#         return TimeSlot.objects.get(pk=)
+class DeleteAppointmentView(braces.LoginRequiredMixin,
+                            RedirectSuccessMessageMixin,
+                            RedirectActionView):
+    success_message = _('timeslots:message:unsubscribed_participant')
+
+    def action(self, request):
+        appointment_pk = self.kwargs.get('appointment')
+        experiment_pk = self.kwargs.get('experiment')
+
+        unsubscribe_participant(experiment_pk, appointment_pk)
+
+    def get_redirect_url(self, *args, **kwargs):
+        if self.request.GET.get('next'):
+            return self.request.GET.get('next')
+
+        args = [self.kwargs.get('experiment')]
+        return reverse('leader:timeslots', args=args)
 
 
 class AddCommentView(braces.RecentLoginRequiredMixin,
