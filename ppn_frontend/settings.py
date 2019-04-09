@@ -187,6 +187,8 @@ CSP_IMG_SRC = ["'self'", 'data:', ]
 MENU_SELECT_PARENTS = True
 MENU_HIDE_EMPTY = False
 
+# Technical contact info
+TECHNICIAN_CONTACT = 'mailto:t.d.mees@uu.nl'
 
 # PPN API
 API_HOST = 'http://localhost:9000/'

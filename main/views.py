@@ -150,6 +150,10 @@ class CustomLoginView(LoginView):
             return reverse('main:home')
 
 
+def handler403(request):
+    return render(request, 'base/403.html', status=404)
+
+
 def handler404(request):
     return render(request, 'base/404.html', status=404)
 

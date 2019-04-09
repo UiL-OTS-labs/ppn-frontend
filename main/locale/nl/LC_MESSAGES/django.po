@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-09 09:46+0000\n"
+"POT-Creation-Date: 2019-04-09 09:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,6 +94,18 @@ msgstr "Log in"
 msgid "main:globals:logout"
 msgstr "Log uit"
 
+#: main/templates/base/403.html:5 main/templates/base/403.html:12
+msgid "403:header"
+msgstr "Geen toegang"
+
+#: main/templates/base/403.html:14
+msgid "403:p1"
+msgstr "Het lijkt er op dat je een pagina wilt bezoeken waar je niet bij mag."
+
+#: main/templates/base/403.html:17
+msgid "403:p2"
+msgstr "Als je denkt dat dit een fout is, neem contact op met de lab technici."
+
 #: main/templates/base/404.html:5 main/templates/base/404.html:12
 msgid "404:header"
 msgstr "Pagina niet gevonden"
@@ -132,8 +144,8 @@ msgstr "<strong>Probeer het later nog een keer</strong>"
 #, python-format
 msgid "500:advice:contact %(technician_contact)s"
 msgstr ""
-"<strong>Neem contact op</strong> met <a href=\"%(technician_contact)s"
-"\">de lab technici</a> en vertel aan hen wat je aan het doen was."
+"<strong>Neem contact op</strong> met <a href=\"%(technician_contact)s\">de "
+"lab technici</a> en vertel aan hen wat je aan het doen was."
 
 #: main/templates/base/language_box.html:11
 msgid "lang:en"

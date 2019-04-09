@@ -20,24 +20,30 @@ from django.urls import include, path
 
 from main import views
 
+handler403 = views.handler403
+handler404 = views.handler404
+handler500 = views.handler500
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('participant/', include('participant.urls')),
     path('leader/', include('leader.urls')),
     path('', include('main.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
+    path('403/', handler403, ),
+    path('404/', handler404, ),
+    path('500/', handler500, ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'Proefpersonen systeem FRONTEND'
 admin.site.site_title = 'Proefpersonen systeem FRONTEND'
 admin.site.index_title = 'Proefpersonen systeem FRONTEND'
 
-handler404 = views.handler404
-handler500 = views.handler500
 
 if settings.DEBUG:
     import debug_toolbar
-    urlpatterns = [
-        path('__debug__/', include(debug_toolbar.urls)),
 
-    ] + urlpatterns
+    urlpatterns = [
+                      path('__debug__/', include(debug_toolbar.urls)),
+
+                  ] + urlpatterns
