@@ -1,6 +1,11 @@
 {% extends "base/base.html" %}
 {% load i18n %}
 
+
+{% block html_head %}
+    <meta name="robots" content="noindex">
+{% endblock %}
+
 {% block header_title %}
     {% trans '404:header' %} - {{ block.super }}
 {% endblock %}
