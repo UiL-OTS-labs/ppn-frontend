@@ -187,7 +187,7 @@ msgstr "Opslaan"
 #: main/templates/main/enter_reset_token.html:5
 #: main/templates/main/enter_reset_token.html:12
 msgid "enter_reset_token:content:header"
-msgstr "Wachtwoord opnieuw instellen "
+msgstr "Wachtwoord (opnieuw) instellen "
 
 #: main/templates/main/enter_reset_token.html:15
 msgid "enter_reset_token:content:help_text"
@@ -283,7 +283,7 @@ msgstr "Klik hier om naar het 'MySolisID' portaal te gaan."
 #: main/templates/main/reset_password.html:5
 #: main/templates/main/reset_password.html:12
 msgid "reset_password:content:header"
-msgstr "Wachtwoord opnieuw instellen"
+msgstr "Wachtwoord (opnieuw) instellen"
 
 #: main/templates/main/reset_password.html:16
 msgid "reset_password:content:help_text"

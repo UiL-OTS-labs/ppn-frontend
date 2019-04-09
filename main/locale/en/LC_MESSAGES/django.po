@@ -184,7 +184,7 @@ msgstr "Save "
 #: main/templates/main/enter_reset_token.html:5
 #: main/templates/main/enter_reset_token.html:12
 msgid "enter_reset_token:content:header"
-msgstr "Reset password"
+msgstr "(Re)set password"
 
 #: main/templates/main/enter_reset_token.html:15
 msgid "enter_reset_token:content:help_text"
@@ -279,7 +279,7 @@ msgstr "Click here to go to the 'MySolisID' portal."
 #: main/templates/main/reset_password.html:5
 #: main/templates/main/reset_password.html:12
 msgid "reset_password:content:header"
-msgstr "Reset password"
+msgstr "(Re)set password"
 
 #: main/templates/main/reset_password.html:16
 msgid "reset_password:content:help_text"
