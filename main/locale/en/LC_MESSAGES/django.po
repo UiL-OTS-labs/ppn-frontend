@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-01 09:01+0000\n"
+"POT-Creation-Date: 2019-04-09 09:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,6 +92,45 @@ msgstr "Log in"
 #: main/menus.py:53 main/templates/base/login_header.html:7
 msgid "main:globals:logout"
 msgstr "Log out"
+
+#: main/templates/base/404.html:5 main/templates/base/404.html:12
+msgid "404:header"
+msgstr "Page not found"
+
+#: main/templates/base/404.html:14
+msgid "404:p1"
+msgstr "We can't seem to find the page you're looking for."
+
+#: main/templates/base/404.html:17
+msgid "404:p2"
+msgstr "The link you clicked may be broken or the page may have been moved."
+
+#: main/templates/base/500.html:5 main/templates/base/500.html:11
+msgid "500:header"
+msgstr "Something went wrong"
+
+#: main/templates/base/500.html:13
+msgid "500:p1"
+msgstr "Sorry! It looks like we made a mistake our side!"
+
+#: main/templates/base/500.html:16
+msgid "500:p2"
+msgstr "In the meantime, these are some things you can do:"
+
+#: main/templates/base/500.html:20
+msgid "500:advice:reload"
+msgstr "<strong>Reload the page</strong> (this might help)"
+
+#: main/templates/base/500.html:23
+msgid "500:advice:wait"
+msgstr "<strong>Try again later</strong>"
+
+#: main/templates/base/500.html:27
+#, python-format
+msgid "500:advice:contact %(technician_contact)s"
+msgstr ""
+"<strong>Contact the <a href=\"%(technician_contact)s\">lab "
+"technicians</a></strong> and tell them what happend."
 
 #: main/templates/base/language_box.html:11
 msgid "lang:en"
@@ -262,15 +301,15 @@ msgstr "Forgot password?"
 msgid "login:button:login"
 msgstr "Log in"
 
-#: main/views.py:38
+#: main/views.py:39
 msgid "password:message:updated"
 msgstr "Password changed!"
 
-#: main/views.py:73
+#: main/views.py:74
 msgid "password:message:reset_requested"
 msgstr ""
 "We've sent you an email with instructions on how to reset your password!"
 
-#: main/views.py:96
+#: main/views.py:97
 msgid "password:message:reset_successful"
 msgstr "Password successfully reset!"

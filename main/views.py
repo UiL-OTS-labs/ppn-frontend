@@ -1,4 +1,5 @@
 from braces import views as braces
+from django.conf import settings
 from django.contrib.auth.views import LoginView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
@@ -154,4 +155,7 @@ def handler404(request):
 
 
 def handler500(request):
-    return render(request, 'base/500.html', status=500)
+    context = {
+        'technician_contact': settings.TECHNICIAN_CONTACT
+    }
+    return render(request, 'base/500.html', status=500, context=context)
