@@ -78,7 +78,7 @@ class CancelAppointmentView(OverrideLanguageMixin, generic.RedirectView):
 
     def get(self, request, *args, **kwargs):
         kwargs = {
-            'pk': self.kwargs.get('appointment')
+            'id': self.kwargs.get('appointment')
         }
 
         if 'token' in self.kwargs:

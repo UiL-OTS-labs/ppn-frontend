@@ -56,8 +56,8 @@ class SendCancelToken(rest.Resource):
 
 class Appointment(rest.Resource):
     class Meta:
-        path = '/api/participant/appointments/{pk}/'
-        path_variables = ['pk']
+        path = '/api/participant/appointments/{id}/'
+        path_variables = ['id']
         supported_operations = [rest.Operations.get, rest.Operations.delete]
 
     id = rest.IntegerField()
