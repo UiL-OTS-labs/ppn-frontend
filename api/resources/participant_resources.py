@@ -1,11 +1,18 @@
 from datetime import datetime
 
 import api.rest as rest
-
 from .generic_resources import SuccessResponse
 
 
+#
+# Mailing list related resources
+#
+
 class MailinglistSubscribe(rest.Resource):
+    """
+    This resource is used to subscribe a 'new' participant to the mailing list
+    """
+
     class Meta:
         path = '/api/participant/subscribe_mailinglist/'
         supported_operations = [rest.Operations.put]
@@ -21,6 +28,11 @@ class MailinglistSubscribe(rest.Resource):
 
 
 class ValidateMailinglistTokenResponse(rest.Resource):
+    """
+    This resource is used as the response resource for ValidateMailinglistToken.
+
+    Email will be filled in if success == True, to be used to display it.
+    """
 
     success = rest.BoolField()
 
@@ -28,6 +40,11 @@ class ValidateMailinglistTokenResponse(rest.Resource):
 
 
 class ValidateMailinglistToken(rest.Resource):
+    """
+    This resource is used to validate unsubscribe-from-mailinglist tokens, will
+    return the ValidateMailinglistTokenResponse resource
+    """
+
     class Meta:
         path = '/api/participant/validate_mailinglist_token/'
         supported_operations = [rest.Operations.put]
@@ -37,6 +54,13 @@ class ValidateMailinglistToken(rest.Resource):
 
 
 class UnsubscribeFromMailinglist(rest.Resource):
+    """
+    This resource is used to unsubscribe a participant from the mailing list.
+    The participant is identified by the token.
+
+    You can use ValidateMailinglistToken to validate the token beforehand
+    """
+
     class Meta:
         path = '/api/participant/unsubscribe_from_mailinglist/'
         supported_operations = [rest.Operations.put]
@@ -45,7 +69,19 @@ class UnsubscribeFromMailinglist(rest.Resource):
     token = rest.TextField()
 
 
+#
+# Appointment related resources
+#
+
 class SendCancelToken(rest.Resource):
+    """
+    This resource is used to request a appointment cancel token for a given
+    email. For security purposes this token is sent by the backend through
+    email.
+
+    It uses the generic SuccessResponse Resource as the default response.
+    """
+
     class Meta:
         path = '/api/participant/send_cancel_token/'
         supported_operations = [rest.Operations.put]
@@ -55,6 +91,16 @@ class SendCancelToken(rest.Resource):
 
 
 class Appointment(rest.Resource):
+    """
+    This resource represents an appointment for a participant(!), it can
+    retrieve them when the pk is known. NOTE: this will error if no user
+    header is present, so it will only work when a participant is logged in!
+
+    It can also delete them using the delete method.
+    To retrieve all appointments for a participant, use the Appointments
+    collection. (below)
+    """
+
     class Meta:
         path = '/api/participant/appointments/{id}/'
         path_variables = ['id']
@@ -77,13 +123,29 @@ class Appointment(rest.Resource):
 
 
 class Appointments(rest.ResourceCollection):
+    """
+    A collection of all appointments for a participant(!).  NOTE: this will
+    error if no user header is present, so it will only work when a
+    participant is logged in!
+    """
+
     class Meta:
         path = '/api/participant/appointments/'
         supported_operations = [rest.Operations.get]
         resource = Appointment
 
 
+#
+# Register fields resource
+#
+
 class RequiredRegistrationFields(rest.Resource):
+    """
+    This resource can be used to get the required register fields for a given
+    experiment.
+    NOTE: This only works (and makes sense) when a participant is logged in
+    """
+
     class Meta:
         path = '/api/participant/get_required_fields/{experiment}/'
         path_variables = ['experiment']
@@ -95,8 +157,16 @@ class RequiredRegistrationFields(rest.Resource):
     )
 
 
-class Participant(rest.Resource):
+#
+# Participant resource
+# TODO: maybe move this? As it's to be used for leaders only
 
+
+class Participant(rest.Resource):
+    """
+    Describes a participant. It does not have it's own endpoint, so it can
+    only be used in other resources as a field or in collections.
+    """
     id = rest.IntegerField()
 
     name = rest.TextField()

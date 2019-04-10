@@ -7,18 +7,25 @@ from babel.dates import format_datetime
 from django.utils.translation import get_language
 
 
+# TODO: clean up this mess. I don't think TimeSlotAppointment needs to be
+#  used anywhere atm.
+
 class TimeSlotAppointment(rest.Resource):
-    """Different from the participant appointment, as this one is a child of
+    """
+    Different from the participant appointment, as this one is a child of
     a timeslot. The participant appointment has a timeslot resource as a
-    child."""
+    child.
+    """
     id = rest.IntegerField()
 
     creation_date = rest.DateTimeField()
 
 
 class LeaderTimeSlotAppointment(TimeSlotAppointment):
-    """Different from the normal TimeSlotAppointment, as this one includes
-    info about the participant."""
+    """
+    Different from the normal TimeSlotAppointment, as this one includes
+    info about the participant.
+    """
     id = rest.IntegerField()
 
     creation_date = rest.DateTimeField()

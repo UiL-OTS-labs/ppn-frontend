@@ -2,6 +2,9 @@ import api.rest as rest
 
 
 class Admin(rest.Resource):
+    """
+    This resource will get the current system administrator to list on the site.
+    """
     class Meta:
         path = '/api/admin/'
         identifier_field = 'email'

@@ -5,7 +5,16 @@ import api.rest as rest
 from leader.models import LeaderPhoto
 
 
+#
+# Leader resources
+#
+
 class Leader(rest.Resource):
+    """
+    Describes a leader, can be used to retrieve the current leader's profile
+    or in other resources
+    """
+
     class Meta:
         path = '/api/leader/'
 
@@ -26,7 +35,8 @@ class Leader(rest.Resource):
             leader_id = leader_id.id
 
         try:
-            obj, created = LeaderPhoto.objects.get_or_create(leader_id=leader_id)
+            obj, created = LeaderPhoto.objects.get_or_create(
+                leader_id=leader_id)
 
             return obj.photo
 
@@ -35,11 +45,22 @@ class Leader(rest.Resource):
 
 
 class Leaders(rest.ResourceCollection):
+    """
+    A collection of leaders, used for the experiment's 'additional_leaders'
+    field.
+    """
+
     class Meta:
         resource = Leader
 
 
+# TODO: maybe integrate this with the Leader resource?
+
 class ChangeLeader(rest.Resource):
+    """
+    This resource is used to change a leader's profile
+    """
+
     class Meta:
         path = '/api/leader/change/'
         supported_operations = [rest.Operations.put]

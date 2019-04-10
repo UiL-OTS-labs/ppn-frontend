@@ -3,7 +3,14 @@ from django.utils.translation import ugettext_lazy as _
 import api.rest as rest
 
 
+#
+# Default criteria
+#
+
 class DefaultCriteria(rest.Resource):
+    """
+    This resource describes all default criteria for an experiment
+    """
     id = rest.IntegerField()
 
     language = rest.TextField()
@@ -65,7 +72,15 @@ class DefaultCriteria(rest.Resource):
         return self.max_age
 
 
+#
+# A set of resources for specific criteria
+#
+
+
 class Criterion(rest.Resource):
+    """
+    This resource represents a specific criterion
+    """
     id = rest.IntegerField()
 
     name_form = rest.TextField()
@@ -80,6 +95,11 @@ class Criterion(rest.Resource):
 
 
 class ExperimentCriterion(rest.Resource):
+    """
+    This resource represents the link between an experiment and a criterion.
+
+    It also lists the correct value and error message for this experiment.
+    """
     id = rest.IntegerField()
 
     criterion = rest.ResourceField(Criterion)
@@ -90,5 +110,9 @@ class ExperimentCriterion(rest.Resource):
 
 
 class ExperimentCriteria(rest.ResourceCollection):
+    """
+    A collection of specific criteria for an experiment.
+    """
+
     class Meta:
         resource = ExperimentCriterion

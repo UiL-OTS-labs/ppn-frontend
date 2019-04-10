@@ -2,6 +2,10 @@ import api.rest as rest
 
 
 class Location(rest.Resource):
+    """
+    This resource describes a test location. route_url can be null if no
+    routing info is present.
+    """
     id = rest.IntegerField()
 
     name = rest.TextField()
