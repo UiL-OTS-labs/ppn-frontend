@@ -1,9 +1,9 @@
 from django.urls import include, path
 
 from participant.views import AuthenticatedRegisterView, CancelAppointmentView, \
-    CancelLandingView, ClosedExperimentView, MyAppointmentsView, RegisterView, \
-    SubscribeToMailinglistView
-from participant.views.mailinglist_views import UnsubscribeFromMailinglistView
+    CancelLandingView, ClosedExperimentView, CreateAccountView, \
+    MyAppointmentsView, RegisterView, SubscribeToMailinglistView, \
+    UnsubscribeFromMailinglistView
 
 app_name = 'participant'
 
@@ -20,6 +20,8 @@ urlpatterns = [
     path('cancel/', include([
         path('', CancelLandingView.as_view(), name='cancel_landing'),
     ])),
+
+    path('create_account/', CreateAccountView.as_view(), name='create_account'),
 
     path(
         'unsubscribe_mailinglist/<str:token>/',

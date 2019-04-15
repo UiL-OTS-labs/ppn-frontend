@@ -30,12 +30,10 @@
             {% trans 'subscribe_mailinglist:content:p1' %}
             </p>
             <p>
-                {% trans 'subscribe_mailinglist:content:p2' %} <a href="mailto:{{ admin.email }}">
-                    {{ admin.email }}
-                </a>.
+                {% trans 'globals:content:personal_information_info' %} <a href="mailto:{{ admin.email }}">{{ admin.email }}</a>.
             </p>
             <p>
-                {% trans 'subscribe_mailinglist:content:p3' %}
+                {% trans 'global:content:experiment_crit_info' %}
             </p>
             <form method="post">
                 {% csrf_token %}
