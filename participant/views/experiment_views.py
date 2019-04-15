@@ -3,11 +3,12 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.utils.functional import cached_property
+from django.utils.safestring import mark_safe
 from django.views import generic
 
 from api.resources.participant_resources import Appointments, \
     RequiredRegistrationFields
-from main.mixins import OverrideLanguageMixin, ExperimentObjectMixin
+from main.mixins import ExperimentObjectMixin, OverrideLanguageMixin
 from participant.forms import BaseRegisterForm
 from participant.utils import get_register_form, submit_register_form
 
@@ -114,16 +115,24 @@ class AuthenticatedRegisterView(braces.LoginRequiredMixin,
                 context['already_registered'] = True
 
                 if 'messages' in context:
-                    context['messages'].append('Je bent al ingeschreven voor '
-                                               'dit experiment')
+                    context['messages'].append(
+                        self._get_registered_message()
+                    )
                 else:
                     context['messages'] = [
-                        'Je bent al ingeschreven voor dit experiment'
+                        self._get_registered_message()
                     ]
 
                 break
 
         return context
+
+    def _get_registered_message(self):
+        return mark_safe(
+            "Je bent al ingeschreven voor dit experiment. Klik <a href=\"{}\">"
+            "hier</a> om je uit te schrijven.".format(
+                reverse('participant:appointments')
+            ))
 
     def dispatch(self, request, *args, **kwargs):
         try:
