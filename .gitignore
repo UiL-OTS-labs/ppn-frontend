@@ -9,7 +9,7 @@ __pycache__/
 db.sqlite3
 
 ## Django ##
-*.mo # Binary translation files. Should be generated on deployment or when testing
+*.mo
 
 ### Virtual environments ###
 venv
