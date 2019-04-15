@@ -116,18 +116,19 @@ class AuthenticatedRegisterView(braces.LoginRequiredMixin,
 
                 if 'messages' in context:
                     context['messages'].append(
-                        self._get_registered_message()
+                        self._already_registered_message
                     )
                 else:
                     context['messages'] = [
-                        self._get_registered_message()
+                        self._already_registered_message
                     ]
 
                 break
 
         return context
 
-    def _get_registered_message(self):
+    @property
+    def _already_registered_message(self):
         return mark_safe(
             "Je bent al ingeschreven voor dit experiment. Klik <a href=\"{}\">"
             "hier</a> om je uit te schrijven.".format(
