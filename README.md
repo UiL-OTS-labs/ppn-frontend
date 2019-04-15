@@ -29,6 +29,7 @@ Development instructions:
   environment!). ``pip install -r requirements.txt``
 * Edit ``ppn_backend/settings.py`` to suit your needs. (Make sure you set the 
   backend location to your local setup!)
+* Compile the translation files using ``python manage.py compilemessages``
 * You can now run a development server with ``python manage.py runserver``
 
 The frontend does need a running backend to talk to! Otherwise it will be very 
