@@ -3,6 +3,10 @@ import api.rest as rest
 from .generic_resources import SuccessResponse
 
 
+class UserCreationResponse(SuccessResponse):
+    message = rest.TextField()
+
+
 class ChangePassword(rest.Resource):
     class Meta:
         path = '/api/account/change_password/'

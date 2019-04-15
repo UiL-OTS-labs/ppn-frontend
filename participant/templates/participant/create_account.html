@@ -1,0 +1,45 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+
+{% block html_head %}
+    {# Redicilous display fix because Django cannot <label> right #}
+    <style>
+        form label {
+            display: inline-block;
+        }
+    </style>
+{% endblock %}
+
+{% block header_title %}
+    {% trans 'create_account:content:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<div class="uu-inner-container">
+    <div class="col-12 mb-3">
+        <h1>
+            {% trans 'create_account:content:header' %}
+        </h1>
+        <p>
+            {% trans 'create_account:content:p1' %}
+        </p>
+        <p>
+            {% trans 'globals:content:personal_information_info' %} <a href="mailto:{{ admin.email }}">{{ admin.email }}</a>.
+        </p>
+        <p>
+            {% trans 'global:content:experiment_crit_info' %}
+        </p>
+        <br/>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table width="100%">
+                {{ form.as_table }}
+            </table>
+            <br/>
+            <div class="float-right">
+                <button type="submit">{% trans 'globals:create_account' %}</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
