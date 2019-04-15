@@ -7,6 +7,38 @@ class UserCreationResponse(SuccessResponse):
     message = rest.TextField()
 
 
+class UserCreationData(rest.Resource):
+    class Meta:
+        path = '/api/participant/create_account/'
+        supported_operations = [rest.Operations.put]
+        default_return_resource = UserCreationResponse
+
+    email = rest.TextField()
+
+    name = rest.TextField()
+
+    multilingual = rest.BoolField(
+        default=False,
+    )
+
+    language = rest.TextField(
+        default='nl',
+    )
+
+    dyslexic = rest.BoolField(
+        default=False,
+    )
+
+    mailing_list = rest.BoolField(
+        default=False,
+    )
+
+    password = rest.TextField(
+        null=True,
+        blank=True,
+    )
+
+
 class ChangePassword(rest.Resource):
     class Meta:
         path = '/api/account/change_password/'

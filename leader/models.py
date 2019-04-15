@@ -1,12 +1,10 @@
 from django.db import models
 
-from api.auth.models import RemoteApiUser
-
 
 class LeaderPhoto(models.Model):
 
     leader = models.ForeignKey(
-        RemoteApiUser,
+        'apiauth.RemoteApiUser',
         on_delete=models.CASCADE
     )
 

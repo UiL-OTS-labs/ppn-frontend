@@ -25,7 +25,7 @@ Menu.add_item("main", MenuItem(_('mainmenu:mailinglist'),
                                ))
 
 Menu.add_item("main", MenuItem(_('mainmenu:register'),
-                               '#',
+                               reverse('participant:create_account'),
                                check=lambda x: not x.user.is_authenticated
                                ))
 

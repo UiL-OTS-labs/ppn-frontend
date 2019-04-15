@@ -5,9 +5,11 @@ from django.utils.translation import ugettext_lazy as _
 from api.resources.account_resources import ChangePassword, ForgotPassword, \
     ResetPassword
 
+#
+# Password forms
+#
 
 class EnterTokenForm(forms.Form):
-
     token = forms.CharField(
         widget=forms.TextInput(attrs={
             'autofocus':   True,
@@ -17,10 +19,9 @@ class EnterTokenForm(forms.Form):
 
 
 class ForgotPasswordForm(forms.Form):
-
     email = forms.EmailField(
         widget=forms.EmailInput(attrs={
-            'autofocus': True,
+            'autofocus':   True,
             'placeholder': _('forms:forgot_password:email_placeholder')
         }),
     )
@@ -51,10 +52,9 @@ class ForgotPasswordForm(forms.Form):
 
 
 class ResetPasswordForm(forms.Form):
-
     error_messages = {
         'password_mismatch': _("forms:change_password:password_mismatch"),
-        'token_incorrect': _("forms:change_password:token_incorrect"),
+        'token_incorrect':   _("forms:change_password:token_incorrect"),
     }
 
     token = forms.CharField(
@@ -104,9 +104,8 @@ class ResetPasswordForm(forms.Form):
 
 
 class ChangePasswordForm(forms.Form):
-
     error_messages = {
-        'password_mismatch': _("forms:change_password:password_mismatch"),
+        'password_mismatch':  _("forms:change_password:password_mismatch"),
         'password_incorrect': _("forms:change_password:password_incorrect"),
     }
 

@@ -1,20 +1,23 @@
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
-from django.db import models
+from pprint import pprint
+
 from django.conf import settings
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, \
+    PermissionsMixin
+from django.db import models
+
+from api.resources.account_resources import UserCreationData
 
 
 class RemoteApiUserManager(BaseUserManager):
 
-    # TODO: create API calls to handle this
-
-    def get_by_email(self, email:str, stop_recursion: bool=False):
+    def get_by_email(self, email: str, stop_recursion: bool = False):
         email = email.strip()
 
         try:
             user = self.get(email=email)
         except RemoteApiUser.DoesNotExist:
-            # Fix the annoying problem that the university allows student
-            # assistants to have 2 emails
+            # Fix the annoying problem that the university allows students
+            # to have 2 emails
             if not stop_recursion and email.endswith('@students.uu.nl'):
                 email = email.replace('students.uu.nl', 'uu.nl')
                 user = self.get_by_email(email, True)
@@ -26,15 +29,35 @@ class RemoteApiUserManager(BaseUserManager):
 
         return user
 
-    def create_user(self, *args, **kwargs):
-        raise RuntimeError("User generation is not supported in this application. Create users in the backend!")
+    def create_user(self,
+                    email: str,
+                    name: str,
+                    multilingual: bool = None,
+                    language: str = None,
+                    dyslexic: bool = None,
+                    mailing_list: bool = False,
+                    password: str = None):
+
+        resource = UserCreationData(
+            email=email,
+            name=name,
+            multilingual=multilingual,
+            language=language,
+            dyslexic=dyslexic,
+            mailing_list=mailing_list,
+            password=password,
+        )
+
+        response = resource.put()
+
+        pprint(response)
 
     def create_superuser(self, *args, **kwargs):
-        raise RuntimeError("User generation is not supported in this application. Create users in the backend!")
+        raise RuntimeError("Admin User generation is not supported in this "
+                           "application. Create users in the backend!")
 
 
 class RemoteApiUser(PermissionsMixin, AbstractBaseUser):
-
     objects = RemoteApiUserManager()
 
     USERNAME_FIELD = 'email'

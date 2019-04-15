@@ -15,6 +15,10 @@ from .forms import ChangePasswordForm, EnterTokenForm, ForgotPasswordForm, \
     ResetPasswordForm
 
 
+#
+# Home
+#
+
 class HomeView(OverrideLanguageMixin, generic.TemplateView):
     template_name = 'main/index.html'
 
@@ -31,6 +35,10 @@ class HomeView(OverrideLanguageMixin, generic.TemplateView):
 
         return context
 
+
+#
+# Password related views
+#
 
 class ChangePasswordView(braces.LoginRequiredMixin, SuccessMessageMixin,
                          generic.FormView):
@@ -118,6 +126,10 @@ class ResetPasswordView(braces.AnonymousRequiredMixin, SuccessMessageMixin,
         return context
 
 
+#
+# Login View
+#
+
 class CustomLoginView(LoginView):
 
     def get_success_url(self):
@@ -149,6 +161,10 @@ class CustomLoginView(LoginView):
         else:
             return reverse('main:home')
 
+
+#
+#  Error pages
+#
 
 def handler403(request):
     return render(request, 'base/403.html', status=404)

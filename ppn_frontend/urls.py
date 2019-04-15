@@ -20,6 +20,9 @@ from django.urls import include, path
 
 from main import views
 
+handler400 = views.handler500  # While 500 != 400, we just act like it is.
+# This way the misbehaving user is treated nicely by shifting the blame to us
+# (And I'm lazy)
 handler403 = views.handler403
 handler404 = views.handler404
 handler500 = views.handler500
