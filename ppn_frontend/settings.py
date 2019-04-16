@@ -18,7 +18,6 @@ from django.utils.translation import gettext_lazy as _
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -31,7 +30,6 @@ ENABLE_DEBUG_TOOLBAR = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 INTERNAL_IPS = ['localhost', '127.0.0.1']
-
 
 # Application definition
 
@@ -66,7 +64,6 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGIN_URL = reverse_lazy('main:login')
 
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -78,23 +75,23 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'api.middleware.ThreadLocalUserMiddleware',
     'api.middleware.PasswordChangeMiddleware',
+    'csp.middleware.CSPMiddleware',
 ]
 
 if DEBUG and ENABLE_DEBUG_TOOLBAR:
     # Only enable the debug toolbar if we are in debug mode and have the
     # toolbar enabled
     INSTALLED_APPS.append('debug_toolbar')
-    MIDDLEWARE.append('debug_toolbar.middleware.DebugToolbarMiddleware',)
-
+    MIDDLEWARE.append('debug_toolbar.middleware.DebugToolbarMiddleware', )
 
 ROOT_URLCONF = 'ppn_frontend.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'BACKEND':  'django.template.backends.django.DjangoTemplates',
+        'DIRS':     [],
         'APP_DIRS': True,
-        'OPTIONS': {
+        'OPTIONS':  {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -107,17 +104,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ppn_frontend.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME':   os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -137,7 +132,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -154,7 +148,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
@@ -176,7 +169,11 @@ SECURE_SSL_REDIRECT = not DEBUG
 # Django CSP
 # http://django-csp.readthedocs.io/en/latest/index.html
 CSP_REPORT_ONLY = False
+CSP_UPGRADE_INSECURE_REQUESTS = not DEBUG
+CSP_INCLUDE_NONCE_IN = ['script-src']
 
+CSP_DEFAULT_SRC = ["'self'", ]
+CSP_SCRIPT_SRC = ["'self'", ]
 CSP_FONT_SRC = ["'self'", 'data:', ]
 CSP_STYLE_SRC = ["'self'", ]
 CSP_IMG_SRC = ["'self'", 'data:', ]

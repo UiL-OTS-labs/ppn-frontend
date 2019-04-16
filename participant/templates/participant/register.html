@@ -7,12 +7,12 @@
     <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
     <script src="{% static 'uil.core/js/form_helpers.js' %}"></script>
 
-    <script>
+    <script nonce="{{ request.csp_nonce }}">
     $(function () {
         add_title('timeslot', 'Kies hieronder een tijdstip:');
     });
     </script>
-    <style>
+    <style nonce="{{ request.csp_nonce }}">
     @media (min-width: 869px) {
         th, td {
             padding: 20px 0;

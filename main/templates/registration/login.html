@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block html_head %}
-    <style>
+    <style nonce="{{ request.csp_nonce }}">
     form {
         display: block;
         width: 400px;

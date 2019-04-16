@@ -6,7 +6,7 @@
 
 {% block html_head %}
     <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
-    <script>
+    <script nonce="{{ request.csp_nonce }}">
     $(function () {
         $('.dt_custom').DataTable({
             order: [[2, 'asc'], [3, 'asc']],

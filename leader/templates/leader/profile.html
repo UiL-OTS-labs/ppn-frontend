@@ -3,7 +3,7 @@
 
 {% block html_head %}
     {# Redicilous display fix because Django cannot <label> right #}
-    <style>
+    <style nonce="{{ request.csp_nonce }}">
         form label {
             display: inline-block;
         }
