@@ -47,12 +47,16 @@ class BaseClient:
 
         return headers
 
-    def _handle_api_error(self, request: requests.Response) -> None:
+    @staticmethod
+    def _handle_api_error(request: requests.Response) -> None:
         """Common function to handle API errors
-        TODO: implement proper errorhandling
+        TODO: implement proper errorhandling (but how?)
         :param request:
         :return:
         """
+        if request.status_code == 404:
+            raise ObjectDoesNotExist
+
         raise ApiError(request.status_code, request.text)
 
     def _make_url(self, res=None, **kwargs) -> Tuple[str, dict]:
@@ -67,16 +71,16 @@ class BaseClient:
         url = self.path
         if self.path_variables:
             values = {}
-            for pvar in self.path_variables:
-                if res and pvar in self.meta.fields:
-                    value = getattr(res, pvar)
-                    value = self.meta.fields[pvar].clean(value)
-                    values[pvar] = value
-                elif pvar in kwargs:
-                    values[pvar] = kwargs.pop(pvar)
+            for path_var in self.path_variables:
+                if res and path_var in self.meta.fields:
+                    value = getattr(res, path_var)
+                    value = self.meta.fields[path_var].clean(value)
+                    values[path_var] = value
+                elif path_var in kwargs:
+                    values[path_var] = kwargs.pop(path_var)
                 else:
                     raise RuntimeError(
-                        'No value found for path variable {}'.format(pvar)
+                        'No value found for path variable {}'.format(path_var)
                     )
 
             url = url.format(**values)
@@ -96,6 +100,7 @@ class ResourceClient(BaseClient):
         self._delete_enabled = False
         self._update_enabled = False
         self._put_enabled = False
+        self._send_as_json = False
 
     def contribute_to_class(self, cls, _) -> None:
         """This configures the client to the specific resource class"""
@@ -104,12 +109,14 @@ class ResourceClient(BaseClient):
         self.path_variables = meta.path_variables
         self.meta = meta
         self.supported_operations = meta.supported_operations
+        self._send_as_json = meta.default_send_as_json
 
         # The rest is irrelevant if we don't have a path configured
         if not self.path:
             return
 
-        # Looping like this feels faster than 5 'x in self.supported_operations' calls
+        # Looping like this feels faster than 5 'x in self.supported_operations'
+        # calls
         for operation in self.supported_operations:
             if not isinstance(operation, Operations):
                 raise ImproperlyConfigured("Invalid operation supplied!")
@@ -124,8 +131,11 @@ class ResourceClient(BaseClient):
                 self._put_enabled = True
             else:
                 raise NotImplementedError(
-                    "Operation not implemented! Please add operation '{}' support!".format(
-                        operation.name))
+                    "Operation not implemented! Please add operation '{}' "
+                    "support!".format(
+                        operation.name
+                    )
+                )
 
         if self._get_enabled and self._get_over_post_enabled:
             raise ImproperlyConfigured(
@@ -164,12 +174,9 @@ class ResourceClient(BaseClient):
         if request.ok:
             return self.meta.resource(**request.json())
 
-        if request.status_code == 404:
-            raise ObjectDoesNotExist
-
         self._handle_api_error(request)
 
-    def put(self, obj, return_resource=None, as_json=False, **kwargs):
+    def put(self, obj, return_resource=None, as_json=None, **kwargs):
         """Posts a resource to the API. Please note that while it's called put,
         the actual HTTP method used is POST. PUT is not as supported as POST in
         many API frameworks, including Django.
@@ -198,6 +205,9 @@ class ResourceClient(BaseClient):
         if not return_resource:
             return_resource = self.meta.default_return_resource
 
+        if not as_json:
+            as_json = self._send_as_json
+
         url, kwargs = self._make_url(obj, **kwargs)
 
         try:
@@ -225,9 +235,6 @@ class ResourceClient(BaseClient):
 
             return True
 
-        if request.status_code == 404:
-            raise ObjectDoesNotExist
-
         self._handle_api_error(request)
 
     def delete(self, obj=None, **kwargs):
@@ -252,14 +259,13 @@ class ResourceClient(BaseClient):
             host_unreachable()
             return False
 
-        if request.status_code == 404:
-            raise ObjectDoesNotExist
-
         return request.ok
 
     def __str__(self):
-        return '{} client for resource {}'.format(self.__class__.__name__,
-                                                  self.meta.resource.__class__.__name__)
+        return '{} client for resource {}'.format(
+            self.__class__.__name__,
+            self.meta.resource.__class__.__name__
+        )
 
     def __repr__(self):
         return '<{}: {}>'.format(self.__class__.__name__, self)
@@ -281,7 +287,8 @@ class CollectionClient(BaseClient):
         self.meta = meta
         self.operation = meta.operation
 
-        if not self.operation == Operations.get and not self.operation == Operations.get_over_post:
+        if not self.operation == Operations.get and \
+                not self.operation == Operations.get_over_post:
             raise ImproperlyConfigured(
                 "Collections only support get and get_over_post operations!")
 
@@ -324,8 +331,10 @@ class CollectionClient(BaseClient):
         self._handle_api_error(request)
 
     def __str__(self):
-        return '{} client for collection {}'.format(self.__class__.__name__,
-                                                    self.meta.resource.__class__.__name__)
+        return '{} client for collection {}'.format(
+            self.__class__.__name__,
+            self.meta.resource.__class__.__name__
+        )
 
     def __repr__(self):
         return '<{}: {}>'.format(self.__class__.__name__, self)

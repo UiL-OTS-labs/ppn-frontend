@@ -116,6 +116,7 @@ class TimeSlot(rest.Resource):
         path_variables = ['experiment']
         supported_operations = [rest.Operations.put]
         default_return_resource = SuccessResponse
+        default_send_as_json = True
 
     experiment = rest.IntegerField()
 
@@ -130,6 +131,7 @@ class DeleteTimeSlots(rest.Resource):
         path_variables = ['experiment']
         supported_operations = [rest.Operations.put]
         default_return_resource = SuccessResponse
+        default_send_as_json = True
 
     experiment = rest.IntegerField()
 
@@ -142,6 +144,7 @@ class DeleteAppointment(rest.Resource):
         path_variables = ['experiment']
         supported_operation = [rest.Operations.put]
         default_return_resource = SuccessResponse
+        default_send_as_json = True
 
     experiment = rest.IntegerField()
 

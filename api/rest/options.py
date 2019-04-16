@@ -19,6 +19,7 @@ class ResourceOptions:
         ]
         self.client_class = None
         self.default_return_resource = None
+        self.default_send_as_json = False
         self.app_label = app_label
 
     def contribute_to_class(self, cls, name):

@@ -11,6 +11,7 @@ class Comment(rest.Resource):
         path = '/api/leader/add_comment/'
         supported_operations = [rest.Operations.put]
         default_return_resource = SuccessResponse
+        default_send_as_json = True
 
     experiment = rest.IntegerField()
 

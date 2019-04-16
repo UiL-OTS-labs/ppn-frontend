@@ -34,7 +34,7 @@ def add_timeslot(data: dict) -> bool:
     time_slot.datetime = data.get('datetime')
     time_slot.max_places = data.get('max_places')
 
-    response = time_slot.put(as_json=True)
+    response = time_slot.put()
 
     return response.success
 
@@ -69,7 +69,7 @@ def _delete_timeslots(experiment_pk, to_delete) -> bool:
     delete_order.experiment = experiment_pk
     delete_order.to_delete = StringCollection(to_delete)
 
-    response = delete_order.put(as_json=True)
+    response = delete_order.put()
 
     return response.success
 
@@ -79,6 +79,6 @@ def unsubscribe_participant(experiment_pk, appointment_pk):
     delete_order.experiment = experiment_pk
     delete_order.to_delete = appointment_pk
 
-    response = delete_order.put(as_json=True)
+    response = delete_order.put()
 
     return response.success

@@ -242,7 +242,7 @@ class AddCommentView(braces.RecentLoginRequiredMixin,
         comment.participant = self.kwargs.get('participant')
         comment.comment = data.get('comment')
 
-        response = comment.put(as_json=True)
+        response = comment.put()
 
         if response.success:
             messages.success(self.request, _('comment:message:added'))
