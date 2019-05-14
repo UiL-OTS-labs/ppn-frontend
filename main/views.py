@@ -48,7 +48,7 @@ class ChangePasswordView(braces.LoginRequiredMixin, SuccessMessageMixin,
     success_url = reverse('main:change_password')
 
     def dispatch(self, request, *args, **kwargs):
-        if request.user.is_ldap_account:
+        if request.user.is_authenticated and request.user.is_ldap_account:
             return HttpResponseRedirect(reverse('main:ldap_password'))
 
         return super(ChangePasswordView, self).dispatch(
