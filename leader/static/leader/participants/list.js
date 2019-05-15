@@ -50,4 +50,8 @@ $(function () {
         return confirm(strings['confirm_remove_participant']);
     });
 
+    $('.download-button').click(function () {
+        return confirm(strings['download_csv']);
+    });
+
 });
