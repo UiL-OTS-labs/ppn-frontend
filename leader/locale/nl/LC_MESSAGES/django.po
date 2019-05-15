@@ -343,13 +343,8 @@ msgid "timeslots:message:deleted_timeslots"
 msgstr "Tijdslots successvol verwijderd"
 
 #: leader/views.py:248
-#, fuzzy
-#| msgid "timeslot:warning:confirm_remove_participant"
 msgid "timeslots:message:unsubscribed_participant"
-msgstr ""
-"Weet u zeker dat u deze participant wilt verwijderen? (Er zal een "
-"bevestigingsmail naar de participant worden gestuurd, maar stuur toch nog "
-"een persoonlijke mail als je dit nog niet hebt gedaan."
+msgstr "Participant uitgeschreven."
 
 #: leader/views.py:304
 msgid "comment:message:added"
