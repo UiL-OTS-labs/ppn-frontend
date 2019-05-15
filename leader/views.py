@@ -52,6 +52,8 @@ class ExperimentParticipantsView(braces.LoginRequiredMixin,
 
         context['experiment'] = self.experiment
 
+        # TODO: add an explicit download button!
+
         return context
 
 

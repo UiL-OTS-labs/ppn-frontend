@@ -34,7 +34,7 @@ class SubscribeToMailinglistView(OverrideLanguageMixin, generic.FormView):
         o.email = data.get('email')
         o.language = data.get('language')
         o.multilingual = data.get('multilingual')
-        o.dyslexic = data.get('dyslexic') == 'D'
+        o.dyslexic = data.get('dyslexic')
 
         response = o.put()
 

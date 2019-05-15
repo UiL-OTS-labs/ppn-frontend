@@ -4,8 +4,6 @@ from django.utils.safestring import mark_safe
 from .widgets import LanguageWidget
 
 
-# TODO: fix translations!
-
 #
 # Create account form
 #
@@ -116,8 +114,6 @@ class SubscribeToMailinglistForm(forms.Form):
         widget=LanguageWidget,
     )
 
-    # TODO: Change these to booleanfields
-
     mutlilingual = forms.CharField(
         label='Ik ben',
         widget=forms.RadioSelect(
@@ -128,14 +124,18 @@ class SubscribeToMailinglistForm(forms.Form):
         ),
     )
 
-    dyslexic = forms.CharField(
+    dyslexic = forms.BooleanField(
         label='Ik ben',
         widget=forms.RadioSelect(
             choices=(
-                ('D', 'Dyslectisch'),
-                ('ND', 'Niet dyslectisch'),
+                (True, 'Dyslectisch'),
+                (False, 'Niet dyslectisch'),
             ),
-        )
+            attrs={
+                'required': True,
+            }
+        ),
+        required=False,
     )
 
 
