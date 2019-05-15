@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-15 08:36+0000\n"
+"POT-Creation-Date: 2019-05-15 10:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,23 +126,26 @@ msgstr ""
 "tijdstippen meer waar je je voor op kunt geven. Dankjewel voor je "
 "belangstelling!"
 
-#: participant/templates/participant/create_account.html:14
-#: participant/templates/participant/create_account.html:21
+#: participant/templates/participant/create_account.html:15
 msgid "create_account:content:header"
 msgstr "Account aanmaken"
 
-#: participant/templates/participant/create_account.html:24
-msgid "create_account:content:p1"
+#: participant/templates/participant/create_account.html:23
+msgid "create_account:content:form:header"
+msgstr "Account aanmaken"
+
+#: participant/templates/participant/create_account.html:26
+msgid "create_account:content:form:p1"
 msgstr "Stukje over hoe leuk accounts zijn. Geweldig nietwaar?"
 
-#: participant/templates/participant/create_account.html:27
+#: participant/templates/participant/create_account.html:29
 #: participant/templates/participant/subscribe_mailinglist.html:33
 msgid "globals:content:personal_information_info"
 msgstr ""
 "Je gegevens worden vertrouwelijk behandeld, en je kunt je op elk moment weer "
 "uitschrijven door een mailtje te sturen aan "
 
-#: participant/templates/participant/create_account.html:30
+#: participant/templates/participant/create_account.html:33
 #: participant/templates/participant/subscribe_mailinglist.html:36
 msgid "global:content:experiment_crit_info"
 msgstr ""
@@ -152,9 +155,33 @@ msgstr ""
 "proefpersonen die dyslectisch zijn, of Nederlands als tweede taal spreken. "
 "Je krijgt dan alleen bericht over voor jou relevante experimenten. "
 
-#: participant/templates/participant/create_account.html:40
+#: participant/templates/participant/create_account.html:43
 msgid "globals:create_account"
 msgstr "Account aanmaken"
+
+#: participant/templates/participant/create_account.html:48
+msgid "create_account:content:created:header"
+msgstr "Account aangemaakt"
+
+#: participant/templates/participant/create_account.html:52
+msgid "create_account:content:created:p1"
+msgstr "Jouw account is succesvol aangemaakt!"
+
+#: participant/templates/participant/create_account.html:56
+msgid "create_account:content:created:p2"
+msgstr "We hebben je een e-mail gestuurd met instructies voor het instellen van jouw wachtwoord."
+
+#: participant/templates/participant/create_account.html:61
+msgid "create_account:content:already_exists:header"
+msgstr "E-mail adres bekend"
+
+#: participant/templates/participant/create_account.html:65
+msgid "create_account:content:already_exists:p1"
+msgstr "Het door jou opgegeven e-mail adres is al in gebruik!"
+
+#: participant/templates/participant/create_account.html:70
+msgid "create_account:content:already_exists:p2"
+msgstr "Indien je je wachtwoord vergeten bent kan je deze <a href=\"{}\">hier</a> opnieuw instellen."
 
 #: participant/templates/participant/register.html:25
 #: participant/templates/participant/register.html:32
@@ -248,8 +275,3 @@ msgstr "Afspraak afgezegd. Er is een bevestiging per mail verstuurd."
 #: participant/views/mailinglist_views.py:80
 msgid "unsubscribe_mailinglist:messages:unsubscribed"
 msgstr "Je hebt je succesvol uitgeschreven van de mailing lijst!"
-
-#~ msgid "subscribe_mailinglist:content:p2"
-#~ msgstr ""
-#~ "Je gegevens worden vertrouwelijk behandeld, en je kunt je op elk moment "
-#~ "weer uitschrijven van onze mailinglist door een mailtje te sturen aan "

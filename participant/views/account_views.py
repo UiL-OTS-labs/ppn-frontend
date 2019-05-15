@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.views import generic
 
+from api.auth.exceptions import AccountAlreadyExistsException
 from api.resources import Admin
 from main.mixins import OverrideLanguageMixin
 from participant.forms import CreateAccountForm
@@ -10,17 +11,22 @@ class CreateAccountView(OverrideLanguageMixin, generic.FormView):
     template_name = 'participant/create_account.html'
     form_class = CreateAccountForm
 
-    # TODO: add messages and a url to go to
-
     language_override = 'nl'
+
+    status = 'ready'
 
     def form_valid(self, form):
         data = form.cleaned_data
 
         user_model = get_user_model()
-        user_model.objects.create_user(**data)
+        try:
+            user_model.objects.create_user(**data)
+        except AccountAlreadyExistsException:
+            self.status = 'account_already_exists'
+        else:
+            self.status = 'account_created'
 
-        return super(CreateAccountView, self).form_valid(form)
+        return self.get(self.request)
 
     def get_context_data(self, **kwargs):
         context = super(CreateAccountView, self).get_context_data(
@@ -29,5 +35,6 @@ class CreateAccountView(OverrideLanguageMixin, generic.FormView):
 
         context['admin'] = Admin.client.get()
         context['success'] = getattr(self, 'success', None)
+        context['status'] = self.status
 
         return context

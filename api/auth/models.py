@@ -1,10 +1,9 @@
-from pprint import pprint
-
 from django.conf import settings
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, \
     PermissionsMixin
 from django.db import models
 
+from api.auth.exceptions import AccountAlreadyExistsException
 from api.resources.account_resources import UserCreationData
 
 
@@ -50,7 +49,9 @@ class RemoteApiUserManager(BaseUserManager):
 
         response = resource.put()
 
-        pprint(response)
+        if response.message and response.message != 'OK':
+            if response.message == 'ACCOUNT_ALREADY_EXISTS':
+                raise AccountAlreadyExistsException
 
     def create_superuser(self, *args, **kwargs):
         raise RuntimeError("Admin User generation is not supported in this "
