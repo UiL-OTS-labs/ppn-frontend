@@ -1,9 +1,9 @@
 from django.urls import path
 
 from .views import AddCommentView, DeleteAppointmentView, \
-    ExperimentParticipantsView, ExperimentsView, ProfileView, \
-    SwitchExperimentOpenView, TimeSlotBulkDeleteView, TimeSlotDeleteView, \
-    TimeSlotHomeView
+    DownloadParticipantsCsvView, ExperimentParticipantsView, ExperimentsView, \
+    ProfileView, SwitchExperimentOpenView, TimeSlotBulkDeleteView, \
+    TimeSlotDeleteView, TimeSlotHomeView
 
 app_name = 'leader'
 
@@ -18,6 +18,10 @@ urlpatterns = [
 
     path('experiment/<int:experiment>/participants/',
          ExperimentParticipantsView.as_view(), name='participants',
+         ),
+
+    path('experiment/<int:experiment>/participants/download/',
+         DownloadParticipantsCsvView.as_view(), name='download_csv',
          ),
 
     path('experiment/<int:experiment>/participants/<int:participant'

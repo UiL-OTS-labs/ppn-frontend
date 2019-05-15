@@ -41,7 +41,17 @@
             </p>
         </div>
     </div>
-    <br/>
+    <div class="container-fluid">
+        <div class="col-12 text-right">
+            <div class="mt-2 mb-2">
+                <a href="{% url 'leader:download_csv' experiment.id %}">
+                    <button class="button-colored">
+                        {% trans 'participants:download_data' %}
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
     <div class="mt-2">
         <div class="col-12">
             <form method="post" action="#">
@@ -234,7 +244,17 @@
                     </tfoot>
                 </table>
             </form>
-            <br/>
+        </div>
+        <div class="container-fluid">
+            <div class="col-12 text-right">
+                <div class="mt-2 mb-2">
+                    <a href="{% url 'leader:download_csv' experiment.id %}">
+                        <button class="button-colored">
+                            {% trans 'participants:download_data' %}
+                        </button>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

@@ -1,8 +1,11 @@
+import csv
+
 from braces import views as braces
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.exceptions import PermissionDenied, SuspiciousOperation
+from django.http import HttpResponse
 from django.urls import reverse_lazy as reverse
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
@@ -55,6 +58,57 @@ class ExperimentParticipantsView(braces.LoginRequiredMixin,
         # TODO: add an explicit download button!
 
         return context
+
+
+class DownloadParticipantsCsvView(braces.LoginRequiredMixin,
+                                  braces.GroupRequiredMixin,
+                                  ExperimentObjectMixin,
+                                  generic.View):
+    group_required = [settings.GROUPS_LEADER]
+    experiment_resource = LeaderExperiment
+
+    def get(self, request, **kwargs):
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = \
+            'attachment; filename="{}.csv"'.format(self.experiment.name)
+
+        # TODO: check if all details are hidden properly when it's needed
+        # TODO: log into auditlog
+
+        writer = csv.writer(response)
+        writer.writerow([
+            _('participants:datetime'),
+            _('timeslots:day'),
+            _('participants:place'),
+            _('participants:name'),
+            _('participants:email'),
+            _('participants:phone_number'),
+            _('participants:birth_date'),
+            _('participants:language'),
+            _('participants:multilingual'),
+            _('participants:handedness'),
+            _('participants:sex'),
+            _('participants:social_status'),
+        ])
+
+        for timeslot in self.experiment.timeslots:
+            for n, appointment in timeslot.takes_places_tuple:
+                writer.writerow([
+                    timeslot.datetime.strftime('%Y-%m-%d %H:%M'),
+                    timeslot.datetime.strftime('%l'),
+                    n,
+                    appointment.participant.name,
+                    appointment.participant.email,
+                    appointment.participant.language,
+                    appointment.participant.birth_date.isoformat(),
+                    appointment.participant.language,
+                    appointment.participant.multilingual,
+                    appointment.participant.handedness,
+                    appointment.participant.sex,
+                    appointment.participant.get_social_status_display(),
+                ])
+
+        return response
 
 
 class SwitchExperimentOpenView(braces.RecentLoginRequiredMixin,
