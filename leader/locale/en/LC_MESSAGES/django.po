@@ -301,15 +301,15 @@ msgstr "Participant"
 msgid "timeslots:participant:email"
 msgstr "Participant email"
 
-#: leader/templates/leader/timeslots.html:148
+#: leader/templates/leader/timeslots.html:147
 msgid "global:delete"
 msgstr "Delete"
 
-#: leader/templates/leader/timeslots.html:158
+#: leader/templates/leader/timeslots.html:157
 msgid "timeslots:home:new_timeslots:header"
 msgstr "New timeslot"
 
-#: leader/templates/leader/timeslots.html:164
+#: leader/templates/leader/timeslots.html:163
 msgid "timeslotss:add_button"
 msgstr "Add"
 
