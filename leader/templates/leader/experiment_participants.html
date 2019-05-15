@@ -31,7 +31,7 @@
             </h1>
         </div>
     </div>
-    <div class="uu-inner-container">
+    <div class="uu-inner-container mt-2">
         <div class="col-7">
             {% include 'leader/criteria_snippit.html' %}
         </div>
@@ -103,7 +103,7 @@
                     {% for n, appointment in timeslot.takes_places_tuple %}
                         <tr>
                             <td>
-                                {{ timeslot.datetime|date:"Y-m-d H:m" }}
+                                {{ timeslot.datetime|date:"Y-m-d H:i" }}
                             </td>
                             <td>
                                 {{ timeslot.datetime|date:"l" }}
