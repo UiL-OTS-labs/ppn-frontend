@@ -1,14 +1,6 @@
 $(function () {
     let asInitVals = [];
     let oTable = $('.dt_custom').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'copyHtml5',
-            'csvHtml5',
-            'pdfHtml5',
-            'print',
-            'pageLength'
-        ],
         order: [[0, 'asc'], [2, 'asc']],
         lengthMenu: [
             [10, 20, 50, -1],
