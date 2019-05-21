@@ -99,6 +99,21 @@ class CreateAccountForm(forms.Form):
         required=False,
     )
 
+    def clean_email(self):
+        data = self.cleaned_data.get('email')
+
+        # Local import, as participants.utils imports this module. (We don't
+        # want cycles!)
+        from participant.utils import check_if_email_is_spammer
+        if check_if_email_is_spammer(data):
+            self.add_error(
+                'email',
+                'Dit emailadres staat bekend als een adres waarvandaan spam '
+                'wordt verzonden, vul ajb een ander adres in.'
+            )
+
+        return data
+
 
 #
 # Mailing list form
@@ -137,6 +152,22 @@ class SubscribeToMailinglistForm(forms.Form):
         ),
         required=False,
     )
+
+    def clean_email(self):
+        data = self.cleaned_data.get('email')
+
+        # Local import, as participants.utils imports this module. (We don't
+        # want cycles!)
+        from participant.utils import check_if_email_is_spammer
+        if check_if_email_is_spammer(data):
+            self.add_error(
+                'email',
+                'Dit emailadres staat bekend als een adres waarvandaan spam '
+                'wordt verzonden, vul ajb een ander adres in.'
+            )
+
+        return data
+
 
 
 #
@@ -221,3 +252,18 @@ class BaseRegisterForm(forms.Form):
             ),
         )
     )
+
+    def clean_email(self):
+        data = self.cleaned_data.get('email')
+
+        # Local import, as participants.utils imports this module. (We don't
+        # want cycles!)
+        from participant.utils import check_if_email_is_spammer
+        if check_if_email_is_spammer(data):
+            self.add_error(
+                'email',
+                'Dit emailadres staat bekend als een adres waarvandaan spam '
+                'wordt verzonden, vul ajb een ander adres in.'
+            )
+
+        return data

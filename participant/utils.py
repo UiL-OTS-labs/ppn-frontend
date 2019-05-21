@@ -1,6 +1,7 @@
 from datetime import datetime
 from typing import Tuple, Union
 
+import requests
 from django import forms
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.safestring import mark_safe
@@ -11,6 +12,15 @@ from api.resources.experiment_resources import ExperimentRegistration, \
     RegistrationCriteria, RegistrationCriterion
 from participant.forms import BaseRegisterForm
 
+
+def check_if_email_is_spammer(email: str) -> bool:
+    url = "http://api.stopforumspam.org/api?email={}".format(email)
+    response = requests.get(url)
+    response_body = response.content
+
+    # This call returns XML, however, we don't need to parse it. If the
+    # string 'yes' is present, it's a spammer.
+    return b'yes' in response_body
 
 def get_register_form(
         form: BaseRegisterForm,
