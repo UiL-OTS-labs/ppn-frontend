@@ -162,7 +162,8 @@ class BaseRegisterForm(forms.Form):
     birth_date = forms.DateField(
         label="Geboortedatum",
         widget=forms.DateInput(attrs={
-            'type': 'date'
+            'placeholder': 'dd-mm-yyyy',
+            'pattern': '[0-9-]+',
         }),
     )
 

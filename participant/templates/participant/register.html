@@ -4,8 +4,11 @@
 {% load static %}
 
 {% block html_head %}
-    <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
     <script src="{% static 'uil.core/js/form_helpers.js' %}"></script>
+    <script src="{% static 'uil.core/js/jquery.mask.min.js' %}"></script>
+
+    <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
+    <script src="{% static 'participant/register/birthdate.js' %}"></script>
 
     <script nonce="{{ request.csp_nonce }}">
     $(function () {

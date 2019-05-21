@@ -96,7 +96,11 @@ def _get_register_form(form: BaseRegisterForm, experiment: Experiment):
                     (True, 'Ja'),
                     (False, 'Nee')
                 ),
-            )
+                attrs={
+                    'required': 'required'
+                }
+            ),
+            required=False
         )
 
     return form
