@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import Tuple, Union
 
 from django import forms
-from django.core.exceptions import ImproperlyConfigured, ValidationError
+from django.core.exceptions import ImproperlyConfigured
 from django.utils.safestring import mark_safe
 
 from api.middleware import get_current_user
@@ -10,22 +10,6 @@ from api.resources import Experiment
 from api.resources.experiment_resources import ExperimentRegistration, \
     RegistrationCriteria, RegistrationCriterion
 from participant.forms import BaseRegisterForm
-
-
-class SpecificCriteriaValidator:
-
-    def __init__(self, correct_value, error_message):
-        self.correct_value = correct_value
-        self.error_message = error_message
-
-    def __call__(self, value):
-        try:
-            value = int(value)
-        except ValueError:
-            raise ValidationError(self.error_message)
-
-        if value != self.correct_value:
-            raise ValidationError(self.error_message)
 
 
 def get_register_form(
@@ -55,19 +39,11 @@ def _get_register_form(form: BaseRegisterForm, experiment: Experiment):
         answers = exp_crit.criterion.value_list
         options = ((i, x) for i, x in enumerate(answers))
 
-        correct_index = answers.index(exp_crit.correct_value)
-
         field = forms.CharField(
             label=exp_crit.criterion.name_natural,
             widget=forms.RadioSelect(
                 choices=options,
             ),
-            validators=[
-                SpecificCriteriaValidator(
-                    correct_index,
-                    exp_crit.message_failed
-                )
-            ],
         )
 
         form.fields[exp_crit.criterion.name_form] = field
