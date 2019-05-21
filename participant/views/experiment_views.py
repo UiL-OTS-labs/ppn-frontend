@@ -1,5 +1,6 @@
 from braces import views as braces
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.messages import error
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.utils.functional import cached_property
@@ -45,6 +46,10 @@ class ExperimentRegisterMixin(ExperimentObjectMixin):
             self._required_fields,
             self.request,
         )
+
+        if messages:
+            error(self.request, 'Waarschuwing! Je bent (nog) niet aangemeld! '
+                                'Zie onderaan de pagina voor details.')
 
         self.success = success
         self.recoverable = recoverable

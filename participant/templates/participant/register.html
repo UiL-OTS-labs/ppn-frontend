@@ -87,13 +87,18 @@
                 {% if success %}
                     <h3>Aangemeld</h3>
                 {% else %}
-                    <h3>Waarschuwing! Je bent nog niet aangemeld!</h3>
+                    <h3>Waarschuwing! Je bent (nog) niet aangemeld!</h3>
                 {% endif %}
-                {% for message in api_messages %}
+                {% if api_messages %}
                     <p>
-                        {{ message }}
+                        Helaas, de inschrijving is mislukt om de volgende reden(en):
                     </p>
-                {% endfor %}
+                    <p>
+                        {% for message in api_messages %}
+                            {{ message }} <br/>
+                        {% endfor %}
+                    </p>
+                {% endif %}
             {% endif %}
             {% if success == None or recoverable == True %}
             <hr/>
