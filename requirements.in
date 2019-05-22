@@ -4,7 +4,7 @@ django-csp
 django-simple-menu
 django-debug-toolbar
 django-extensions # QoF for the admin, adds a lot of useful manage.py commands
-requests
+requests<2.22 # Downgraded for Python 3.4 compatibility
 pip-tools
 cryptography
 PyJWT
@@ -14,3 +14,6 @@ pillow<6 # Downgraded for Python 3.4 compatibility
 mysqlclient<1.4.0
 backports-datetime-fromisoformat
 babel
+
+# Included to downgrade to a Py 3.4 compatible version (and can be removed after an upgrade to 3.5)
+pygments<2.4
