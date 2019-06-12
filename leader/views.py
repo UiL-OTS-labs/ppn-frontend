@@ -75,6 +75,8 @@ class DownloadParticipantsCsvView(braces.LoginRequiredMixin,
         # TODO: check if all details are hidden properly when it's needed
         # TODO: log into auditlog
 
+
+
         writer = csv.writer(response)
         writer.writerow([
             _('participants:datetime'),
@@ -93,13 +95,22 @@ class DownloadParticipantsCsvView(braces.LoginRequiredMixin,
 
         for timeslot in self.experiment.timeslots:
             for n, appointment in timeslot.takes_places_tuple:
+                participant_name = _('globals:hidden')
+                participant_email = _('globals:hidden')
+                participant_language = _('globals:hidden')
+
+                if self.experiment.participants_visible:
+                    participant_name = appointment.participant.name
+                    participant_email = appointment.participant.email
+                    participant_language = appointment.participant.language
+
                 writer.writerow([
                     timeslot.datetime.strftime('%Y-%m-%d %H:%M'),
                     timeslot.datetime.strftime('%l'),
                     n,
-                    appointment.participant.name,
-                    appointment.participant.email,
-                    appointment.participant.language,
+                    participant_name,
+                    participant_email,
+                    participant_language,
                     appointment.participant.birth_date.isoformat(),
                     appointment.participant.language,
                     appointment.participant.multilingual,

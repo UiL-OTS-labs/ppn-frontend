@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-15 14:01+0000\n"
+"POT-Creation-Date: 2019-06-12 11:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,23 +90,23 @@ msgid "participants:download_data"
 msgstr "Download als CSV"
 
 #: leader/templates/leader/experiment_participants.html:64
-#: leader/templates/leader/experiment_participants.html:183 leader/views.py:80
+#: leader/templates/leader/experiment_participants.html:183 leader/views.py:82
 msgid "participants:datetime"
 msgstr "Tijd & datum"
 
 #: leader/templates/leader/experiment_participants.html:67
 #: leader/templates/leader/experiment_participants.html:187
-#: leader/templates/leader/timeslots.html:51 leader/views.py:81
+#: leader/templates/leader/timeslots.html:51 leader/views.py:83
 msgid "timeslots:day"
 msgstr "Dag"
 
 #: leader/templates/leader/experiment_participants.html:70
-#: leader/templates/leader/experiment_participants.html:190 leader/views.py:82
+#: leader/templates/leader/experiment_participants.html:190 leader/views.py:84
 msgid "participants:place"
 msgstr "WP"
 
 #: leader/templates/leader/experiment_participants.html:73
-#: leader/templates/leader/experiment_participants.html:195 leader/views.py:83
+#: leader/templates/leader/experiment_participants.html:195 leader/views.py:85
 msgid "participants:name"
 msgstr "Naam"
 
@@ -119,42 +119,42 @@ msgid "globals:actions"
 msgstr "Acties"
 
 #: leader/templates/leader/experiment_participants.html:82
-#: leader/templates/leader/experiment_participants.html:207 leader/views.py:84
+#: leader/templates/leader/experiment_participants.html:207 leader/views.py:86
 msgid "participants:email"
 msgstr "E-mail"
 
 #: leader/templates/leader/experiment_participants.html:85
-#: leader/templates/leader/experiment_participants.html:211 leader/views.py:85
+#: leader/templates/leader/experiment_participants.html:211 leader/views.py:87
 msgid "participants:phone_number"
 msgstr "Telefoon-nummer"
 
 #: leader/templates/leader/experiment_participants.html:88
-#: leader/templates/leader/experiment_participants.html:216 leader/views.py:86
+#: leader/templates/leader/experiment_participants.html:216 leader/views.py:88
 msgid "participants:birth_date"
 msgstr "Geboorte-datum"
 
 #: leader/templates/leader/experiment_participants.html:91
-#: leader/templates/leader/experiment_participants.html:219 leader/views.py:87
+#: leader/templates/leader/experiment_participants.html:219 leader/views.py:89
 msgid "participants:language"
 msgstr "Taal"
 
 #: leader/templates/leader/experiment_participants.html:94
-#: leader/templates/leader/experiment_participants.html:224 leader/views.py:88
+#: leader/templates/leader/experiment_participants.html:224 leader/views.py:90
 msgid "participants:multilingual"
 msgstr "Meerdere talen"
 
 #: leader/templates/leader/experiment_participants.html:97
-#: leader/templates/leader/experiment_participants.html:228 leader/views.py:89
+#: leader/templates/leader/experiment_participants.html:228 leader/views.py:91
 msgid "participants:handedness"
 msgstr "Links-/Rechts handig"
 
 #: leader/templates/leader/experiment_participants.html:100
-#: leader/templates/leader/experiment_participants.html:231 leader/views.py:90
+#: leader/templates/leader/experiment_participants.html:231 leader/views.py:92
 msgid "participants:sex"
 msgstr "Geslacht"
 
 #: leader/templates/leader/experiment_participants.html:103
-#: leader/templates/leader/experiment_participants.html:236 leader/views.py:91
+#: leader/templates/leader/experiment_participants.html:236 leader/views.py:93
 msgid "participants:social_status"
 msgstr "Sociale rol"
 
@@ -318,38 +318,42 @@ msgstr "Nieuw timeslot"
 msgid "timeslotss:add_button"
 msgstr "Voeg toe"
 
-#: leader/views.py:132
+#: leader/views.py:98 leader/views.py:99 leader/views.py:100
+msgid "globals:hidden"
+msgstr "Verborgen"
+
+#: leader/views.py:143
 msgid "experiment:message:open"
 msgstr "Experiment succesvol geopend voor participanten."
 
-#: leader/views.py:134
+#: leader/views.py:145
 msgid "experiment:message:closed"
 msgstr "Experiment succesvol gesloten voor participanten."
 
-#: leader/views.py:136 leader/views.py:142
+#: leader/views.py:147 leader/views.py:153
 msgid "experiment:message:fail"
 msgstr "Er is iets fout gegaan tijdens het wijzigen!"
 
-#: leader/views.py:179
+#: leader/views.py:190
 msgid "timeslots:message:added"
 msgstr "Timeslots successvol toegevoegd"
 
-#: leader/views.py:214
+#: leader/views.py:225
 msgid "timeslots:message:deleted_timeslot"
 msgstr "Tijdslot successvol verwijderd"
 
-#: leader/views.py:230
+#: leader/views.py:241
 msgid "timeslots:message:deleted_timeslots"
 msgstr "Tijdslots successvol verwijderd"
 
-#: leader/views.py:248
+#: leader/views.py:259
 msgid "timeslots:message:unsubscribed_participant"
 msgstr "Participant uitgeschreven."
 
-#: leader/views.py:304
+#: leader/views.py:315
 msgid "comment:message:added"
 msgstr "Opmerking successvol toegevoegd"
 
-#: leader/views.py:316
+#: leader/views.py:327
 msgid "profile:message:updated"
 msgstr "Profiel succesvol aangepast."
