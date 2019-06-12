@@ -123,7 +123,11 @@
                                 {{ n }}
                             </td>
                             <td>
-                                {{ appointment.participant.name }}
+                                {% if experiment.participants_visible %}
+                                    {{ appointment.participant.name }}
+                                {% else %}
+                                    {% trans 'globals:hidden' %}
+                                {% endif %}
                             </td>
                             <td class="text-center">
                                 <input type="checkbox" name="reminder[]" value="{{ appointment.id }}">
@@ -144,12 +148,20 @@
                                 </a>
                             </td>
                             <td>
-                                <a href="mailto:{{ appointment.participant.email }}">
-                                    {{ appointment.participant.email }}
-                                </a>
+                                {% if experiment.participants_visible %}
+                                    <a href="mailto:{{ appointment.participant.email }}">
+                                        {{ appointment.participant.email }}
+                                    </a>
+                                {% else %}
+                                    {% trans 'globals:hidden' %}
+                                {% endif %}
                             </td>
                             <td>
-                                {{ appointment.participant.phonenumber }}
+                                {% if experiment.participants_visible %}
+                                    {{ appointment.participant.phonenumber }}
+                                {% else %}
+                                    {% trans 'globals:hidden' %}
+                                {% endif %}
                             </td>
                             <td>
                                 {{ appointment.participant.birth_date|date:"Y-m-d" }}
