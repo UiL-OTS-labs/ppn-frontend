@@ -72,7 +72,6 @@ class DownloadParticipantsCsvView(braces.LoginRequiredMixin,
         response['Content-Disposition'] = \
             'attachment; filename="{}.csv"'.format(self.experiment.name)
 
-        # TODO: check if all details are hidden properly when it's needed
         # TODO: log into auditlog
 
 
