@@ -12,11 +12,16 @@ from leader.models import LeaderPhoto
 class Leader(rest.Resource):
     """
     Describes a leader, can be used to retrieve the current leader's profile
-    or in other resources
+    or in other resources. A put operation will update the name and
+    phonenumber (the rest is ignored). NOTE: put is only supported for
+    editting a leader's own profile. Putting with a different account WILL
+    result in an error.
     """
 
     class Meta:
         path = '/api/leader/'
+        supported_operations = [rest.Operations.put, rest.Operations.get]
+        default_return_resource = 'api.Leader'
 
     id = rest.IntegerField()
 
@@ -52,20 +57,3 @@ class Leaders(rest.ResourceCollection):
 
     class Meta:
         resource = Leader
-
-
-# TODO: maybe integrate this with the Leader resource?
-
-class ChangeLeader(rest.Resource):
-    """
-    This resource is used to change a leader's profile
-    """
-
-    class Meta:
-        path = '/api/leader/change/'
-        supported_operations = [rest.Operations.put]
-        default_return_resource = Leader
-
-    name = rest.TextField()
-
-    phonenumber = rest.TextField()

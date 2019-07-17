@@ -12,7 +12,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
 from api.auth.models import RemoteApiUser
-from api.resources import ChangeLeader, Leader, LeaderExperiments, \
+from api.resources import Leader, LeaderExperiments, \
     SwitchExperimentOpen
 from api.resources.comment_resources import Comment
 from api.resources.experiment_resources import LeaderExperiment
@@ -359,7 +359,7 @@ class ProfileView(braces.RecentLoginRequiredMixin,
         photo.photo = photo_val
         photo.save()
 
-        change_leader = ChangeLeader()
+        change_leader = self.leader
         change_leader.name = values['name']
         change_leader.phonenumber = values['phone']
         change_leader.put()
