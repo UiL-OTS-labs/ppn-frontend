@@ -8,6 +8,7 @@ from django.core.exceptions import ImproperlyConfigured, ObjectDoesNotExist
 from django.utils.translation import gettext as _
 from requests.exceptions import ConnectionError
 
+from api.rest.registry import registry
 from .operations import Operations
 from .exceptions import ApiError, OperationNotEnabled
 from ..middleware import get_current_authenticated_user, get_current_request, \
@@ -204,6 +205,13 @@ class ResourceClient(BaseClient):
 
         if not return_resource:
             return_resource = self.meta.default_return_resource
+
+        if isinstance(return_resource, str):
+            app_label = obj._meta.app_label
+
+            if len(return_resource.split('.')) == 2:
+                app_label, return_resource = return_resource.split('.')
+            return_resource = registry.get_resource(app_label, return_resource)
 
         if not as_json:
             as_json = self._send_as_json
