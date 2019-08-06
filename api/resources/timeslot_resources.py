@@ -7,9 +7,6 @@ from babel.dates import format_datetime
 from django.utils.translation import get_language
 
 
-# TODO: clean up this mess. I don't think TimeSlotAppointment needs to be
-#  used anywhere atm.
-
 class TimeSlotAppointment(rest.Resource):
     """
     Different from the participant appointment, as this one is a child of

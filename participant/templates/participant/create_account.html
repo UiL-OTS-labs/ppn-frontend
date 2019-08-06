@@ -19,9 +19,9 @@
     <div class="uu-inner-container">
         <div class="col-12 mb-3">
             {% if status == 'ready' %}
-                <h1>
+                <h3>
                     {% trans 'create_account:content:form:header' %}
-                </h1>
+                </h3>
                 <p>
                     {% trans 'create_account:content:form:p1' %}
                 </p>
@@ -44,9 +44,9 @@
                     </div>
                 </form>
             {% elif status == 'account_created' %}
-                <h2>
+                <h3>
                     {% trans 'create_account:content:created:header' %}
-                </h2>
+                </h3>
                 <p>
                     {% trans 'create_account:content:created:p1' %}
                 </p>
