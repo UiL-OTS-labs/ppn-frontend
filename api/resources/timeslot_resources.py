@@ -1,3 +1,5 @@
+from typing import List
+
 from api.resources.generic_resources import SuccessResponse
 from api.resources.participant_resources import Participant
 from uil.core.utils import enumerate_to
@@ -63,7 +65,7 @@ class InlineTimeSlot(rest.Resource):
                                              self.max_places, 1)]
 
     @property
-    def takes_places_tuple(self) -> tuple:
+    def takes_places_tuple(self) -> List[tuple]:
         return [(x['n'], x['appointment']) for x in self.places if
                 x['appointment']]
 

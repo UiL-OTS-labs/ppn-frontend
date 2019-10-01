@@ -57,7 +57,7 @@ class Experiment(rest.Resource):
         return self.name
 
     def n_timeslots(self):
-        return sum([x.max_places for x in self.timeslots])
+        return sum([t.max_places for t in self.timeslots])
 
     def display_additional_leaders(self):
         return ",".join([leader.name for leader in self.additional_leaders])
@@ -69,6 +69,10 @@ class LeaderExperiment(Experiment):
         path_variables = ['pk']
 
     timeslots = rest.CollectionField('LeaderInlineTimeSlots')
+
+    @property
+    def n_participants(self):
+        return sum([len(t.takes_places_tuple) for t in self.timeslots], 0)
 
 
 class SwitchExperimentOpen(rest.Resource):
