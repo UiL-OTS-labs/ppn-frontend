@@ -4,7 +4,8 @@ from braces import views as braces
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
-from django.core.exceptions import PermissionDenied, SuspiciousOperation
+from django.core.exceptions import PermissionDenied, SuspiciousOperation, \
+    ObjectDoesNotExist
 from django.http import HttpResponse
 from django.urls import reverse_lazy as reverse
 from django.utils.functional import cached_property
@@ -60,7 +61,6 @@ class ExperimentParticipantsView(braces.LoginRequiredMixin,
 
 class DownloadParticipantsCsvView(braces.LoginRequiredMixin,
                                   braces.GroupRequiredMixin,
-                                  ExperimentObjectMixin,
                                   generic.View):
     group_required = [settings.GROUPS_LEADER]
     experiment_resource = LeaderExperiment
@@ -117,6 +117,15 @@ class DownloadParticipantsCsvView(braces.LoginRequiredMixin,
                 ])
 
         return response
+
+    @cached_property
+    def experiment(self):
+        try:
+            pk = self.kwargs.get('experiment')
+            # download=True makes sure the API logs this as a download event
+            return self.experiment_resource.client.get(pk=pk, download=True)
+        except Exception as e:
+            raise ObjectDoesNotExist
 
 
 class SwitchExperimentOpenView(braces.RecentLoginRequiredMixin,
