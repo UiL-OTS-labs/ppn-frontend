@@ -90,9 +90,11 @@
                     <h3>Waarschuwing! Je bent (nog) niet aangemeld!</h3>
                 {% endif %}
                 {% if api_messages %}
-                    <p>
-                        Helaas, de inschrijving is mislukt om de volgende reden(en):
-                    </p>
+                    {% if not success %}
+                        <p>
+                            Helaas, de inschrijving is mislukt om de volgende reden(en):
+                        </p>
+                    {% endif %}
                     <p>
                         {% for message in api_messages %}
                             {{ message }} <br/>

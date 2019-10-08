@@ -47,7 +47,7 @@ class ExperimentRegisterMixin(ExperimentObjectMixin):
             self.request,
         )
 
-        if messages:
+        if not success and messages:
             error(self.request, 'Waarschuwing! Je bent (nog) niet aangemeld! '
                                 'Zie onderaan de pagina voor details.')
 
