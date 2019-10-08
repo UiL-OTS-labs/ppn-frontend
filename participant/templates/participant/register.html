@@ -68,7 +68,7 @@
         <h4 class="mt-2">
             {% trans 'register:content:leader' %} {{ experiment.leader.name }}
         </h4>
-        {% if experiment.leader.photo.url %}
+        {% if experiment.leader.photo %}
             <img src="{{ experiment.leader.photo.url }}" title="{{ experiment.leader.name }}" alt="{{ experiment.leader.name }}" class="leader-image" />
         {% endif %}
         {% if experiment.additional_leaders %}
