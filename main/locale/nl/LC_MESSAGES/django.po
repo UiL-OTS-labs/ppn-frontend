@@ -242,7 +242,7 @@ msgstr "Er zijn op dit moment geen experimenten waarvoor je je kunt opgeven."
 msgid "index:content:cancel"
 msgstr ""
 "Heb je je opgegeven voor een experiment maar kun je toch niet komen, dan kun "
-"je je hier afmelden."
+"je je <a href=\"{}\">hier afmelden</a>."
 
 #: main/templates/main/index.html:32
 msgid "index:header:maillinglist"

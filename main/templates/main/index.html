@@ -25,7 +25,8 @@
             {% endfor %}
         </ul>
         <p>
-            {% trans 'index:content:cancel' %}
+            {% url 'participant:cancel_landing' as cancel_url %}
+            {% transformat 'index:content:cancel' cancel_url %}
         </p>
         {% if request.user.is_anonymous or not request.user.is_participant %}
             <h3>
