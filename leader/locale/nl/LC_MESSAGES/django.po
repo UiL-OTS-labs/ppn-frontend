@@ -70,7 +70,7 @@ msgid "timeslot:warning:confirm_remove_participant"
 msgstr ""
 "Weet u zeker dat u deze participant wilt verwijderen? (Er zal een "
 "bevestigingsmail naar de participant worden gestuurd, maar stuur toch nog "
-"een persoonlijke mail als je dit nog niet hebt gedaan."
+"een persoonlijke mail als je dit nog niet hebt gedaan.)"
 
 #: leader/templates/leader/experiment_participants.html:19
 msgid "timeslot:warning:download_csv"

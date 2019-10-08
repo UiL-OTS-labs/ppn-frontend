@@ -68,7 +68,7 @@ msgid "timeslot:warning:confirm_remove_participant"
 msgstr ""
 "Are you sure you want to unsubscribe this participant? (An automatic email "
 "will be sent to the participant, but be sure to send a personal mail as "
-"well, if you haven't done so already."
+"well, if you haven't done so already.)"
 
 #: leader/templates/leader/experiment_participants.html:19
 msgid "timeslot:warning:download_csv"
