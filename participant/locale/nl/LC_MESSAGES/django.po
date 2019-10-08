@@ -190,7 +190,7 @@ msgstr "Opgaveformulier experiment"
 
 #: participant/templates/participant/register.html:35
 msgid "register:content:duration"
-msgstr "Dit experiment duurt {}."
+msgstr "Dit experiment duurt {}"
 
 #: participant/templates/participant/register.html:36
 msgid "register:content:location"
