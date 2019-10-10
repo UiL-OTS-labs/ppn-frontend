@@ -131,6 +131,7 @@ class ResetPasswordView(braces.AnonymousRequiredMixin, SuccessMessageMixin,
 #
 
 class CustomLoginView(LoginView):
+    redirect_authenticated_user = True
 
     def get_success_url(self):
         # HACK
