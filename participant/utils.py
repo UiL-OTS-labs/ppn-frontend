@@ -22,6 +22,7 @@ def check_if_email_is_spammer(email: str) -> bool:
     # string 'yes' is present, it's a spammer.
     return b'yes' in response_body
 
+
 def get_register_form(
         form: BaseRegisterForm,
         experiment: Experiment,
