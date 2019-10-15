@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
@@ -86,6 +87,9 @@ class CancelAppointmentView(OverrideLanguageMixin, generic.RedirectView):
 
         Appointment.client.delete(**kwargs)
 
-        messages.success(request, _('cancel:message:cancelled'))
+        messages.success(
+            request,
+            mark_safe(_('cancel:message:cancelled'))
+        )
 
         return super(CancelAppointmentView, self).get(request, *args, **kwargs)

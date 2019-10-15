@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-15 10:21+0000\n"
+"POT-Creation-Date: 2019-10-15 12:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -163,52 +163,56 @@ msgstr "Account aanmaken"
 msgid "create_account:content:created:header"
 msgstr "Account aangemaakt"
 
-#: participant/templates/participant/create_account.html:52
+#: participant/templates/participant/create_account.html:51
 msgid "create_account:content:created:p1"
 msgstr "Jouw account is succesvol aangemaakt!"
 
-#: participant/templates/participant/create_account.html:56
+#: participant/templates/participant/create_account.html:54
 msgid "create_account:content:created:p2"
-msgstr "We hebben je een e-mail gestuurd met instructies voor het instellen van jouw wachtwoord."
+msgstr ""
+"We hebben je een e-mail gestuurd met instructies voor het instellen van jouw "
+"wachtwoord."
 
-#: participant/templates/participant/create_account.html:61
+#: participant/templates/participant/create_account.html:58
 msgid "create_account:content:already_exists:header"
 msgstr "E-mail adres bekend"
 
-#: participant/templates/participant/create_account.html:65
+#: participant/templates/participant/create_account.html:61
 msgid "create_account:content:already_exists:p1"
 msgstr "Het door jou opgegeven e-mail adres is al in gebruik!"
 
-#: participant/templates/participant/create_account.html:70
+#: participant/templates/participant/create_account.html:65
 msgid "create_account:content:already_exists:p2"
-msgstr "Indien je je wachtwoord vergeten bent kan je deze <a href=\"{}\">hier</a> opnieuw instellen."
+msgstr ""
+"Indien je je wachtwoord vergeten bent kan je deze <a href=\"{}\">hier</a> "
+"opnieuw instellen."
 
-#: participant/templates/participant/register.html:25
-#: participant/templates/participant/register.html:32
+#: participant/templates/participant/register.html:29
+#: participant/templates/participant/register.html:36
 msgid "register:content:header"
 msgstr "Opgaveformulier experiment"
 
-#: participant/templates/participant/register.html:35
+#: participant/templates/participant/register.html:39
 msgid "register:content:duration"
 msgstr "Dit experiment duurt {}"
 
-#: participant/templates/participant/register.html:36
+#: participant/templates/participant/register.html:40
 msgid "register:content:location"
 msgstr "Het wordt afgenomen op"
 
-#: participant/templates/participant/register.html:46
+#: participant/templates/participant/register.html:50
 msgid "register:content:details"
 msgstr "Bijzonderheden"
 
-#: participant/templates/participant/register.html:49
+#: participant/templates/participant/register.html:53
 msgid "register:content:compensation"
 msgstr "Je krijgt {} om mee te doen."
 
-#: participant/templates/participant/register.html:66
+#: participant/templates/participant/register.html:70
 msgid "register:content:leader"
 msgstr "Proefleider: "
 
-#: participant/templates/participant/register.html:73
+#: participant/templates/participant/register.html:77
 msgid "register:content:other_leaders"
 msgstr "Overige proefleiders: "
 
@@ -270,7 +274,9 @@ msgstr ""
 
 #: participant/views/appointments_views.py:89
 msgid "cancel:message:cancelled"
-msgstr "Afspraak afgezegd. Er is een bevestiging per mail verstuurd."
+msgstr ""
+"Afspraak afgezegd. Er is een bevestiging per mail verstuurd. <a href=\"/"
+"\">Klik hier om je opnieuw in te schrijven voor een (ander) experiment!</a>"
 
 #: participant/views/mailinglist_views.py:80
 msgid "unsubscribe_mailinglist:messages:unsubscribed"
