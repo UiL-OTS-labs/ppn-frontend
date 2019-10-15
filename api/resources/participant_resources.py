@@ -159,7 +159,7 @@ class RequiredRegistrationFields(rest.Resource):
 
 #
 # Participant resource
-# TODO: maybe move this? As it's to be used for leaders only
+#
 
 
 class Participant(rest.Resource):
