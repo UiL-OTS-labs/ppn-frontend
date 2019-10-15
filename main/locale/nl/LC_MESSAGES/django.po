@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-09 09:50+0000\n"
+"POT-Creation-Date: 2019-10-15 12:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,21 +16,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: main/forms.py:14
+#: main/forms.py:16
 msgid "forms:forgot_password:token_placeholder"
 msgstr "Vul uw token in"
 
-#: main/forms.py:24
+#: main/forms.py:25
 msgid "forms:forgot_password:email_placeholder"
 msgstr "Vul uw e-mailadres in"
 
-#: main/forms.py:44
+#: main/forms.py:45
 msgid "form:forgot_password:email_incorrect"
 msgstr ""
 "Het e-mailadres dat je hebt ingevoerd is ongeldig of niet gekoppeld aan een "
 "account"
 
-#: main/forms.py:56 main/forms.py:109
+#: main/forms.py:56 main/forms.py:108
 msgid "forms:change_password:password_mismatch"
 msgstr "De twee wachtwoordvelden komen niet overeen."
 
@@ -38,19 +38,19 @@ msgstr "De twee wachtwoordvelden komen niet overeen."
 msgid "forms:change_password:token_incorrect"
 msgstr "Uw token is verlopen!"
 
-#: main/forms.py:65 main/forms.py:114
+#: main/forms.py:65 main/forms.py:113
 msgid "forms:change_password:new1"
 msgstr "Nieuw wachtwoord"
 
-#: main/forms.py:71 main/forms.py:120
+#: main/forms.py:71 main/forms.py:119
 msgid "forms:change_password:new2"
 msgstr "Bevestig nieuw wachtwoord"
 
-#: main/forms.py:110
+#: main/forms.py:109
 msgid "forms:change_password:password_incorrect"
 msgstr "Uw oude wachtwoord is verkeerd ingevoerd. Voer het opnieuw in."
 
-#: main/forms.py:126
+#: main/forms.py:125
 msgid "forms:change_password:old"
 msgstr "Huidig wachtwoord"
 
@@ -94,27 +94,27 @@ msgstr "Log in"
 msgid "main:globals:logout"
 msgstr "Log uit"
 
-#: main/templates/base/403.html:5 main/templates/base/403.html:12
+#: main/templates/base/403.html:9 main/templates/base/403.html:16
 msgid "403:header"
 msgstr "Geen toegang"
 
-#: main/templates/base/403.html:14
+#: main/templates/base/403.html:18
 msgid "403:p1"
 msgstr "Het lijkt er op dat je een pagina wilt bezoeken waar je niet bij mag."
 
-#: main/templates/base/403.html:17
+#: main/templates/base/403.html:21
 msgid "403:p2"
 msgstr "Als je denkt dat dit een fout is, neem contact op met de lab technici."
 
-#: main/templates/base/404.html:5 main/templates/base/404.html:12
+#: main/templates/base/404.html:10 main/templates/base/404.html:17
 msgid "404:header"
 msgstr "Pagina niet gevonden"
 
-#: main/templates/base/404.html:14
+#: main/templates/base/404.html:19
 msgid "404:p1"
 msgstr "We kunnen de pagina waarnaar u op zoek bent niet vinden."
 
-#: main/templates/base/404.html:17
+#: main/templates/base/404.html:22
 msgid "404:p2"
 msgstr ""
 "De link waarop u hebt geklikt is mogelijk incorrect of de pagina is "
@@ -238,17 +238,17 @@ msgstr "Openstaande experimenten"
 msgid "index:content:no_experiments_available"
 msgstr "Er zijn op dit moment geen experimenten waarvoor je je kunt opgeven."
 
-#: main/templates/main/index.html:28
+#: main/templates/main/index.html:29
 msgid "index:content:cancel"
 msgstr ""
 "Heb je je opgegeven voor een experiment maar kun je toch niet komen, dan kun "
 "je je <a href=\"{}\">hier afmelden</a>."
 
-#: main/templates/main/index.html:32
+#: main/templates/main/index.html:33
 msgid "index:header:maillinglist"
 msgstr " Mailing list UiL OTS experimenten"
 
-#: main/templates/main/index.html:36
+#: main/templates/main/index.html:37
 msgid "index:content:maillinglist1"
 msgstr ""
 " Wil je op de hoogte gehouden worden van nieuwe experimenten bij het UiL "
@@ -258,7 +258,7 @@ msgstr ""
 "groepsgemiddelden gerapporteerd. Als er toch individuele resultaten vermeld "
 "worden, gebeurt dat altijd geanonymiseerd. "
 
-#: main/templates/main/index.html:39
+#: main/templates/main/index.html:40
 msgid "index:content:maillinglist2"
 msgstr ""
 " Als je geen berichten meer wil ontvangen over nieuwe experimenten, of als "
@@ -319,14 +319,14 @@ msgstr "Wachtwoord vergeten?"
 msgid "login:button:login"
 msgstr "Log in"
 
-#: main/views.py:39
+#: main/views.py:47
 msgid "password:message:updated"
 msgstr "Wachtwoord veranderd!"
 
-#: main/views.py:74
+#: main/views.py:82
 msgid "password:message:reset_requested"
 msgstr "We hebben u een e-mail gestuurd met verdere instructies!"
 
-#: main/views.py:97
+#: main/views.py:105
 msgid "password:message:reset_successful"
 msgstr "Wachtwoord veranderd!"

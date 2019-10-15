@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-27 14:06+0000\n"
+"POT-Creation-Date: 2019-10-15 12:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,21 +26,21 @@ msgstr ""
 msgid "Important dates"
 msgstr ""
 
-#: api/resources/criteria_resources.py:27
-#: api/resources/criteria_resources.py:33
-#: api/resources/criteria_resources.py:39
-#: api/resources/criteria_resources.py:45
-#: api/resources/criteria_resources.py:51
-#: api/resources/criteria_resources.py:57
-#: api/resources/criteria_resources.py:63
+#: api/resources/criteria_resources.py:34
+#: api/resources/criteria_resources.py:40
+#: api/resources/criteria_resources.py:46
+#: api/resources/criteria_resources.py:52
+#: api/resources/criteria_resources.py:58
+#: api/resources/criteria_resources.py:64
+#: api/resources/criteria_resources.py:70
 msgid "globals:indifferent"
 msgstr "Maakt niet uit"
 
-#: api/resources/participant_resources.py:104
+#: api/resources/participant_resources.py:199
 msgid "Other"
 msgstr "Overig"
 
-#: api/rest/client.py:338 api/rest/client.py:341
+#: api/rest/client.py:355 api/rest/client.py:358
 msgid "api:host_unreachable"
 msgstr ""
 "Kon geen connectie maken met de data server. Functionaliteit van deze site "
