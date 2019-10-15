@@ -70,10 +70,6 @@ class DownloadParticipantsCsvView(braces.LoginRequiredMixin,
         response['Content-Disposition'] = \
             'attachment; filename="{}.csv"'.format(self.experiment.name)
 
-        # TODO: log into auditlog
-
-
-
         writer = csv.writer(response)
         writer.writerow([
             _('participants:datetime'),
