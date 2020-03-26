@@ -54,12 +54,16 @@
                 </li>
                 {% if experiment.task_description %}
                     <li>
-                        {{ experiment.task_description }}
+                        {% autoescape off %}
+                            {{ experiment.task_description }}
+                        {% endautoescape %}
                     </li>
                 {% endif %}
                 {% if experiment.additional_instructions %}
                     <li>
-                        {{ experiment.additional_instructions }}
+                        {% autoescape off %}
+                            {{ experiment.additional_instructions }}
+                        {% endautoescape %}
                     </li>
                 {% endif %}
             </ul>
