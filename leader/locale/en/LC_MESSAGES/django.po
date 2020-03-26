@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-12 11:42+0000\n"
+"POT-Creation-Date: 2020-03-26 14:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -82,28 +82,28 @@ msgid "participants:info_text"
 msgstr " "
 
 #: leader/templates/leader/experiment_participants.html:50
-#: leader/templates/leader/experiment_participants.html:254
+#: leader/templates/leader/experiment_participants.html:266
 msgid "participants:download_data"
 msgstr "Download as CSV"
 
 #: leader/templates/leader/experiment_participants.html:64
-#: leader/templates/leader/experiment_participants.html:183 leader/views.py:82
+#: leader/templates/leader/experiment_participants.html:195 leader/views.py:75
 msgid "participants:datetime"
 msgstr "Date & Time"
 
 #: leader/templates/leader/experiment_participants.html:67
-#: leader/templates/leader/experiment_participants.html:187
-#: leader/templates/leader/timeslots.html:51 leader/views.py:83
+#: leader/templates/leader/experiment_participants.html:199
+#: leader/templates/leader/timeslots.html:54 leader/views.py:76
 msgid "timeslots:day"
 msgstr "Day"
 
 #: leader/templates/leader/experiment_participants.html:70
-#: leader/templates/leader/experiment_participants.html:190 leader/views.py:84
+#: leader/templates/leader/experiment_participants.html:202 leader/views.py:77
 msgid "participants:place"
 msgstr "WP"
 
 #: leader/templates/leader/experiment_participants.html:73
-#: leader/templates/leader/experiment_participants.html:195 leader/views.py:85
+#: leader/templates/leader/experiment_participants.html:207 leader/views.py:78
 msgid "participants:name"
 msgstr "Name"
 
@@ -116,64 +116,71 @@ msgid "globals:actions"
 msgstr "Actions"
 
 #: leader/templates/leader/experiment_participants.html:82
-#: leader/templates/leader/experiment_participants.html:207 leader/views.py:86
+#: leader/templates/leader/experiment_participants.html:219 leader/views.py:79
 msgid "participants:email"
 msgstr "Email"
 
 #: leader/templates/leader/experiment_participants.html:85
-#: leader/templates/leader/experiment_participants.html:211 leader/views.py:87
+#: leader/templates/leader/experiment_participants.html:223 leader/views.py:80
 msgid "participants:phone_number"
 msgstr "Phone number"
 
 #: leader/templates/leader/experiment_participants.html:88
-#: leader/templates/leader/experiment_participants.html:216 leader/views.py:88
+#: leader/templates/leader/experiment_participants.html:228 leader/views.py:81
 msgid "participants:birth_date"
 msgstr "Birth date"
 
 #: leader/templates/leader/experiment_participants.html:91
-#: leader/templates/leader/experiment_participants.html:219 leader/views.py:89
+#: leader/templates/leader/experiment_participants.html:231 leader/views.py:82
 msgid "participants:language"
 msgstr "Lang."
 
 #: leader/templates/leader/experiment_participants.html:94
-#: leader/templates/leader/experiment_participants.html:224 leader/views.py:90
+#: leader/templates/leader/experiment_participants.html:236 leader/views.py:83
 msgid "participants:multilingual"
 msgstr "Multiple Lang. (one/many)"
 
 #: leader/templates/leader/experiment_participants.html:97
-#: leader/templates/leader/experiment_participants.html:228 leader/views.py:91
+#: leader/templates/leader/experiment_participants.html:240 leader/views.py:84
 msgid "participants:handedness"
 msgstr "Handedness (L/R)"
 
 #: leader/templates/leader/experiment_participants.html:100
-#: leader/templates/leader/experiment_participants.html:231 leader/views.py:92
+#: leader/templates/leader/experiment_participants.html:243 leader/views.py:85
 msgid "participants:sex"
 msgstr "Sex (M/F)"
 
 #: leader/templates/leader/experiment_participants.html:103
-#: leader/templates/leader/experiment_participants.html:236 leader/views.py:93
+#: leader/templates/leader/experiment_participants.html:248 leader/views.py:86
 msgid "participants:social_status"
 msgstr "Social Role"
 
 #: leader/templates/leader/experiment_participants.html:106
-#: leader/templates/leader/experiment_participants.html:241
+#: leader/templates/leader/experiment_participants.html:253
 msgid "participants:email_subscription"
 msgstr "On mailing list"
 
-#: leader/templates/leader/experiment_participants.html:135
-#: leader/templates/leader/timeslots.html:122
+#: leader/templates/leader/experiment_participants.html:129
+#: leader/templates/leader/experiment_participants.html:156
+#: leader/templates/leader/experiment_participants.html:163 leader/views.py:91
+#: leader/views.py:92 leader/views.py:93
+msgid "globals:hidden"
+msgstr "Hidden"
+
+#: leader/templates/leader/experiment_participants.html:139
+#: leader/templates/leader/timeslots.html:136
 msgid "timeslots:remove_participant:title"
 msgstr "Unsubscribe participant"
 
-#: leader/templates/leader/experiment_participants.html:161
+#: leader/templates/leader/experiment_participants.html:173
 msgid "many,one"
 msgstr "Many,One"
 
-#: leader/templates/leader/experiment_participants.html:173
+#: leader/templates/leader/experiment_participants.html:185
 msgid "yes,no"
 msgstr "Yes,No"
 
-#: leader/templates/leader/experiment_participants.html:200
+#: leader/templates/leader/experiment_participants.html:212
 msgid "participants:send"
 msgstr "Send"
 
@@ -199,7 +206,7 @@ msgid "experiments:table:status"
 msgstr "Status"
 
 #: leader/templates/leader/experiments.html:31
-#: leader/templates/leader/timeslots.html:69
+#: leader/templates/leader/timeslots.html:72
 msgid "global:actions"
 msgstr "Actions"
 
@@ -275,80 +282,79 @@ msgstr ""
 "place in a certain timeslot.<br/> If you need to delete multiple (or all) "
 "places, you can use the checkboxes. By default you can only check the last "
 "checkbox for a timeslot. Once a checkbox has been clicked, the one below it "
-"(in terms of place) can be checked too. "
+"(in terms of place) can be checked too. <br/><br/>The 'group rows by slot' "
+"button toggles grouping places under a timeslot. It is designed to improve "
+"improve readability if your timeslots have multiple places, but it can have "
+"the opposite effect if most of your timeslots only have 1 place."
 
 #: leader/templates/leader/timeslots.html:48
 msgid "timeslots:id"
 msgstr "ID"
 
-#: leader/templates/leader/timeslots.html:54
+#: leader/templates/leader/timeslots.html:57
 msgid "timeslots:date"
 msgstr "Date"
 
-#: leader/templates/leader/timeslots.html:57
+#: leader/templates/leader/timeslots.html:60
 msgid "timeslots:time"
 msgstr "Time"
 
-#: leader/templates/leader/timeslots.html:60
+#: leader/templates/leader/timeslots.html:63
 msgid "timeslots:place"
 msgstr "Place #"
 
-#: leader/templates/leader/timeslots.html:63
+#: leader/templates/leader/timeslots.html:66
 msgid "timeslots:participant:name"
 msgstr "Participant"
 
-#: leader/templates/leader/timeslots.html:66
+#: leader/templates/leader/timeslots.html:69
 msgid "timeslots:participant:email"
 msgstr "Participant email"
 
-#: leader/templates/leader/timeslots.html:147
+#: leader/templates/leader/timeslots.html:162
 msgid "global:delete"
 msgstr "Delete"
 
-#: leader/templates/leader/timeslots.html:157
+#: leader/templates/leader/timeslots.html:172
 msgid "timeslots:home:new_timeslots:header"
 msgstr "New timeslot"
 
-#: leader/templates/leader/timeslots.html:163
+#: leader/templates/leader/timeslots.html:178
 msgid "timeslotss:add_button"
 msgstr "Add"
 
-#: leader/views.py:98 leader/views.py:99 leader/views.py:100
-msgid "globals:hidden"
-msgstr "Hidden"
-
-#: leader/views.py:143
+#: leader/views.py:145
 msgid "experiment:message:open"
 msgstr "Successfully opened experiment for participants."
 
-#: leader/views.py:145
+#: leader/views.py:147
 msgid "experiment:message:closed"
 msgstr "Successfully closed experiment for participants."
 
-#: leader/views.py:147 leader/views.py:153
+#: leader/views.py:149 leader/views.py:155
 msgid "experiment:message:fail"
 msgstr "Something went wrong when trying to change the experiments status"
 
-#: leader/views.py:190
+#: leader/views.py:192
 msgid "timeslots:message:added"
 msgstr "Successfully added timeslot(s)"
 
-#: leader/views.py:225
+#: leader/views.py:227
 msgid "timeslots:message:deleted_timeslot"
 msgstr "Timeslot successfully deleted!"
 
-#: leader/views.py:241
+#: leader/views.py:243
 msgid "timeslots:message:deleted_timeslots"
 msgstr "Timeslots successfully deleted!"
 
-#: leader/views.py:259
+#: leader/views.py:261
 msgid "timeslots:message:unsubscribed_participant"
 msgstr "Unsubscribed participant"
 
-#: leader/views.py:315
+#: leader/views.py:317
 msgid "comment:message:added"
 msgstr "Successfully added comment!"
 
-#: leader/views.py:327
+#: leader/views.py:329
 msgid "profile:message:updated"
 msgstr "Successfully updated profile."

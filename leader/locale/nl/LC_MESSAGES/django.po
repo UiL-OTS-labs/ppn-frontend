@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-15 12:21+0000\n"
+"POT-Creation-Date: 2020-03-26 14:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,7 +96,7 @@ msgstr "Tijd & datum"
 
 #: leader/templates/leader/experiment_participants.html:67
 #: leader/templates/leader/experiment_participants.html:199
-#: leader/templates/leader/timeslots.html:51 leader/views.py:76
+#: leader/templates/leader/timeslots.html:54 leader/views.py:76
 msgid "timeslots:day"
 msgstr "Dag"
 
@@ -171,7 +171,7 @@ msgid "globals:hidden"
 msgstr "Verborgen"
 
 #: leader/templates/leader/experiment_participants.html:139
-#: leader/templates/leader/timeslots.html:122
+#: leader/templates/leader/timeslots.html:136
 msgid "timeslots:remove_participant:title"
 msgstr "Verwijder participant uit dit timeslot."
 
@@ -209,7 +209,7 @@ msgid "experiments:table:status"
 msgstr "Status"
 
 #: leader/templates/leader/experiments.html:31
-#: leader/templates/leader/timeslots.html:69
+#: leader/templates/leader/timeslots.html:72
 msgid "global:actions"
 msgstr "Acties"
 
@@ -287,41 +287,45 @@ msgstr ""
 "timeslots wilt verwijderen, kunt u de checkboxes gebruiken. Alleen de laaste "
 "checkbox is klikbaar, maar zodra deze is aangeklikt wordt de checkbox van de "
 "plaats eronder geactiveerd. Op deze manier zijn meerdere plaatsen in een "
-"timeslot te verwijderen."
+"timeslot te verwijderen.<br/><br/>Met de knop 'group rows by slot' kunt u "
+"plaatsen onder het tijdstip groeperen. Het is bedoeld om de leesbaarheid te "
+"verbeteren als uw tijdsloten meerdere plaatsen hebben, maar het kan het "
+"tegenovergestelde effect hebben als de meeste van uw tijdsloten slechts 1 "
+"plaats heeft."
 
 #: leader/templates/leader/timeslots.html:48
 msgid "timeslots:id"
 msgstr "ID"
 
-#: leader/templates/leader/timeslots.html:54
+#: leader/templates/leader/timeslots.html:57
 msgid "timeslots:date"
 msgstr "Datum"
 
-#: leader/templates/leader/timeslots.html:57
+#: leader/templates/leader/timeslots.html:60
 msgid "timeslots:time"
 msgstr "Tijd"
 
-#: leader/templates/leader/timeslots.html:60
+#: leader/templates/leader/timeslots.html:63
 msgid "timeslots:place"
 msgstr "Plaats #"
 
-#: leader/templates/leader/timeslots.html:63
+#: leader/templates/leader/timeslots.html:66
 msgid "timeslots:participant:name"
 msgstr "Participant"
 
-#: leader/templates/leader/timeslots.html:66
+#: leader/templates/leader/timeslots.html:69
 msgid "timeslots:participant:email"
 msgstr "Participant's e-mail"
 
-#: leader/templates/leader/timeslots.html:147
+#: leader/templates/leader/timeslots.html:162
 msgid "global:delete"
 msgstr "Verwijder"
 
-#: leader/templates/leader/timeslots.html:157
+#: leader/templates/leader/timeslots.html:172
 msgid "timeslots:home:new_timeslots:header"
 msgstr "Nieuw timeslot"
 
-#: leader/templates/leader/timeslots.html:163
+#: leader/templates/leader/timeslots.html:178
 msgid "timeslotss:add_button"
 msgstr "Voeg toe"
 
