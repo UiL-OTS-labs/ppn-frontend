@@ -1,3 +1,31 @@
+/**
+ * This file does the following:
+ * - Create a custom datatable instance
+ * - Adds a custom button to the DT instance that switches between 2 viewing modes
+ * - Handles all checkboxes, so that only the last one for every slot is enabled.
+ *   In addition, it enables other checkboxes as needed
+ * - It makes sure all checkboxes are properly sent and reset on submit
+ * - Gives the remove and remove silently buttons for participants their functionality
+ *
+ * A few notes:
+ * A timeslot can have multiple places (for running participants simultaneously).
+ * Every place in a timeslot has it's own row. This has a few implications:
+ * - We need to make sure that timeslot rows are always together.
+ * - Places in a timeslot aren't actually objects; we keep track of the number
+ *   of places with a simple integer in the timeslot model. This means we can't
+ *   actually delete a specific place. We can only add/subtract to that integer.
+ *   As a result, deleting places can only be done 'bottom up', meaning we will
+ *   only enable the delete checkbox of the last place.
+ *
+ * The table has a special button to enable/disable the rowGroup extension.
+ * This will group places under a header indicating the time and date of their
+ * timeslot.
+ *
+ */
+
+/**
+ * This function unchecks all checkboxes and makes sure only the last one of each checkbox series is enabled.
+ */
 function reset_disabled()
 {
     $('.timeslot_checkbox').each(function () {
@@ -12,6 +40,8 @@ function reset_disabled()
 }
 $(function () {
 
+    // Create a custom DT instance, and add a custom button for rowgrouping
+    // This grouping uses the rowGroup plugin for DT
     $('table.dt_custom').DataTable( {
         dom: 'Bfrtip',
         buttons : [
@@ -41,15 +71,16 @@ $(function () {
             },
         ],
         order: [
+            // Sort on date and time by default (in that order)
             [3, 'asc'],
             [4, 'asc']
         ],
         rowGroup: {
-            enable: false,
+            enable: false, // Start disabled, grouping isn't preferable as default
             dataSrc: 1
         },
         columnDefs: [ {
-            targets: [ 1 ],
+            targets: [ 1 ], // Column 1 is used for grouping, and isn't meant to be displayed
             visible: false
         } ],
         lengthMenu: [
@@ -58,10 +89,10 @@ $(function () {
         ],
         responsive: true,
         paginationType: "full_numbers",
-        pageLength: -1,
+        pageLength: -1, // Show all slots on the page by default
     } );
 
-
+    // Enable the master checkbox to disable/enable all other checkboxes
     $('#master_checkbox').change(function () {
         let checked = $(this).is(':checked');
         let checkboxes = $('.timeslot_checkbox');
@@ -72,6 +103,7 @@ $(function () {
         reset_disabled();
     }).change();
 
+    // This method will enable/disable the checkbox above another checkbox
     $('.timeslot_checkbox').change(function () {
         let el = $(this);
         let checked = el.is(':checked');
