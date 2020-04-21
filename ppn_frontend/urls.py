@@ -17,6 +17,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+from django.views.i18n import JavaScriptCatalog
 
 from main import views
 
@@ -36,6 +37,7 @@ urlpatterns = [
     path('403/', handler403, ),
     path('404/', handler404, ),
     path('500/', handler500, ),
+    path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'Proefpersonen systeem FRONTEND'

@@ -122,7 +122,7 @@ $(function () {
 
         checkboxes.prop('disabled', false);
 
-        if(confirm(strings['confirm_multi_delete']))
+        if(confirm(gettext('timeslot:warning:deleting_timeslots')))
             return true;
 
         reset_disabled();
@@ -130,11 +130,11 @@ $(function () {
     });
 
     $('.icon-delete').click(function () {
-        return confirm(strings['confirm_delete']);
+        return confirm(gettext('timeslot:warning:deleting_timeslot'));
     });
 
     $('.icon-remove-participant').click(function () {
-        return confirm(strings['confirm_remove_participant']);
+        return confirm(gettext('timeslot:warning:confirm_remove_participant'));
     });
 
 });

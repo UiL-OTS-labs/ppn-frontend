@@ -41,17 +41,12 @@ $(function () {
         }
     });
 
-
-    $('.icon-silent-remove-participant').click(function () {
-        return confirm(strings['confirm_silent_remove_participant']);
-    });
-
     $('.icon-remove-participant').click(function () {
-        return confirm(strings['confirm_remove_participant']);
+        return confirm(gettext('timeslot:warning:confirm_remove_participant'));
     });
 
     $('.download-button').click(function () {
-        return confirm(strings['download_csv']);
+        return confirm(gettext('timeslot:warning:download_csv'));
     });
 
 });
