@@ -1,4 +1,4 @@
-Django>=2.1,<2.2
+Django>=2.2,<3.0
 django-braces
 django-csp
 django-simple-menu

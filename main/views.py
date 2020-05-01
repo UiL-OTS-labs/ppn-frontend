@@ -167,15 +167,15 @@ class CustomLoginView(LoginView):
 #  Error pages
 #
 
-def handler403(request):
+def handler403(request, exception):
     return render(request, 'base/403.html', status=404)
 
 
-def handler404(request):
+def handler404(request, exception):
     return render(request, 'base/404.html', status=404)
 
 
-def handler500(request):
+def handler500(request, exception=None):
     context = {
         'technician_contact': settings.TECHNICIAN_CONTACT
     }
