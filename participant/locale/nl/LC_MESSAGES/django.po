@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-15 12:21+0000\n"
+"POT-Creation-Date: 2020-04-21 11:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -208,11 +208,11 @@ msgstr "Bijzonderheden"
 msgid "register:content:compensation"
 msgstr "Je krijgt {} om mee te doen."
 
-#: participant/templates/participant/register.html:70
+#: participant/templates/participant/register.html:74
 msgid "register:content:leader"
 msgstr "Proefleider: "
 
-#: participant/templates/participant/register.html:77
+#: participant/templates/participant/register.html:81
 msgid "register:content:other_leaders"
 msgstr "Overige proefleiders: "
 
@@ -266,13 +266,13 @@ msgstr ""
 "Deze link is ongeldig! Neem contact op met <a href=\"{}\">{}</a> als je je "
 "wilt uitschrijven van de mailing lijst."
 
-#: participant/views/appointments_views.py:31
+#: participant/views/appointments_views.py:32
 msgid "cancel_landing:message:send_token"
 msgstr ""
 "Indien het email adres bestaat in onze database hebben wij een mail gestuurd "
 "met verdere instructies!"
 
-#: participant/views/appointments_views.py:89
+#: participant/views/appointments_views.py:92
 msgid "cancel:message:cancelled"
 msgstr ""
 "Afspraak afgezegd. Er is een bevestiging per mail verstuurd. <a href=\"/"
