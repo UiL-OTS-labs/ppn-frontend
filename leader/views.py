@@ -17,7 +17,7 @@ from api.resources import Leader, LeaderExperiments, \
     SwitchExperimentOpen
 from api.resources.comment_resources import Comment
 from api.resources.experiment_resources import LeaderExperiment
-from api.rest.exceptions import ApiError
+from uil.rest_client.exceptions import ApiError
 from leader.forms import AddCommentForm, ChangeProfileForm, TimeSlotForm
 from leader.models import LeaderPhoto
 from leader.utils import add_timeslot, delete_timeslot, delete_timeslots, now, \

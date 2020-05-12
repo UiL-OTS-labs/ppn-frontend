@@ -1,9 +1,9 @@
-import api.rest as rest
+from uil.rest_client import rest_client as rest
 
 
 class Admin(rest.Resource):
     """
-    This resource will get the current system administrator to list on the site.
+    This resources will get the current system administrator to list on the site.
     """
     class Meta:
         path = '/api/admin/'

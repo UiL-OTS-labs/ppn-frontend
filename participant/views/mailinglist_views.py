@@ -7,7 +7,7 @@ from django.views import generic
 from api.resources import Admin, MailinglistSubscribe
 from api.resources.participant_resources import ValidateMailinglistToken, \
     UnsubscribeFromMailinglist
-from api.rest import ApiError
+from uil.rest_client.exceptions import ApiError
 from main.mixins import OverrideLanguageMixin
 from participant.forms import SubscribeToMailinglistForm
 

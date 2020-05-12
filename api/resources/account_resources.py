@@ -1,4 +1,4 @@
-import api.rest as rest
+from uil.rest_client import rest_client as rest
 
 from .generic_resources import SuccessResponse
 

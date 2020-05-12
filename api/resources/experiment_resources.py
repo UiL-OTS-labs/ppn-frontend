@@ -1,9 +1,9 @@
-import api.rest as rest
+from uil.rest_client import rest_client as rest
 
 
 class Location(rest.Resource):
     """
-    This resource describes a test location. route_url can be null if no
+    This resources describes a test location. route_url can be null if no
     routing info is present.
     """
     id = rest.IntegerField()

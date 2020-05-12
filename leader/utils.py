@@ -4,7 +4,7 @@ from pytz import timezone
 
 from api.resources import TimeSlot
 from api.resources.timeslot_resources import DeleteTimeSlots, DeleteAppointment
-from api.rest import StringCollection
+from uil.rest_client.collections import StringCollection
 
 _TIMESLOT_KEY_PREFIX = len("timeslot_")
 _TIMESLOT_KEY_POSTFIX = len("[]")
@@ -26,7 +26,7 @@ def now() -> datetime:
 
 
 def add_timeslot(data: dict) -> bool:
-    """Does a put request with a newly created TimeSlot resource. Returns the
+    """Does a put request with a newly created TimeSlot resources. Returns the
     API's indication if it worked.
     """
     time_slot = TimeSlot()

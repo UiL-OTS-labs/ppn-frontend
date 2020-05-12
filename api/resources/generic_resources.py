@@ -1,11 +1,11 @@
-import api.rest as rest
+from uil.rest_client import rest_client as rest
 
 
 class SuccessResponse(rest.Resource):
     """
-    Generic response resource.
+    Generic response resources.
 
-    It's used for most resource that command the backend to do something.
+    It's used for most resources that command the backend to do something.
     """
 
     success = rest.BoolField()

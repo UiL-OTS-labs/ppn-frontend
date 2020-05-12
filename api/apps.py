@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
-from .mixins import ResourceSetupMixin
+from uil.rest_client.mixins import ResourceSetupMixin
 
 
 class ApiConfig(ResourceSetupMixin, AppConfig):

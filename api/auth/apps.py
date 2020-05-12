@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
-from api.mixins import ResourceSetupMixin
+from uil.rest_client.mixins import ResourceSetupMixin
 
 
 class AuthConfig(ResourceSetupMixin, AppConfig):

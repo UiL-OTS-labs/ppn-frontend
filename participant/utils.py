@@ -6,7 +6,7 @@ from django import forms
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.safestring import mark_safe
 
-from api.middleware import get_current_user
+from uil.core.middleware import get_current_user
 from api.resources import Experiment
 from api.resources.experiment_resources import ExperimentRegistration, \
     RegistrationCriteria, RegistrationCriterion

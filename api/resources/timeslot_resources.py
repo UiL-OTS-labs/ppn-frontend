@@ -4,7 +4,7 @@ from api.resources.generic_resources import SuccessResponse
 from api.resources.participant_resources import Participant
 from uil.core.utils import enumerate_to
 
-import api.rest as rest
+from uil.rest_client import rest_client as rest
 from babel.dates import format_datetime
 from django.utils.translation import get_language
 
@@ -12,7 +12,7 @@ from django.utils.translation import get_language
 class TimeSlotAppointment(rest.Resource):
     """
     Different from the participant appointment, as this one is a child of
-    a timeslot. The participant appointment has a timeslot resource as a
+    a timeslot. The participant appointment has a timeslot resources as a
     child.
     """
     id = rest.IntegerField()

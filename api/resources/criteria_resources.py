@@ -1,6 +1,6 @@
 from django.utils.translation import ugettext_lazy as _
 
-import api.rest as rest
+from uil.rest_client import rest_client as rest
 
 
 #
@@ -9,7 +9,7 @@ import api.rest as rest
 
 class DefaultCriteria(rest.Resource):
     """
-    This resource describes all default criteria for an experiment
+    This resources describes all default criteria for an experiment
     """
     id = rest.IntegerField()
 
@@ -79,7 +79,7 @@ class DefaultCriteria(rest.Resource):
 
 class Criterion(rest.Resource):
     """
-    This resource represents a specific criterion
+    This resources represents a specific criterion
     """
     id = rest.IntegerField()
 
@@ -96,7 +96,7 @@ class Criterion(rest.Resource):
 
 class ExperimentCriterion(rest.Resource):
     """
-    This resource represents the link between an experiment and a criterion.
+    This resources represents the link between an experiment and a criterion.
 
     It also lists the correct value and error message for this experiment.
     """
