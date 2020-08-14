@@ -72,9 +72,11 @@ class LeaderExperiment(Experiment):
 
     timeslots = rest.CollectionField('LeaderInlineTimeSlots')
 
+    appointments = rest.CollectionField('LeaderTimeSlotAppointments')
+
     @property
     def n_participants(self):
-        return sum([len(t.takes_places_tuple) for t in self.timeslots], 0)
+        return len(self.appointments)
 
 
 class SwitchExperimentOpen(rest.Resource):

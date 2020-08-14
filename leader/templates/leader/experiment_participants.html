@@ -53,15 +53,17 @@
                 <table class="dt_custom" width="100%" data-language="{% datatables_lang %}" data-responsive="">
                     <thead>
                     <tr>
-                        <th>
-                            {% trans 'participants:datetime' %}
-                        </th>
-                        <th>
-                            {% trans 'timeslots:day' %}
-                        </th>
-                        <th>
-                            {% trans 'participants:place' %}
-                        </th>
+                        {% if experiment.use_timeslots %}
+                            <th>
+                                {% trans 'participants:datetime' %}
+                            </th>
+                            <th>
+                                {% trans 'timeslots:day' %}
+                            </th>
+                            <th>
+                                {% trans 'participants:place' %}
+                            </th>
+                        {% endif %}
                         <th>
                             {% trans 'participants:name' %}
                         </th>
@@ -102,19 +104,19 @@
                     </thead>
 
                     <tbody>
-                    {% for timeslot in experiment.timeslots %}
-
-                    {% for n, appointment in timeslot.takes_places_tuple %}
+                    {% for timeslot, n, appointment in appointments %}
                         <tr>
-                            <td>
-                                {{ timeslot.datetime|date:"Y-m-d H:i" }}
-                            </td>
-                            <td>
-                                {{ timeslot.datetime|date:"l" }}
-                            </td>
-                            <td>
-                                {{ n }}
-                            </td>
+                            {% if experiment.use_timeslots %}
+                                <td>
+                                    {{ timeslot.datetime|date:"Y-m-d H:i" }}
+                                </td>
+                                <td>
+                                    {{ timeslot.datetime|date:"l" }}
+                                </td>
+                                <td>
+                                    {{ n }}
+                                </td>
+                            {% endif %}
                             <td>
                                 {% if experiment.participants_visible %}
                                     {{ appointment.participant.name }}
@@ -179,10 +181,10 @@
                             </td>
                         </tr>
                     {% endfor %}
-                    {% endfor %}
                     </tbody>
                     <tfoot>
                     <tr>
+                        {% if experiment.use_timeslots %}
                         <th>
                             <input type="text" name="date"
                                    value="{% trans 'participants:datetime' %}"
@@ -195,6 +197,7 @@
                             <input type="text" name="place" value="{% trans 'participants:place' %}"
                                    class="search_init"/>
                         </th>
+                        {% endif %}
                         <th>
                             <input type="text" name="name"
                                    value="{% trans 'participants:name' %}"

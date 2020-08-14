@@ -44,7 +44,11 @@
                         {% endif %}
                     </td>
                     <td>
-                        {{ experiment.n_timeslots }}
+                        {% if experiment.use_timeslots %}
+                            {{ experiment.n_timeslots }}
+                        {% else %}
+                            N/A
+                        {% endif %}
                     </td>
                     <td>
                         {{ experiment.n_participants }}
@@ -59,13 +63,23 @@
                         </a>
                     </td>
                     <td>
-                        <a
-                            href="{% url 'leader:timeslots' experiment.id %}"
-                            class="icon-timeslot"
-                            title="{% trans 'experiment:timeslots:title' %}"
-                        >
-                            
-                        </a>
+
+                        {% if experiment.use_timeslots %}
+                            <a
+                                href="{% url 'leader:timeslots' experiment.id %}"
+                                class="icon-timeslot"
+                                title="{% trans 'experiment:timeslots:title' %}"
+                            >
+                                
+                            </a>
+                        {% else %}
+                            <span
+                                class="icon-timeslots disabled-icon"
+                                title="{% trans 'experiments:timeslots:title:disabled' %}"
+                            >
+                                
+                            </span>
+                        {% endif %}
                         <a
                             href="{% url 'leader:participants' experiment.id %}"
                             class="icon-participants"
