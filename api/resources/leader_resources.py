@@ -33,7 +33,6 @@ class Leader(rest.Resource):
 
     api_user = rest.ResourceField('apiauth.ApiUserResource')
 
-    @cached_property
     def photo(self):
         leader_id = self.api_user
         if not isinstance(leader_id, int):

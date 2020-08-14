@@ -36,7 +36,7 @@ class Experiment(rest.Resource):
 
     participants_visible = rest.BoolField()
 
-    location = rest.ResourceField(Location)
+    location = rest.ResourceField(Location, null=True, blank=True)
 
     leader = rest.ResourceField('Leader')  # We cannot import this, as this
     # will cause a circular import
@@ -48,6 +48,8 @@ class Experiment(rest.Resource):
     defaultcriteria = rest.ResourceField('DefaultCriteria')
 
     specific_criteria = rest.CollectionField('ExperimentCriteria')
+
+    use_timeslots = rest.BoolField()
 
     timeslots = rest.CollectionField('InlineTimeSlots')
 
