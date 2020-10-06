@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'main',  # Should come before uil.core in order for template overrides to
     # work
     'uil.core',
+    'uil.rest_client',
     'api',
     'api.auth',
     'participant',
@@ -76,7 +77,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'api.middleware.ThreadLocalUserMiddleware',
+    'uil.core.middleware.ThreadLocalUserMiddleware',
     'api.middleware.PasswordChangeMiddleware',
     'csp.middleware.CSPMiddleware',
 ]

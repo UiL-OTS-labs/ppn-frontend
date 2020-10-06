@@ -1,35 +1,35 @@
-from ..rest import Resource, fields, Operations, ResourceCollection
+from uil.rest_client import rest_client as rest
 
 
-class ApiGroupResource(Resource):
+class ApiGroupResource(rest.Resource):
 
-    pk = fields.IntegerField()
+    pk = rest.IntegerField()
 
-    name = fields.TextField()
+    name = rest.TextField()
 
 
-class ApiGroupResourceCollection(ResourceCollection):
+class ApiGroupResourceCollection(rest.ResourceCollection):
 
     class Meta:
         resource = ApiGroupResource
 
 
-class ApiUserResource(Resource):
+class ApiUserResource(rest.Resource):
 
     class Meta:
         path = '/api/auth/'
-        supported_operations = [Operations.get_over_post]
+        supported_operations = [rest.Operations.get_over_post]
 
-    id = fields.IntegerField()
+    id = rest.IntegerField()
 
-    token = fields.TextField()
+    token = rest.TextField()
 
-    is_active = fields.BoolField(default=False)
+    is_active = rest.BoolField(default=False)
 
-    is_admin = fields.BoolField(default=False)
+    is_admin = rest.BoolField(default=False)
 
-    is_ldap_account = fields.BoolField(default=False)
+    is_ldap_account = rest.BoolField(default=False)
 
-    needs_password_change = fields.BoolField(default=False)
+    needs_password_change = rest.BoolField(default=False)
 
-    groups = fields.CollectionField(ApiGroupResourceCollection)
+    groups = rest.CollectionField(ApiGroupResourceCollection)

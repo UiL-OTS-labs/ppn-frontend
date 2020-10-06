@@ -17,7 +17,7 @@ from api.resources import Leader, LeaderExperiments, \
     SwitchExperimentOpen
 from api.resources.comment_resources import Comment
 from api.resources.experiment_resources import LeaderExperiment
-from api.rest.exceptions import ApiError
+from uil.rest_client.exceptions import ApiError
 from leader.forms import AddCommentForm, ChangeProfileForm, TimeSlotForm
 from leader.models import LeaderPhoto
 from leader.utils import add_timeslot, delete_timeslot, delete_timeslots, now, \
@@ -55,9 +55,29 @@ class ExperimentParticipantsView(braces.LoginRequiredMixin,
             **kwargs)
 
         context['experiment'] = self.experiment
+        context['appointments'] = self._get_appointments()
 
         return context
 
+    def _get_appointments(self):
+        output = []
+        if self.experiment.use_timeslots:
+            # If we use timeslots, we get our data from the timeslots attribute
+            for timeslot in self.experiment.timeslots:
+                for n, appointment in timeslot.takes_places_tuple:
+                    output.append(
+                        (timeslot, n, appointment)
+                    )
+        else:
+            # Otherwise, we get out data from the appointments attribute.
+            # As to not-confuse our view-logic, we fill in None for the other
+            # values
+            for appointment in self.experiment.appointments:
+                output.append(
+                    (None, None, appointment)
+                )
+
+        return output
 
 class DownloadParticipantsCsvView(braces.LoginRequiredMixin,
                                   braces.GroupRequiredMixin,
@@ -198,13 +218,13 @@ class TimeSlotHomeView(braces.LoginRequiredMixin,
     def get_initial(self):
         initial = super(TimeSlotHomeView, self).get_initial()
 
-        initial['max_places'] = self.experiment.default_max_places
-        initial['datetime'] = self._get_datetime_initial()
+        initial['max_places'] = self._get_initial_max_places()
+        initial['datetime'] = self._get_initial_datetime()
         initial['experiment'] = self.experiment.id
 
         return initial
 
-    def _get_datetime_initial(self):
+    def _get_initial_datetime(self):
         """If we have post values, we return the datetime from POST,
         otherwise we default to now().
         """
@@ -212,6 +232,15 @@ class TimeSlotHomeView(braces.LoginRequiredMixin,
             return self.request.POST['datetime']
 
         return str(now())[:-3]  # Remove the seconds
+
+    def _get_initial_max_places(self):
+        """If we have post values, we return the max_places from POST,
+        otherwise we default to default_max_places.
+        """
+        if self.request.POST:
+            return self.request.POST['max_places']
+
+        return self.experiment.default_max_places
 
     def get_context_data(self, *_, **kwargs):
         context = super(TimeSlotHomeView, self).get_context_data(**kwargs)

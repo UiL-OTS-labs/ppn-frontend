@@ -1,9 +1,9 @@
-import api.rest as rest
+from uil.rest_client import rest_client as rest
 
 
 class Location(rest.Resource):
     """
-    This resource describes a test location. route_url can be null if no
+    This resources describes a test location. route_url can be null if no
     routing info is present.
     """
     id = rest.IntegerField()
@@ -36,7 +36,7 @@ class Experiment(rest.Resource):
 
     participants_visible = rest.BoolField()
 
-    location = rest.ResourceField(Location)
+    location = rest.ResourceField(Location, null=True, blank=True)
 
     leader = rest.ResourceField('Leader')  # We cannot import this, as this
     # will cause a circular import
@@ -48,6 +48,8 @@ class Experiment(rest.Resource):
     defaultcriteria = rest.ResourceField('DefaultCriteria')
 
     specific_criteria = rest.CollectionField('ExperimentCriteria')
+
+    use_timeslots = rest.BoolField()
 
     timeslots = rest.CollectionField('InlineTimeSlots')
 
@@ -70,9 +72,11 @@ class LeaderExperiment(Experiment):
 
     timeslots = rest.CollectionField('LeaderInlineTimeSlots')
 
+    appointments = rest.CollectionField('LeaderTimeSlotAppointments')
+
     @property
     def n_participants(self):
-        return sum([len(t.takes_places_tuple) for t in self.timeslots], 0)
+        return len(self.appointments)
 
 
 class SwitchExperimentOpen(rest.Resource):

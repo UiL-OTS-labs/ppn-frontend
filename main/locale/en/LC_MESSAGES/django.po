@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-09 09:50+0000\n"
+"POT-Creation-Date: 2020-04-21 11:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,20 +16,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: main/forms.py:14
+#: main/forms.py:16
 msgid "forms:forgot_password:token_placeholder"
 msgstr "Enter your reset token"
 
-#: main/forms.py:24
+#: main/forms.py:25
 msgid "forms:forgot_password:email_placeholder"
 msgstr "Enter your email"
 
-#: main/forms.py:44
+#: main/forms.py:45
 msgid "form:forgot_password:email_incorrect"
 msgstr ""
 "The email address you've entered is invalid or not attached to an account."
 
-#: main/forms.py:56 main/forms.py:109
+#: main/forms.py:56 main/forms.py:108
 msgid "forms:change_password:password_mismatch"
 msgstr "The two password fields didn't match."
 
@@ -37,19 +37,19 @@ msgstr "The two password fields didn't match."
 msgid "forms:change_password:token_incorrect"
 msgstr "Your token has expired!"
 
-#: main/forms.py:65 main/forms.py:114
+#: main/forms.py:65 main/forms.py:113
 msgid "forms:change_password:new1"
 msgstr "New password"
 
-#: main/forms.py:71 main/forms.py:120
+#: main/forms.py:71 main/forms.py:119
 msgid "forms:change_password:new2"
 msgstr "Confirm new password"
 
-#: main/forms.py:110
+#: main/forms.py:109
 msgid "forms:change_password:password_incorrect"
 msgstr "Your old password was entered incorrectly. Please enter it again."
 
-#: main/forms.py:126
+#: main/forms.py:125
 msgid "forms:change_password:old"
 msgstr "Current password"
 
@@ -93,27 +93,28 @@ msgstr "Log in"
 msgid "main:globals:logout"
 msgstr "Log out"
 
-#: main/templates/base/403.html:5 main/templates/base/403.html:12
+#: main/templates/base/403.html:9 main/templates/base/403.html:16
 msgid "403:header"
 msgstr "Not authorized"
 
-#: main/templates/base/403.html:14
+#: main/templates/base/403.html:18
 msgid "403:p1"
-msgstr "It looks like you are trying to acess a page you are not allowed to view."
+msgstr ""
+"It looks like you are trying to acess a page you are not allowed to view."
 
-#: main/templates/base/403.html:17
+#: main/templates/base/403.html:21
 msgid "403:p2"
 msgstr "If you think this is a mistake, please contact the lab technicians."
 
-#: main/templates/base/404.html:5 main/templates/base/404.html:12
+#: main/templates/base/404.html:10 main/templates/base/404.html:17
 msgid "404:header"
 msgstr "Page not found"
 
-#: main/templates/base/404.html:14
+#: main/templates/base/404.html:19
 msgid "404:p1"
 msgstr "We can't seem to find the page you're looking for."
 
-#: main/templates/base/404.html:17
+#: main/templates/base/404.html:22
 msgid "404:p2"
 msgstr "The link you clicked may be broken or the page may have been moved."
 
@@ -235,17 +236,17 @@ msgstr "Open experiments"
 msgid "index:content:no_experiments_available"
 msgstr "There are currently no experiments  you can sign up for."
 
-#: main/templates/main/index.html:28
+#: main/templates/main/index.html:29
 msgid "index:content:cancel"
 msgstr ""
 "If you have registered for an experiment but you're not able to come, you "
 "can unsubscribe here. "
 
-#: main/templates/main/index.html:32
+#: main/templates/main/index.html:33
 msgid "index:header:maillinglist"
 msgstr "Mailing list UiL OTS experiments"
 
-#: main/templates/main/index.html:36
+#: main/templates/main/index.html:37
 msgid "index:content:maillinglist1"
 msgstr ""
 "Do you want to be kept informed about new experiments at the UiL OTS? Enter "
@@ -254,7 +255,7 @@ msgstr ""
 "publications usually only group averages are reported. If individual results "
 "are mentioned, this is always done anonymously."
 
-#: main/templates/main/index.html:39
+#: main/templates/main/index.html:40
 msgid "index:content:maillinglist2"
 msgstr ""
 "If you no longer wish to receive messages about new experiments, or if you "
@@ -313,15 +314,15 @@ msgstr "Forgot password?"
 msgid "login:button:login"
 msgstr "Log in"
 
-#: main/views.py:39
+#: main/views.py:47
 msgid "password:message:updated"
 msgstr "Password changed!"
 
-#: main/views.py:74
+#: main/views.py:82
 msgid "password:message:reset_requested"
 msgstr ""
 "We've sent you an email with instructions on how to reset your password!"
 
-#: main/views.py:97
+#: main/views.py:105
 msgid "password:message:reset_successful"
 msgstr "Password successfully reset!"

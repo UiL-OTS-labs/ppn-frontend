@@ -2,7 +2,7 @@ from django.contrib.auth.models import Group
 
 from .models import RemoteApiUser
 from .resources import ApiUserResource
-from api.rest.exceptions import ApiError
+from uil.rest_client.exceptions import ApiError
 
 
 class ApiAuthenticationBackend:

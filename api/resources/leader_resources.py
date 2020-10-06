@@ -1,7 +1,7 @@
 from django.db import IntegrityError
 from django.utils.functional import cached_property
 
-import api.rest as rest
+from uil.rest_client import rest_client as rest
 from leader.models import LeaderPhoto
 
 
@@ -33,7 +33,6 @@ class Leader(rest.Resource):
 
     api_user = rest.ResourceField('apiauth.ApiUserResource')
 
-    @cached_property
     def photo(self):
         leader_id = self.api_user
         if not isinstance(leader_id, int):

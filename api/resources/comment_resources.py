@@ -1,10 +1,10 @@
-import api.rest as rest
+from uil.rest_client import rest_client as rest
 from api.resources.generic_resources import SuccessResponse
 
 
 class Comment(rest.Resource):
     """
-    This resource can be used to add a comment for a participant (for an
+    This resources can be used to add a comment for a participant (for an
     experiment).
     """
     class Meta:

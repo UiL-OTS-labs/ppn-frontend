@@ -6,7 +6,7 @@ from django import forms
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.safestring import mark_safe
 
-from api.middleware import get_current_user
+from uil.core.middleware import get_current_user
 from api.resources import Experiment
 from api.resources.experiment_resources import ExperimentRegistration, \
     RegistrationCriteria, RegistrationCriterion
@@ -59,19 +59,20 @@ def _get_register_form(form: BaseRegisterForm, experiment: Experiment):
 
         form.fields[exp_crit.criterion.name_form] = field
 
-    timeslots = sorted(experiment.timeslots, key=lambda x: x.datetime)
+    if experiment.use_timeslots:
+        timeslots = sorted(experiment.timeslots, key=lambda x: x.datetime)
 
-    timeslot_options = ((timeslot.id, str(timeslot)) for timeslot in
-                        timeslots if
-                        timeslot.datetime > _2_hours_ago(timeslot.datetime)
-                        and timeslot.free_places > 0)
+        timeslot_options = ((timeslot.id, str(timeslot)) for timeslot in
+                            timeslots if
+                            timeslot.datetime > _2_hours_ago(timeslot.datetime)
+                            and timeslot.free_places > 0)
 
-    form.fields['timeslot'] = forms.IntegerField(
-        label='',
-        widget=forms.RadioSelect(
-            choices=timeslot_options,
+        form.fields['timeslot'] = forms.IntegerField(
+            label='',
+            widget=forms.RadioSelect(
+                choices=timeslot_options,
+            )
         )
-    )
 
     current_user = get_current_user()
 

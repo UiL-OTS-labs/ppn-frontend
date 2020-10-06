@@ -1,6 +1,6 @@
 from datetime import datetime
 
-import api.rest as rest
+from uil.rest_client import rest_client as rest
 from .generic_resources import SuccessResponse
 
 
@@ -10,7 +10,7 @@ from .generic_resources import SuccessResponse
 
 class MailinglistSubscribe(rest.Resource):
     """
-    This resource is used to subscribe a 'new' participant to the mailing list
+    This resources is used to subscribe a 'new' participant to the mailing list
     """
 
     class Meta:
@@ -29,7 +29,7 @@ class MailinglistSubscribe(rest.Resource):
 
 class ValidateMailinglistTokenResponse(rest.Resource):
     """
-    This resource is used as the response resource for ValidateMailinglistToken.
+    This resources is used as the response resources for ValidateMailinglistToken.
 
     Email will be filled in if success == True, to be used to display it.
     """
@@ -41,8 +41,8 @@ class ValidateMailinglistTokenResponse(rest.Resource):
 
 class ValidateMailinglistToken(rest.Resource):
     """
-    This resource is used to validate unsubscribe-from-mailinglist tokens, will
-    return the ValidateMailinglistTokenResponse resource
+    This resources is used to validate unsubscribe-from-mailinglist tokens, will
+    return the ValidateMailinglistTokenResponse resources
     """
 
     class Meta:
@@ -55,7 +55,7 @@ class ValidateMailinglistToken(rest.Resource):
 
 class UnsubscribeFromMailinglist(rest.Resource):
     """
-    This resource is used to unsubscribe a participant from the mailing list.
+    This resources is used to unsubscribe a participant from the mailing list.
     The participant is identified by the token.
 
     You can use ValidateMailinglistToken to validate the token beforehand
@@ -75,7 +75,7 @@ class UnsubscribeFromMailinglist(rest.Resource):
 
 class SendCancelToken(rest.Resource):
     """
-    This resource is used to request a appointment cancel token for a given
+    This resources is used to request a appointment cancel token for a given
     email. For security purposes this token is sent by the backend through
     email.
 
@@ -92,7 +92,7 @@ class SendCancelToken(rest.Resource):
 
 class Appointment(rest.Resource):
     """
-    This resource represents an appointment for a participant(!), it can
+    This resources represents an appointment for a participant(!), it can
     retrieve them when the pk is known. NOTE: this will error if no user
     header is present, so it will only work when a participant is logged in!
 
@@ -136,12 +136,12 @@ class Appointments(rest.ResourceCollection):
 
 
 #
-# Register fields resource
+# Register fields resources
 #
 
 class RequiredRegistrationFields(rest.Resource):
     """
-    This resource can be used to get the required register fields for a given
+    This resources can be used to get the required register fields for a given
     experiment.
     NOTE: This only works (and makes sense) when a participant is logged in
     """
@@ -158,7 +158,7 @@ class RequiredRegistrationFields(rest.Resource):
 
 
 #
-# Participant resource
+# Participant resources
 #
 
 

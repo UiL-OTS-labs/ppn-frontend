@@ -5,7 +5,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
-from api.rest.exceptions import ApiError
+from uil.rest_client.exceptions import ApiError
 from api.resources import Appointments
 from api.resources.participant_resources import SendCancelToken, Appointment
 from main.mixins import OverrideLanguageMixin
