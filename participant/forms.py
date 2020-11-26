@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.safestring import mark_safe
 
-from .widgets import LanguageWidget
+from .widgets import LanguageWidget, SexWidget
 
 
 #
@@ -214,17 +214,27 @@ class BaseRegisterForm(forms.Form):
     )
 
     sex = forms.CharField(
-        label='Ik ben',
-        widget=forms.RadioSelect(
-            choices=(
-                ('M', 'Man'),
-                ('F', 'Vrouw'),
-            ),
-        ),
+        label='Mijn biologisch geslacht is',
+        help_text='Waarom willen we je biologisch geslacht weten? '
+                  'Geslachtshormonen zijn van invloed op de ontwikkeling en '
+                  'het functioneren van de hersenen, en kunnen dus ook '
+                  'invloed hebben op hoe de hersenen met taal omgaan. Het is '
+                  'daarom gebruikelijk om op groepsniveau te rapporteren '
+                  'hoeveel mannen en hoeveel vrouwen aan een studie hebben '
+                  'deelgenomen. Soms worden de resultaten ook per groep '
+                  'geanalyseerd.',
+        widget=SexWidget
     )
 
     handedness = forms.CharField(
         label='Ik ben',
+        help_text='Waarom willen we weten wat je dominante hand is? Links- '
+                  'danwel rechtshandigheid gaat gepaard met verschillen in de '
+                  'hersenen, die ook van invloed zouden kunnen zijn op hoe de '
+                  'hersenen met taal omgaan. Het is daarom gebruikelijk om op '
+                  'groepsniveau te rapporteren hoeveellinks- en rechtshandigen '
+                  'aan een studie hebben deelgenomen. Soms worden de '
+                  'resultaten ook per groep geanalyseerd.',
         widget=forms.RadioSelect(
             choices=(
                 ('L', 'Linkshandig'),
