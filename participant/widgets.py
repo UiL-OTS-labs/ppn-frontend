@@ -34,6 +34,9 @@ class SexWidget(Widget):
 
         if value == "OTHER":
             value = data.get(name + '_other')
+            # Fill in 'O', if nothing was specified (which is allowed!)
+            if not value:
+                value = 'O'
 
         return value
 

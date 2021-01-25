@@ -27,7 +27,7 @@
         <label for="id_sex_2">
             <input type="radio" name="{{ widget.name }}" value="OTHER" id="id_sex_2" required="" {% if widget.value == 'OTHER' %}checked="checked"{% endif %}>
             Anders, namelijk:<br/>
-            <input name="{{ widget.name }}_other" id="id_sex_2_other" value="{{ widget.other_value|default_if_none:"" }}">
+            <input name="{{ widget.name }}_other" id="id_sex_2_other" value="{{ widget.other_value|default_if_none:"" }}" placeholder="Optioneel">
         </label>
     </li>
     <li>
