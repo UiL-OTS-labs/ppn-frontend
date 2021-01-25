@@ -28,9 +28,9 @@ def get_register_form(
         experiment: Experiment,
         allowed_fields: Union[str, list]):
     if isinstance(allowed_fields, str) and allowed_fields == '__all__':
-        return _get_register_form(form, experiment)
+        final_form = _get_register_form(form, experiment)
     elif isinstance(allowed_fields, list):
-        return _get_authenticated_register_form(
+        final_form = _get_authenticated_register_form(
             form,
             experiment,
             allowed_fields
@@ -39,6 +39,22 @@ def get_register_form(
         raise ImproperlyConfigured('get_register_form must be passed a list '
                                    'or "__all__" to the allowed_fields '
                                    'parameter')
+    final_form.fields['consent'] = forms.BooleanField(
+        label='Dataverwerking',
+        widget=forms.RadioSelect(
+            choices=(
+                (True, 'Ja, ik ga akkoord dat mijn gegevens worden opgeslagen '
+                       't.b.v. van het verwerken van mijn aanmelding en gedeeld'
+                       ' worden met de proefleider.'),
+            ),
+            attrs={
+                'required': 'required'
+            }
+        ),
+        required=True
+    )
+
+    return final_form
 
 
 def _get_register_form(form: BaseRegisterForm, experiment: Experiment):
