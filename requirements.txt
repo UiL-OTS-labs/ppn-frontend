@@ -4,38 +4,86 @@
 #
 #    pip-compile
 #
--e git+https://github.com/UiL-OTS-labs/django-shared-core.git@v1.1.0-beta-6#egg=uil-django-core  # via -r requirements.in
-babel==2.7.0              # via -r requirements.in
-backports-datetime-fromisoformat==1.0.0  # via -r requirements.in
-blessings==1.7            # via curtsies
-bpython==0.18             # via -r requirements.in
-certifi==2019.11.28       # via requests
-cffi==1.13.2              # via cryptography
-chardet==3.0.4            # via requests
-click==7.0                # via pip-tools
-cryptography==2.8         # via -r requirements.in
-curtsies==0.3.0           # via bpython
-django-braces==1.13.0     # via -r requirements.in
-django-csp==3.5           # via -r requirements.in
-django-debug-toolbar==2.1  # via -r requirements.in
-django-extensions==2.2.5  # via -r requirements.in
-django-simple-menu==1.2.1  # via -r requirements.in
-django==2.2.12            # via -r requirements.in, django-csp, django-debug-toolbar, django-simple-menu
-greenlet==0.4.15          # via bpython
-idna==2.8                 # via requests
-mysqlclient==1.4.6        # via -r requirements.in
-pillow==6.2.1             # via -r requirements.in
-pip-tools==4.3.0          # via -r requirements.in
-pycparser==2.19           # via cffi
-pygments==2.5.2           # via bpython
-pyjwt==1.7.1              # via -r requirements.in
-pytz==2019.3              # via babel, django
-requests==2.22.0          # via -r requirements.in, bpython
-six==1.13.0               # via bpython, cryptography, django-extensions, pip-tools
-sqlparse==0.3.0           # via django, django-debug-toolbar
-typing==3.7.4.1           # via curtsies
-urllib3==1.25.7           # via requests
-wcwidth==0.1.7            # via curtsies
+-e git+https://github.com/UiL-OTS-labs/django-shared-core.git@v1.1.0#egg=uil-django-core
+    # via -r requirements.in
+babel==2.9.0
+    # via -r requirements.in
+backports-datetime-fromisoformat==1.0.0
+    # via -r requirements.in
+blessings==1.7
+    # via curtsies
+bpython==0.21
+    # via -r requirements.in
+certifi==2020.12.5
+    # via requests
+cffi==1.14.4
+    # via cryptography
+chardet==4.0.0
+    # via requests
+click==7.1.2
+    # via pip-tools
+cryptography==3.3.1
+    # via -r requirements.in
+curtsies==0.3.5
+    # via bpython
+cwcwidth==0.1.2
+    # via
+    #   bpython
+    #   curtsies
+django-braces==1.14.0
+    # via -r requirements.in
+django-csp==3.7
+    # via -r requirements.in
+django-debug-toolbar==3.2
+    # via -r requirements.in
+django-extensions==3.1.0
+    # via -r requirements.in
+django-simple-menu==1.2.1
+    # via -r requirements.in
+django==2.2.18
+    # via
+    #   -r requirements.in
+    #   django-braces
+    #   django-csp
+    #   django-debug-toolbar
+    #   django-simple-menu
+greenlet==1.0.0
+    # via bpython
+idna==2.10
+    # via requests
+mysqlclient==2.0.3
+    # via -r requirements.in
+pillow==8.1.0
+    # via -r requirements.in
+pip-tools==5.5.0
+    # via -r requirements.in
+pycparser==2.20
+    # via cffi
+pygments==2.7.4
+    # via bpython
+pyjwt==2.0.1
+    # via -r requirements.in
+pytz==2021.1
+    # via
+    #   babel
+    #   django
+pyxdg==0.27
+    # via bpython
+requests==2.25.1
+    # via
+    #   -r requirements.in
+    #   bpython
+six==1.15.0
+    # via
+    #   cryptography
+    #   django-braces
+sqlparse==0.4.1
+    # via
+    #   django
+    #   django-debug-toolbar
+urllib3==1.26.3
+    # via requests
 
 # The following packages are considered to be unsafe in a requirements file:
+# pip
 # setuptools
