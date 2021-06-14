@@ -1,6 +1,31 @@
 {% extends "base/base.html" %}
+{% load vue_tags %}
 {% load i18n %}
 {% load transformat %}
+
+{% block html_head %}
+    {% include 'uil.vue/vueloader.html' %}
+
+    {% load_vue_component 'ExperimentList' request.csp_nonce %}
+
+    <script nonce="{{ request.csp_nonce }}">
+        // Needs to be wrapped into an onload to ensure all dependencies are loaded
+        window.onload = _ => {
+            const i18n = new VueI18n({
+                locale: '{{ LANGUAGE_CODE }}',
+            });
+            new Vue({
+                i18n,
+                el: "#list",
+                components: {
+                    // Loaded by the load_vue_component tag, no need to manually load this
+                    ExperimentList
+                },
+                template: "<ExperimentList></ExperimentList>",
+            });
+        }
+    </script>
+{% endblock %}
 
 {% block content %}
 <div class="uu-inner-container">
@@ -13,17 +38,7 @@
         </p>
 
         <h3>{% trans 'index:header:open_experiments' %}</h3>
-        <ul>
-            {% for experiment in experiments %}
-                <li>
-                    <a href="{% url 'participant:register' experiment.id %}">
-                        {{ experiment.name }}
-                    </a>
-                </li>
-            {% empty %}
-                {% trans 'index:content:no_experiments_available' %}
-            {% endfor %}
-        </ul>
+            <div id="list"></div>
         <p>
             {% url 'participant:cancel_landing' as cancel_url %}
             {% transformat 'index:content:cancel' cancel_url %}

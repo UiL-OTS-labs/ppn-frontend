@@ -2,12 +2,14 @@ from django.contrib.auth import views as auth_views
 from django.urls import path
 
 from .views import ChangePasswordView, CustomLoginView, EnterTokenView, \
-    ForgotPasswordView, HomeView, ResetPasswordView, LDAPPasswordView
+    ForgotPasswordView, HomeApiView, HomeView, ResetPasswordView, \
+    LDAPPasswordView
 
 app_name = 'main'
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
+    path('api/experiments/', HomeApiView.as_view(), name='home_api'),
 
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),

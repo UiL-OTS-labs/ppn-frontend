@@ -6,11 +6,12 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy as reverse
 from django.utils.http import is_safe_url
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.views import generic
 
 from api.resources import Admin, OpenExperiments, ValidateToken
 from main.mixins import OverrideLanguageMixin
+from uil.vue.rest import FancyListApiView
 from .forms import ChangePasswordForm, EnterTokenForm, ForgotPasswordForm, \
     ResetPasswordForm
 
@@ -27,15 +28,37 @@ class HomeView(OverrideLanguageMixin, generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
 
-        experiments = OpenExperiments.client.get()
         admin = Admin.client.get()
 
-        context['experiments'] = experiments
         context['admin'] = admin
 
         return context
 
 
+class HomeApiView(OverrideLanguageMixin, FancyListApiView):
+    language_override = 'nl'
+    # Act like it's not paginated
+    num_items_options = [9999999]
+    default_items_per_page = 9999999
+    show_controls = False
+
+    def get_items(self):
+        out = []
+        experiments = OpenExperiments.client.get()
+
+        for experiment in experiments:
+            exp_data = experiment.to_api()
+            # the Vue app expects the id in a PK field
+            exp_data['pk'] = exp_data['id']
+            del exp_data['leader']
+            del exp_data['additional_leaders']
+            del exp_data['excluded_experiments']
+            del exp_data['defaultcriteria']
+            del exp_data['specific_criteria']
+
+            out.append(exp_data)
+
+        return out
 #
 # Password related views
 #

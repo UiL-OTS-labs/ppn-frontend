@@ -46,10 +46,14 @@ INSTALLED_APPS = [
     # django-simple-menu
     'menu',
 
+    # Django rest framework
+    'rest_framework',
+
     # local apps
     'main',  # Should come before uil.core in order for template overrides to
     # work
     'uil.core',
+    'uil.vue',
     'uil.rest_client',
     'api',
     'api.auth',
@@ -118,6 +122,8 @@ DATABASES = {
     }
 }
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -177,7 +183,7 @@ CSP_UPGRADE_INSECURE_REQUESTS = not DEBUG
 CSP_INCLUDE_NONCE_IN = ['script-src']
 
 CSP_DEFAULT_SRC = ["'self'", ]
-CSP_SCRIPT_SRC = ["'self'", ]
+CSP_SCRIPT_SRC = ["'self'", "'unsafe-eval'"]
 CSP_FONT_SRC = ["'self'", 'data:', ]
 CSP_STYLE_SRC = ["'self'", "'unsafe-inline'"]
 CSP_IMG_SRC = ["'self'", 'data:', ]

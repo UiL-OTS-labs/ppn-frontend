@@ -9,7 +9,7 @@ from django.core.exceptions import PermissionDenied, SuspiciousOperation, \
 from django.http import HttpResponse
 from django.urls import reverse_lazy as reverse
 from django.utils.functional import cached_property
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.views import generic
 
 from api.auth.models import RemoteApiUser
