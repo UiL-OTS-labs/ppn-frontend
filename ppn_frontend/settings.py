@@ -86,6 +86,29 @@ MIDDLEWARE = [
     'csp.middleware.CSPMiddleware',
 ]
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'simple': {
+            'format': '[{asctime}] {name} ({levelname}): {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+    },
+    'loggers': {
+        'uil.rest_client': {
+            'handlers': ['console'],
+            'level':    'INFO',  # DEBUG is possible, but is VERY verbose.
+        },
+    },
+}
+
 if DEBUG and ENABLE_DEBUG_TOOLBAR:
     # Only enable the debug toolbar if we are in debug mode and have the
     # toolbar enabled
