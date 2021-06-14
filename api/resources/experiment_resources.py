@@ -45,7 +45,11 @@ class Experiment(rest.Resource):
 
     excluded_experiments = rest.CollectionField('OpenExperiments')
 
-    defaultcriteria = rest.ResourceField('DefaultCriteria')
+    defaultcriteria = rest.ResourceField(
+        'DefaultCriteria',
+        null=True,
+        blank=True
+    )
 
     specific_criteria = rest.CollectionField('ExperimentCriteria')
 
