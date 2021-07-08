@@ -184,9 +184,15 @@ class Participant(rest.Resource):
 
     birth_date = rest.DateField()
 
-    handedness = rest.TextField()
+    handedness = rest.TextField(
+        null=True,
+        blank=True,
+    )
 
-    sex = rest.TextField()
+    sex = rest.TextField(
+        null=True,
+        blank=True,
+    )
 
     social_status = rest.TextField()
 
