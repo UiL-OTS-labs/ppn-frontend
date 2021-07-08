@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-21 11:28+0000\n"
+"POT-Creation-Date: 2021-07-08 12:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -208,7 +208,7 @@ msgstr "Follow these instructions to reset your password."
 msgid "forgot_password:content:request_button"
 msgstr "Request password reset"
 
-#: main/templates/main/index.html:9
+#: main/templates/main/index.html:34
 msgid "index:content:intro1"
 msgstr ""
 "The Utrecht Institute for Linguistics OTS is conducting research into how "
@@ -217,7 +217,7 @@ msgstr ""
 "always looking for subjects to participate in those experiments. You can "
 "sign up for this on this website."
 
-#: main/templates/main/index.html:12
+#: main/templates/main/index.html:37
 msgid "index:content:intro2"
 msgstr ""
 "The experiments are conducted at Janskerkhof 13 (in the city center). An "
@@ -228,25 +228,21 @@ msgstr ""
 "experiment; the reimbursement varies from 7.50 to 10 euros per hour.<br/"
 ">Please note that most experiments require native Dutch speakers."
 
-#: main/templates/main/index.html:15
+#: main/templates/main/index.html:40
 msgid "index:header:open_experiments"
 msgstr "Open experiments"
 
-#: main/templates/main/index.html:24
-msgid "index:content:no_experiments_available"
-msgstr "There are currently no experiments  you can sign up for."
-
-#: main/templates/main/index.html:29
+#: main/templates/main/index.html:44
 msgid "index:content:cancel"
 msgstr ""
 "If you have registered for an experiment but you're not able to come, you "
 "can unsubscribe here. "
 
-#: main/templates/main/index.html:33
+#: main/templates/main/index.html:48
 msgid "index:header:maillinglist"
 msgstr "Mailing list UiL OTS experiments"
 
-#: main/templates/main/index.html:37
+#: main/templates/main/index.html:52
 msgid "index:content:maillinglist1"
 msgstr ""
 "Do you want to be kept informed about new experiments at the UiL OTS? Enter "
@@ -255,7 +251,7 @@ msgstr ""
 "publications usually only group averages are reported. If individual results "
 "are mentioned, this is always done anonymously."
 
-#: main/templates/main/index.html:40
+#: main/templates/main/index.html:55
 msgid "index:content:maillinglist2"
 msgstr ""
 "If you no longer wish to receive messages about new experiments, or if you "
@@ -276,6 +272,16 @@ msgstr ""
 #: main/templates/main/ldap_password.html:20
 msgid "ldap_password:link"
 msgstr "Click here to go to the 'MySolisID' portal."
+
+#: main/templates/main/login_lockout.html:9
+#: main/templates/main/login_lockout.html:17
+msgid "main:login_lockout:header"
+msgstr "Login disabled"
+
+#: main/templates/main/login_lockout.html:20
+msgid "main:login_lockout:info_text"
+msgstr ""
+"Due to many failed login attempts, logging in has been disabled for one hour."
 
 #: main/templates/main/reset_password.html:5
 #: main/templates/main/reset_password.html:12
@@ -314,15 +320,18 @@ msgstr "Forgot password?"
 msgid "login:button:login"
 msgstr "Log in"
 
-#: main/views.py:47
+#: main/views.py:70
 msgid "password:message:updated"
 msgstr "Password changed!"
 
-#: main/views.py:82
+#: main/views.py:105
 msgid "password:message:reset_requested"
 msgstr ""
 "We've sent you an email with instructions on how to reset your password!"
 
-#: main/views.py:105
+#: main/views.py:128
 msgid "password:message:reset_successful"
 msgstr "Password successfully reset!"
+
+#~ msgid "index:content:no_experiments_available"
+#~ msgstr "There are currently no experiments  you can sign up for."

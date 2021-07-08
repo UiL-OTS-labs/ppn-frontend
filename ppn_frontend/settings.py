@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'axes',
 
     # Django extensions
     'django_extensions',
@@ -66,7 +67,10 @@ INSTALLED_APPS = [
 
 AUTH_USER_MODEL = 'apiauth.RemoteApiUser'
 
-AUTHENTICATION_BACKENDS = ['api.auth.backend.ApiAuthenticationBackend']
+AUTHENTICATION_BACKENDS = [
+    'axes.backends.AxesBackend',
+    'api.auth.backend.ApiAuthenticationBackend'
+]
 
 LOGIN_REDIRECT_URL = '/'
 
@@ -79,6 +83,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'axes.middleware.AxesMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'uil.core.middleware.ThreadLocalUserMiddleware',
@@ -198,6 +203,11 @@ X_FRAME_OPTIONS = 'DENY'
 SESSION_COOKIE_SECURE = not DEBUG
 CSRF_COOKIE_SECURE = not DEBUG
 SECURE_SSL_REDIRECT = not DEBUG
+
+AXES_LOCKOUT_TEMPLATE = 'main/login_lockout.html'
+AXES_RESET_ON_SUCCESS = True
+AXES_LOCK_OUT_BY_USER_OR_IP = True
+AXES_COOLOFF_TIME = 1
 
 # Django CSP
 # http://django-csp.readthedocs.io/en/latest/index.html
