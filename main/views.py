@@ -35,6 +35,21 @@ class HomeView(OverrideLanguageMixin, generic.TemplateView):
         return context
 
 
+class PrivacyView(OverrideLanguageMixin, generic.TemplateView):
+    template_name = 'main/privacy.html'
+
+    language_override = 'nl'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        admin = Admin.client.get()
+
+        context['admin'] = admin
+
+        return context
+
+
 class HomeApiView(OverrideLanguageMixin, FancyListApiView):
     language_override = 'nl'
     # Act like it's not paginated

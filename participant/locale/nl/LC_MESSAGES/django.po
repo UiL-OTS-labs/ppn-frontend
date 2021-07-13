@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-21 11:28+0000\n"
+"POT-Creation-Date: 2021-07-13 10:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -136,7 +136,14 @@ msgstr "Account aanmaken"
 
 #: participant/templates/participant/create_account.html:26
 msgid "create_account:content:form:p1"
-msgstr "Stukje over hoe leuk accounts zijn. Geweldig nietwaar?"
+msgstr ""
+"Met een account schrijf je je makkelijker in bij nieuwe experimenten en kun "
+"je makkelijker je (oude) afspraken bijhouden. Als je al eerder meegedaan "
+"hebt voordat je een account maakt, zul je je oude afspraken ook terug zien "
+"in jouw overzicht.<br/> Een account aanmaken is natuurlijk niet verplicht om "
+"mee te kunnen doen aan een experiment.Als je alleen op de hoogte gehouden "
+"wilt worden van nieuwe experimenten, kun je je ook alleen inschrijven voor "
+"onze mailing list via deze pagina. "
 
 #: participant/templates/participant/create_account.html:29
 #: participant/templates/participant/subscribe_mailinglist.html:33
@@ -196,23 +203,23 @@ msgstr "Opgaveformulier experiment"
 msgid "register:content:duration"
 msgstr "Dit experiment duurt {}"
 
-#: participant/templates/participant/register.html:40
+#: participant/templates/participant/register.html:41
 msgid "register:content:location"
 msgstr "Het wordt afgenomen op"
 
-#: participant/templates/participant/register.html:50
+#: participant/templates/participant/register.html:52
 msgid "register:content:details"
 msgstr "Bijzonderheden"
 
-#: participant/templates/participant/register.html:53
+#: participant/templates/participant/register.html:55
 msgid "register:content:compensation"
 msgstr "Je krijgt {} om mee te doen."
 
-#: participant/templates/participant/register.html:74
+#: participant/templates/participant/register.html:76
 msgid "register:content:leader"
 msgstr "Proefleider: "
 
-#: participant/templates/participant/register.html:81
+#: participant/templates/participant/register.html:83
 msgid "register:content:other_leaders"
 msgstr "Overige proefleiders: "
 

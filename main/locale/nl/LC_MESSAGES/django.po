@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-08 12:32+0000\n"
+"POT-Creation-Date: 2021-07-13 10:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,7 +90,11 @@ msgstr "Verander wachtwoord"
 msgid "main:globals:login"
 msgstr "Log in"
 
-#: main/menus.py:53 main/templates/base/login_header.html:7
+#: main/menus.py:53
+msgid "footermenu:privacy"
+msgstr "Privacy Policy"
+
+#: main/menus.py:57 main/templates/base/login_header.html:7
 msgid "main:globals:logout"
 msgstr "Log uit"
 
@@ -213,52 +217,55 @@ msgstr "Vraag wachtwoord reset aan"
 #: main/templates/main/index.html:34
 msgid "index:content:intro1"
 msgstr ""
-"Aan het Utrechts Instituut voor Linguistiek OTS wordt onderzoek gedaan naar "
-"hoe mensen gesproken en geschreven taal begrijpen en produceren. In het "
-"kader daarvan worden er regelmatig lees-, luister- en spraakexperimenten "
-"uitgevoerd. We zijn altijd op zoek naar proefpersonen om deel te nemen aan "
-"die experimenten. Op deze website kun je je hiervoor opgeven."
+"Aan het Utrechts Instituut voor Linguistiek OTS onderzoeken we hoe mensen "
+"gesproken en geschreven taal begrijpen en produceren. In het kader daarvan "
+"worden er regelmatig lees-, luister- en spraakexperimenten uitgevoerd. We "
+"zijn altijd op zoek naar proefpersonen om deel te nemen aan die "
+"experimenten. Op deze website kun je je hiervoor opgeven. "
 
 #: main/templates/main/index.html:37
 msgid "index:content:intro2"
 msgstr ""
-"De experimenten worden afgenomen op Janskerkhof 13 (in de binnenstad). Zo'n "
-"experiment bestaat er meestal uit dat je een aantal woorden, zinnen of "
+"Zo’n experiment bestaat er meestal uit dat je een aantal woorden, zinnen of "
 "verhaaltjes leest of beluistert, en daar een eenvoudig taakje bij uitvoert "
 "(bijvoorbeeld vragen beantwoorden, of een plaatje kiezen dat het beste past "
-"bij wat je gehoord hebt). Het kost je ca. twintig minuten tot anderhalf uur "
+"bij wat je gehoord hebt). Soms meten we ondertussen je hersenactiviteit "
+"(EEG), of oogbewegingen. Het kost je ca. twintig minuten tot anderhalf uur "
 "om mee te doen aan een experiment; de vergoeding varieert van 7,50 tot 10 "
-"euro per uur."
+"euro per uur. "
 
-#: main/templates/main/index.html:40
+#: main/templates/main/index.html:41
+msgid "index:content:intro3"
+msgstr ""
+"De experimenten worden afgenomen op locatie in het lab op Janskerkhof 13 (in "
+"de binnenstad van Utrecht), of online."
+
+#: main/templates/main/index.html:44
 msgid "index:header:open_experiments"
 msgstr "Openstaande experimenten"
 
-#: main/templates/main/index.html:44
+#: main/templates/main/index.html:48
 msgid "index:content:cancel"
 msgstr ""
 "Heb je je opgegeven voor een experiment maar kun je toch niet komen, dan kun "
 "je je <a href=\"{}\">hier afmelden</a>."
 
-#: main/templates/main/index.html:48
+#: main/templates/main/index.html:52
 msgid "index:header:maillinglist"
 msgstr " Mailing list UiL OTS experimenten"
 
-#: main/templates/main/index.html:52
+#: main/templates/main/index.html:56
 msgid "index:content:maillinglist1"
 msgstr ""
 " Wil je op de hoogte gehouden worden van nieuwe experimenten bij het UiL "
-"OTS? <a href=\"{}\">Geef dan hier je emailadres op.</a> Je persoonlijke "
-"gegevens worden uiteraard vertrouwelijk behandeld. Onderzoeksgegevens zijn "
-"niet toegankelijk voor derden, en in publicaties worden meestal alleen "
-"groepsgemiddelden gerapporteerd. Als er toch individuele resultaten vermeld "
-"worden, gebeurt dat altijd geanonymiseerd. "
+"OTS? <a href=\"{}\">Geef dan hier je emailadres op.</a>  "
 
-#: main/templates/main/index.html:55
+#: main/templates/main/index.html:59
 msgid "index:content:maillinglist2"
 msgstr ""
-" Als je geen berichten meer wil ontvangen over nieuwe experimenten, of als "
-"je je gegevens wil laten verwijderen, kun je een mailtje sturen naar "
+"Je persoonlijke gegevens worden uiteraard vertrouwelijk behandeld. Als je "
+"geen berichten meer wil ontvangen over nieuwe experimenten, of als je je "
+"persoonsgegevens wil laten verwijderen, kun je een mailtje sturen naar "
 
 #: main/templates/main/ldap_password.html:6
 #: main/templates/main/ldap_password.html:13
@@ -286,6 +293,33 @@ msgid "main:login_lockout:info_text"
 msgstr ""
 "Vanwege (te) veel mislukte inlogpogingen is inloggen een uur lang "
 "uitgeschakeld voor deze computer."
+
+#: main/templates/main/privacy.html:9 main/templates/main/privacy.html:17
+msgid "main:privacy:header"
+msgstr "Privacy policy"
+
+#: main/templates/main/privacy.html:20
+msgid "main:privacy:p1"
+msgstr ""
+"De onderzoeksgegevens die we verzamelen, worden geanalyseerd en gebruikt "
+"voor publicatie in wetenschappelijke tijdschriften. Hierbij worden de "
+"gegevens altijd geanonimiseerd, waardoor ze niet meer herleidbaar zijn tot "
+"individuele personen."
+
+#: main/templates/main/privacy.html:23
+msgid "main:privacy:p2"
+msgstr ""
+"De Nederlandse Gedragscode Wetenschapsbeoefening schrijft voor dat "
+"onderzoeksdata minstens 10 jaar bewaard moet worden na afname van het "
+"onderzoek. Als je hebt ingestemd met het onderzoek, stem je ook hiermee in. "
+"Binnen deze 10 jaar mogen wij je onderzoeksgegevens niet vernietigen, ook "
+"niet als je hier expliciet om vraagt."
+
+#: main/templates/main/privacy.html:26
+msgid "main:privacy:p3"
+msgstr ""
+"Als je je persoonsgegevens wil inzien of laten verwijderen, kun je een "
+"mailtje sturen naar "
 
 #: main/templates/main/reset_password.html:5
 #: main/templates/main/reset_password.html:12
@@ -326,15 +360,15 @@ msgstr "Wachtwoord vergeten?"
 msgid "login:button:login"
 msgstr "Log in"
 
-#: main/views.py:70
+#: main/views.py:85
 msgid "password:message:updated"
 msgstr "Wachtwoord veranderd!"
 
-#: main/views.py:105
+#: main/views.py:120
 msgid "password:message:reset_requested"
 msgstr "We hebben u een e-mail gestuurd met verdere instructies!"
 
-#: main/views.py:128
+#: main/views.py:143
 msgid "password:message:reset_successful"
 msgstr "Wachtwoord veranderd!"
 

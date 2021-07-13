@@ -1,0 +1,32 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load datatables %}
+{% load get_field_name %}
+{% load static %}
+
+{% block header_title %}
+    {% trans 'main:privacy:header' %} - {{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+<div class="uu-inner-container">
+    <div class="col-12">
+        <h1>
+            {% trans 'main:privacy:header' %}
+        </h1>
+        <p>
+            {% trans 'main:privacy:p1' %}
+        </p>
+        <p>
+            {% trans 'main:privacy:p2' %}
+        </p>
+        <p>
+            {% trans 'main:privacy:p3' %}
+            <a href="mailto:{{ admin.email }}">{{ admin.email }}</a>.
+        </p>
+        <br/>
+    </div>
+</div>
+{% endblock %}
