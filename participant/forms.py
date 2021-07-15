@@ -232,9 +232,9 @@ class BaseRegisterForm(forms.Form):
                   'danwel rechtshandigheid gaat gepaard met verschillen in de '
                   'hersenen, die ook van invloed zouden kunnen zijn op hoe de '
                   'hersenen met taal omgaan. Het is daarom gebruikelijk om op '
-                  'groepsniveau te rapporteren hoeveellinks- en rechtshandigen '
-                  'aan een studie hebben deelgenomen. Soms worden de '
-                  'resultaten ook per groep geanalyseerd.',
+                  'groepsniveau te rapporteren hoeveel links- en '
+                  'rechtshandigen aan een studie hebben deelgenomen. Soms '
+                  'worden de resultaten ook per groep geanalyseerd.',
         widget=forms.RadioSelect(
             choices=(
                 ('L', 'Linkshandig'),
