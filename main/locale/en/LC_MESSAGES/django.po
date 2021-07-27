@@ -90,8 +90,8 @@ msgid "main:globals:login"
 msgstr "Log in"
 
 #: main/menus.py:53
-msgid "footermenu:privacy"
-msgstr "Privacy Policy (Dutch)"
+msgid "menu:privacy"
+msgstr "Privacy Statement"
 
 #: main/menus.py:57 main/templates/base/login_header.html:7
 msgid "main:globals:logout"

@@ -1,3 +1,10 @@
 h1, h2, h3, h4 {
     font-weight: normal;
 }
+
+@media (min-width: 767px) {
+    .nav-item.privacy {
+        margin-left: auto;
+    }
+}
+

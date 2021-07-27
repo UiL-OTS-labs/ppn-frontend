@@ -40,6 +40,11 @@ Menu.add_item("main", MenuItem(_('mainmenu:my_appointments'),
                                                x.user.is_participant
                                ))
 
+Menu.add_item("main", MenuItem(_('menu:privacy'),
+                               reverse('main:privacy'),
+                               css_class="privacy"
+                               ))
+
 Menu.add_item("main", MenuItem(_('mainmenu:change_password'),
                                reverse('main:change_password'),
                                check=lambda x: x.user.is_authenticated
@@ -50,7 +55,7 @@ Menu.add_item("footer", MenuItem(_('main:globals:login'),
                                  check=lambda x: not x.user.is_authenticated
                                  ))
 
-Menu.add_item("footer", MenuItem(_('footermenu:privacy'),
+Menu.add_item("footer", MenuItem(_('menu:privacy'),
                                  reverse('main:privacy'),
                                  ))
 
