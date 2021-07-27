@@ -40,6 +40,7 @@ Menu.add_item("main", MenuItem(_('mainmenu:my_appointments'),
                                                x.user.is_participant
                                ))
 
+# Needs to be the last main menu item! (As it's aligned to the right using CSS)
 Menu.add_item("main", MenuItem(_('menu:privacy'),
                                reverse('main:privacy'),
                                css_class="privacy"
