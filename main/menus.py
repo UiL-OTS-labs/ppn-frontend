@@ -46,6 +46,14 @@ Menu.add_item("main", MenuItem(_('menu:privacy'),
                                css_class="privacy"
                                ))
 
+# Okay, this is contradicting the above warning. It's fine as it's only shown
+# on the mobile menu, which doesn't have the special CSS for the privacy link
+Menu.add_item("main", MenuItem(_('main:globals:login'),
+                                 reverse('main:login'),
+                                 check=lambda x: not x.user.is_authenticated,
+                                 css_class="show-xs"
+                                 ))
+
 Menu.add_item("main", MenuItem(_('mainmenu:change_password'),
                                reverse('main:change_password'),
                                check=lambda x: x.user.is_authenticated
