@@ -7,8 +7,17 @@
     <style nonce="{{ request.csp_nonce }}">
     form {
         display: block;
-        width: 400px;
+        max-width: 350px;
+        width: 100%;
     }
+
+    @media (max-width: 767px) {
+
+        form {
+            max-width: 100%;
+        }
+    }
+
     </style>
 {% endblock%}
 
