@@ -18,11 +18,11 @@ msgstr ""
 
 #: main/forms.py:16
 msgid "forms:forgot_password:token_placeholder"
-msgstr "Vul uw token in"
+msgstr "Vul jouw token in"
 
 #: main/forms.py:25
 msgid "forms:forgot_password:email_placeholder"
-msgstr "Vul uw e-mailadres in"
+msgstr "Vul jouw e-mailadres in"
 
 #: main/forms.py:45
 msgid "form:forgot_password:email_incorrect"
@@ -36,7 +36,7 @@ msgstr "De twee wachtwoordvelden komen niet overeen."
 
 #: main/forms.py:57
 msgid "forms:change_password:token_incorrect"
-msgstr "Uw token is verlopen!"
+msgstr "Het token is verlopen!"
 
 #: main/forms.py:65 main/forms.py:113
 msgid "forms:change_password:new1"
@@ -48,7 +48,7 @@ msgstr "Bevestig nieuw wachtwoord"
 
 #: main/forms.py:109
 msgid "forms:change_password:password_incorrect"
-msgstr "Uw oude wachtwoord is verkeerd ingevoerd. Voer het opnieuw in."
+msgstr "Jouw oude wachtwoord is verkeerd ingevoerd. Voer het opnieuw in."
 
 #: main/forms.py:125
 msgid "forms:change_password:old"
@@ -134,7 +134,7 @@ msgstr "Sorry! Het lijkt er op dat wij iets fout hebben gedaan aan onze kant!"
 
 #: main/templates/base/500.html:16
 msgid "500:p2"
-msgstr "In de tussentijd is dit wat u kunt doen:"
+msgstr "In de tussentijd is dit wat je kunt doen:"
 
 #: main/templates/base/500.html:20
 msgid "500:advice:reload"
@@ -181,8 +181,8 @@ msgstr "Verander wachtwoord"
 #: main/templates/main/change_password.html:25
 msgid "change_password:content:forced_change"
 msgstr ""
-"Uw huidige wachtwoord is ingesteld door een beheerder. Om veiligheidsredenen "
-"vragen we u dit wachtwoord te wijzigen naar iets anders."
+"Jouw huidige wachtwoord is ingesteld door een beheerder. Om veiligheidsredenen "
+"vragen we je dit wachtwoord te wijzigen naar iets anders."
 
 #: main/templates/main/change_password.html:36
 msgid "globals:save_button"
@@ -195,7 +195,7 @@ msgstr "Wachtwoord (opnieuw) instellen "
 
 #: main/templates/main/enter_reset_token.html:15
 msgid "enter_reset_token:content:help_text"
-msgstr "Voer uw reset-token in."
+msgstr "Voer je reset-token in."
 
 #: main/templates/main/enter_reset_token.html:24
 msgid "enter_reset_token:content:continue"
@@ -208,7 +208,7 @@ msgstr "Wachtwoord vergeten"
 
 #: main/templates/main/forgot_password.html:15
 msgid "forgot_password:content:help_text"
-msgstr "Volg deze instructies om uw wachtwoord opnieuw in te stellen."
+msgstr "Volg deze instructies om jouw wachtwoord opnieuw in te stellen."
 
 #: main/templates/main/forgot_password.html:24
 msgid "forgot_password:content:request_button"
@@ -275,8 +275,8 @@ msgstr "Solis account"
 #: main/templates/main/ldap_password.html:16
 msgid "ldap_password:content"
 msgstr ""
-"Uw account is gelinkt aan uw Solis account. Dit betekent dat u uw wachtwoord "
-"niet kan aanpassen/resetten in deze applicatie. U kunt dit wel doen via het "
+"Jouw account is gelinkt aan je Solis account. Dit betekent dat je je wachtwoord "
+"niet kan aanpassen/resetten in deze applicatie. Je kunt dit wel doen via het "
 "'MySolisID' portaal van de universiteit."
 
 #: main/templates/main/ldap_password.html:20
@@ -369,7 +369,7 @@ msgstr "Wachtwoord (opnieuw) instellen"
 
 #: main/templates/main/reset_password.html:16
 msgid "reset_password:content:help_text"
-msgstr "Voer het nieuwe wachtwoord in dat u wilt gebruiken."
+msgstr "Voer het nieuwe wachtwoord in dat je wilt gebruiken."
 
 #: main/templates/main/reset_password.html:26
 msgid "reset_password:content:change_button"
@@ -378,7 +378,7 @@ msgstr "Verander wachtwoord"
 #: main/templates/main/reset_password.html:31
 msgid "reset_password:content:invalid_token"
 msgstr ""
-"Uw token voor het opnieuw instellen van uw wachtwoord is ongeldig of is "
+"Je token voor het opnieuw instellen van jouw wachtwoord is ongeldig of is "
 "verlopen!"
 
 #: main/templates/registration/logged_out.html:8
@@ -407,7 +407,7 @@ msgstr "Wachtwoord veranderd!"
 
 #: main/views.py:120
 msgid "password:message:reset_requested"
-msgstr "We hebben u een e-mail gestuurd met verdere instructies!"
+msgstr "We hebben je een e-mail gestuurd met verdere instructies!"
 
 #: main/views.py:143
 msgid "password:message:reset_successful"
