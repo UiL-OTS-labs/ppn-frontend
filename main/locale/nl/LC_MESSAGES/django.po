@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-13 10:52+0000\n"
+"POT-Creation-Date: 2021-07-29 10:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -82,19 +82,19 @@ msgstr "Afspraak afzeggen"
 msgid "mainmenu:my_appointments"
 msgstr "Mijn afspraken"
 
-#: main/menus.py:43
-msgid "mainmenu:change_password"
-msgstr "Verander wachtwoord"
-
-#: main/menus.py:48 main/templates/base/login_header.html:12
-msgid "main:globals:login"
-msgstr "Log in"
-
-#: main/menus.py:53
+#: main/menus.py:44 main/menus.py:67
 msgid "menu:privacy"
 msgstr "Privacy-verklaring"
 
-#: main/menus.py:57 main/templates/base/login_header.html:7
+#: main/menus.py:51 main/menus.py:62 main/templates/base/login_header.html:12
+msgid "main:globals:login"
+msgstr "Log in"
+
+#: main/menus.py:57
+msgid "mainmenu:change_password"
+msgstr "Verander wachtwoord"
+
+#: main/menus.py:71 main/templates/base/login_header.html:7
 msgid "main:globals:logout"
 msgstr "Log uit"
 
@@ -296,30 +296,71 @@ msgstr ""
 
 #: main/templates/main/privacy.html:9 main/templates/main/privacy.html:17
 msgid "main:privacy:header"
-msgstr "Privacy policy"
+msgstr "Privacy-verklaring"
 
 #: main/templates/main/privacy.html:20
-msgid "main:privacy:p1"
-msgstr ""
-"De onderzoeksgegevens die we verzamelen, worden geanalyseerd en gebruikt "
-"voor publicatie in wetenschappelijke tijdschriften. Hierbij worden de "
-"gegevens altijd geanonimiseerd, waardoor ze niet meer herleidbaar zijn tot "
-"individuele personen."
+msgid "main:privacy:subheader1"
+msgstr "Registratiegegevens"
 
 #: main/templates/main/privacy.html:23
-msgid "main:privacy:p2"
+msgid "main:privacy:p1"
 msgstr ""
-"De Nederlandse Gedragscode Wetenschapsbeoefening schrijft voor dat "
-"onderzoeksdata minstens 10 jaar bewaard moet worden na afname van het "
-"onderzoek. Als je hebt ingestemd met het onderzoek, stem je ook hiermee in. "
-"Binnen deze 10 jaar mogen wij je onderzoeksgegevens niet vernietigen, ook "
-"niet als je hier expliciet om vraagt."
+"Als je je opgeeft voor een experiment, vragen we altijd de volgende persoonsgegevens:"
+"<ul>"
+"	<li>naam – zodat we je kunnen begroeten in het lab.</li>"
+"	<li>emailadres – om je een bevestiging van je afspraak te kunnen sturen.</li>"
+"	<li>telefoonnummer – zodat we je kunnen bellen als je bijvoorbeeld de weg niet kunt vinden in het lab.</li>"
+"	<li>geboortedatum – het is gebruikelijk om in wetenschappelijke publicaties de gemiddelde leeftijd van de proefpersonen te rapporteren. Bovendien kun je alleen meedoen als je minstens 18 jaar oud bent, en hebben we voor sommige experimenten deelnemers nodig van een bepaalde leeftijd.</li>"
+"	<li>de moedertaal waarmee je bent opgegroeid – aan de meeste van onze experimenten kun je alleen meedoen als je bent opgegroeid met het Nederlands als moedertaal.</li>"
+"	<li>of je eentalig of meertalig bent opgegroeid.</li>"
+"	<li>je biologisch geslacht – geslachtshormonen zijn van invloed op de ontwikkeling en het functioneren van de hersenen, en kunnen dus ook invloed hebben op hoe de hersenen met taal omgaan. Het is daarom gebruikelijk om op groepsniveau te rapporteren hoeveel mannen en hoeveel vrouwen aan een studie hebben deelgenomen. Soms worden de resultaten ook per groep geanalyseerd. Je hoeft je biologisch geslacht niet met ons te delen, maar het is voor onze rapportages erg fijn als je dat wel doet.</li>"
+"	<li>of je links- of rechtshandig bent – links- danwel rechtshandigheid gaat gepaard met verschillen in de hersenen, die ook van invloed zouden kunnen zijn op hoe de hersenen met taal omgaan. Het is daarom gebruikelijk om op groepsniveau te rapporteren hoeveel links- en rechtshandigen aan een studie hebben deelgenomen. Soms worden de resultaten ook per groep geanalyseerd.</li>"
+"	<li>of je dyslectisch bent of niet – dyslexie is uiteraard van invloed op hoe de hersenen taal verwerken.</li>"
+"	<li>of je student bent of niet – aan sommige van onze experimenten kunnen alleen studenten meedoen, om de proefpersoongroep homogener te maken.</li>"
+"</ul>"
 
 #: main/templates/main/privacy.html:26
+msgid "main:privacy:p2"
+msgstr ""
+"We gebruiken bovenstaande gegevens om je uitnodigingen te sturen voor experimenten die voor jou relevant zijn, zodat je geen uitnodigingen krijgt voor experimenten waar je toch niet aan mee kunt doen. Onderaan elke uitnodigingsmail staat een link waarmee je kunt aangeven dat je dergelijke mails niet meer wilt krijgen."
+
+#: main/templates/main/privacy.html:29
 msgid "main:privacy:p3"
 msgstr ""
-"Als je je persoonsgegevens wil inzien of laten verwijderen, kun je een "
-"mailtje sturen naar "
+"Daarnaast gebruiken we bovenstaande persoonsgegevens om ons proefpersonenbestand te ‘ontdubbelen’ – het komt namelijk vaak voor dat je alleen aan een bepaald experiment kunt meedoen als je niet eerder al aan een ander experiment hebt meegedaan."
+
+#: main/templates/main/privacy.html:32
+msgid "main:privacy:p4"
+msgstr ""
+"Naast de bovenstaande persoonsgegevens, waar altijd naar gevraagd wordt als je je inschrijft voor een experiment, kunnen er voor bepaalde experimenten ook nog 'bijzondere' criteria gelden waaraan je moet voldoen om mee te kunnen doen – aan onderzoek naar toontalen bijvoorbeeld, kun je meestal niet meedoen als je veel muziekles hebt gehad."
+
+#: main/templates/main/privacy.html:35
+msgid "main:privacy:p5"
+msgstr ""
+"We bewaren je persoonsgegevens tien jaar, tenzij je ons eerder vraagt om ze te verwijderen. Als je je persoonsgegevens wilt inzien of laten verwijderen, kun je een mailtje sturen naar <a href=\"mailto:{}\">{}</a>."
+
+#: main/templates/main/privacy.html:39
+msgid "main:privacy:subheader2"
+msgstr "Onderzoeksgegevens"
+
+#: main/templates/main/privacy.html:42
+msgid "main:privacy:p6"
+msgstr ""
+"Tijdens de experimenten verzamelen we onderzoeksgegevens, zoals bijvoorbeeld reactietijden, knopdrukken, of metingen van oogbewegingen. Deze onderzoeksgegevens worden geanalyseerd en gebruikt voor publicatie in wetenschappelijke tijdschriften. In zo’n publicatie worden bijna altijd alleen groepsgemiddelden gerapporteerd, waardoor de gegevens niet meer herleidbaar zijn tot individuele personen."
+
+#: main/templates/main/privacy.html:45
+msgid "main:privacy:p7"
+msgstr ""
+"In het kader van 'open science' worden de onderzoeksgegevens tegenwoordig vaak ook in ruwe vorm met andere onderzoekers gedeeld, en/of openbaar beschikbaar gesteld, bijvoorbeeld om de analyses te controleren, of om andere onderzoeksvragen te beantwoorden. Het verschilt per experiment of dit gebeurt, en zo ja, welke gegevens er precies gedeeld worden. Voordat je meedoet aan een experiment, krijg je een informatiebrief die hier meer duidelijkheid over geeft, en wordt je instemming gevraagd."
+
+#: main/templates/main/privacy.html:48
+msgid "main:privacy:subheader3"
+msgstr "Meer informatie"
+
+#: main/templates/main/privacy.html:51
+msgid "main:privacy:p8"
+msgstr ""
+"Voor meer informatie kun je contact opnemen met <a href=\"mailto:{}\">{}</a>, en kun je <a href=\"https://www.uu.nl/organisatie/praktische-zaken/privacy/privacyverklaring\" target=\"_blank\">de privacyverklaring van de UU</a> raadplegen."
 
 #: main/templates/main/reset_password.html:5
 #: main/templates/main/reset_password.html:12

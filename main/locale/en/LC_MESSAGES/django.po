@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-13 10:52+0000\n"
+"POT-Creation-Date: 2021-07-29 10:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,19 +81,19 @@ msgstr "Cancel appointment"
 msgid "mainmenu:my_appointments"
 msgstr "My appointments"
 
-#: main/menus.py:43
-msgid "mainmenu:change_password"
-msgstr "Change password"
-
-#: main/menus.py:48 main/templates/base/login_header.html:12
-msgid "main:globals:login"
-msgstr "Log in"
-
-#: main/menus.py:53
+#: main/menus.py:44 main/menus.py:67
 msgid "menu:privacy"
 msgstr "Privacy Statement"
 
-#: main/menus.py:57 main/templates/base/login_header.html:7
+#: main/menus.py:51 main/menus.py:62 main/templates/base/login_header.html:12
+msgid "main:globals:login"
+msgstr "Log in"
+
+#: main/menus.py:57
+msgid "mainmenu:change_password"
+msgstr "Change password"
+
+#: main/menus.py:71 main/templates/base/login_header.html:7
 msgid "main:globals:logout"
 msgstr "Log out"
 
@@ -305,17 +305,65 @@ msgid "main:privacy:header"
 msgstr "Login disabled"
 
 #: main/templates/main/privacy.html:20
+#, fuzzy
+#| msgid "main:login_lockout:header"
+msgid "main:privacy:subheader1"
+msgstr "Login disabled"
+
+#: main/templates/main/privacy.html:23
 msgid "main:privacy:p1"
 msgstr ""
 
-#: main/templates/main/privacy.html:23
+#: main/templates/main/privacy.html:26
 msgid "main:privacy:p2"
 msgstr ""
 
-#: main/templates/main/privacy.html:26
+#: main/templates/main/privacy.html:29
 #, fuzzy
 #| msgid "main:login_lockout:header"
 msgid "main:privacy:p3"
+msgstr "Login disabled"
+
+#: main/templates/main/privacy.html:32
+#, fuzzy
+#| msgid "main:login_lockout:header"
+msgid "main:privacy:p4"
+msgstr "Login disabled"
+
+#: main/templates/main/privacy.html:35
+#, fuzzy
+#| msgid "main:login_lockout:header"
+msgid "main:privacy:p5"
+msgstr "Login disabled"
+
+#: main/templates/main/privacy.html:39
+#, fuzzy
+#| msgid "main:login_lockout:header"
+msgid "main:privacy:subheader2"
+msgstr "Login disabled"
+
+#: main/templates/main/privacy.html:42
+#, fuzzy
+#| msgid "main:login_lockout:header"
+msgid "main:privacy:p6"
+msgstr "Login disabled"
+
+#: main/templates/main/privacy.html:45
+#, fuzzy
+#| msgid "main:login_lockout:header"
+msgid "main:privacy:p7"
+msgstr "Login disabled"
+
+#: main/templates/main/privacy.html:48
+#, fuzzy
+#| msgid "main:login_lockout:header"
+msgid "main:privacy:subheader3"
+msgstr "Login disabled"
+
+#: main/templates/main/privacy.html:51
+#, fuzzy
+#| msgid "main:login_lockout:header"
+msgid "main:privacy:p8"
 msgstr "Login disabled"
 
 #: main/templates/main/reset_password.html:5
