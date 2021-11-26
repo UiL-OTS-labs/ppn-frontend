@@ -66,8 +66,7 @@
               <li v-if="experiment.task_description">
                 {{ experiment.task_description }}
               </li>
-              <li v-if="experiment.additional_instructions">
-                {{ experiment.additional_instructions }}
+              <li v-if="experiment.additional_instructions" v-html="experiment.additional_instructions">
               </li>
             </ul>
           </p>
