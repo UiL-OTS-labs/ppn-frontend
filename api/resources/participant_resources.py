@@ -110,12 +110,15 @@ class Appointment(rest.Resource):
 
     creation_date = rest.DateTimeField()
 
-    timeslot = rest.ResourceField('TimeSlot')
+    timeslot = rest.ResourceField('TimeSlot', null=True, blank=True)
 
     experiment = rest.ResourceField('Experiment')
 
     @property
     def can_cancel(self) -> bool:
+        if self.timeslot is None:
+            return True
+
         # If the appointment is in the future, one can cancel
         return self.timeslot.datetime > datetime.now(
             tz=self.timeslot.datetime.tzinfo
