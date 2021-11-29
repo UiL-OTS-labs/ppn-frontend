@@ -62,7 +62,7 @@ msgstr "Max. leeftijd"
 #: leader/templates/leader/experiment_participants.html:11
 #: leader/templates/leader/experiment_participants.html:24
 msgid "participants:header"
-msgstr "Participanten - Experiment '{}'"
+msgstr "Proefpersonen - Experiment '{}'"
 
 #: leader/templates/leader/experiment_participants.html:34
 msgid "participants:info_text"
@@ -186,7 +186,7 @@ msgstr "# tijdslots"
 
 #: leader/templates/leader/experiments.html:25
 msgid "experiments:table:participants"
-msgstr "# participanten"
+msgstr "# proefpersonen"
 
 #: leader/templates/leader/experiments.html:28
 msgid "experiments:table:status"
@@ -213,7 +213,7 @@ msgstr "Pas timeslots aan"
 
 #: leader/templates/leader/experiments.html:86
 msgid "experiment:participants:title"
-msgstr "Participanten"
+msgstr "Proefpersonen"
 
 #: leader/templates/leader/profile.html:14
 #: leader/templates/leader/profile.html:21
@@ -261,11 +261,11 @@ msgstr "Plaats #"
 
 #: leader/templates/leader/timeslots.html:53
 msgid "timeslots:participant:name"
-msgstr "Participant"
+msgstr "Proefpersoon"
 
 #: leader/templates/leader/timeslots.html:56
 msgid "timeslots:participant:email"
-msgstr "Participant's e-mail"
+msgstr "Proefpersoon's e-mail"
 
 #: leader/templates/leader/timeslots.html:149
 msgid "global:delete"
@@ -281,11 +281,11 @@ msgstr "Voeg toe"
 
 #: leader/views.py:165
 msgid "experiment:message:open"
-msgstr "Experiment succesvol geopend voor participanten."
+msgstr "Experiment succesvol geopend voor proefpersonen."
 
 #: leader/views.py:167
 msgid "experiment:message:closed"
-msgstr "Experiment succesvol gesloten voor participanten."
+msgstr "Experiment succesvol gesloten voor proefpersonen."
 
 #: leader/views.py:169 leader/views.py:175
 msgid "experiment:message:fail"
@@ -305,7 +305,7 @@ msgstr "Tijdslots successvol verwijderd"
 
 #: leader/views.py:290
 msgid "timeslots:message:unsubscribed_participant"
-msgstr "Participant uitgeschreven."
+msgstr "Proefpersoon uitgeschreven."
 
 #: leader/views.py:346
 msgid "comment:message:added"
