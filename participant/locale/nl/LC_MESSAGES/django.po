@@ -141,7 +141,7 @@ msgstr ""
 "je makkelijker je (oude) afspraken bijhouden. Als je al eerder meegedaan "
 "hebt voordat je een account maakt, zul je je oude afspraken ook terug zien "
 "in jouw overzicht.<br/> Een account aanmaken is natuurlijk niet verplicht om "
-"mee te kunnen doen aan een experiment.Als je alleen op de hoogte gehouden "
+"mee te kunnen doen aan een experiment. Als je alleen op de hoogte gehouden "
 "wilt worden van nieuwe experimenten, kun je je ook alleen inschrijven voor "
 "onze mailing list via deze pagina. "
 
