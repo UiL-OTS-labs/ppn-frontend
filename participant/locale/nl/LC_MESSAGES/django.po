@@ -72,13 +72,13 @@ msgstr "Afspraak afzeggen"
 #: participant/templates/participant/appointments/cancel_landing.html:35
 msgid "cancel_landing:content:p1"
 msgstr ""
-"Indien je een account hebt, kan je je uitschrijven door hieronder in te "
+"Indien je een account hebt, kun je je uitschrijven door hieronder in te "
 "loggen."
 
 #: participant/templates/participant/appointments/cancel_landing.html:38
 msgid "cancel_landing:content:p2"
 msgstr ""
-"Indien je geen account hebt, kan je hier het email adres invullen waarmee je "
+"Indien je geen account hebt, kun je hier het email adres invullen waarmee je "
 "jezelf hebt opgegeven. Je zult dan een email ontvangen met een link om je "
 "uit te schrijven."
 
@@ -191,7 +191,7 @@ msgstr "Het door jou opgegeven e-mail adres is al in gebruik!"
 #: participant/templates/participant/create_account.html:65
 msgid "create_account:content:already_exists:p2"
 msgstr ""
-"Indien je je wachtwoord vergeten bent kan je deze <a href=\"{}\">hier</a> "
+"Indien je je wachtwoord vergeten bent kun je deze <a href=\"{}\">hier</a> "
 "opnieuw instellen."
 
 #: participant/templates/participant/register.html:29

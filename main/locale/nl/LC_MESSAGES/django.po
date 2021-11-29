@@ -276,7 +276,7 @@ msgstr "Solis account"
 msgid "ldap_password:content"
 msgstr ""
 "Jouw account is gelinkt aan je Solis account. Dit betekent dat je je wachtwoord "
-"niet kan aanpassen/resetten in deze applicatie. Je kunt dit wel doen via het "
+"niet kunt aanpassen/resetten in deze applicatie. Je kunt dit wel doen via het "
 "'MySolisID' portaal van de universiteit."
 
 #: main/templates/main/ldap_password.html:20
