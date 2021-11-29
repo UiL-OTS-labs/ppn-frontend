@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Tuple, Union
 
 import requests
@@ -136,9 +136,7 @@ def _get_authenticated_register_form(
 
 def _2_hours_ago(original_dt: datetime):
     dt = datetime.now(tz=original_dt.tzinfo)
-    hours = dt.hour - 2
-
-    return dt.replace(hour=hours)
+    return dt - timedelta(hours=2)
 
 
 def submit_register_form(form: BaseRegisterForm, experiment: Experiment,
