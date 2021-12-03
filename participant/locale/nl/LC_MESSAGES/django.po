@@ -209,7 +209,7 @@ msgstr "Het wordt afgenomen op"
 
 #: participant/templates/participant/register.html:52
 msgid "register:content:details"
-msgstr "Bijzonderheden"
+msgstr "Bijzonderheden:"
 
 #: participant/templates/participant/register.html:55
 msgid "register:content:compensation"

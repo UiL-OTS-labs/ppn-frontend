@@ -5,6 +5,7 @@ import requests
 from django import forms
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.safestring import mark_safe
+from django.urls import reverse
 
 from uil.core.middleware import get_current_user
 from api.resources import Experiment
@@ -39,13 +40,20 @@ def get_register_form(
         raise ImproperlyConfigured('get_register_form must be passed a list '
                                    'or "__all__" to the allowed_fields '
                                    'parameter')
+
+    # Yes this could be smaller, but I find this to be more clear
+    text = ('Ja, ik ga akkoord dat mijn gegevens worden opgeslagen t.b.v. van '
+            'het verwerken van mijn aanmelding en gedeeld worden met de '
+            'proefleider.')
+    link = reverse('main:privacy')
+    text += f'<br/><a href="{link}">Privacy-verklaring</a>'
+    text = mark_safe(text)
+
     final_form.fields['consent'] = forms.BooleanField(
         label='Dataverwerking',
         widget=forms.RadioSelect(
             choices=(
-                (True, 'Ja, ik ga akkoord dat mijn gegevens worden opgeslagen '
-                       't.b.v. van het verwerken van mijn aanmelding en gedeeld'
-                       ' worden met de proefleider.'),
+                (True, text),
             ),
             attrs={
                 'required': 'required'
