@@ -242,7 +242,7 @@ msgstr ""
 
 #: main/templates/main/index.html:44
 msgid "index:header:open_experiments"
-msgstr "Openstaande experimenten"
+msgstr "Je kunt je nu opgeven voor de volgende experimenten:"
 
 #: main/templates/main/index.html:48
 msgid "index:content:cancel"
@@ -252,20 +252,15 @@ msgstr ""
 
 #: main/templates/main/index.html:52
 msgid "index:header:maillinglist"
-msgstr " Mailing list UiL OTS experimenten"
+msgstr "Mailing list UiL OTS experimenten"
 
 #: main/templates/main/index.html:56
 msgid "index:content:maillinglist1"
 msgstr ""
 " Wil je op de hoogte gehouden worden van nieuwe experimenten bij het UiL "
-"OTS? <a href=\"{}\">Geef dan hier je emailadres op.</a>  "
-
-#: main/templates/main/index.html:59
-msgid "index:content:maillinglist2"
-msgstr ""
-"Je persoonlijke gegevens worden uiteraard vertrouwelijk behandeld. Als je "
-"geen berichten meer wil ontvangen over nieuwe experimenten, of als je je "
-"persoonsgegevens wil laten verwijderen, kun je een mailtje sturen naar "
+"OTS? <a href=\"{}\">Geef dan hier je emailadres op.</a> Je kunt op "
+"dezelfde pagina ook een account aanmaken waarmee je je sneller kunt opgeven "
+"voor een experiment. "
 
 #: main/templates/main/ldap_password.html:6
 #: main/templates/main/ldap_password.html:13

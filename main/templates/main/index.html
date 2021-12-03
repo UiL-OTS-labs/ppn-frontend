@@ -37,13 +37,13 @@
             {% trans 'index:content:intro2' %}
         </p>
 
-        <p>
+        <p class="mb-4">
             {% trans 'index:content:intro3' %}
         </p>
 
         <h3>{% trans 'index:header:open_experiments' %}</h3>
             <div id="list"></div>
-        <p>
+        <p class="mb-4">
             {% url 'participant:cancel_landing' as cancel_url %}
             {% transformat 'index:content:cancel' cancel_url %}
         </p>
@@ -54,10 +54,6 @@
             <p>
                 {% url 'participant:subscribe' as mailinglist_url %}
                 {% transformat 'index:content:maillinglist1' mailinglist_url %}
-            </p>
-            <p>
-                {% trans 'index:content:maillinglist2' %}
-                <a href="mailto:{{ admin.email }}">{{ admin.email }}</a>.
             </p>
         {% endif %}
     </div>
