@@ -46,7 +46,7 @@ def get_register_form(
             'het verwerken van mijn aanmelding en gedeeld worden met de '
             'proefleider.')
     link = reverse('main:privacy')
-    text += f'<br/><a href="{link}">Privacy-verklaring</a>'
+    text += f'<br/><a href="{link}" target="_blank">Privacy-verklaring</a>'
     text = mark_safe(text)
 
     final_form.fields['consent'] = forms.BooleanField(
