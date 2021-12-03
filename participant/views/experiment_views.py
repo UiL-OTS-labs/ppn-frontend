@@ -90,7 +90,10 @@ class RegisterView(OverrideLanguageMixin,
             )
 
         # If there's a participant logged in, redirect to the right version
-        if request.user.is_authenticated and request.user.is_participant:
+        # Except for when a leader wants to view their experiment page
+        # (To avoid confused mails about not seeing a correct form).
+        if request.user.is_authenticated and request.user.is_participant and \
+                not self.experiment.is_leader(request.user):
             args = [self.kwargs.get('experiment')]
             return HttpResponseRedirect(
                 reverse('participant:register_logged_in', args=args)

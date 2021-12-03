@@ -62,6 +62,16 @@ class Experiment(rest.Resource):
     def __str__(self):
         return self.name
 
+    def is_leader(self, user) -> bool:
+        if self.leader.api_user and self.leader.api_user.id == user.id:
+            return True
+
+        for leader in self.additional_leaders:
+            if leader.api_user.id == user.id:
+                return True
+
+        return False
+
     def n_timeslots(self):
         return sum([t.max_places for t in self.timeslots])
 
