@@ -51,8 +51,6 @@ class ExperimentRegisterMixin(ExperimentObjectMixin):
             error(self.request,
                   'Waarschuwing! Je bent (nog) niet aangemeld! Zie onderaan de '
                   'pagina voor details.',
-                  extra_tags='red_message'  # Instructs the JS in
-                  # recolor_error.js to recolor the message box to red
                   )
 
         self.success = success
