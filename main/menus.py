@@ -19,13 +19,8 @@ Menu.add_item("main", MenuItem(_('mainmenu:leader_profile'),
                                                x.user.is_leader
                                ))
 
-Menu.add_item("main", MenuItem(_('mainmenu:mailinglist'),
-                               reverse('participant:subscribe'),
-                               check=lambda x: not x.user.is_authenticated
-                               ))
-
-Menu.add_item("main", MenuItem(_('mainmenu:register'),
-                               reverse('participant:create_account'),
+Menu.add_item("main", MenuItem(_('mainmenu:sign_up'),
+                               reverse('participant:sign_up'),
                                check=lambda x: not x.user.is_authenticated
                                ))
 

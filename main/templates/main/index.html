@@ -52,7 +52,7 @@
                 {% trans 'index:header:maillinglist' %}
             </h3>
             <p>
-                {% url 'participant:subscribe' as mailinglist_url %}
+                {% url 'participant:sign_up' as mailinglist_url %}
                 {% transformat 'index:content:maillinglist1' mailinglist_url %}
             </p>
         {% endif %}

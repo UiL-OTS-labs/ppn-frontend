@@ -4,43 +4,11 @@ from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
-from api.resources import Admin, MailinglistSubscribe
+from api.resources import Admin
 from api.resources.participant_resources import ValidateMailinglistToken, \
     UnsubscribeFromMailinglist
 from uil.rest_client.exceptions import ApiError
 from main.mixins import OverrideLanguageMixin
-from participant.forms import SubscribeToMailinglistForm
-
-
-class SubscribeToMailinglistView(OverrideLanguageMixin, generic.FormView):
-    template_name = 'participant/subscribe_mailinglist.html'
-    language_override = 'nl'
-    form_class = SubscribeToMailinglistForm
-
-    def get_context_data(self, **kwargs):
-        context = super(SubscribeToMailinglistView, self).get_context_data(
-            **kwargs
-        )
-
-        context['admin'] = Admin.client.get()
-        context['success'] = getattr(self, 'success', None)
-
-        return context
-
-    def form_valid(self, form):
-        data = form.cleaned_data
-
-        o = MailinglistSubscribe()
-        o.email = data.get('email')
-        o.language = data.get('language')
-        o.multilingual = data.get('multilingual')
-        o.dyslexic = data.get('dyslexic')
-
-        response = o.put()
-
-        self.success = response.success
-
-        return self.get(self.request)
 
 
 class UnsubscribeFromMailinglistView(OverrideLanguageMixin,

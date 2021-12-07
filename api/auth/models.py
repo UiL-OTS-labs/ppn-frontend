@@ -35,7 +35,8 @@ class RemoteApiUserManager(BaseUserManager):
                     language: str = None,
                     dyslexic: bool = None,
                     mailing_list: bool = False,
-                    password: str = None):
+                    password: str = None,
+                    **kwargs):
 
         resource = UserCreationData(
             email=email,

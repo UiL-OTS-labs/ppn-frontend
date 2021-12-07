@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-29 10:55+0000\n"
+"POT-Creation-Date: 2021-12-07 11:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,34 +66,30 @@ msgid "mainmenu:leader_profile"
 msgstr "Change profile"
 
 #: main/menus.py:22
-msgid "mainmenu:mailinglist"
-msgstr "Mailinglist"
+msgid "mainmenu:sign_up"
+msgstr "Mailing list and/or account"
 
 #: main/menus.py:27
-msgid "mainmenu:register"
-msgstr "Register"
-
-#: main/menus.py:32
 msgid "mainmenu:cancel_appointment"
 msgstr "Cancel appointment"
 
-#: main/menus.py:37
+#: main/menus.py:32
 msgid "mainmenu:my_appointments"
 msgstr "My appointments"
 
-#: main/menus.py:44 main/menus.py:67
+#: main/menus.py:39 main/menus.py:62
 msgid "menu:privacy"
 msgstr "Privacy Statement"
 
-#: main/menus.py:51 main/menus.py:62 main/templates/base/login_header.html:12
+#: main/menus.py:46 main/menus.py:57 main/templates/base/login_header.html:12
 msgid "main:globals:login"
 msgstr "Log in"
 
-#: main/menus.py:57
+#: main/menus.py:52
 msgid "mainmenu:change_password"
 msgstr "Change password"
 
-#: main/menus.py:71 main/templates/base/login_header.html:7
+#: main/menus.py:66 main/templates/base/login_header.html:7
 msgid "main:globals:logout"
 msgstr "Log out"
 
@@ -266,12 +262,6 @@ msgstr ""
 "publications usually only group averages are reported. If individual results "
 "are mentioned, this is always done anonymously."
 
-#: main/templates/main/index.html:59
-msgid "index:content:maillinglist2"
-msgstr ""
-"If you no longer wish to receive messages about new experiments, or if you "
-"wish to have your data deleted, you can send an e-mail to "
-
 #: main/templates/main/ldap_password.html:6
 #: main/templates/main/ldap_password.html:13
 msgid "ldap_password:header"
@@ -354,13 +344,13 @@ msgstr "Login disabled"
 msgid "main:privacy:p7"
 msgstr "Login disabled"
 
-#: main/templates/main/privacy.html:48
+#: main/templates/main/privacy.html:49
 #, fuzzy
 #| msgid "main:login_lockout:header"
 msgid "main:privacy:subheader3"
 msgstr "Login disabled"
 
-#: main/templates/main/privacy.html:51
+#: main/templates/main/privacy.html:52
 #, fuzzy
 #| msgid "main:login_lockout:header"
 msgid "main:privacy:p8"
@@ -415,6 +405,3 @@ msgstr ""
 #: main/views.py:143
 msgid "password:message:reset_successful"
 msgstr "Password successfully reset!"
-
-#~ msgid "index:content:no_experiments_available"
-#~ msgstr "There are currently no experiments  you can sign up for."

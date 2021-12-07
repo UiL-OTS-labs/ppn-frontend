@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-29 10:55+0000\n"
+"POT-Creation-Date: 2021-12-07 11:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: participant/forms.py:320
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
 
 #: participant/templates/participant/appointments/appointments.html:25
 #: participant/templates/participant/appointments/appointments.html:32
@@ -126,74 +131,6 @@ msgstr ""
 "tijdstippen meer waar je je voor op kunt geven. Dankjewel voor je "
 "belangstelling!"
 
-#: participant/templates/participant/create_account.html:15
-msgid "create_account:content:header"
-msgstr "Account aanmaken"
-
-#: participant/templates/participant/create_account.html:23
-msgid "create_account:content:form:header"
-msgstr "Account aanmaken"
-
-#: participant/templates/participant/create_account.html:26
-msgid "create_account:content:form:p1"
-msgstr ""
-"Met een account schrijf je je makkelijker in bij nieuwe experimenten en kun "
-"je makkelijker je (oude) afspraken bijhouden. Als je al eerder meegedaan "
-"hebt voordat je een account maakt, zul je je oude afspraken ook terug zien "
-"in jouw overzicht.<br/> Een account aanmaken is natuurlijk niet verplicht om "
-"mee te kunnen doen aan een experiment. Als je alleen op de hoogte gehouden "
-"wilt worden van nieuwe experimenten, kun je je ook alleen inschrijven voor "
-"onze mailing list via deze pagina. "
-
-#: participant/templates/participant/create_account.html:29
-#: participant/templates/participant/subscribe_mailinglist.html:33
-msgid "globals:content:personal_information_info"
-msgstr ""
-"Je gegevens worden vertrouwelijk behandeld, en je kunt je op elk moment weer "
-"uitschrijven door een mailtje te sturen aan "
-
-#: participant/templates/participant/create_account.html:33
-#: participant/templates/participant/subscribe_mailinglist.html:36
-msgid "global:content:experiment_crit_info"
-msgstr ""
-"Voor de meeste experimenten zoeken we proefpersonen tussen de 18 en de 35 "
-"jaar. Veel van ons onderzoek wordt uitgevoerd met niet-dyslectische "
-"moedertaalsprekers van het Nederlands, maar we zijn ook erg blij met "
-"proefpersonen die dyslectisch zijn, of Nederlands als tweede taal spreken. "
-"Je krijgt dan alleen bericht over voor jou relevante experimenten. "
-
-#: participant/templates/participant/create_account.html:43
-msgid "globals:create_account"
-msgstr "Account aanmaken"
-
-#: participant/templates/participant/create_account.html:48
-msgid "create_account:content:created:header"
-msgstr "Account aangemaakt"
-
-#: participant/templates/participant/create_account.html:51
-msgid "create_account:content:created:p1"
-msgstr "Jouw account is succesvol aangemaakt!"
-
-#: participant/templates/participant/create_account.html:54
-msgid "create_account:content:created:p2"
-msgstr ""
-"We hebben je een e-mail gestuurd met instructies voor het instellen van jouw "
-"wachtwoord."
-
-#: participant/templates/participant/create_account.html:58
-msgid "create_account:content:already_exists:header"
-msgstr "E-mail adres bekend"
-
-#: participant/templates/participant/create_account.html:61
-msgid "create_account:content:already_exists:p1"
-msgstr "Het door jou opgegeven e-mail adres is al in gebruik!"
-
-#: participant/templates/participant/create_account.html:65
-msgid "create_account:content:already_exists:p2"
-msgstr ""
-"Indien je je wachtwoord vergeten bent kun je deze <a href=\"{}\">hier</a> "
-"opnieuw instellen."
-
 #: participant/templates/participant/register.html:29
 #: participant/templates/participant/register.html:36
 msgid "register:content:header"
@@ -222,31 +159,6 @@ msgstr "Proefleider: "
 #: participant/templates/participant/register.html:83
 msgid "register:content:other_leaders"
 msgstr "Overige proefleiders: "
-
-#: participant/templates/participant/subscribe_mailinglist.html:11
-msgid "subscribe_mailinglist:content:title"
-msgstr "Mailing lijst"
-
-#: participant/templates/participant/subscribe_mailinglist.html:18
-msgid "subscribe_mailinglist:content:header"
-msgstr "Emailadres opgeven voor taalexperimenten"
-
-#: participant/templates/participant/subscribe_mailinglist.html:23
-msgid "subscribe_mailinglist:content:successfully_added"
-msgstr ""
-"Je emailadres is toegevoegd aan onze lijst. Dankjewel voor je belangstelling!"
-
-#: participant/templates/participant/subscribe_mailinglist.html:25
-msgid "subscribe_mailinglist:content:already_known"
-msgstr ""
-"Je emailadres kwam al voor in onze gegevens. Dankjewel voor je "
-"belangstelling!"
-
-#: participant/templates/participant/subscribe_mailinglist.html:30
-msgid "subscribe_mailinglist:content:p1"
-msgstr ""
-"Hieronder kun je je emailadres opgeven als je op de hoogte gehouden wilt "
-"worden van nieuwe experimenten aan het UiL OTS."
 
 #: participant/templates/participant/unsubscribe_mailinglist.html:11
 #: participant/templates/participant/unsubscribe_mailinglist.html:18
