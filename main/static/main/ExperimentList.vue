@@ -70,7 +70,7 @@
               </li>
             </ul>
           </p>
-          <button class="button-colored register-button" @click="window.open($url('participant:register', [experiment.id]))">
+          <button class="button-colored register-button" @click="open_register_page(experiment.id)">
             Inschrijven
           </button>
         </div>
@@ -101,6 +101,11 @@ export default {
       'defaultItemsPerPage': 99999,
       'loaded': false,
     };
+  },
+  methods: {
+    open_register_page(id) {
+      window.location = this.$url('participant:register', [id])
+    }
   },
   mounted() {
     this.$ufl_load(this, this.$url('main:home_api', []));
