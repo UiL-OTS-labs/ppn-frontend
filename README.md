@@ -29,6 +29,7 @@ Development instructions:
   environment!). ``pip install -r requirements.txt``
 * Edit ``ppn_backend/settings.py`` to suit your needs. (Make sure you update the 
   backend location setting to your local setup!)
+* Run all DB migrations ``python manage.py migrate``
 * Compile the translation files using ``python manage.py compilemessages``
 * You can now run a development server with ``python manage.py runserver``
 
