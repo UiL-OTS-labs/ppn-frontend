@@ -35,11 +35,6 @@ Development instructions:
 
 The frontend does need a running backend to talk to! Otherwise it will be very 
 unhelpful towards you.
-As the ``runserver`` command defaults to using ``localhost:8000`` you will need 
-to specify a different port for either the frontend or backend. You can change 
-the port the application will listen on by specifying it as an argument.
-
-For example: ``python manage.py runserver 9000`` will set the port used to 9000
 
 ## A note on dependencies
 We use pip-tools to manage our dependencies (mostly to freeze the versions 
