@@ -12,7 +12,7 @@ leaders and participants.
 
 ## Requirements
 
-* Python 3.4+
+* Python 3.9+ (3.8 might work, untested)
 * Pip (for installing dependencies, see requirements.txt for details)
 * A WSGI capable web server (not needed for development)
 * A SQL database (tested with SQLite and MySQL)
@@ -27,8 +27,8 @@ Development instructions:
 * Clone this repository
 * Install the dependencies using pip (it is recommended to use a virtual 
   environment!). ``pip install -r requirements.txt``
-* Edit ``ppn_backend/settings.py`` to suit your needs. (Make sure you set the 
-  backend location to your local setup!)
+* Edit ``ppn_backend/settings.py`` to suit your needs. (Make sure you update the 
+  backend location setting to your local setup!)
 * Compile the translation files using ``python manage.py compilemessages``
 * You can now run a development server with ``python manage.py runserver``
 
