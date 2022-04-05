@@ -112,12 +112,12 @@ msgstr "Pagina niet gevonden"
 
 #: main/templates/base/404.html:19
 msgid "404:p1"
-msgstr "We kunnen de pagina waarnaar u op zoek bent niet vinden."
+msgstr "We kunnen de pagina waarnaar je op zoek bent niet vinden."
 
 #: main/templates/base/404.html:22
 msgid "404:p2"
 msgstr ""
-"De link waarop u hebt geklikt is mogelijk incorrect of de pagina is "
+"De link waarop je hebt geklikt is mogelijk incorrect of de pagina is "
 "verplaatst."
 
 #: main/templates/base/500.html:5 main/templates/base/500.html:11

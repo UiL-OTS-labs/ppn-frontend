@@ -163,7 +163,7 @@ msgstr "Overige proefleiders: "
 #: participant/templates/participant/unsubscribe_mailinglist.html:11
 #: participant/templates/participant/unsubscribe_mailinglist.html:18
 msgid "unsubscribe_mailinglist:content:title"
-msgstr "Uitschrijven mailing lijst"
+msgstr "Uitschrijven mailing list"
 
 #: participant/templates/participant/unsubscribe_mailinglist.html:21
 msgid "unsubscribe_mailinglist:content:p1"
@@ -183,7 +183,7 @@ msgstr "Uitschrijven"
 msgid "unsubscribe_mailinglist:content:invalid_token"
 msgstr ""
 "Deze link is ongeldig! Neem contact op met <a href=\"{}\">{}</a> als je je "
-"wilt uitschrijven van de mailing lijst."
+"wilt uitschrijven van de mailing list."
 
 #: participant/views/appointments_views.py:32
 msgid "cancel_landing:message:send_token"
@@ -199,4 +199,4 @@ msgstr ""
 
 #: participant/views/mailinglist_views.py:80
 msgid "unsubscribe_mailinglist:messages:unsubscribed"
-msgstr "Je hebt je succesvol uitgeschreven van de mailing lijst!"
+msgstr "Je hebt je succesvol uitgeschreven van de mailing list!"
