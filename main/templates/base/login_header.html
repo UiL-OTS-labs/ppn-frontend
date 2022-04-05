@@ -2,8 +2,8 @@
 {% load transformat %}
 
 {% if request.user.is_authenticated %}
-    {% with request.user as user %}
-        {% transformat "site:header:login" user.email %}
+    {% with request.session.email as user %}
+        {% transformat "site:header:login" user %}
         <a href="{% url 'main:logout' %}">({% trans 'main:globals:logout' %})</a>
     {% endwith %}
 

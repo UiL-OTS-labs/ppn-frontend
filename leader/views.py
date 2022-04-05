@@ -364,9 +364,7 @@ class ProfileView(braces.RecentLoginRequiredMixin,
 
     def get_initial(self):
         photo, created = LeaderPhoto.objects.get_or_create(
-            leader=RemoteApiUser.objects.get_by_email(
-                email=self.leader.email
-            )
+            leader_id=self.leader.api_user.id
         )
 
         return {
@@ -380,9 +378,7 @@ class ProfileView(braces.RecentLoginRequiredMixin,
         values = form.cleaned_data
 
         photo, created = LeaderPhoto.objects.get_or_create(
-            leader=RemoteApiUser.objects.get_by_email(
-                email=self.leader.email
-            )
+            leader_id=self.leader.api_user.id
         )
 
         photo_val = values['photo'] or None  # This fixes a hilarious bug that

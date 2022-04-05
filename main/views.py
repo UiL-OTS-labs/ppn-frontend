@@ -12,7 +12,8 @@ from django.views import generic
 from api.resources import Admin, OpenExperiments, ValidateToken
 from main.mixins import OverrideLanguageMixin
 from uil.vue.rest import FancyListApiView
-from .forms import ChangePasswordForm, EnterTokenForm, ForgotPasswordForm, \
+from .forms import ChangePasswordForm, CustomAuthenticationFrom, EnterTokenForm, \
+    ForgotPasswordForm, \
     ResetPasswordForm
 
 
@@ -169,6 +170,7 @@ class ResetPasswordView(braces.AnonymousRequiredMixin, SuccessMessageMixin,
 #
 
 class CustomLoginView(LoginView):
+    form_class = CustomAuthenticationFrom
     redirect_authenticated_user = True
 
     def get_success_url(self):

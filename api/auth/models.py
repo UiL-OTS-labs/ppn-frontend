@@ -9,25 +9,6 @@ from api.resources.account_resources import UserCreationData
 
 class RemoteApiUserManager(BaseUserManager):
 
-    def get_by_email(self, email: str, stop_recursion: bool = False):
-        email = email.strip()
-
-        try:
-            user = self.get(email=email)
-        except RemoteApiUser.DoesNotExist:
-            # Fix the annoying problem that the university allows students
-            # to have 2 emails
-            if not stop_recursion and email.endswith('@students.uu.nl'):
-                email = email.replace('students.uu.nl', 'uu.nl')
-                user = self.get_by_email(email, True)
-            elif not stop_recursion and email.endswith('@uu.nl'):
-                email = email.replace('uu.nl', 'students.uu.nl')
-                user = self.get_by_email(email, True)
-            else:
-                user = None
-
-        return user
-
     def create_user(self,
                     email: str,
                     name: str,
@@ -62,10 +43,8 @@ class RemoteApiUserManager(BaseUserManager):
 class RemoteApiUser(PermissionsMixin, AbstractBaseUser):
     objects = RemoteApiUserManager()
 
-    USERNAME_FIELD = 'email'
-    EMAIL_FIELD = 'email'
-
-    email = models.EmailField(unique=True)
+    USERNAME_FIELD = 'id'
+    EMAIL_FIELD = None
 
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)

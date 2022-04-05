@@ -13,7 +13,6 @@ class UserChangeForm(forms.ModelForm):
     the user, but replaces the password field with admin's
     password hash display field.
     """
-    email = forms.EmailField(disabled=True)
     is_active = forms.BooleanField(disabled=True)
     is_superuser = forms.BooleanField(disabled=True)
     is_staff = forms.BooleanField(disabled=True)
@@ -21,7 +20,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = RemoteApiUser
-        fields = ('email', 'password', 'is_active', 'is_superuser', 'is_staff')
+        fields = ('id', 'password', 'is_active', 'is_superuser', 'is_staff')
 
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.
@@ -38,10 +37,10 @@ class UserAdmin(BaseUserAdmin):
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
-    list_display = ('email', 'is_superuser', 'is_staff')
+    list_display = ('id', 'is_superuser', 'is_staff')
     list_filter = ('is_superuser',)
     fieldsets = (
-        (None, {'fields': ('email', 'password')}),
+        (None, {'fields': ('id', 'password')}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
                                        'groups', 'user_permissions')}),
         (_('Important dates'), {'fields': ('last_login', )}),
@@ -54,8 +53,8 @@ class UserAdmin(BaseUserAdmin):
             'fields': ('email', 'date_of_birth', 'password1', 'password2')}
         ),
     )
-    search_fields = ('email',)
-    ordering = ('email',)
+    search_fields = ('id',)
+    ordering = ('id',)
     filter_horizontal = ()
 
     def has_add_permission(self, request):

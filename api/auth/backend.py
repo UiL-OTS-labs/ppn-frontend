@@ -42,6 +42,7 @@ class ApiAuthenticationBackend:
             user.email = username
 
         request.session['token'] = resource.token
+        request.session['email'] = username
 
         user.is_superuser = resource.is_admin
         user.is_staff = resource.is_admin
