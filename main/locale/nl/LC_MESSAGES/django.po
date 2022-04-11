@@ -18,11 +18,11 @@ msgstr ""
 
 #: main/forms.py:16
 msgid "forms:forgot_password:token_placeholder"
-msgstr "Vul jouw token in"
+msgstr "Vul je token in"
 
 #: main/forms.py:25
 msgid "forms:forgot_password:email_placeholder"
-msgstr "Vul jouw e-mailadres in"
+msgstr "Vul je e-mailadres in"
 
 #: main/forms.py:45
 msgid "form:forgot_password:email_incorrect"
@@ -48,7 +48,7 @@ msgstr "Bevestig nieuw wachtwoord"
 
 #: main/forms.py:109
 msgid "forms:change_password:password_incorrect"
-msgstr "Jouw oude wachtwoord is verkeerd ingevoerd. Voer het opnieuw in."
+msgstr "Je oude wachtwoord is verkeerd ingevoerd. Voer het opnieuw in."
 
 #: main/forms.py:125
 msgid "forms:change_password:old"
@@ -177,7 +177,7 @@ msgstr "Verander wachtwoord"
 #: main/templates/main/change_password.html:25
 msgid "change_password:content:forced_change"
 msgstr ""
-"Jouw huidige wachtwoord is ingesteld door een beheerder. Om "
+"Je huidige wachtwoord is ingesteld door een beheerder. Om "
 "veiligheidsredenen vragen we je dit wachtwoord te wijzigen naar iets anders."
 
 #: main/templates/main/change_password.html:36
@@ -204,7 +204,7 @@ msgstr "Wachtwoord vergeten"
 
 #: main/templates/main/forgot_password.html:15
 msgid "forgot_password:content:help_text"
-msgstr "Volg deze instructies om jouw wachtwoord opnieuw in te stellen."
+msgstr "Volg deze instructies om je wachtwoord opnieuw in te stellen."
 
 #: main/templates/main/forgot_password.html:24
 msgid "forgot_password:content:request_button"
@@ -266,7 +266,7 @@ msgstr "Solis account"
 #: main/templates/main/ldap_password.html:16
 msgid "ldap_password:content"
 msgstr ""
-"Jouw account is gelinkt aan je Solis account. Dit betekent dat je je "
+"Je account is gelinkt aan je Solis account. Dit betekent dat je je "
 "wachtwoord niet kunt aanpassen/resetten in deze applicatie. Je kunt dit wel "
 "doen via het 'MySolisID' portaal van de universiteit."
 
@@ -411,7 +411,7 @@ msgstr "Verander wachtwoord"
 #: main/templates/main/reset_password.html:31
 msgid "reset_password:content:invalid_token"
 msgstr ""
-"Je token voor het opnieuw instellen van jouw wachtwoord is ongeldig of is "
+"Je token voor het opnieuw instellen van je wachtwoord is ongeldig of is "
 "verlopen!"
 
 #: main/templates/registration/logged_out.html:8
