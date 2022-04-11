@@ -25,7 +25,7 @@ class ApiAuthenticationBackend:
 
     def get_user(self, user_id):
         try:
-            return RemoteApiUser.objects.get(pk=user_id)
+            return RemoteApiUser.objects.get(remote_id=user_id)
         except RemoteApiUser.DoesNotExist:
             return None
 
@@ -35,10 +35,13 @@ class ApiAuthenticationBackend:
             return None
 
         try:
-            user = RemoteApiUser.objects.get(pk=resource.id)
+            user = RemoteApiUser.objects.get(remote_id=resource.id)
         except RemoteApiUser.DoesNotExist:
             user = RemoteApiUser()
             user.pk = resource.id
+            # Also stored separately as Django apparently doesn't handle
+            # setting pk manually consistently
+            user.remote_id = resource.id
             user.email = username
 
         request.session['token'] = resource.token

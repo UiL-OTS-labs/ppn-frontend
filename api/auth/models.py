@@ -43,7 +43,9 @@ class RemoteApiUserManager(BaseUserManager):
 class RemoteApiUser(PermissionsMixin, AbstractBaseUser):
     objects = RemoteApiUserManager()
 
-    USERNAME_FIELD = 'id'
+    remote_id = models.IntegerField(null=False, blank=False, unique=True)
+
+    USERNAME_FIELD = 'remote_id'
     EMAIL_FIELD = None
 
     is_active = models.BooleanField(default=True)
