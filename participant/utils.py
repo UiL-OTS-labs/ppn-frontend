@@ -158,10 +158,6 @@ def submit_register_form(form: BaseRegisterForm, experiment: Experiment,
         required_fields = form.fields
         data['full'] = True
     elif request and request.user.is_authenticated:
-        # Insert the email field from the user object
-        # We need to do this for the API to get a user object and email isn't
-        # provided through the form on participant account registrations.
-        data['email'] = request.user.email
         data['full'] = False
     else:
         # Should not happen, but just in case....
