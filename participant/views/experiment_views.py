@@ -158,8 +158,10 @@ class AuthenticatedRegisterView(braces.LoginRequiredMixin,
                 reverse('participant:closed_experiment')
             )
 
+        user = request.user
         # If there isn't a participant logged in, redirect to the right version
-        if not request.user.is_participant:
+        # The hasattr is there because AnonymousUser doesn't have is_participant
+        if not hasattr(user, 'is_participant') or not user.is_participant:
             args = [self.kwargs.get('experiment')]
             return HttpResponseRedirect(
                 reverse('participant:register', args=args)
