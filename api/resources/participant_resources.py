@@ -205,4 +205,4 @@ class Participant(rest.Resource):
         if self.social_status == 'S':
             return 'Student'
 
-        return _('Other')
+        return 'Geen student'

@@ -337,7 +337,7 @@ class BaseRegisterForm(forms.Form):
         widget=forms.RadioSelect(
             choices=(
                 ('S', 'Student'),
-                ('O', 'Anders'),
+                ('O', 'Geen student'),
             ),
         )
     )
