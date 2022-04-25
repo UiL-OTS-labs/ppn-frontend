@@ -8,7 +8,7 @@
     # via -r requirements.in
 asgiref==3.5.0
     # via django
-babel==2.9.1
+babel==2.10.1
     # via -r requirements.in
 backports-datetime-fromisoformat==1.0.0
     # via -r requirements.in
@@ -34,7 +34,7 @@ cwcwidth==0.1.6
     # via
     #   bpython
     #   curtsies
-django==3.2.12
+django==3.2.13
     # via
     #   -r requirements.in
     #   django-axes
@@ -45,7 +45,7 @@ django==3.2.12
     #   django-simple-menu
     #   djangorestframework
     #   uil-django-core
-django-axes==5.31.0
+django-axes==5.32.0
     # via -r requirements.in
 django-braces==1.15.0
     # via -r requirements.in
@@ -77,7 +77,7 @@ pep517==0.12.0
     # via pip-tools
 pillow==9.1.0
     # via -r requirements.in
-pip-tools==6.5.1
+pip-tools==6.6.0
     # via -r requirements.in
 ply==3.11
     # via lesscpy
@@ -85,7 +85,7 @@ pscript==0.7.7
     # via vbuild
 pycparser==2.21
     # via cffi
-pygments==2.11.2
+pygments==2.12.0
     # via bpython
 pyjwt==2.3.0
     # via
@@ -115,7 +115,7 @@ sqlparse==0.4.2
     #   django-debug-toolbar
 tomli==2.0.1
     # via pep517
-typing-extensions==4.1.1
+typing-extensions==4.2.0
     # via bpython
 urllib3==1.26.9
     # via requests
