@@ -1,6 +1,7 @@
 from django import forms
 from django.utils.safestring import mark_safe
 from django.utils.html import conditional_escape
+from django.urls import reverse
 
 from .widgets import LanguageWidget, SexWidget
 
@@ -116,6 +117,25 @@ class SignUpForm(forms.Form):
         required=False,
     )
 
+    consent = forms.BooleanField(
+        label='Dataverwerking',
+        widget=forms.RadioSelect(
+            choices=(
+                (
+                    True,
+                    ('Ja, ik geef uitdrukkelijke toestemming om mijn gegevens '
+                     '(inclusief antwoorden op eventuele gevoelige vragen) op '
+                     'te slaan t.b.v. van het verwerken van mijn aanmelding, '
+                     'en om deze gegevens te delen met de proefleider.')
+                ),
+            ),
+            attrs={
+                'required': 'required'
+            }
+        ),
+        required=True
+    )
+
     def clean(self):
         """
         Two tasks:
@@ -170,7 +190,7 @@ class SignUpForm(forms.Form):
         for name, field in self.fields.items():
 
             # BEGIN ADDITION
-            if name in ['account', 'mailing_list']:
+            if name in ['account', 'mailing_list', 'consent']:
                 continue
             # END ADDITION
 

@@ -74,6 +74,13 @@
                     <table width="100%">
                         {{ form.as_table }}
                     </table>
+                    {# Sorry for this custom HTML, its template is being annoying when automatically rendered #}
+                    <p class="mt-4">
+                        <label for="id_consent_0">
+                            <input type="radio" name="consent" value="True" required="" id="id_consent_0">
+ Ja, ik geef uitdrukkelijke toestemming om mijn gegevens (inclusief antwoorden op eventuele gevoelige vragen) op te slaan t.b.v. van het verwerken van mijn aanmelding, en om deze gegevens te delen met de proefleider.
+                        </label>
+                    </p>
                     <p>
                         Je gegevens worden vertrouwelijk behandeld, en je kunt
                         je op elk moment weer uitschrijven door een mailtje te
