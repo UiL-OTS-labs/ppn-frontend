@@ -42,9 +42,10 @@ def get_register_form(
                                    'parameter')
 
     # Yes this could be smaller, but I find this to be more clear
-    text = ('Ja, ik ga akkoord dat mijn gegevens worden opgeslagen t.b.v. van '
-            'het verwerken van mijn aanmelding en gedeeld worden met de '
-            'proefleider.')
+    text = ('Ja, ik geef uitdrukkelijke toestemming om mijn gegevens '
+            '(inclusief antwoorden op eventuele gevoelige vragen) op te slaan '
+            't.b.v. van het verwerken van mijn aanmelding, en om deze gegevens '
+            'te delen met de proefleider.')
     link = reverse('main:privacy')
     text += f'<br/><a href="{link}" target="_blank">Privacy-verklaring</a>'
     text = mark_safe(text)
