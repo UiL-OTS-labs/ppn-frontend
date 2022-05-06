@@ -11,7 +11,8 @@ from api.resources.participant_resources import Appointments, \
     RequiredRegistrationFields
 from main.mixins import ExperimentObjectMixin, OverrideLanguageMixin
 from participant.forms import BaseRegisterForm
-from participant.utils import get_register_form, submit_register_form
+from participant.utils import experiment_is_open, get_register_form, \
+    submit_register_form
 
 
 class ExperimentRegisterMixin(ExperimentObjectMixin):
@@ -80,7 +81,7 @@ class RegisterView(OverrideLanguageMixin,
             # if-statement. Well, that's because the very act of calling
             # self.experiment might raise ObjectDoesNotExist as well!
             # This way, we can do both in one except.
-            if not self.experiment.open:
+            if not experiment_is_open(self.experiment):
                 raise ObjectDoesNotExist
         except ObjectDoesNotExist:
             return HttpResponseRedirect(
@@ -151,7 +152,7 @@ class AuthenticatedRegisterView(braces.LoginRequiredMixin,
             # if-statement. Well, that's because the very act of calling
             # self.experiment might raise ObjectDoesNotExist as well!
             # This way, we can do both in one except.
-            if not self.experiment.open:
+            if not experiment_is_open(self.experiment):
                 raise ObjectDoesNotExist
         except ObjectDoesNotExist:
             return HttpResponseRedirect(

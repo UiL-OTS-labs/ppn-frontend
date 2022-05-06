@@ -14,6 +14,24 @@ from api.resources.experiment_resources import ExperimentRegistration, \
 from participant.forms import BaseRegisterForm
 
 
+def experiment_is_open(experiment: Experiment) -> bool:
+    # If it's not open, it's not open ;)
+    if not experiment.open:
+        return False
+
+    if experiment.use_timeslots:
+        # If we find an eligble timeslot, we know it should be open
+        for timeslot in experiment.timeslots:
+            if timeslot.datetime > _2_hours_ago(timeslot.datetime) and \
+                    timeslot.free_places > 0:
+                return True
+        # If we looped through all timeslots without finding one that can be
+        # chosen, we assume it's closed
+        return False
+    else:  # If we don't use timeslots we take the open attribute as fact
+        return True
+
+
 def check_if_email_is_spammer(email: str) -> bool:
     url = "http://api.stopforumspam.org/api?email={}".format(email)
     response = requests.get(url)
