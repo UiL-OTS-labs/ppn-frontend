@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-07 11:54+0000\n"
+"POT-Creation-Date: 2022-05-12 09:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: participant/forms.py:320
+#: participant/forms.py:203
 #, python-format
 msgid "(Hidden field %(name)s) %(error)s"
 msgstr ""
@@ -157,32 +157,32 @@ msgstr "Participation form experiment"
 msgid "closed:content:p1"
 msgstr ""
 
-#: participant/templates/participant/register.html:29
-#: participant/templates/participant/register.html:36
+#: participant/templates/participant/register.html:28
+#: participant/templates/participant/register.html:35
 msgid "register:content:header"
 msgstr "Participation form experiment"
 
-#: participant/templates/participant/register.html:39
+#: participant/templates/participant/register.html:38
 msgid "register:content:duration"
 msgstr "This experiment will take {}."
 
-#: participant/templates/participant/register.html:41
+#: participant/templates/participant/register.html:40
 msgid "register:content:location"
 msgstr "It will be held at "
 
-#: participant/templates/participant/register.html:52
+#: participant/templates/participant/register.html:51
 msgid "register:content:details"
 msgstr "Details:"
 
-#: participant/templates/participant/register.html:55
+#: participant/templates/participant/register.html:54
 msgid "register:content:compensation"
 msgstr "You will receive {} for participating."
 
-#: participant/templates/participant/register.html:76
+#: participant/templates/participant/register.html:75
 msgid "register:content:leader"
 msgstr "Experiment leader:"
 
-#: participant/templates/participant/register.html:83
+#: participant/templates/participant/register.html:82
 msgid "register:content:other_leaders"
 msgstr "Other experiment leaders:"
 
@@ -227,7 +227,6 @@ msgstr "Participation form experiment"
 msgid "cancel:message:cancelled"
 msgstr ""
 
-#: participant/views/mailinglist_views.py:80
+#: participant/views/mailinglist_views.py:48
 msgid "unsubscribe_mailinglist:messages:unsubscribed"
 msgstr "Participation form experiment"
-

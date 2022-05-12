@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-07 11:54+0000\n"
+"POT-Creation-Date: 2022-05-12 09:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,41 +16,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: main/forms.py:16
+#: main/forms.py:12
+msgid "Email"
+msgstr ""
+
+#: main/forms.py:29
 msgid "forms:forgot_password:token_placeholder"
 msgstr "Vul je token in"
 
-#: main/forms.py:25
+#: main/forms.py:38
 msgid "forms:forgot_password:email_placeholder"
 msgstr "Vul je e-mailadres in"
 
-#: main/forms.py:45
+#: main/forms.py:58
 msgid "form:forgot_password:email_incorrect"
 msgstr ""
 "Het e-mailadres dat je hebt ingevoerd is ongeldig of niet gekoppeld aan een "
 "account"
 
-#: main/forms.py:56 main/forms.py:108
+#: main/forms.py:69 main/forms.py:121
 msgid "forms:change_password:password_mismatch"
 msgstr "De twee wachtwoordvelden komen niet overeen."
 
-#: main/forms.py:57
+#: main/forms.py:70
 msgid "forms:change_password:token_incorrect"
 msgstr "Het token is verlopen!"
 
-#: main/forms.py:65 main/forms.py:113
+#: main/forms.py:78 main/forms.py:126
 msgid "forms:change_password:new1"
 msgstr "Nieuw wachtwoord"
 
-#: main/forms.py:71 main/forms.py:119
+#: main/forms.py:84 main/forms.py:132
 msgid "forms:change_password:new2"
 msgstr "Bevestig nieuw wachtwoord"
 
-#: main/forms.py:109
+#: main/forms.py:122
 msgid "forms:change_password:password_incorrect"
 msgstr "Je oude wachtwoord is verkeerd ingevoerd. Voer het opnieuw in."
 
-#: main/forms.py:125
+#: main/forms.py:138
 msgid "forms:change_password:old"
 msgstr "Huidig wachtwoord"
 
@@ -94,6 +98,23 @@ msgstr "Verander wachtwoord"
 msgid "main:globals:logout"
 msgstr "Log uit"
 
+#: main/templates/403_csrf.html:7 main/templates/403_csrf.html:13
+#: main/templates/base/500.html:5 main/templates/base/500.html:11
+msgid "500:header"
+msgstr "Er is iets fout gegaan"
+
+#: main/templates/403_csrf.html:18 main/templates/base/500.html:13
+msgid "500:p1"
+msgstr "Sorry! Het lijkt er op dat wij iets fout hebben gedaan aan onze kant!"
+
+#: main/templates/403_csrf.html:21 main/templates/base/500.html:16
+msgid "500:p2"
+msgstr "In de tussentijd is dit wat je kunt doen:"
+
+#: main/templates/403_csrf.html:25 main/templates/base/500.html:20
+msgid "500:advice:reload"
+msgstr "<strong>De pagina verversen</strong> (dit helpt soms)"
+
 #: main/templates/base/403.html:9 main/templates/base/403.html:16
 msgid "403:header"
 msgstr "Geen toegang"
@@ -119,22 +140,6 @@ msgid "404:p2"
 msgstr ""
 "De link waarop je hebt geklikt is mogelijk incorrect of de pagina is "
 "verplaatst."
-
-#: main/templates/base/500.html:5 main/templates/base/500.html:11
-msgid "500:header"
-msgstr "Er is iets fout gegaan"
-
-#: main/templates/base/500.html:13
-msgid "500:p1"
-msgstr "Sorry! Het lijkt er op dat wij iets fout hebben gedaan aan onze kant!"
-
-#: main/templates/base/500.html:16
-msgid "500:p2"
-msgstr "In de tussentijd is dit wat je kunt doen:"
-
-#: main/templates/base/500.html:20
-msgid "500:advice:reload"
-msgstr "<strong>De pagina verversen</strong> (dit helpt soms)"
 
 #: main/templates/base/500.html:23
 msgid "500:advice:wait"
@@ -177,8 +182,8 @@ msgstr "Verander wachtwoord"
 #: main/templates/main/change_password.html:25
 msgid "change_password:content:forced_change"
 msgstr ""
-"Je huidige wachtwoord is ingesteld door een beheerder. Om "
-"veiligheidsredenen vragen we je dit wachtwoord te wijzigen naar iets anders."
+"Je huidige wachtwoord is ingesteld door een beheerder. Om veiligheidsredenen "
+"vragen we je dit wachtwoord te wijzigen naar iets anders."
 
 #: main/templates/main/change_password.html:36
 msgid "globals:save_button"
@@ -434,14 +439,14 @@ msgstr "Wachtwoord vergeten?"
 msgid "login:button:login"
 msgstr "Log in"
 
-#: main/views.py:85
+#: main/views.py:86
 msgid "password:message:updated"
 msgstr "Wachtwoord veranderd!"
 
-#: main/views.py:120
+#: main/views.py:121
 msgid "password:message:reset_requested"
 msgstr "We hebben je een e-mail gestuurd met verdere instructies!"
 
-#: main/views.py:143
+#: main/views.py:144
 msgid "password:message:reset_successful"
 msgstr "Wachtwoord veranderd!"

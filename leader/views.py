@@ -12,11 +12,11 @@ from django.utils.functional import cached_property
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
 
-from api.auth.models import RemoteApiUser
 from api.resources import Leader, LeaderExperiments, \
     SwitchExperimentOpen
 from api.resources.comment_resources import Comment
-from api.resources.experiment_resources import LeaderExperiment
+from api.resources.experiment_resources import LeaderExperiment, \
+    ReminderParticipants
 from uil.rest_client.exceptions import ApiError
 from leader.forms import AddCommentForm, ChangeProfileForm, TimeSlotForm
 from leader.models import LeaderPhoto
@@ -25,6 +25,7 @@ from leader.utils import add_timeslot, delete_timeslot, delete_timeslots, now, \
 from main.mixins import ExperimentObjectMixin
 from uil.core.views import RedirectActionView
 from uil.core.views.mixins import RedirectSuccessMessageMixin
+from uil.rest_client.collections import StringCollection
 
 
 class ExperimentsView(braces.LoginRequiredMixin,
@@ -78,6 +79,7 @@ class ExperimentParticipantsView(braces.LoginRequiredMixin,
                 )
 
         return output
+
 
 class DownloadParticipantsCsvView(braces.LoginRequiredMixin,
                                   braces.GroupRequiredMixin,
@@ -393,3 +395,30 @@ class ProfileView(braces.RecentLoginRequiredMixin,
         change_leader.put()
 
         return super(ProfileView, self).form_valid(form)
+
+
+class RemindParticipantsView(braces.LoginRequiredMixin,
+                             ExperimentObjectMixin,
+                             RedirectActionView):
+
+    def action(self, request):
+        if not request.POST:
+            raise SuspiciousOperation
+
+        if "reminder[]" in request.POST:
+            reminders = request.POST.getlist('reminder[]')
+
+            reminders = StringCollection([int(x) for x in reminders], False)
+
+            res = ReminderParticipants()
+            res.appointments = reminders
+
+            if res.put(experiment=self.experiment.id):
+                messages.success(self.request,
+                                 str(
+                                     _('leaders:message:sent_reminders')
+                                    ).format(len(reminders))
+                                 )
+
+    def get_redirect_url(self, *args, **kwargs):
+        return reverse('leader:participants', args=[self.experiment.id])

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-07 11:54+0000\n"
+"POT-Creation-Date: 2022-05-12 09:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: participant/forms.py:320
+#: participant/forms.py:203
 #, python-format
 msgid "(Hidden field %(name)s) %(error)s"
 msgstr ""
@@ -131,32 +131,32 @@ msgstr ""
 "tijdstippen meer waar je je voor op kunt geven. Dankjewel voor je "
 "belangstelling!"
 
-#: participant/templates/participant/register.html:29
-#: participant/templates/participant/register.html:36
+#: participant/templates/participant/register.html:28
+#: participant/templates/participant/register.html:35
 msgid "register:content:header"
 msgstr "Opgaveformulier experiment"
 
-#: participant/templates/participant/register.html:39
+#: participant/templates/participant/register.html:38
 msgid "register:content:duration"
 msgstr "Dit experiment duurt {}"
 
-#: participant/templates/participant/register.html:41
+#: participant/templates/participant/register.html:40
 msgid "register:content:location"
 msgstr "Het wordt afgenomen op"
 
-#: participant/templates/participant/register.html:52
+#: participant/templates/participant/register.html:51
 msgid "register:content:details"
 msgstr "Bijzonderheden:"
 
-#: participant/templates/participant/register.html:55
+#: participant/templates/participant/register.html:54
 msgid "register:content:compensation"
 msgstr "Je krijgt {} om mee te doen."
 
-#: participant/templates/participant/register.html:76
+#: participant/templates/participant/register.html:75
 msgid "register:content:leader"
 msgstr "Proefleider: "
 
-#: participant/templates/participant/register.html:83
+#: participant/templates/participant/register.html:82
 msgid "register:content:other_leaders"
 msgstr "Overige proefleiders: "
 
@@ -197,6 +197,6 @@ msgstr ""
 "Afspraak afgezegd. Er is een bevestiging per mail verstuurd. <a href=\"/"
 "\">Klik hier om je opnieuw in te schrijven voor een (ander) experiment!</a>"
 
-#: participant/views/mailinglist_views.py:80
+#: participant/views/mailinglist_views.py:48
 msgid "unsubscribe_mailinglist:messages:unsubscribed"
 msgstr "Je hebt je succesvol uitgeschreven van de mailing list!"

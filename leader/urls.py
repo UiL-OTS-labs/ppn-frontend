@@ -2,7 +2,8 @@ from django.urls import path
 
 from .views import AddCommentView, DeleteAppointmentView, \
     DownloadParticipantsCsvView, ExperimentParticipantsView, ExperimentsView, \
-    ProfileView, SwitchExperimentOpenView, TimeSlotBulkDeleteView, \
+    ProfileView, RemindParticipantsView, SwitchExperimentOpenView, \
+    TimeSlotBulkDeleteView, \
     TimeSlotDeleteView, TimeSlotHomeView
 
 app_name = 'leader'
@@ -18,6 +19,10 @@ urlpatterns = [
 
     path('experiment/<int:experiment>/participants/',
          ExperimentParticipantsView.as_view(), name='participants',
+         ),
+
+    path('experiment/<int:experiment>/participants/send_reminders/',
+         RemindParticipantsView.as_view(), name='send_reminders',
          ),
 
     path('experiment/<int:experiment>/participants/download/',

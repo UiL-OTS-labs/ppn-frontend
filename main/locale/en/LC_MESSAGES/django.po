@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-07 11:54+0000\n"
+"POT-Creation-Date: 2022-05-12 09:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,40 +16,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: main/forms.py:16
+#: main/forms.py:12
+msgid "Email"
+msgstr ""
+
+#: main/forms.py:29
 msgid "forms:forgot_password:token_placeholder"
 msgstr "Enter your reset token"
 
-#: main/forms.py:25
+#: main/forms.py:38
 msgid "forms:forgot_password:email_placeholder"
 msgstr "Enter your email"
 
-#: main/forms.py:45
+#: main/forms.py:58
 msgid "form:forgot_password:email_incorrect"
 msgstr ""
 "The email address you've entered is invalid or not attached to an account."
 
-#: main/forms.py:56 main/forms.py:108
+#: main/forms.py:69 main/forms.py:121
 msgid "forms:change_password:password_mismatch"
 msgstr "The two password fields didn't match."
 
-#: main/forms.py:57
+#: main/forms.py:70
 msgid "forms:change_password:token_incorrect"
 msgstr "Your token has expired!"
 
-#: main/forms.py:65 main/forms.py:113
+#: main/forms.py:78 main/forms.py:126
 msgid "forms:change_password:new1"
 msgstr "New password"
 
-#: main/forms.py:71 main/forms.py:119
+#: main/forms.py:84 main/forms.py:132
 msgid "forms:change_password:new2"
 msgstr "Confirm new password"
 
-#: main/forms.py:109
+#: main/forms.py:122
 msgid "forms:change_password:password_incorrect"
 msgstr "Your old password was entered incorrectly. Please enter it again."
 
-#: main/forms.py:125
+#: main/forms.py:138
 msgid "forms:change_password:old"
 msgstr "Current password"
 
@@ -93,6 +97,23 @@ msgstr "Change password"
 msgid "main:globals:logout"
 msgstr "Log out"
 
+#: main/templates/403_csrf.html:7 main/templates/403_csrf.html:13
+#: main/templates/base/500.html:5 main/templates/base/500.html:11
+msgid "500:header"
+msgstr "Something went wrong"
+
+#: main/templates/403_csrf.html:18 main/templates/base/500.html:13
+msgid "500:p1"
+msgstr "Sorry! It looks like we made a mistake our side!"
+
+#: main/templates/403_csrf.html:21 main/templates/base/500.html:16
+msgid "500:p2"
+msgstr "In the meantime, these are some things you can do:"
+
+#: main/templates/403_csrf.html:25 main/templates/base/500.html:20
+msgid "500:advice:reload"
+msgstr "<strong>Reload the page</strong> (this might help)"
+
 #: main/templates/base/403.html:9 main/templates/base/403.html:16
 msgid "403:header"
 msgstr "Not authorized"
@@ -117,22 +138,6 @@ msgstr "We can't seem to find the page you're looking for."
 #: main/templates/base/404.html:22
 msgid "404:p2"
 msgstr "The link you clicked may be broken or the page may have been moved."
-
-#: main/templates/base/500.html:5 main/templates/base/500.html:11
-msgid "500:header"
-msgstr "Something went wrong"
-
-#: main/templates/base/500.html:13
-msgid "500:p1"
-msgstr "Sorry! It looks like we made a mistake our side!"
-
-#: main/templates/base/500.html:16
-msgid "500:p2"
-msgstr "In the meantime, these are some things you can do:"
-
-#: main/templates/base/500.html:20
-msgid "500:advice:reload"
-msgstr "<strong>Reload the page</strong> (this might help)"
 
 #: main/templates/base/500.html:23
 msgid "500:advice:wait"
@@ -393,15 +398,15 @@ msgstr "Forgot password?"
 msgid "login:button:login"
 msgstr "Log in"
 
-#: main/views.py:85
+#: main/views.py:86
 msgid "password:message:updated"
 msgstr "Password changed!"
 
-#: main/views.py:120
+#: main/views.py:121
 msgid "password:message:reset_requested"
 msgstr ""
 "We've sent you an email with instructions on how to reset your password!"
 
-#: main/views.py:143
+#: main/views.py:144
 msgid "password:message:reset_successful"
 msgstr "Password successfully reset!"
