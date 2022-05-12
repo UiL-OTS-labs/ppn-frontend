@@ -104,6 +104,15 @@ class SwitchExperimentOpen(rest.Resource):
     open = rest.BoolField()
 
 
+class ReminderParticipants(rest.Resource):
+    class Meta:
+        path = '/api/experiment/{experiment}/remind_participants/'
+        supported_operations = [rest.Operations.put]
+        path_variables = ['experiment']
+
+    appointments = rest.CollectionField(rest.IntegerCollection)
+
+
 class LeaderExperiments(rest.ResourceCollection):
     class Meta:
         resource = LeaderExperiment

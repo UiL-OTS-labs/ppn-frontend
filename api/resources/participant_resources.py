@@ -185,7 +185,10 @@ class Participant(rest.Resource):
 
     multilingual = rest.BoolField()
 
-    birth_date = rest.DateField()
+    birth_date = rest.DateField(
+        null=True,
+        blank=True,
+    )
 
     handedness = rest.TextField(
         null=True,
@@ -197,7 +200,10 @@ class Participant(rest.Resource):
         blank=True,
     )
 
-    social_status = rest.TextField()
+    social_status = rest.TextField(
+        null=True,
+        blank=True,
+    )
 
     email_subscription = rest.BoolField()
 
