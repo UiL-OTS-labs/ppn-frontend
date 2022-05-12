@@ -315,4 +315,4 @@ msgstr "Successfully updated profile."
 
 #: leader/views.py:419
 msgid "leaders:message:sent_reminders"
-msgstr "Send reminders to {} participant(s)"
+msgstr "Sent reminders to {} participant(s)"
