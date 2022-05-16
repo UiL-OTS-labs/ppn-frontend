@@ -76,7 +76,7 @@ class Experiment(rest.Resource):
         return sum([t.max_places for t in self.timeslots])
 
     def display_additional_leaders(self):
-        return ",".join([leader.name for leader in self.additional_leaders])
+        return ", ".join([leader.name for leader in self.additional_leaders])
 
 
 class LeaderExperiment(Experiment):
