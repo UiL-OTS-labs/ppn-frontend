@@ -94,7 +94,7 @@ def _get_register_form(form: BaseRegisterForm, experiment: Experiment):
         options = ((i, x) for i, x in enumerate(answers))
 
         field = forms.CharField(
-            label=exp_crit.criterion.name_natural,
+            label=mark_safe(exp_crit.criterion.name_natural),
             widget=forms.RadioSelect(
                 choices=options,
             ),
