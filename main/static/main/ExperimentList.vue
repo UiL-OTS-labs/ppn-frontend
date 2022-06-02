@@ -58,13 +58,12 @@
             </span>
           </p>
           <p>
-            Bijzonderheden
+            Bijzonderheden:
             <ul>
               <li>
                 Je krijgt {{ experiment.compensation }} om mee te doen.
               </li>
-              <li v-if="experiment.task_description">
-                {{ experiment.task_description }}
+              <li v-if="experiment.task_description" v-html="experiment.task_description">
               </li>
               <li v-if="experiment.additional_instructions" v-html="experiment.additional_instructions">
               </li>
