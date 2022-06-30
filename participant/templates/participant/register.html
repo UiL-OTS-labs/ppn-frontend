@@ -13,6 +13,18 @@
     <script nonce="{{ request.csp_nonce }}">
     $(function () {
         add_title('timeslot', 'Kies hieronder een tijdstip:');
+
+        // Disable the submit button after successful validation and present
+        // a loading animation. This is done to make it harder to resubmit a form
+        // and also indicate it's actually doing something
+        $('#submit').click((e) => {
+            let el = $('#submit');
+
+            if($('form')[0].checkValidity()) {
+                el.prop('disabled', true);
+                el.toggleClass('button--loading')
+            }
+        });
     });
     </script>
     <style nonce="{{ request.csp_nonce }}">
@@ -117,7 +129,7 @@
                 </table>
                 <div class="float-right mt-3">
                     <button type="reset">Reset</button>
-                    <button type="submit">Schrijf je in!</button>
+                    <button type="submit" id="submit">Schrijf je in!</button>
                 </div>
             </form>
             {% endif %}
