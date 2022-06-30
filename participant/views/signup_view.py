@@ -1,5 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.contrib.messages import error
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.views import generic
 
 from api.auth.exceptions import AccountAlreadyExistsException
@@ -14,8 +16,6 @@ class SignUpView(OverrideLanguageMixin, generic.FormView):
 
     language_override = 'nl'
 
-    status = 'ready'
-
     def form_invalid(self, form):
         # Use messages to show the error in an error-box, as the form won't
         # render it properly because this question is manually rendered
@@ -28,9 +28,12 @@ class SignUpView(OverrideLanguageMixin, generic.FormView):
         data = form.cleaned_data
 
         if data.get('account'):
-            self._handle_account(data)
+            ret = self._handle_account(data)
         else:
-            self._handle_mailing_list(data)
+            ret = self._handle_mailing_list(data)
+
+        if ret:
+            return ret
 
         return self.get(self.request)
 
@@ -44,7 +47,11 @@ class SignUpView(OverrideLanguageMixin, generic.FormView):
                 "Het door jou opgegeven e-mail adres is al in gebruik!"
             )
         else:
-            self.status = 'account_created'
+            return HttpResponseRedirect(
+                reverse(
+                    'participant:sign_up_account_created',
+                )
+            )
 
     def _handle_mailing_list(self, data):
         o = MailinglistSubscribe()
@@ -56,7 +63,11 @@ class SignUpView(OverrideLanguageMixin, generic.FormView):
         response = o.put()
 
         if response.success:
-            self.status = "subscribed"
+            return HttpResponseRedirect(
+                reverse(
+                    'participant:sign_up_subscribed',
+                )
+            )
         else:
             error(
                 self.request,
@@ -69,6 +80,15 @@ class SignUpView(OverrideLanguageMixin, generic.FormView):
         )
 
         context['admin'] = Admin.client.get()
-        context['status'] = self.status
 
         return context
+
+
+class AccountCreatedView(OverrideLanguageMixin, generic.TemplateView):
+    template_name = 'participant/sign_up_account_created.html'
+    language_override = 'nl'
+
+
+class SubscribedView(OverrideLanguageMixin, generic.TemplateView):
+    template_name = 'participant/sign_up_subscribed.html'
+    language_override = 'nl'

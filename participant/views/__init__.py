@@ -3,4 +3,4 @@ from .appointments_views import CancelAppointmentView, CancelLandingView, \
 from .experiment_views import AuthenticatedRegisterView, ClosedExperimentView, \
     RegisterView, RegisterSuccessView
 from .mailinglist_views import UnsubscribeFromMailinglistView
-from .signup_view import SignUpView
+from .signup_view import SignUpView, AccountCreatedView, SubscribedView
