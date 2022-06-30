@@ -44,43 +44,11 @@
 <div class="uu-inner-container">
     {% include 'participant/exp_info.html' %}
 </div>
-{%  if not already_registered %}
-    <div class="uu-inner-container">
-        <div class="col-12">
-            {% if api_messages %}
-                <hr>
-                {% if success %}
-                    <h3>Aangemeld</h3>
-                {% else %}
-                    <h3>Waarschuwing! Je bent (nog) niet aangemeld!</h3>
-                {% endif %}
-                {% if api_messages %}
-                    {% if not success %}
-                        <p>
-                            Helaas, de inschrijving is mislukt om de volgende reden(en):
-                        </p>
-                    {% endif %}
-                    <p>
-                        {% for message in api_messages %}
-                            {{ message }} <br/>
-                        {% endfor %}
-                    </p>
-                {% endif %}
-            {% endif %}
-            {% if success == None or recoverable == True %}
-            <hr/>
-            <form method="post">
-                {% csrf_token %}
-                <table width="100%">
-                    {{ form.as_table }}
-                </table>
-                <div class="float-right mt-3">
-                    <button type="reset">Reset</button>
-                    <button type="submit" id="submit">Schrijf je in!</button>
-                </div>
-            </form>
-            {% endif %}
-        </div>
+<div class="uu-inner-container">
+    <div class="col-12">
+        <hr>
+        <h3>Aangemeld</h3>
+        <p>Je bent ingeschreven voor het experiment! Je krijgt een bevestiging per email.</p>
     </div>
-{% endif %}
+</div>
 {% endblock %}

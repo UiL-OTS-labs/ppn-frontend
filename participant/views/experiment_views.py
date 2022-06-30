@@ -57,6 +57,15 @@ class ExperimentRegisterMixin(ExperimentObjectMixin):
         self.success = success
         self.recoverable = recoverable
         self.messages = messages
+
+        if success:
+            return HttpResponseRedirect(
+                reverse(
+                    'participant:register_success',
+                    args=[self.experiment.id]
+                )
+            )
+
         return self.get(self.request, [], {})
 
     def get_form(self, form_class=None):
@@ -181,6 +190,20 @@ class AuthenticatedRegisterView(braces.LoginRequiredMixin,
         ).fields
 
         return list(fields)
+
+
+class RegisterSuccessView(OverrideLanguageMixin, ExperimentObjectMixin,
+                          generic.TemplateView):
+    template_name = 'participant/register_success.html'
+    language_override = 'nl'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(
+            **kwargs
+        )
+        context['experiment'] = self.experiment
+
+        return context
 
 
 class ClosedExperimentView(OverrideLanguageMixin, generic.TemplateView):
