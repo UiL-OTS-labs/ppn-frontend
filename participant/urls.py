@@ -1,8 +1,9 @@
 from django.urls import include, path
 
 from participant.views import AuthenticatedRegisterView, CancelAppointmentView, \
-    CancelLandingView, ClosedExperimentView, MyAppointmentsView, RegisterView, \
-    UnsubscribeFromMailinglistView, SignUpView
+    CancelLandingView, ClosedExperimentView, MyAppointmentsView, \
+    RegisterSuccessView, RegisterView, UnsubscribeFromMailinglistView, \
+    SignUpView
 
 app_name = 'participant'
 
@@ -13,6 +14,8 @@ urlpatterns = [
         AuthenticatedRegisterView.as_view(),
         name='register_logged_in'
     ),
+    path('register/<int:experiment>/success/', RegisterSuccessView.as_view(),
+         name='register_success'),
 
     path('closed/', ClosedExperimentView.as_view(), name='closed_experiment'),
     path('cancel/', include([
