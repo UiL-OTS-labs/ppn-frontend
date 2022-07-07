@@ -9,7 +9,7 @@
         $(function () {
             depends_on_value('account', 'True', 'name');
 
-            $('#submit').click((e) => {
+            $('form').submit((e) => {
                 let el = $('#submit');
 
                 if($('form')[0].checkValidity()) {
