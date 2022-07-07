@@ -17,7 +17,7 @@
         // Disable the submit button after successful validation and present
         // a loading animation. This is done to make it harder to resubmit a form
         // and also indicate it's actually doing something
-        $('#submit').click((e) => {
+        $('form').submit((e) => {
             let el = $('#submit');
 
             if($('form')[0].checkValidity()) {
