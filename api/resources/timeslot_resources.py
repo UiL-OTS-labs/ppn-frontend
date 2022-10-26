@@ -2,9 +2,9 @@ from typing import List
 
 from api.resources.generic_resources import SuccessResponse
 from api.resources.participant_resources import Participant
-from uil.core.utils import enumerate_to
+from cdh.core.utils import enumerate_to
 
-from uil.rest_client import rest_client as rest
+from cdh.rest import client as rest
 from babel.dates import format_datetime
 from django.utils.translation import get_language
 

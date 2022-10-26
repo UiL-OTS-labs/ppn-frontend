@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-12 09:57+0000\n"
+"POT-Creation-Date: 2022-10-26 12:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,45 +16,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: main/forms.py:12
+#: main/forms.py:13
 msgid "Email"
 msgstr ""
 
-#: main/forms.py:29
+#: main/forms.py:30
 msgid "forms:forgot_password:token_placeholder"
 msgstr "Vul je token in"
 
-#: main/forms.py:38
+#: main/forms.py:39
 msgid "forms:forgot_password:email_placeholder"
 msgstr "Vul je e-mailadres in"
 
-#: main/forms.py:58
+#: main/forms.py:59
 msgid "form:forgot_password:email_incorrect"
 msgstr ""
 "Het e-mailadres dat je hebt ingevoerd is ongeldig of niet gekoppeld aan een "
 "account"
 
-#: main/forms.py:69 main/forms.py:121
+#: main/forms.py:70 main/forms.py:122
 msgid "forms:change_password:password_mismatch"
 msgstr "De twee wachtwoordvelden komen niet overeen."
 
-#: main/forms.py:70
+#: main/forms.py:71
 msgid "forms:change_password:token_incorrect"
 msgstr "Het token is verlopen!"
 
-#: main/forms.py:78 main/forms.py:126
+#: main/forms.py:79 main/forms.py:127
 msgid "forms:change_password:new1"
 msgstr "Nieuw wachtwoord"
 
-#: main/forms.py:84 main/forms.py:132
+#: main/forms.py:85 main/forms.py:133
 msgid "forms:change_password:new2"
 msgstr "Bevestig nieuw wachtwoord"
 
-#: main/forms.py:122
+#: main/forms.py:123
 msgid "forms:change_password:password_incorrect"
 msgstr "Je oude wachtwoord is verkeerd ingevoerd. Voer het opnieuw in."
 
-#: main/forms.py:138
+#: main/forms.py:139
 msgid "forms:change_password:old"
 msgstr "Huidig wachtwoord"
 
@@ -82,140 +82,145 @@ msgstr "Afspraak afzeggen"
 msgid "mainmenu:my_appointments"
 msgstr "Mijn afspraken"
 
-#: main/menus.py:39 main/menus.py:62
+#: main/menus.py:39 main/menus.py:66
 msgid "menu:privacy"
 msgstr "Privacy-verklaring"
 
-#: main/menus.py:46 main/menus.py:57 main/templates/base/login_header.html:12
+#: main/menus.py:46 main/menus.py:61 main/templates/base/login_header.html:12
 msgid "main:globals:login"
 msgstr "Log in"
 
-#: main/menus.py:52
+#: main/menus.py:51
 msgid "mainmenu:change_password"
 msgstr "Verander wachtwoord"
 
-#: main/menus.py:66 main/templates/base/login_header.html:7
+#: main/menus.py:56 main/menus.py:70 main/templates/base/login_header.html:7
 msgid "main:globals:logout"
 msgstr "Log uit"
 
-#: main/templates/403_csrf.html:7 main/templates/403_csrf.html:13
-#: main/templates/base/500.html:5 main/templates/base/500.html:11
+#: main/templates/403_csrf.html:7 main/templates/403_csrf.html:12
+#: main/templates/base/500.html:5 main/templates/base/500.html:10
 msgid "500:header"
 msgstr "Er is iets fout gegaan"
 
-#: main/templates/403_csrf.html:18 main/templates/base/500.html:13
+#: main/templates/403_csrf.html:23 main/templates/base/500.html:18
 msgid "500:p1"
 msgstr "Sorry! Het lijkt er op dat wij iets fout hebben gedaan aan onze kant!"
 
-#: main/templates/403_csrf.html:21 main/templates/base/500.html:16
+#: main/templates/403_csrf.html:26 main/templates/base/500.html:21
 msgid "500:p2"
 msgstr "In de tussentijd is dit wat je kunt doen:"
 
-#: main/templates/403_csrf.html:25 main/templates/base/500.html:20
+#: main/templates/403_csrf.html:30 main/templates/base/500.html:25
 msgid "500:advice:reload"
 msgstr "<strong>De pagina verversen</strong> (dit helpt soms)"
 
-#: main/templates/base/403.html:9 main/templates/base/403.html:16
+#: main/templates/base/403.html:9 main/templates/base/403.html:14
 msgid "403:header"
 msgstr "Geen toegang"
 
-#: main/templates/base/403.html:18
+#: main/templates/base/403.html:22
 msgid "403:p1"
 msgstr "Het lijkt er op dat je een pagina wilt bezoeken waar je niet bij mag."
 
-#: main/templates/base/403.html:21
+#: main/templates/base/403.html:25
 msgid "403:p2"
 msgstr "Als je denkt dat dit een fout is, neem contact op met de lab technici."
 
-#: main/templates/base/404.html:10 main/templates/base/404.html:17
+#: main/templates/base/404.html:10 main/templates/base/404.html:15
 msgid "404:header"
 msgstr "Pagina niet gevonden"
 
-#: main/templates/base/404.html:19
+#: main/templates/base/404.html:23
 msgid "404:p1"
 msgstr "We kunnen de pagina waarnaar je op zoek bent niet vinden."
 
-#: main/templates/base/404.html:22
+#: main/templates/base/404.html:26
 msgid "404:p2"
 msgstr ""
 "De link waarop je hebt geklikt is mogelijk incorrect of de pagina is "
 "verplaatst."
 
-#: main/templates/base/500.html:23
+#: main/templates/base/500.html:28
 msgid "500:advice:wait"
 msgstr "<strong>Probeer het later nog een keer</strong>"
 
-#: main/templates/base/500.html:27
+#: main/templates/base/500.html:32
 #, python-format
 msgid "500:advice:contact %(technician_contact)s"
 msgstr ""
 "<strong>Neem contact op</strong> met <a href=\"%(technician_contact)s\">de "
 "lab technici</a> en vertel aan hen wat je aan het doen was."
 
-#: main/templates/base/language_box.html:11
-msgid "lang:en"
-msgstr "English"
-
-#: main/templates/base/language_box.html:16
-msgid "lang:nl"
-msgstr "Nederlands"
-
 #: main/templates/base/login_header.html:6
 msgid "site:header:login"
 msgstr "Welkom {}"
 
-#. Translators: This is the title that will end up in the header (in blue)
-#: main/templates/base/site_header.html:4
-msgid "site:header:title"
-msgstr "Experimenten UiL OTS"
-
 #. Translators: This is the title that will end up in the tab of the browser
-#: main/templates/base/site_title.html:5
+#: main/templates/base/ppn_base.html:11 main/templates/base/site_title.html:5
 msgid "site:name"
 msgstr "Experimenten UiL OTS"
 
+#: main/templates/base/ppn_base.html:25 main/templates/base/ppn_base.html:26
+#: main/templates/base/ppn_base.html:79
+msgid "cdh.core:uu"
+msgstr ""
+
+#. Translators: This is the title that will end up in the header (in blue)
+#: main/templates/base/ppn_base.html:34 main/templates/base/site_header.html:4
+msgid "site:header:title"
+msgstr "Experimenten UiL OTS"
+
+#: main/templates/base/ppn_base.html:59
+msgid "lang:en"
+msgstr "English"
+
+#: main/templates/base/ppn_base.html:64
+msgid "lang:nl"
+msgstr "Nederlands"
+
 #: main/templates/main/change_password.html:14
-#: main/templates/main/change_password.html:21
+#: main/templates/main/change_password.html:20
 msgid "change_password:content:header"
 msgstr "Verander wachtwoord"
 
-#: main/templates/main/change_password.html:25
+#: main/templates/main/change_password.html:30
 msgid "change_password:content:forced_change"
 msgstr ""
 "Je huidige wachtwoord is ingesteld door een beheerder. Om veiligheidsredenen "
 "vragen we je dit wachtwoord te wijzigen naar iets anders."
 
-#: main/templates/main/change_password.html:36
+#: main/templates/main/change_password.html:39
 msgid "globals:save_button"
 msgstr "Opslaan"
 
 #: main/templates/main/enter_reset_token.html:5
-#: main/templates/main/enter_reset_token.html:12
+#: main/templates/main/enter_reset_token.html:11
 msgid "enter_reset_token:content:header"
 msgstr "Wachtwoord (opnieuw) instellen "
 
-#: main/templates/main/enter_reset_token.html:15
+#: main/templates/main/enter_reset_token.html:20
 msgid "enter_reset_token:content:help_text"
 msgstr "Voer je reset-token in."
 
-#: main/templates/main/enter_reset_token.html:24
+#: main/templates/main/enter_reset_token.html:26
 msgid "enter_reset_token:content:continue"
 msgstr "Volgende"
 
 #: main/templates/main/forgot_password.html:5
-#: main/templates/main/forgot_password.html:12
+#: main/templates/main/forgot_password.html:11
 msgid "forgot_password:content:header"
 msgstr "Wachtwoord vergeten"
 
-#: main/templates/main/forgot_password.html:15
+#: main/templates/main/forgot_password.html:20
 msgid "forgot_password:content:help_text"
 msgstr "Volg deze instructies om je wachtwoord opnieuw in te stellen."
 
-#: main/templates/main/forgot_password.html:24
+#: main/templates/main/forgot_password.html:25
 msgid "forgot_password:content:request_button"
 msgstr "Vraag wachtwoord reset aan"
 
-#: main/templates/main/index.html:34
+#: main/templates/main/index.html:45
 msgid "index:content:intro1"
 msgstr ""
 "Aan het Utrechts Instituut voor Linguistiek OTS onderzoeken we hoe mensen "
@@ -224,7 +229,7 @@ msgstr ""
 "zijn altijd op zoek naar proefpersonen om deel te nemen aan die "
 "experimenten. Op deze website kun je je hiervoor opgeven. "
 
-#: main/templates/main/index.html:37
+#: main/templates/main/index.html:48
 msgid "index:content:intro2"
 msgstr ""
 "Zo’n experiment bestaat er meestal uit dat je een aantal woorden, zinnen of "
@@ -235,27 +240,27 @@ msgstr ""
 "om mee te doen aan een experiment; de vergoeding varieert van 7,50 tot 10 "
 "euro per uur. "
 
-#: main/templates/main/index.html:41
+#: main/templates/main/index.html:52
 msgid "index:content:intro3"
 msgstr ""
-"De experimenten worden afgenomen op locatie in het lab op Janskerkhof 13A (in "
-"de binnenstad van Utrecht), of online."
+"De experimenten worden afgenomen op locatie in het lab op Janskerkhof 13A "
+"(in de binnenstad van Utrecht), of online."
 
-#: main/templates/main/index.html:44
+#: main/templates/main/index.html:58
 msgid "index:header:open_experiments"
 msgstr "Je kunt je nu opgeven voor de volgende experimenten:"
 
-#: main/templates/main/index.html:48
+#: main/templates/main/index.html:62
 msgid "index:content:cancel"
 msgstr ""
 "Heb je je opgegeven voor een experiment maar kun je toch niet komen, dan kun "
 "je je <a href=\"{}\">hier afmelden</a>."
 
-#: main/templates/main/index.html:52
+#: main/templates/main/index.html:70
 msgid "index:header:maillinglist"
 msgstr "Mailing list UiL OTS experimenten"
 
-#: main/templates/main/index.html:56
+#: main/templates/main/index.html:74
 msgid "index:content:maillinglist1"
 msgstr ""
 " Wil je op de hoogte gehouden worden van nieuwe experimenten bij het UiL "
@@ -264,18 +269,18 @@ msgstr ""
 "experiment. "
 
 #: main/templates/main/ldap_password.html:6
-#: main/templates/main/ldap_password.html:13
+#: main/templates/main/ldap_password.html:12
 msgid "ldap_password:header"
 msgstr "Solis account"
 
-#: main/templates/main/ldap_password.html:16
+#: main/templates/main/ldap_password.html:21
 msgid "ldap_password:content"
 msgstr ""
 "Je account is gelinkt aan je Solis account. Dit betekent dat je je "
 "wachtwoord niet kunt aanpassen/resetten in deze applicatie. Je kunt dit wel "
 "doen via het 'MySolisID' portaal van de universiteit."
 
-#: main/templates/main/ldap_password.html:20
+#: main/templates/main/ldap_password.html:25
 msgid "ldap_password:link"
 msgstr "Klik hier om naar het 'MySolisID' portaal te gaan."
 
@@ -290,15 +295,15 @@ msgstr ""
 "Vanwege (te) veel mislukte inlogpogingen is inloggen een uur lang "
 "uitgeschakeld voor deze computer."
 
-#: main/templates/main/privacy.html:9 main/templates/main/privacy.html:17
+#: main/templates/main/privacy.html:9 main/templates/main/privacy.html:14
 msgid "main:privacy:header"
 msgstr "Privacy-verklaring"
 
-#: main/templates/main/privacy.html:20
+#: main/templates/main/privacy.html:22
 msgid "main:privacy:subheader1"
 msgstr "Registratiegegevens"
 
-#: main/templates/main/privacy.html:23
+#: main/templates/main/privacy.html:25
 msgid "main:privacy:p1"
 msgstr ""
 "Als je je opgeeft voor een experiment, vragen we altijd de volgende "
@@ -319,8 +324,8 @@ msgstr ""
 "daarom gebruikelijk om op groepsniveau te rapporteren hoeveel mannen en "
 "hoeveel vrouwen aan een studie hebben deelgenomen. Soms worden de resultaten "
 "ook per groep geanalyseerd. Je hoeft je biologisch geslacht niet met ons te "
-"delen, maar het is voor onze rapportages erg fijn als je dat wel doet.</li>"
-"\t<li>of je links- of rechtshandig bent – links- danwel rechtshandigheid "
+"delen, maar het is voor onze rapportages erg fijn als je dat wel doet.</"
+"li>\t<li>of je links- of rechtshandig bent – links- danwel rechtshandigheid "
 "gaat gepaard met verschillen in de hersenen, die ook van invloed zouden "
 "kunnen zijn op hoe de hersenen met taal omgaan. Het is daarom gebruikelijk "
 "om op groepsniveau te rapporteren hoeveel links- en rechtshandigen aan een "
@@ -330,7 +335,7 @@ msgstr ""
 "student bent of niet – aan sommige van onze experimenten kunnen alleen "
 "studenten meedoen, om de proefpersoongroep homogener te maken.</li></ul>"
 
-#: main/templates/main/privacy.html:26
+#: main/templates/main/privacy.html:28
 msgid "main:privacy:p2"
 msgstr ""
 "We gebruiken bovenstaande gegevens om je uitnodigingen te sturen voor "
@@ -339,7 +344,7 @@ msgstr ""
 "uitnodigingsmail staat een link waarmee je kunt aangeven dat je dergelijke "
 "mails niet meer wilt krijgen."
 
-#: main/templates/main/privacy.html:29
+#: main/templates/main/privacy.html:31
 msgid "main:privacy:p3"
 msgstr ""
 "Daarnaast gebruiken we bovenstaande persoonsgegevens om ons "
@@ -347,7 +352,7 @@ msgstr ""
 "alleen aan een bepaald experiment kunt meedoen als je niet eerder al aan een "
 "ander experiment hebt meegedaan."
 
-#: main/templates/main/privacy.html:32
+#: main/templates/main/privacy.html:34
 msgid "main:privacy:p4"
 msgstr ""
 "Naast de bovenstaande persoonsgegevens, waar altijd naar gevraagd wordt als "
@@ -356,18 +361,18 @@ msgstr ""
 "kunnen doen – aan onderzoek naar toontalen bijvoorbeeld, kun je meestal niet "
 "meedoen als je veel muziekles hebt gehad."
 
-#: main/templates/main/privacy.html:35
+#: main/templates/main/privacy.html:37
 msgid "main:privacy:p5"
 msgstr ""
 "We bewaren je persoonsgegevens tien jaar, tenzij je ons eerder vraagt om ze "
 "te verwijderen. Als je je persoonsgegevens wilt inzien of laten verwijderen, "
 "kun je een mailtje sturen naar <a href=\"mailto:{}\">{}</a>."
 
-#: main/templates/main/privacy.html:39
+#: main/templates/main/privacy.html:41
 msgid "main:privacy:subheader2"
 msgstr "Onderzoeksgegevens"
 
-#: main/templates/main/privacy.html:42
+#: main/templates/main/privacy.html:44
 msgid "main:privacy:p6"
 msgstr ""
 "Tijdens de experimenten verzamelen we onderzoeksgegevens, zoals bijvoorbeeld "
@@ -377,7 +382,7 @@ msgstr ""
 "alleen groepsgemiddelden gerapporteerd, waardoor de gegevens niet meer "
 "herleidbaar zijn tot individuele personen."
 
-#: main/templates/main/privacy.html:45
+#: main/templates/main/privacy.html:47
 msgid "main:privacy:p7"
 msgstr ""
 "In het kader van 'open science' worden de onderzoeksgegevens tegenwoordig "
@@ -388,11 +393,11 @@ msgstr ""
 "meedoet aan een experiment, krijg je een informatiebrief die hier meer "
 "duidelijkheid over geeft, en wordt je instemming gevraagd."
 
-#: main/templates/main/privacy.html:49
+#: main/templates/main/privacy.html:51
 msgid "main:privacy:subheader3"
 msgstr "Meer informatie"
 
-#: main/templates/main/privacy.html:52
+#: main/templates/main/privacy.html:54
 msgid "main:privacy:p8"
 msgstr ""
 "Voor meer informatie kun je contact opnemen met <a href=\"mailto:{}\">{}</"
@@ -401,41 +406,41 @@ msgstr ""
 "UU</a> raadplegen."
 
 #: main/templates/main/reset_password.html:5
-#: main/templates/main/reset_password.html:12
+#: main/templates/main/reset_password.html:11
 msgid "reset_password:content:header"
 msgstr "Wachtwoord (opnieuw) instellen"
 
-#: main/templates/main/reset_password.html:16
+#: main/templates/main/reset_password.html:21
 msgid "reset_password:content:help_text"
 msgstr "Voer het nieuwe wachtwoord in dat je wilt gebruiken."
 
-#: main/templates/main/reset_password.html:26
+#: main/templates/main/reset_password.html:27
 msgid "reset_password:content:change_button"
 msgstr "Verander wachtwoord"
 
-#: main/templates/main/reset_password.html:31
+#: main/templates/main/reset_password.html:32
 msgid "reset_password:content:invalid_token"
 msgstr ""
 "Je token voor het opnieuw instellen van je wachtwoord is ongeldig of is "
 "verlopen!"
 
-#: main/templates/registration/logged_out.html:8
+#: main/templates/registration/logged_out.html:6
 msgid "main:logged_out_title"
 msgstr "Uitgelogd"
 
-#: main/templates/registration/logged_out.html:9
+#: main/templates/registration/logged_out.html:13
 msgid "main:logged_out_text"
 msgstr "Je bent succesvol uitgelogd!"
 
-#: main/templates/registration/login.html:17
+#: main/templates/registration/login.html:7
 msgid "login:header:login"
 msgstr "Log in"
 
-#: main/templates/registration/login.html:23
+#: main/templates/registration/login.html:20
 msgid "login:content:forgot_password"
 msgstr "Wachtwoord vergeten?"
 
-#: main/templates/registration/login.html:26
+#: main/templates/registration/login.html:22
 msgid "login:button:login"
 msgstr "Log in"
 

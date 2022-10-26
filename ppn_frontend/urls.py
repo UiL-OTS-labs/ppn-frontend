@@ -38,8 +38,8 @@ urlpatterns = [
     path('404/', handler404, ),
     path('500/', handler500, ),
     path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
-    path('uilcore/', include('uil.core.urls')),
-    path('vue/', include('uil.vue.urls')),
+    path('cdhcore/', include('cdh.core.urls')),
+    path('vue/', include('cdh.vue.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'Proefpersonen systeem FRONTEND'

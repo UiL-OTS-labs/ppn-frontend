@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
-from uil.rest_client.mixins import ResourceSetupMixin
+from cdh.rest.mixins import ClientResourceSetupMixin
 
 
-class ApiConfig(ResourceSetupMixin, AppConfig):
+class ApiConfig(ClientResourceSetupMixin, AppConfig):
     name = 'api'

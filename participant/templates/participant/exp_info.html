@@ -2,10 +2,7 @@
 {% load transformat %}
 {% load static %}
 
-<div class="col-sm-8 col-xs-12">
-    <h3>
-        {% trans 'register:content:header' %} '{{ experiment.name }}'
-    </h3>
+<div class="col-12 col-sm-8 pe-sm-3">
     <p>
         {% transformat 'register:content:duration' experiment.duration %}.
         {% if experiment.location %}
@@ -21,6 +18,7 @@
     </p>
     <p>
         {% trans 'register:content:details' %}
+    </p>
     <ul>
         <li>
             {% transformat 'register:content:compensation' experiment.compensation %}
@@ -40,10 +38,9 @@
             </li>
         {% endif %}
     </ul>
-    </p>
 </div>
-<div class="col-sm-4 col-xs-12">
-    <h4 class="mt-2">
+<div class="col-sm-4 col-12">
+    <h4 >
         {% trans 'register:content:leader' %} {{ experiment.leader.name }}
     </h4>
     {% if experiment.leader.photo %}

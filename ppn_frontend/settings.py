@@ -53,9 +53,9 @@ INSTALLED_APPS = [
     # local apps
     'main',  # Should come before uil.core in order for template overrides to
     # work
-    'uil.core',
-    'uil.vue',
-    'uil.rest_client',
+    'cdh.core',
+    'cdh.vue',
+    'cdh.rest',
     'api',
     'api.auth',
     'participant',
@@ -86,7 +86,7 @@ MIDDLEWARE = [
     'axes.middleware.AxesMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'uil.core.middleware.ThreadLocalUserMiddleware',
+    'cdh.core.middleware.ThreadLocalUserMiddleware',
     'api.middleware.PasswordChangeMiddleware',
     'csp.middleware.CSPMiddleware',
 ]
@@ -107,7 +107,7 @@ LOGGING = {
         },
     },
     'loggers': {
-        'uil.rest_client': {
+        'cdh.rest': {
             'handlers': ['console'],
             'level':    'INFO',  # DEBUG is possible, but is VERY verbose.
         },
@@ -250,6 +250,6 @@ MENU_HIDE_EMPTY = False
 TECHNICIAN_CONTACT = 'mailto:t.d.mees@uu.nl'
 
 # PPN API
-API_HOST = 'http://localhost:9000/'
+API_HOST = 'http://localhost:8000/'
 GROUPS_LEADER = 'leader'
 GROUPS_PARTICIPANT = 'participant'

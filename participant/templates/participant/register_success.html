@@ -1,37 +1,32 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load static %}
 
-{% block html_head %}
-    <script src="{% static 'uil.core/js/form_helpers.js' %}"></script>
-    <script src="{% static 'uil.core/js/jquery.mask.min.js' %}"></script>
-
-    <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
-    <script src="{% static 'participant/register/birthdate.js' %}"></script>
-
-    <style nonce="{{ request.csp_nonce }}">
-    @media (min-width: 869px) {
-        th, td {
-            padding: 20px 0;
-        }
-    }
-    </style>
-{% endblock%}
 
 {% block header_title %}
     {% trans 'register:content:header' %} - {{ block.super }}
 {% endblock %}
 
-{% block content %}
-<div class="uu-inner-container">
-    {% include 'participant/exp_info.html' %}
-</div>
-<div class="uu-inner-container">
-    <div class="col-12">
-        <hr>
-        <h3>Aangemeld</h3>
-        <p>Je bent ingeschreven voor het experiment! Je krijgt een bevestiging per email.</p>
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1 class="h3 text-truncate">
+            {% trans 'register:content:header' %} '{{ experiment.name }}'
+        </h1>
     </div>
+    <div class="uu-container alert alert-success">
+        <div class="col-12">
+            <h3>Aangemeld</h3>
+            <p>Je bent ingeschreven voor het experiment! Je krijgt een bevestiging per email.</p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <h3>Experiment details</h3>
+    </div>
+    {% include 'participant/exp_info.html' %}
 </div>
 {% endblock %}
