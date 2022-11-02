@@ -9,6 +9,14 @@ from cdh.core.forms import TemplatedFormMixin, TemplatedForm
 
 
 class CustomAuthenticationFrom(TemplatedFormMixin, AuthenticationForm):
+
+    error_messages = {
+        "invalid_login": _(
+            "Please enter a correct email address and password. Note that both "
+            "fields may be case-sensitive."
+        ),
+    }
+
     username = forms.EmailField(
         label=_('Email'),
         widget=forms.EmailInput(

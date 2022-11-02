@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 12:59+0000\n"
+"POT-Creation-Date: 2022-11-02 10:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,44 +16,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: main/forms.py:13
+#: main/forms.py:15
+msgid ""
+"Please enter a correct email address and password. Note that both fields may "
+"be case-sensitive."
+msgstr ""
+
+#: main/forms.py:21
 msgid "Email"
 msgstr ""
 
-#: main/forms.py:30
+#: main/forms.py:38
 msgid "forms:forgot_password:token_placeholder"
 msgstr "Enter your reset token"
 
-#: main/forms.py:39
+#: main/forms.py:47
 msgid "forms:forgot_password:email_placeholder"
 msgstr "Enter your email"
 
-#: main/forms.py:59
+#: main/forms.py:67
 msgid "form:forgot_password:email_incorrect"
 msgstr ""
 "The email address you've entered is invalid or not attached to an account."
 
-#: main/forms.py:70 main/forms.py:122
+#: main/forms.py:78 main/forms.py:130
 msgid "forms:change_password:password_mismatch"
 msgstr "The two password fields didn't match."
 
-#: main/forms.py:71
+#: main/forms.py:79
 msgid "forms:change_password:token_incorrect"
 msgstr "Your token has expired!"
 
-#: main/forms.py:79 main/forms.py:127
+#: main/forms.py:87 main/forms.py:135
 msgid "forms:change_password:new1"
 msgstr "New password"
 
-#: main/forms.py:85 main/forms.py:133
+#: main/forms.py:93 main/forms.py:141
 msgid "forms:change_password:new2"
 msgstr "Confirm new password"
 
-#: main/forms.py:123
+#: main/forms.py:131
 msgid "forms:change_password:password_incorrect"
 msgstr "Your old password was entered incorrectly. Please enter it again."
 
-#: main/forms.py:139
+#: main/forms.py:147
 msgid "forms:change_password:old"
 msgstr "Current password"
 
