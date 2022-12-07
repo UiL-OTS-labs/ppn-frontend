@@ -216,7 +216,7 @@ msgstr "Request password reset"
 #: main/templates/main/index.html:34
 msgid "index:content:intro1"
 msgstr ""
-"The Utrecht Institute for Linguistics OTS is conducting research into how "
+"The Institute for Language Sciences is conducting research into how "
 "people understand and produce spoken and written language. In this context, "
 "reading, listening and speech experiments are regularly performed. We are "
 "always looking for subjects to participate in those experiments. You can "
@@ -234,11 +234,9 @@ msgstr ""
 ">Please note that most experiments require native Dutch speakers."
 
 #: main/templates/main/index.html:41
-#, fuzzy
-#| msgid "index:content:intro1"
 msgid "index:content:intro3"
 msgstr ""
-"The Utrecht Institute for Linguistics OTS is conducting research into how "
+"The Institute for language sciences is conducting research into how "
 "people understand and produce spoken and written language. In this context, "
 "reading, listening and speech experiments are regularly performed. We are "
 "always looking for subjects to participate in those experiments. You can "

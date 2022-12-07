@@ -218,7 +218,7 @@ msgstr "Vraag wachtwoord reset aan"
 #: main/templates/main/index.html:34
 msgid "index:content:intro1"
 msgstr ""
-"Aan het Utrechts Instituut voor Linguistiek OTS onderzoeken we hoe mensen "
+"Aan het Institute for Language Sciences onderzoeken we hoe mensen "
 "gesproken en geschreven taal begrijpen en produceren. In het kader daarvan "
 "worden er regelmatig lees-, luister- en spraakexperimenten uitgevoerd. We "
 "zijn altijd op zoek naar proefpersonen om deel te nemen aan die "
