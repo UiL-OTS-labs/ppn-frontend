@@ -167,12 +167,12 @@ msgstr "Welkom {}"
 #. Translators: This is the title that will end up in the header (in blue)
 #: main/templates/base/site_header.html:4
 msgid "site:header:title"
-msgstr "Experimenten UiL OTS"
+msgstr "Experimenten ILS Labs"
 
 #. Translators: This is the title that will end up in the tab of the browser
 #: main/templates/base/site_title.html:5
 msgid "site:name"
-msgstr "Experimenten UiL OTS"
+msgstr "Experimenten ILS Labs"
 
 #: main/templates/main/change_password.html:14
 #: main/templates/main/change_password.html:21
@@ -253,13 +253,13 @@ msgstr ""
 
 #: main/templates/main/index.html:52
 msgid "index:header:maillinglist"
-msgstr "Mailing list UiL OTS experimenten"
+msgstr "Mailing list ILS Labs experimenten"
 
 #: main/templates/main/index.html:56
 msgid "index:content:maillinglist1"
 msgstr ""
-" Wil je op de hoogte gehouden worden van nieuwe experimenten bij het UiL "
-"OTS? <a href=\"{}\">Geef dan hier je emailadres op.</a> Je kunt op dezelfde "
+" Wil je op de hoogte gehouden worden van nieuwe experimenten bij de ILS Labs? "
+" <a href=\"{}\">Geef dan hier je emailadres op.</a> Je kunt op dezelfde "
 "pagina ook een account aanmaken waarmee je je sneller kunt opgeven voor een "
 "experiment. "
 

@@ -165,12 +165,12 @@ msgstr "Welcome {}."
 #. Translators: This is the title that will end up in the header (in blue)
 #: main/templates/base/site_header.html:4
 msgid "site:header:title"
-msgstr "UiL OTS Experiments"
+msgstr "ILS Labs Experiments"
 
 #. Translators: This is the title that will end up in the tab of the browser
 #: main/templates/base/site_title.html:5
 msgid "site:name"
-msgstr "UiL OTS Experiments"
+msgstr "ILS Labs Experiments"
 
 #: main/templates/main/change_password.html:14
 #: main/templates/main/change_password.html:21
@@ -256,12 +256,12 @@ msgstr ""
 
 #: main/templates/main/index.html:52
 msgid "index:header:maillinglist"
-msgstr "Mailing list UiL OTS experiments"
+msgstr "Mailing list ILS Labs experiments"
 
 #: main/templates/main/index.html:56
 msgid "index:content:maillinglist1"
 msgstr ""
-"Do you want to be kept informed about new experiments at the UiL OTS? Enter "
+"Do you want to be kept informed about new experiments at the ILS Labs? Enter "
 "your email address here. Your personal data will of course be treated "
 "confidentially. Research data is not accessible to third parties, and in "
 "publications usually only group averages are reported. If individual results "

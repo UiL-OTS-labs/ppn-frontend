@@ -5,7 +5,7 @@ Adult participant administration system, written in Django.
 ## Introduction
 
 This Django project is part of a two-application system used to keep track of 
-adult participants, experiments and appointments for the UiL OTS Labs.
+adult participants, experiments and appointments for the ILS Labs.
 
 This project represents the frontend application, which is used by experiment 
 leaders and participants.
