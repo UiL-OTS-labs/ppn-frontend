@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load static %}
@@ -11,12 +11,17 @@
     {% trans 'closed:content:header' %} - {{ block.super }}
 {% endblock %}
 
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12">
-        <h3>
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1>
             {% trans 'closed:content:header' %}
-        </h3>
+        </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
         <p>
             {% trans 'closed:content:p1' %}
         </p>

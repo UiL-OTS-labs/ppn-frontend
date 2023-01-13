@@ -7,7 +7,9 @@ from django.core.exceptions import ImproperlyConfigured
 from django.utils.safestring import mark_safe
 from django.urls import reverse
 
-from uil.core.middleware import get_current_user
+from cdh.core.middleware import get_current_user
+from cdh.core.forms import BootstrapRadioSelect
+
 from api.resources import Experiment
 from api.resources.experiment_resources import ExperimentRegistration, \
     RegistrationCriteria, RegistrationCriterion
@@ -70,7 +72,7 @@ def get_register_form(
 
     final_form.fields['consent'] = forms.BooleanField(
         label='Dataverwerking',
-        widget=forms.RadioSelect(
+        widget=BootstrapRadioSelect(
             choices=(
                 (True, text),
             ),
@@ -95,7 +97,7 @@ def _get_register_form(form: BaseRegisterForm, experiment: Experiment):
 
         field = forms.CharField(
             label=mark_safe(exp_crit.criterion.name_natural),
-            widget=forms.RadioSelect(
+            widget=BootstrapRadioSelect(
                 choices=options,
             ),
         )
@@ -112,7 +114,7 @@ def _get_register_form(form: BaseRegisterForm, experiment: Experiment):
 
         form.fields['timeslot'] = forms.IntegerField(
             label='',
-            widget=forms.RadioSelect(
+            widget=BootstrapRadioSelect(
                 choices=timeslot_options,
             )
         )
@@ -122,7 +124,7 @@ def _get_register_form(form: BaseRegisterForm, experiment: Experiment):
     if not current_user.is_authenticated or not current_user.is_participant:
         form.fields['mailinglist'] = forms.BooleanField(
             label='Wil je bericht ontvangen over toekomstige taal-experimenten?',
-            widget=forms.RadioSelect(
+            widget=BootstrapRadioSelect(
                 choices=(
                     (True, 'Ja'),
                     (False, 'Nee')

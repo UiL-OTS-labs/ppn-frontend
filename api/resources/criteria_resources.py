@@ -1,6 +1,6 @@
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
-from uil.rest_client import rest_client as rest
+from cdh.rest import client as rest
 
 
 #

@@ -1,7 +1,9 @@
 from django import forms
 
+from cdh.core.forms import TemplatedForm
 
-class ChangeProfileForm(forms.Form):
+
+class ChangeProfileForm(TemplatedForm):
     name = forms.Field()
 
     email = forms.EmailField(required=False)
@@ -20,7 +22,7 @@ class ChangeProfileForm(forms.Form):
         })
 
 
-class TimeSlotForm(forms.Form):
+class TimeSlotForm(TemplatedForm):
     datetime = forms.DateTimeField()
 
     max_places = forms.IntegerField()
@@ -40,7 +42,7 @@ class TimeSlotForm(forms.Form):
         )
 
 
-class AddCommentForm(forms.Form):
+class AddCommentForm(TemplatedForm):
     participant = forms.Field(
         widget=forms.TextInput(
             attrs={

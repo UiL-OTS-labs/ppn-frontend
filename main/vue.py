@@ -1,4 +1,4 @@
-from uil.vue.components import Vue, VueComponent
+from cdh.vue.components import Vue, VueComponent
 
 Vue.add_component(VueComponent(
     'ExperimentList',

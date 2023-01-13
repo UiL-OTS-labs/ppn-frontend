@@ -69,7 +69,7 @@
               </li>
             </ul>
           </p>
-          <button class="button-colored register-button" @click="open_register_page(experiment.id)">
+          <button class="btn btn-primary mb-2 register-button" @click="open_register_page(experiment.id)">
             Inschrijven
           </button>
         </div>

@@ -64,4 +64,5 @@ class ExperimentObjectMixin:
             pk = self.kwargs.get(self.experiment_kwargs_name)
             return self.experiment_resource.client.get(pk=pk)
         except Exception as e:
+            print(e)
             raise ObjectDoesNotExist

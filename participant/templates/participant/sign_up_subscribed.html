@@ -1,13 +1,18 @@
-{% extends 'base/base.html' %}
+{% extends 'base/ppn_base.html' %}
 
 {% block header_title %}
     Opgeven voor mailing list en/of account aanmaken - {{ block.super }}
 {% endblock %}
 
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1>Emailadres opgeven voor taalexperimenten</h1>
+    </div>
+{% endblock %}
+
 {% block content %}
-    <div class="uu-inner-container">
-        <div class="col-12 mb-3">
-            <h1>Emailadres opgeven voor taalexperimenten</h1>
+    <div class="uu-container">
+        <div class="col-12">
             <p>
                 Je emailadres is toegevoegd aan onze mailing list. Dankjewel
                 voor je belangstelling!

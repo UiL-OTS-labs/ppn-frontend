@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load static %}
@@ -14,16 +14,12 @@
 
                 if($('form')[0].checkValidity()) {
                     el.prop('disabled', true);
-                    el.toggleClass('button--loading')
+                    el.toggleClass('btn-loading')
                 }
             });
         });
     </script>
     {# Redicilous display fix because Django cannot <label> right #}
-    <style nonce="{{ request.csp_nonce }}">
-        form label {
-            display: inline-block;
-        }
     </style>
 {% endblock %}
 
@@ -31,14 +27,19 @@
     Opgeven voor mailing list en/of account aanmaken - {{ block.super }}
 {% endblock %}
 
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1>
+            Opgeven voor mailing list en/of account aanmaken
+        </h1>
+    </div>
+{% endblock %}
+
 {% block content %}
-    <div class="uu-inner-container">
-        <div class="col-12 mb-3">
+    <div class="uu-container">
+        <div class="col-12">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <h1>
-                    Opgeven voor mailing list en/of account aanmaken
-                </h1>
                 <p>
                     Op deze pagina kun je je opgeven om mailtjes te
                     krijgen over nieuwe experimenten, en/of een account
@@ -79,9 +80,9 @@
                 {{ form.account }}
                 <br/>
                 <h2>Gegevens</h2>
-                <table width="100%">
-                    {{ form.as_table }}
-                </table>
+                <div class="uu-form uu-form-no-gap uu-form-no-help">
+                    {{ form }}
+                </div>
                 {# Sorry for this custom HTML, its template is being annoying when automatically rendered #}
                 <p class="mt-4">
                     <label for="id_consent_0">
@@ -102,9 +103,9 @@
                     </a>
                     voor meer informatie.
                 </p>
-                <div class="float-right">
-                    <button id="submit" type="submit">Opgeven</button>
-                </div>
+                <button id="submit" type="submit" class="btn btn-primary">
+                    Opgeven
+                </button>
             </form>
         </div>
     </div>

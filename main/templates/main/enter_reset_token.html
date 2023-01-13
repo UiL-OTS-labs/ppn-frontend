@@ -1,28 +1,30 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 
 {% block header_title %}
     {% trans 'enter_reset_token:content:header' %} - {{ block.super }}
 {% endblock %}
 
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12">
+{% block pre-messages-content %}
+    <div class="uu-hero">
         <h1>
             {% trans 'enter_reset_token:content:header' %}
         </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
         <p>
             {% trans 'enter_reset_token:content:help_text' %}
         </p>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <table width="100%">
-                {{ form.as_table }}
-            </table>
-            <br/>
-            <div class="float-right">
-                <button type="submit">{% trans 'enter_reset_token:content:continue' %}</button>
-            </div>
+            {{ form }}
+            <button type="submit" class="btn btn-primary mt-3">
+                {% trans 'enter_reset_token:content:continue' %}
+            </button>
         </form>
     </div>
 </div>

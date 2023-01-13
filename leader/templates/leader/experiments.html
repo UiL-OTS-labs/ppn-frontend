@@ -1,17 +1,21 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 
 {% block header_title %}
     {% trans 'experiments:content:header' %} - {{ block.super }}
 {% endblock %}
 
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12">
+{% block pre-messages-content %}
+    <div class="uu-hero">
         <h1>
             {% trans 'experiments:content:header' %}
         </h1>
-        <br/>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
         <table class="dt" width="100%">
             <thead>
                 <tr>
@@ -34,7 +38,7 @@
             </thead>
             {% for experiment in experiments %}
                 <tr>
-                    <td class="text-center">
+                    <td>
                         {% if experiment.open %}
                             <a href="{% url 'participant:register' experiment.id %}">
                                 {{ experiment.name }}
@@ -53,7 +57,7 @@
                     <td>
                         {{ experiment.n_participants }}
                     </td>
-                    <td class="text-center">
+                    <td>
                         <a
                             href="{% url 'leader:experiment_switch_open' experiment.id %}"
                             class="icon-open"

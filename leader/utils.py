@@ -4,7 +4,7 @@ from pytz import timezone
 
 from api.resources import TimeSlot
 from api.resources.timeslot_resources import DeleteTimeSlots, DeleteAppointment
-from uil.rest_client.collections import StringCollection
+from cdh.rest.client import StringCollection
 
 _TIMESLOT_KEY_PREFIX = len("timeslot_")
 _TIMESLOT_KEY_POSTFIX = len("[]")

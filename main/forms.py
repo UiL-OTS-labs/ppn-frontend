@@ -5,9 +5,18 @@ from django.utils.translation import gettext_lazy as _
 
 from api.resources.account_resources import ChangePassword, ForgotPassword, \
     ResetPassword
+from cdh.core.forms import TemplatedFormMixin, TemplatedForm
 
 
-class CustomAuthenticationFrom(AuthenticationForm):
+class CustomAuthenticationFrom(TemplatedFormMixin, AuthenticationForm):
+
+    error_messages = {
+        "invalid_login": _(
+            "Please enter a correct email address and password. Note that both "
+            "fields may be case-sensitive."
+        ),
+    }
+
     username = forms.EmailField(
         label=_('Email'),
         widget=forms.EmailInput(
@@ -22,7 +31,7 @@ class CustomAuthenticationFrom(AuthenticationForm):
 # Password forms
 #
 
-class EnterTokenForm(forms.Form):
+class EnterTokenForm(TemplatedForm):
     token = forms.CharField(
         widget=forms.TextInput(attrs={
             'autofocus':   True,
@@ -31,7 +40,7 @@ class EnterTokenForm(forms.Form):
     )
 
 
-class ForgotPasswordForm(forms.Form):
+class ForgotPasswordForm(TemplatedForm):
     email = forms.EmailField(
         widget=forms.EmailInput(attrs={
             'autofocus':   True,
@@ -64,7 +73,7 @@ class ForgotPasswordForm(forms.Form):
         return email
 
 
-class ResetPasswordForm(forms.Form):
+class ResetPasswordForm(TemplatedForm):
     error_messages = {
         'password_mismatch': _("forms:change_password:password_mismatch"),
         'token_incorrect':   _("forms:change_password:token_incorrect"),
@@ -116,7 +125,7 @@ class ResetPasswordForm(forms.Form):
         return password2
 
 
-class ChangePasswordForm(forms.Form):
+class ChangePasswordForm(TemplatedForm):
     error_messages = {
         'password_mismatch':  _("forms:change_password:password_mismatch"),
         'password_incorrect': _("forms:change_password:password_incorrect"),

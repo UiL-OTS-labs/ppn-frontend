@@ -5,13 +5,13 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy as reverse
-from django.utils.http import is_safe_url
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
 
 from api.resources import Admin, OpenExperiments, ValidateToken
 from main.mixins import OverrideLanguageMixin
-from uil.vue.rest import FancyListApiView
+from cdh.vue.rest import FancyListApiView
 from .forms import ChangePasswordForm, CustomAuthenticationFrom, EnterTokenForm, \
     ForgotPasswordForm, \
     ResetPasswordForm
@@ -187,7 +187,7 @@ class CustomLoginView(LoginView):
         )
 
         if redirect_to:
-            url_is_safe = is_safe_url(
+            url_is_safe = url_has_allowed_host_and_scheme(
                 url=redirect_to,
                 allowed_hosts=self.get_success_url_allowed_hosts(),
                 require_https=self.request.is_secure(),

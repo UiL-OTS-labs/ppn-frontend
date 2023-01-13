@@ -27,3 +27,9 @@ table {
 .criteria-table td:nth-child(2)  {
     color: green;
 }
+
+
+.uu-root-container {
+    --bs-uu-container-width: 115rem;
+    --bs-uu-content-width: 100rem;
+}

@@ -1,7 +1,7 @@
 from django.db import IntegrityError
 from django.utils.functional import cached_property
 
-from uil.rest_client import rest_client as rest
+from cdh.rest import client as rest
 from leader.models import LeaderPhoto
 
 

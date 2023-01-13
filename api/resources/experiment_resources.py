@@ -1,4 +1,4 @@
-from uil.rest_client import rest_client as rest
+from cdh.rest import client as rest
 
 
 class Location(rest.Resource):
