@@ -177,7 +177,7 @@ msgstr ""
 #. Translators: This is the title that will end up in the header (in blue)
 #: main/templates/base/ppn_base.html:34 main/templates/base/site_header.html:4
 msgid "site:header:title"
-msgstr "Experimenten UiL OTS"
+msgstr "Experimenten ILS Labs"
 
 #: main/templates/base/ppn_base.html:59
 msgid "lang:en"
