@@ -167,7 +167,7 @@ msgstr "Welkom {}"
 #. Translators: This is the title that will end up in the tab of the browser
 #: main/templates/base/ppn_base.html:11 main/templates/base/site_title.html:5
 msgid "site:name"
-msgstr "Experimenten UiL OTS"
+msgstr "Experimenten ILS Labs"
 
 #: main/templates/base/ppn_base.html:25 main/templates/base/ppn_base.html:26
 #: main/templates/base/ppn_base.html:79
@@ -231,7 +231,7 @@ msgstr "Vraag wachtwoord reset aan"
 #: main/templates/main/index.html:45
 msgid "index:content:intro1"
 msgstr ""
-"Aan het Utrechts Instituut voor Linguistiek OTS onderzoeken we hoe mensen "
+"Aan het Institute for Language Sciences onderzoeken we hoe mensen "
 "gesproken en geschreven taal begrijpen en produceren. In het kader daarvan "
 "worden er regelmatig lees-, luister- en spraakexperimenten uitgevoerd. We "
 "zijn altijd op zoek naar proefpersonen om deel te nemen aan die "
@@ -266,13 +266,13 @@ msgstr ""
 
 #: main/templates/main/index.html:70
 msgid "index:header:maillinglist"
-msgstr "Mailing list UiL OTS experimenten"
+msgstr "Mailing list ILS Labs experimenten"
 
 #: main/templates/main/index.html:74
 msgid "index:content:maillinglist1"
 msgstr ""
-" Wil je op de hoogte gehouden worden van nieuwe experimenten bij het UiL "
-"OTS? <a href=\"{}\">Geef dan hier je emailadres op.</a> Je kunt op dezelfde "
+" Wil je op de hoogte gehouden worden van nieuwe experimenten bij de ILS Labs? "
+" <a href=\"{}\">Geef dan hier je emailadres op.</a> Je kunt op dezelfde "
 "pagina ook een account aanmaken waarmee je je sneller kunt opgeven voor een "
 "experiment. "
 

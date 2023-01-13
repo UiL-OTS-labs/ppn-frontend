@@ -163,7 +163,7 @@ msgstr "Welcome {}."
 #. Translators: This is the title that will end up in the tab of the browser
 #: main/templates/base/ppn_base.html:11 main/templates/base/site_title.html:5
 msgid "site:name"
-msgstr "UiL OTS Experiments"
+msgstr "ILS Labs Experiments"
 
 #: main/templates/base/ppn_base.html:25 main/templates/base/ppn_base.html:26
 #: main/templates/base/ppn_base.html:79
@@ -227,7 +227,7 @@ msgstr "Request password reset"
 #: main/templates/main/index.html:45
 msgid "index:content:intro1"
 msgstr ""
-"The Utrecht Institute for Linguistics OTS is conducting research into how "
+"The Institute for Language Sciences is conducting research into how "
 "people understand and produce spoken and written language. In this context, "
 "reading, listening and speech experiments are regularly performed. We are "
 "always looking for subjects to participate in those experiments. You can "
@@ -245,11 +245,9 @@ msgstr ""
 ">Please note that most experiments require native Dutch speakers."
 
 #: main/templates/main/index.html:52
-#, fuzzy
-#| msgid "index:content:intro1"
 msgid "index:content:intro3"
 msgstr ""
-"The Utrecht Institute for Linguistics OTS is conducting research into how "
+"The Institute for language sciences is conducting research into how "
 "people understand and produce spoken and written language. In this context, "
 "reading, listening and speech experiments are regularly performed. We are "
 "always looking for subjects to participate in those experiments. You can "
@@ -267,12 +265,12 @@ msgstr ""
 
 #: main/templates/main/index.html:70
 msgid "index:header:maillinglist"
-msgstr "Mailing list UiL OTS experiments"
+msgstr "Mailing list ILS Labs experiments"
 
 #: main/templates/main/index.html:74
 msgid "index:content:maillinglist1"
 msgstr ""
-"Do you want to be kept informed about new experiments at the UiL OTS? Enter "
+"Do you want to be kept informed about new experiments at the ILS Labs? Enter "
 "your email address here. Your personal data will of course be treated "
 "confidentially. Research data is not accessible to third parties, and in "
 "publications usually only group averages are reported. If individual results "

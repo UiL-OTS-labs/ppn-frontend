@@ -164,7 +164,7 @@ msgstr "Uitschrijven mailing list"
 msgid "unsubscribe_mailinglist:content:p1"
 msgstr ""
 "Je kunt je hier uitschrijven voor uitnodigingen tot deelname aan "
-"experimenten van het UiL OTS."
+"experimenten van de ILS Labs."
 
 #: participant/templates/participant/unsubscribe_mailinglist.html:30
 msgid "unsubscribe_mailinglist:content:email"
