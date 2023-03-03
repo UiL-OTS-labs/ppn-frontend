@@ -61,7 +61,7 @@
             Bijzonderheden:
             <ul>
               <li>
-                Je krijgt {{ experiment.compensation }} om mee te doen.
+                Je krijgt <span v-html="experiment.compensation"></span> om mee te doen.
               </li>
               <li v-if="experiment.task_description" v-html="experiment.task_description">
               </li>
