@@ -28,7 +28,7 @@
         Type: {{ experiment.use_timeslots ? "op locatie" : "online" }}
       </div>
       <div class="ufl-undertitle-line">
-        Compensatie: {{ experiment.compensation }}
+          Compensatie: <span v-html="experiment.compensation"></span>
       </div>
       <div class="ufl-undertitle-line">
         Duur: {{ experiment.duration }}
