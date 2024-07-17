@@ -248,6 +248,7 @@ MENU_HIDE_EMPTY = False
 
 # Technical contact info
 TECHNICIAN_CONTACT = 'mailto:t.d.mees@uu.nl'
+EMAIL_FROM = 'nope@example.org'
 
 # PPN API
 API_HOST = 'http://localhost:8000/'

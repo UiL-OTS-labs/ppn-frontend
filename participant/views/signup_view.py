@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.messages import error
 from django.http import HttpResponseRedirect
@@ -80,6 +81,7 @@ class SignUpView(OverrideLanguageMixin, generic.FormView):
         )
 
         context['admin'] = Admin.client.get()
+        context['admin_email'] = settings.EMAIL_FROM
 
         return context
 

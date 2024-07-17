@@ -32,6 +32,7 @@ class HomeView(OverrideLanguageMixin, generic.TemplateView):
         admin = Admin.client.get()
 
         context['admin'] = admin
+        context['admin_email'] = settings.EMAIL_FROM
 
         return context
 
@@ -47,6 +48,7 @@ class PrivacyView(OverrideLanguageMixin, generic.TemplateView):
         admin = Admin.client.get()
 
         context['admin'] = admin
+        context['admin_email'] = settings.EMAIL_FROM
 
         return context
 
