@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-02 10:12+0000\n"
+"POT-Creation-Date: 2024-07-17 15:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -124,19 +124,19 @@ msgstr "This experiment will take {}."
 msgid "register:content:location"
 msgstr "It will be held at "
 
-#: participant/templates/participant/exp_info.html:20
+#: participant/templates/participant/exp_info.html:22
 msgid "register:content:details"
 msgstr "Details:"
 
-#: participant/templates/participant/exp_info.html:24
+#: participant/templates/participant/exp_info.html:26
 msgid "register:content:compensation"
 msgstr "You will receive {} for participating."
 
-#: participant/templates/participant/exp_info.html:44
+#: participant/templates/participant/exp_info.html:46
 msgid "register:content:leader"
 msgstr "Experiment leader:"
 
-#: participant/templates/participant/exp_info.html:52
+#: participant/templates/participant/exp_info.html:54
 msgid "register:content:other_leaders"
 msgstr "Other experiment leaders:"
 

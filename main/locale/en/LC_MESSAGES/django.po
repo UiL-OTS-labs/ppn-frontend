@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-02 10:12+0000\n"
+"POT-Creation-Date: 2024-07-17 15:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -227,8 +227,8 @@ msgstr "Request password reset"
 #: main/templates/main/index.html:45
 msgid "index:content:intro1"
 msgstr ""
-"The Institute for Language Sciences is conducting research into how "
-"people understand and produce spoken and written language. In this context, "
+"The Institute for Language Sciences is conducting research into how people "
+"understand and produce spoken and written language. In this context, "
 "reading, listening and speech experiments are regularly performed. We are "
 "always looking for subjects to participate in those experiments. You can "
 "sign up for this on this website."
@@ -247,8 +247,8 @@ msgstr ""
 #: main/templates/main/index.html:52
 msgid "index:content:intro3"
 msgstr ""
-"The Institute for language sciences is conducting research into how "
-"people understand and produce spoken and written language. In this context, "
+"The Institute for language sciences is conducting research into how people "
+"understand and produce spoken and written language. In this context, "
 "reading, listening and speech experiments are regularly performed. We are "
 "always looking for subjects to participate in those experiments. You can "
 "sign up for this on this website."
@@ -407,15 +407,15 @@ msgstr "Forgot password?"
 msgid "login:button:login"
 msgstr "Log in"
 
-#: main/views.py:86
+#: main/views.py:88
 msgid "password:message:updated"
 msgstr "Password changed!"
 
-#: main/views.py:121
+#: main/views.py:123
 msgid "password:message:reset_requested"
 msgstr ""
 "We've sent you an email with instructions on how to reset your password!"
 
-#: main/views.py:144
+#: main/views.py:146
 msgid "password:message:reset_successful"
 msgstr "Password successfully reset!"

@@ -1,6 +1,6 @@
 from django import forms
-from django.utils.safestring import SafeString, mark_safe
-from django.utils.html import conditional_escape
+from django.utils.safestring import mark_safe
+from django.urls import reverse
 
 from cdh.core.forms import BootstrapRadioSelect, TemplatedForm, TelephoneInput
 from .widgets import LanguageWidget, SexWidget
@@ -191,6 +191,8 @@ class SignUpForm(TemplatedForm):
 #
 
 class BaseRegisterForm(TemplatedForm):
+    show_help_column = False
+    always_show_help_column = False
 
     name = forms.CharField(
         label="Naam",
@@ -240,7 +242,10 @@ class BaseRegisterForm(TemplatedForm):
     )
 
     sex = forms.CharField(
-        label='Mijn biologisch geslacht is',
+        label=lambda: mark_safe(f'Mijn <a href="'
+                                f'{reverse("main:privacy")}#biological-sex"'
+                                f'target="_blank">'
+                                f'biologisch geslacht</a> is'),
         help_text=mark_safe(
             '<strong>Waarom willen we je biologisch geslacht weten?</strong>'
             '<br>'
