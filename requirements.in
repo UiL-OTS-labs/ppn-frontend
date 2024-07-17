@@ -1,4 +1,4 @@
-Django>=4.0,<4.1
+Django>=4.2,<4.3
 django-braces
 django-csp
 django-simple-menu
@@ -12,7 +12,7 @@ cryptography
 PyJWT
 bpython
 pillow
--e git+https://github.com/DH-IT-Portal-Development/django-shared-core.git@v3.0.0#egg=cdh-django-core
+cdh-django-core[all] @ git+https://github.com/CentreForDigitalHumanities/django-shared-core.git@v3.1.0
 mysqlclient
 backports-datetime-fromisoformat
 babel
