@@ -28,10 +28,10 @@
         Type: {{ experiment.use_timeslots ? "op locatie" : "online" }}
       </div>
       <div class="ufl-undertitle-line">
-        Compensatie: {{ experiment.compensation }}
+        Compensatie: <span v-html="experiment.compensation" />
       </div>
       <div class="ufl-undertitle-line">
-        Duur: {{ experiment.duration }}
+        Duur: <span v-html="experiment.duration" />
       </div>
       <div class="ufl-undertitle-line">
         <a :href="$url('participant:register', [experiment.id])" class="register-link">Inschrijven</a>
@@ -49,11 +49,10 @@
                   v-if="experiment.location.route_url"
                   :href="experiment.location.route_url"
                   target="_blank"
+                  v-html="experiment.location.name"
               >
-                {{ experiment.location.name }}
               </a>
-              <span v-else>
-                {{ experiment.location.name }}
+              <span v-else v-html="experiment.location.name">
               </span>
             </span>
           </p>
@@ -61,7 +60,7 @@
             Bijzonderheden:
             <ul>
               <li>
-                Je krijgt {{ experiment.compensation }} om mee te doen.
+                Je krijgt <span v-html="experiment.compensation" /> om mee te doen.
               </li>
               <li v-if="experiment.task_description" v-html="experiment.task_description">
               </li>
