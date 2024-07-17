@@ -64,13 +64,6 @@
 {% endblock %}
 
 {% block content %}
-<div class="uu-hero text-bg-light">
-    <span>
-        Zie ook onze <a href="{% url 'main:privacy' %}">privacy-verklaring</a>
-        voor meer informatie over waarom we deze gegevens nodig hebben en hoe
-        wij hier mee om gaan.
-    </span>
-</div>
 <div class="uu-container">
     {% include 'participant/exp_info.html' %}
 </div>
@@ -99,9 +92,18 @@
         </div>
     {% endif %}
     {% if success == None or recoverable == True %}
+        <div class="uu-hero">
+            <h2 >Inschrijven</h2>
+        </div>
+        <div class="uu-container">
+            <span>
+                Zie ook onze <a href="{% url 'main:privacy' %}">privacy-verklaring</a>
+                voor meer informatie over waarom we deze gegevens nodig hebben en hoe
+                wij hier mee om gaan.
+            </span>
+        </div>
         <div class="uu-container">
             <div class="col-12">
-                <h2 class="mb-3">Inschrijven</h2>
                 <form method="post" class="uu-form uu-form-no-gap">
                     {% csrf_token %}
                     {{ form }}
