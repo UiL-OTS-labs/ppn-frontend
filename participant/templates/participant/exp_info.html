@@ -12,7 +12,9 @@
                     {{ experiment.location.name }}
                 </a>
             {% else %}
+                {% autoescape off %}
                 {{ experiment.location.name }}
+                {% endautoescape %}
             {% endif %}.
         {% endif %}
     </p>
