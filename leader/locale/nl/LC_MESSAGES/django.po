@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-02 10:12+0000\n"
+"POT-Creation-Date: 2024-08-30 11:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,16 @@ msgstr ""
 msgid "comments:new:header"
 msgstr "Opmerking toevoegen"
 
-#: leader/templates/leader/add_comment.html:26
+#: leader/templates/leader/add_comment.html:23
+msgid "comments:new:comment:help_text"
+msgstr ""
+"Het commentaar dat je hier aanlevert, wordt alleen naar de admin van het "
+"wervingssysteem gestuurd (niet naar de participant). Je kunt het hier melden "
+"als de participant bijvoorbeeld niet kwam opdagen zonder je dat te laten "
+"weten, of als ze afgeleid waren tijdens het experiment, de instructies niet "
+"serieus namen, etcetera."
+
+#: leader/templates/leader/add_comment.html:29
 msgid "globals:add_button"
 msgstr "Toevoegen"
 
@@ -310,9 +319,6 @@ msgstr "Profiel succesvol aangepast."
 #: leader/views.py:419
 msgid "leaders:message:sent_reminders"
 msgstr "Herinneringen gestuurd naar {} participant(en)"
-
-#~ msgid "comments:new:info_text"
-#~ msgstr " "
 
 #~ msgid "participants:info_text"
 #~ msgstr " "

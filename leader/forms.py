@@ -43,6 +43,8 @@ class TimeSlotForm(TemplatedForm):
 
 
 class AddCommentForm(TemplatedForm):
+    show_valid_fields = False
+
     participant = forms.Field(
         widget=forms.TextInput(
             attrs={

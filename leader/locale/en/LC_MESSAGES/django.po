@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-02 10:12+0000\n"
+"POT-Creation-Date: 2024-08-30 11:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,16 @@ msgstr ""
 msgid "comments:new:header"
 msgstr "Add comment"
 
-#: leader/templates/leader/add_comment.html:26
+#: leader/templates/leader/add_comment.html:23
+msgid "comments:new:comment:help_text"
+msgstr ""
+"The comment that you submit here, will only be visible to the recruitment "
+"system admin (not to the participant). You can report particularities about "
+"the participant here, for instance if they didn't show up without letting "
+"you know, or if they were distracted during the experiment, didn't listen to "
+"instructions, etcetera."
+
+#: leader/templates/leader/add_comment.html:29
 msgid "globals:add_button"
 msgstr "Add"
 
@@ -308,9 +317,6 @@ msgstr "Successfully updated profile."
 #: leader/views.py:419
 msgid "leaders:message:sent_reminders"
 msgstr "Sent reminders to {} participant(s)"
-
-#~ msgid "comments:new:info_text"
-#~ msgstr " "
 
 #~ msgid "participants:info_text"
 #~ msgstr " "

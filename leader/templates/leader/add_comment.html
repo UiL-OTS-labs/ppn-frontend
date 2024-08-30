@@ -19,6 +19,9 @@
 {% block content %}
     <div class="uu-container">
         <div class="col-12">
+            <p>
+                {% trans "comments:new:comment:help_text" %}
+            </p>
             <form method="post" class="uu-form uu-form-no-help uu-form-no-gap">
                 {% csrf_token %}
                 {{ form }}
