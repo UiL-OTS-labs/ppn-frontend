@@ -62,4 +62,4 @@ class RemoteApiUser(PermissionsMixin, AbstractBaseUser):
         return self.groups.filter(name=settings.GROUPS_PARTICIPANT).exists()
 
     def __str__(self):
-        return self.get_username()
+        return str(self.get_username())

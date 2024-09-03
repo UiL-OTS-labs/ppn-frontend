@@ -1,8 +1,8 @@
 from django.apps import AppConfig
 
-from uil.rest_client.mixins import ResourceSetupMixin
+from cdh.rest.mixins import ClientResourceSetupMixin
 
 
-class AuthConfig(ResourceSetupMixin, AppConfig):
+class AuthConfig(ClientResourceSetupMixin, AppConfig):
     name = 'api.auth'
     label = 'apiauth'
