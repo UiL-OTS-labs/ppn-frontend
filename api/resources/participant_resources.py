@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from uil.rest_client import rest_client as rest
+from cdh.rest import client as rest
 from .generic_resources import SuccessResponse
 
 

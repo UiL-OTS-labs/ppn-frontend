@@ -46,13 +46,17 @@ Menu.add_item("main", MenuItem(_('menu:privacy'),
 Menu.add_item("main", MenuItem(_('main:globals:login'),
                                  reverse('main:login'),
                                  check=lambda x: not x.user.is_authenticated,
-                                 css_class="show-xs"
                                  ))
 
 Menu.add_item("main", MenuItem(_('mainmenu:change_password'),
                                reverse('main:change_password'),
                                check=lambda x: x.user.is_authenticated
                                ))
+
+Menu.add_item("main", MenuItem(_('main:globals:logout'),
+                                 reverse('main:logout'),
+                                 check=lambda x: x.user.is_authenticated,
+                                 ))
 
 Menu.add_item("footer", MenuItem(_('main:globals:login'),
                                  reverse('main:login'),

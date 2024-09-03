@@ -1,10 +1,12 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load vue_tags %}
 {% load i18n %}
 {% load transformat %}
+{% load static %}
 
 {% block html_head %}
-    {% include 'uil.vue/vueloader.html' %}
+    {{ block.super }}
+    {% include 'cdh.vue/vueloader.html' %}
 
     {% load_vue_component 'ExperimentList' request.csp_nonce %}
 
@@ -27,8 +29,17 @@
     </script>
 {% endblock %}
 
+{% block pre-messages-content %}
+    <div class="uu-cover h-300">
+{#        <img class="uu-cover-image" alt="cover" src="{% static 'main/img.png' %}" />#}
+    </div>
+    <div class="uu-hero">
+        <h1>Experimenten ILS Labs</h1>
+    </div>
+{% endblock %}
+
 {% block content %}
-<div class="uu-inner-container">
+<div class="uu-container">
     <div class="col-12">
         <p>
             {% trans 'index:content:intro1' %}
@@ -40,22 +51,29 @@
         <p class="mb-4">
             {% trans 'index:content:intro3' %}
         </p>
-
-        <h3>{% trans 'index:header:open_experiments' %}</h3>
+    </div>
+</div>
+<div class="uu-container">
+    <div class="col-12">
+        <h2>{% trans 'index:header:open_experiments' %}</h2>
             <div id="list"></div>
         <p class="mb-4">
             {% url 'participant:cancel_landing' as cancel_url %}
             {% transformat 'index:content:cancel' cancel_url %}
         </p>
-        {% if request.user.is_anonymous or not request.user.is_participant %}
-            <h3>
+    </div>
+</div>
+{% if request.user.is_anonymous or not request.user.is_participant %}
+    <div class="uu-container">
+        <div class="col-12">
+            <h2>
                 {% trans 'index:header:maillinglist' %}
-            </h3>
+            </h2>
             <p>
                 {% url 'participant:sign_up' as mailinglist_url %}
                 {% transformat 'index:content:maillinglist1' mailinglist_url %}
             </p>
-        {% endif %}
+        </div>
     </div>
-</div>
+{% endif %}
 {% endblock %}

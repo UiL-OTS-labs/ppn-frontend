@@ -1,8 +1,8 @@
 from django import forms
 from django.utils.safestring import mark_safe
-from django.utils.html import conditional_escape
 from django.urls import reverse
 
+from cdh.core.forms import BootstrapRadioSelect, TemplatedForm, TelephoneInput
 from .widgets import LanguageWidget, SexWidget
 
 
@@ -10,7 +10,7 @@ from .widgets import LanguageWidget, SexWidget
 # Sign up form
 #
 
-class SignUpForm(forms.Form):
+class SignUpForm(TemplatedForm):
 
     ACCOUNT_CHOICES = (
         (
@@ -72,7 +72,7 @@ class SignUpForm(forms.Form):
 
     account = forms.BooleanField(
         label='Ik ben',
-        widget=forms.RadioSelect(
+        widget=BootstrapRadioSelect(
             choices=ACCOUNT_CHOICES,
             attrs={
                 'required': True,
@@ -83,7 +83,7 @@ class SignUpForm(forms.Form):
 
     multilingual = forms.BooleanField(
         label='Ik ben',
-        widget=forms.RadioSelect(
+        widget=BootstrapRadioSelect(
             choices=MULTILINGUAL_CHOICES,
             attrs={
                 'required': True,
@@ -94,7 +94,7 @@ class SignUpForm(forms.Form):
 
     dyslexic = forms.BooleanField(
         label='Ik ben',
-        widget=forms.RadioSelect(
+        widget=BootstrapRadioSelect(
             choices=(
                 (True, 'Dyslectisch'),
                 (False, 'Niet dyslectisch'),
@@ -108,7 +108,7 @@ class SignUpForm(forms.Form):
 
     mailing_list = forms.BooleanField(
         label='Ik wil',
-        widget=forms.RadioSelect(
+        widget=BootstrapRadioSelect(
             choices=MAILING_LIST_CHOICES,
             attrs={
                 'required': True,
@@ -119,7 +119,7 @@ class SignUpForm(forms.Form):
 
     consent = forms.BooleanField(
         label='Dataverwerking',
-        widget=forms.RadioSelect(
+        widget=BootstrapRadioSelect(
             choices=(
                 (
                     True,
@@ -177,105 +177,30 @@ class SignUpForm(forms.Form):
 
         return data
 
-    def _html_output(self, normal_row, error_row, row_ender, help_text_html,
-                     errors_on_separate_row):
-        """This method overrides the default, but is mostly the same. It only
-        filters out the 'account' and 'mailing_list' questions as we render
-        those manually in the template."""
-
-        # Errors that should be displayed above all fields.
-        top_errors = self.non_field_errors().copy()
-        output, hidden_fields = [], []
-
-        for name, field in self.fields.items():
-
-            # BEGIN ADDITION
-            if name in ['account', 'mailing_list', 'consent']:
-                continue
-            # END ADDITION
-
-            html_class_attr = ''
-            bf = self[name]
-            bf_errors = self.error_class(bf.errors)
-            if bf.is_hidden:
-                if bf_errors:
-                    top_errors.extend(
-                        [_('(Hidden field %(name)s) %(error)s') % {
-                            'name':  name,
-                            'error': str(e)
-                        }
-                         for e in bf_errors])
-                hidden_fields.append(str(bf))
-            else:
-                # Create a 'class="..."' attribute if the row should have any
-                # CSS classes applied.
-                css_classes = bf.css_classes()
-                if css_classes:
-                    html_class_attr = ' class="%s"' % css_classes
-
-                if errors_on_separate_row and bf_errors:
-                    output.append(error_row % str(bf_errors))
-
-                if bf.label:
-                    label = conditional_escape(bf.label)
-                    label = bf.label_tag(label) or ''
-                else:
-                    label = ''
-
-                if field.help_text:
-                    help_text = help_text_html % field.help_text
-                else:
-                    help_text = ''
-
-                output.append(normal_row % {
-                    'errors':          bf_errors,
-                    'label':           label,
-                    'field':           bf,
-                    'help_text':       help_text,
-                    'html_class_attr': html_class_attr,
-                    'css_classes':     css_classes,
-                    'field_name':      bf.html_name,
-                })
-
-        if top_errors:
-            output.insert(0, error_row % top_errors)
-
-        if hidden_fields:  # Insert any hidden fields in the last row.
-            str_hidden = ''.join(hidden_fields)
-            if output:
-                last_row = output[-1]
-                # Chop off the trailing row_ender (e.g. '</td></tr>') and
-                # insert the hidden fields.
-                if not last_row.endswith(row_ender):
-                    # This can happen in the as_p() case (and possibly others
-                    # that users write): if there are only top errors, we may
-                    # not be able to conscript the last row for our purposes,
-                    # so insert a new, empty row.
-                    last_row = (normal_row % {
-                        'errors':          '',
-                        'label':           '',
-                        'field':           '',
-                        'help_text':       '',
-                        'html_class_attr': html_class_attr,
-                        'css_classes':     '',
-                        'field_name':      '',
-                    })
-                    output.append(last_row)
-                output[-1] = last_row[:-len(row_ender)] + str_hidden + row_ender
-            else:
-                # If there aren't any rows in the output, just append the
-                # hidden fields.
-                output.append(str_hidden)
-        return mark_safe('\n'.join(output))
-
+    def get_context(self):
+        context = super().get_context()
+        # Remove the fields we add manually from the context
+        context['fields'] = [
+            x for x in context['fields']
+            if x[0].name not in ['account', 'mailing_list', 'consent']
+        ]
+        return context
 
 #
 # Register form
 #
 
-class BaseRegisterForm(forms.Form):
+class BaseRegisterForm(TemplatedForm):
+    show_help_column = False
+    always_show_help_column = False
+
     name = forms.CharField(
-        label="Naam"
+        label="Naam",
+        help_text=mark_safe(
+            "Zie ook onze <a href='/privacy/'>privacy-verklaring</a> voor meer "
+            "informatie over waarom we deze gegevens nodig hebben en hoe wij "
+            "hier mee om gaan."
+        )
     )
 
     email = forms.EmailField(
@@ -284,9 +209,13 @@ class BaseRegisterForm(forms.Form):
 
     phone = forms.CharField(
         label="Telefoonnummer",
-        widget=forms.TextInput(attrs={
-            'type': 'tel'
-        }),
+        widget=TelephoneInput,
+        help_text=mark_safe(
+            "<strong>Waarom willen we je telefoonummer weten?</strong><br> "
+            "We vragen dit zodat we je kunnen bellen als bijvoorbeeld je "
+            "afspraak op het laatste moment niet door kan gaan of je de "
+            "weg niet kunt vinden in het lab."
+        )
     )
 
     birth_date = forms.DateField(
@@ -304,7 +233,7 @@ class BaseRegisterForm(forms.Form):
 
     multilingual = forms.CharField(
         label='Ik ben',
-        widget=forms.RadioSelect(
+        widget=BootstrapRadioSelect(
             choices=(
                 ('N', 'Eentalig'),
                 ('Y', 'Meertalig (opgegroeid met meerdere moedertalen)'),
@@ -313,28 +242,36 @@ class BaseRegisterForm(forms.Form):
     )
 
     sex = forms.CharField(
-        label='Mijn biologisch geslacht is',
-        help_text='Waarom willen we je biologisch geslacht weten? '
-                  'Geslachtshormonen zijn van invloed op de ontwikkeling en '
-                  'het functioneren van de hersenen, en kunnen dus ook '
-                  'invloed hebben op hoe de hersenen met taal omgaan. Het is '
-                  'daarom gebruikelijk om op groepsniveau te rapporteren '
-                  'hoeveel mannen en hoeveel vrouwen aan een studie hebben '
-                  'deelgenomen. Soms worden de resultaten ook per groep '
-                  'geanalyseerd.',
+        label=lambda: mark_safe(f'Mijn <a href="'
+                                f'{reverse("main:privacy")}#biological-sex"'
+                                f'target="_blank">'
+                                f'biologisch geslacht</a> is'),
+        help_text=mark_safe(
+            '<strong>Waarom willen we je biologisch geslacht weten?</strong>'
+            '<br>'
+            'Geslachtshormonen zijn van invloed op de ontwikkeling en '
+            'het functioneren van de hersenen, en kunnen dus ook '
+            'invloed hebben op hoe de hersenen met taal omgaan. Het is '
+            'daarom gebruikelijk om op groepsniveau te rapporteren '
+            'hoeveel mannen en hoeveel vrouwen aan een studie hebben '
+            'deelgenomen. Soms worden de resultaten ook per groep '
+            'geanalyseerd.'
+        ),
         widget=SexWidget
     )
 
     handedness = forms.CharField(
         label='Ik ben',
-        help_text='Waarom willen we weten wat je dominante hand is? Links- '
-                  'danwel rechtshandigheid gaat gepaard met verschillen in de '
-                  'hersenen, die ook van invloed zouden kunnen zijn op hoe de '
-                  'hersenen met taal omgaan. Het is daarom gebruikelijk om op '
-                  'groepsniveau te rapporteren hoeveel links- en '
-                  'rechtshandigen aan een studie hebben deelgenomen. Soms '
-                  'worden de resultaten ook per groep geanalyseerd.',
-        widget=forms.RadioSelect(
+        help_text=mark_safe(
+            '<strong>Waarom willen we weten wat je dominante hand is?</strong>'
+            '<br>Links- danwel rechtshandigheid gaat gepaard met verschillen in'
+            ' de hersenen, die ook van invloed zouden kunnen zijn op hoe de '
+            'hersenen met taal omgaan. Het is daarom gebruikelijk om op '
+            'groepsniveau te rapporteren hoeveel links- en rechtshandigen aan '
+            'een studie hebben deelgenomen. Soms worden de resultaten ook per '
+            'groep geanalyseerd.'
+        ),
+        widget=BootstrapRadioSelect(
             choices=(
                 ('L', 'Linkshandig'),
                 ('R', 'Rechtshandig'),
@@ -344,7 +281,7 @@ class BaseRegisterForm(forms.Form):
 
     dyslexic = forms.CharField(
         label='Ik ben',
-        widget=forms.RadioSelect(
+        widget=BootstrapRadioSelect(
             choices=(
                 ('Y', 'Dyslectisch'),
                 ('N', 'Niet dyslectisch'),
@@ -354,7 +291,7 @@ class BaseRegisterForm(forms.Form):
 
     social_status = forms.CharField(
         label='Ik ben',
-        widget=forms.RadioSelect(
+        widget=BootstrapRadioSelect(
             choices=(
                 ('S', 'Student'),
                 ('O', 'Geen student'),

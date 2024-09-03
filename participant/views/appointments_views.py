@@ -2,10 +2,10 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.views import generic
 
-from uil.rest_client.exceptions import ApiError
+from cdh.rest.exceptions import ApiError
 from api.resources import Appointments
 from api.resources.participant_resources import SendCancelToken, Appointment
 from main.mixins import OverrideLanguageMixin
@@ -23,7 +23,6 @@ class CancelLandingView(OverrideLanguageMixin, generic.TemplateView):
         return super(CancelLandingView, self).get(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
-
         if 'email' in request.POST:
             req = SendCancelToken()
             req.email = request.POST.get('email')

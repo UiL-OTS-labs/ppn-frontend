@@ -17,15 +17,15 @@ from api.resources import Leader, LeaderExperiments, \
 from api.resources.comment_resources import Comment
 from api.resources.experiment_resources import LeaderExperiment, \
     ReminderParticipants
-from uil.rest_client.exceptions import ApiError
+from cdh.rest.exceptions import ApiError
 from leader.forms import AddCommentForm, ChangeProfileForm, TimeSlotForm
 from leader.models import LeaderPhoto
 from leader.utils import add_timeslot, delete_timeslot, delete_timeslots, now, \
     unsubscribe_participant
 from main.mixins import ExperimentObjectMixin
-from uil.core.views import RedirectActionView
-from uil.core.views.mixins import RedirectSuccessMessageMixin
-from uil.rest_client.collections import StringCollection
+from cdh.core.views import RedirectActionView
+from cdh.core.views.mixins import RedirectSuccessMessageMixin
+from cdh.rest.client import StringCollection
 
 
 class ExperimentsView(braces.LoginRequiredMixin,

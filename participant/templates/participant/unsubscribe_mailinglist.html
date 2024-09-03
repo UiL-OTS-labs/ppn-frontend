@@ -1,22 +1,27 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load static %}
 
 {% block html_head %}
-        <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
 {% endblock%}
 
 {% block header_title %}
     {% trans 'unsubscribe_mailinglist:content:title' %} - {{ block.super }}
 {% endblock %}
 
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12 mb-3">
-        <h3>
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1>
             {% trans 'unsubscribe_mailinglist:content:title' %}
-        </h3>
+        </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
         <p>
             {% trans 'unsubscribe_mailinglist:content:p1' %}
         </p>
@@ -26,7 +31,7 @@
             </p>
             <form method="post" action="{{ http.path }}">
                 {% csrf_token %}
-                <button type="submit">
+                <button type="submit" class="btn btn-primary">
                     {% trans 'unsubscribe_mailinglist:button:unsubscribe' %}
                 </button>
             </form>
