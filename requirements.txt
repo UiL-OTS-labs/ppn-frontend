@@ -59,6 +59,7 @@ django==4.2.14
     #   django-csp
     #   django-debug-toolbar
     #   django-extensions
+    #   django-filter
     #   django-modeltranslation
     #   django-simple-menu
     #   djangorestframework
@@ -82,6 +83,8 @@ django-extensions==3.2.3
     # via
     #   -r requirements.in
     #   cdh-django-core
+django-filter==24.3
+    # via -r requirements.in
 django-impersonate==1.9.4
     # via cdh-django-core
 django-modeltranslation==0.19.5
