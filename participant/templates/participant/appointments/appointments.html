@@ -36,73 +36,31 @@
 {% block content %}
 <div class="uu-container">
     <div class="col-12">
-        <p>
-            {% trans 'appointments:content:p1' %}
-        </p>
-        <table class="dt_custom table w-100" data-language="{% datatables_lang %}">
-            <thead>
-                <tr>
-                    <th>
-                        {% trans 'appointments:thead:experiment' %}
-                    </th>
-                    <th>
-                        {% trans 'appointments:thead:day' %}
-                    </th>
-                    <th>
-                        {% trans 'appointments:thead:date' %}
-                    </th>
-                    <th>
-                        {% trans 'appointments:thead:time' %}
-                    </th>
-                    <th>
-                        {% trans 'appointments:thead:leader' %}
-                    </th>
-                    <th>
-                        {% trans 'appointments:thead:leader_email' %}
-                    </th>
-                    <th>
-                        {% trans 'appointments:thead:actions' %}
-                    </th>
-                </tr>
-            </thead>
-            {% for appointment in appointments %}
-                <tr class="align-middle">
-                    <td>
-                        {{ appointment.experiment.name }}
-                    </td>
-                    <td>
-                        {{ appointment.timeslot.datetime|date:"l"|capfirst }}
-                    </td>
-                    <td>
-                        {{ appointment.timeslot.datetime|date:'d-m-Y' }}
-                    </td>
-                    <td>
-                        {{ appointment.timeslot.datetime|date:'H:i' }}
-                    </td>
-                    <td>
-                        {{ appointment.experiment.leader.name }}
-                    </td>
-                    <td>
-                        {{ appointment.experiment.leader.email }}
-                    </td>
-                    <td>
-                        {% if appointment.can_cancel %}
-                            {% if token %}
-                                <a href="{% url 'participant:cancel_appointment' token appointment.id %}" class="btn btn-sm btn-primary">
-                                    {% trans 'appointments:content:cancel' %}
-                                </a>
-                            {% else %}
-                                <a href="{% url 'participant:cancel_appointment' appointment.id %}" class="btn btn-sm btn-primary">
-                                    {% trans 'appointments:content:cancel' %}
-                                </a>
-                            {% endif %}
-                        {% else %}
-                            {% trans 'appointments:content:cannot_cancel' %}
-                        {% endif %}
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
+        {% for appointment in appointments %}
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title"> {{ appointment.experiment.name }}</h5>
+                {% if appointment.experiment.use_timeslots %}
+                <div>Datum: {{ appointment.timeslot.datetime|date:"l d-m-Y" }}</div>
+                <div>Tijd:  {{ appointment.timeslot.datetime|date:'H:i' }}</div>
+                {% endif %}
+                <div class="mt-3">Naam onderzoeker: {{ appointment.experiment.leader.name }}</div>
+                <div>Telefoonnummer onderzoeker: {{ appointment.experiment.leader.phonenumber }}</div>
+
+                <div class="mt-3">
+                    {% if appointment.can_cancel %}
+                        <a href="{% url 'participant:cancel_appointment' token appointment.id %}" class="btn btn-danger">
+                            {% trans 'appointments:content:cancel' %}
+                        </a>
+                    {% else %}
+                        {% trans 'appointments:content:cannot_cancel' %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% empty %}
+            {% translate 'appointments:content:no_appointments' %}
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
