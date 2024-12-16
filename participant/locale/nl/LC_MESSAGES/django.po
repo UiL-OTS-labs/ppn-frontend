@@ -70,13 +70,13 @@ msgstr "Afspraak afzeggen"
 #: participant/templates/participant/appointments/cancel_landing.html:22
 msgid "cancel_landing:content:p1"
 msgstr ""
-"Indien je een account hebt, kun je je uitschrijven door hieronder in te "
+"Als je een account hebt, kun je je uitschrijven door hieronder in te "
 "loggen."
 
 #: participant/templates/participant/appointments/cancel_landing.html:25
 msgid "cancel_landing:content:p2"
 msgstr ""
-"Indien je geen account hebt, kun je hier het email adres invullen waarmee je "
+"Als je geen account hebt, kun je hier het email-adres invullen waarmee je "
 "jezelf hebt opgegeven. Je zult dan een email ontvangen met een link om je "
 "uit te schrijven."
 
@@ -183,7 +183,7 @@ msgstr ""
 #: participant/views/appointments_views.py:31
 msgid "cancel_landing:message:send_token"
 msgstr ""
-"Indien het email adres bestaat in onze database hebben wij een mail gestuurd "
+"Als het email adres bestaat in onze database hebben wij een mail gestuurd "
 "met verdere instructies!"
 
 #: participant/views/appointments_views.py:91
