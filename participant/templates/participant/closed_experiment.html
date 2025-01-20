@@ -23,7 +23,8 @@
 <div class="uu-container">
     <div class="col-12">
         <p>
-            {% trans 'closed:content:p1' %}
+            {% url "main:home" as home %}
+            {% transformat 'closed:content:p1' home %}
         </p>
     </div>
 </div>

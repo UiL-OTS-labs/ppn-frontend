@@ -70,13 +70,13 @@ msgstr "Afspraak afzeggen"
 #: participant/templates/participant/appointments/cancel_landing.html:22
 msgid "cancel_landing:content:p1"
 msgstr ""
-"Indien je een account hebt, kun je je uitschrijven door hieronder in te "
+"Als je een account hebt, kun je je uitschrijven door hieronder in te "
 "loggen."
 
 #: participant/templates/participant/appointments/cancel_landing.html:25
 msgid "cancel_landing:content:p2"
 msgstr ""
-"Indien je geen account hebt, kun je hier het email adres invullen waarmee je "
+"Als je geen account hebt, kun je hier het email-adres invullen waarmee je "
 "jezelf hebt opgegeven. Je zult dan een email ontvangen met een link om je "
 "uit te schrijven."
 
@@ -120,9 +120,9 @@ msgstr "Experiment gesloten"
 #: participant/templates/participant/closed_experiment.html:26
 msgid "closed:content:p1"
 msgstr ""
-"Dit experiment is gesloten voor inschrijvingen; er zijn op dit moment geen "
-"tijdstippen meer waar je je voor op kunt geven. Dankjewel voor je "
-"belangstelling!"
+"Dit experiment is gesloten voor inschrijvingen; er zijn op dit moment geen tijdstippen meer waar je je voor op kunt geven. "
+"Je kunt op <a href=\"{}\">de hoofdpagina</a> zien of er nog andere experimenten zijn waar je aan mee zou kunnen doen. "
+"Dankjewel voor je belangstelling!"
 
 #: participant/templates/participant/exp_info.html:7
 msgid "register:content:duration"
@@ -183,7 +183,7 @@ msgstr ""
 #: participant/views/appointments_views.py:31
 msgid "cancel_landing:message:send_token"
 msgstr ""
-"Indien het email adres bestaat in onze database hebben wij een mail gestuurd "
+"Als het email adres bestaat in onze database hebben wij een mail gestuurd "
 "met verdere instructies!"
 
 #: participant/views/appointments_views.py:91

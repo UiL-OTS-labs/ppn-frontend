@@ -30,15 +30,15 @@ msgstr ""
 
 msgid "timeslot:warning:deleting_timeslot"
 msgstr ""
-"Are you sure you want to delete this this timeslot? (An automatic email will "
+"Are you sure you want to delete this timeslot? (An automatic email will "
 "be sent to any participants affected, but be sure to send a personal mail as "
-"well, if you haven\\'t done so already.)"
+"well, if you haven't done so already.)"
 
 msgid "timeslot:warning:deleting_timeslots"
 msgstr ""
-"Are you sure you want to delete this these timeslots? (An automatic email "
+"Are you sure you want to delete these timeslots? (An automatic email "
 "will be sent to any participants affected, but be sure to send a personal "
-"mail as well, if you haven\\'t done so already.)"
+"mail as well, if you haven't done so already.)"
 
 
 msgid "timeslot:error:cannot_validate_datetime"
